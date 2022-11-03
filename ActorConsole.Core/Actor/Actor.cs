@@ -46,7 +46,6 @@
             else
                 Name = $"actor{Amount}";
 
-
         }
     }
 }

@@ -1,0 +1,348 @@
+{
+  "maps": {
+    "afghan": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "derail": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "estate": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "favela": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "highrise": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "invasion": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "checkpoint": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "karachi": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "quarry": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "rundown": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "rust": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "boneyard": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "scrapyard": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "nightshift": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "skidrow": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "subbase": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "terminal": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "underpass": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "brecourt": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "wasteland": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "complex": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "bailout": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "crash": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "overgrown": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "compact": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "salvage": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "storm": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "abandon": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "carnival": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "fuel2": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "fuel": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "strike": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "trailerpark": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "vacant": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "nuketown": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "bloc": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "crossfire": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "killhouse": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "cargoship": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "cargoshipsh": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "shipment": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "firingrange": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    },
+    "oilrig": {
+      "head": [
+        ""
+      ],
+      "body": [
+        ""
+      ]
+    }
+  }
+}

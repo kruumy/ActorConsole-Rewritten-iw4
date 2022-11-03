@@ -12,7 +12,7 @@ namespace ActorConsole.Core
 
         public ActorManager()
         {
-
+            
         }
 
         public int SearchActorsByName(string name)
