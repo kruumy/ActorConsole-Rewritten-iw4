@@ -1,347 +1,1755 @@
 {
   "maps": {
+    "abandon": {
+      "head": [
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_riot_tf141_desert",
+        "head_allies_tf141_desert_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_militia_bc_blk",
+        "head_militia_ba_blk",
+        "head_riot_op_militia",
+        "head_militia_bb_blk_hat",
+        "head_op_militia_sniper",
+        "head_op_sniper_ghillie_urban",
+        "head_militia_a_wht",
+        "head_militia_bd_blk"
+      ],
+      "body": [
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_militia_smg_aa_blk",
+        "mp_body_militia_smg_ab_blk",
+        "mp_body_militia_smg_ac_blk",
+        "mp_body_op_sniper_ghillie_urban",
+        "mp_body_militia_assault_ac_blk",
+        "mp_body_militia_lmg_ac_blk",
+        "mp_body_op_miltia_sniper",
+        "mp_body_militia_assault_ab_blk",
+        "mp_body_militia_lmg_aa_blk",
+        "mp_body_militia_lmg_ab_blk",
+        "mp_body_militia_assault_aa_blk",
+        "mp_body_riot_op_militia",
+        "mp_body_militia_smg_aa_wht",
+        "mp_body_militia_assault_aa_wht"
+      ]
+    },
     "afghan": {
       "head": [
-        ""
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_riot_tf141_desert",
+        "head_allies_sniper_ghillie_desert",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_d_hat",
+        "head_opforce_arab_e",
+        "head_op_arab_sniper",
+        "head_riot_op_arab",
+        "head_op_sniper_ghillie_desert"
       ],
       "body": [
-        ""
-      ]
-    },
-    "derail": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "estate": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "favela": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "highrise": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "invasion": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "checkpoint": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "karachi": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "quarry": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "rundown": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "rust": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "boneyard": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "scrapyard": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "nightshift": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "skidrow": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "subbase": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "terminal": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "underpass": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "brecourt": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "wasteland": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "complex": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_op_arab_sniper",
+        "mp_body_riot_op_arab",
+        "mp_body_op_sniper_ghillie_desert"
       ]
     },
     "bailout": {
       "head": [
-        ""
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_e",
+        "head_us_army_f",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_riot_op_airborne",
+        "head_op_airborne_sniper",
+        "head_op_sniper_ghillie_urban"
       ],
       "body": [
-        ""
-      ]
-    },
-    "crash": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "overgrown": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "compact": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "salvage": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "storm": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "abandon": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "carnival": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "fuel2": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "fuel": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "strike": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "trailerpark": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "vacant": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
-      ]
-    },
-    "nuketown": {
-      "head": [
-        ""
-      ],
-      "body": [
-        ""
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_army_sniper",
+        "mp_body_us_army_riot",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_airborne_lmg",
+        "mp_body_op_sniper_ghillie_urban"
       ]
     },
     "bloc": {
       "head": [
-        ""
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne"
       ],
       "body": [
-        ""
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne"
       ]
     },
-    "crossfire": {
+    "boneyard": {
       "head": [
-        ""
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_riot_tf141_desert",
+        "head_allies_sniper_ghillie_desert",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_d_hat",
+        "head_opforce_arab_e",
+        "head_op_arab_sniper",
+        "head_riot_op_arab",
+        "head_op_sniper_ghillie_desert"
       ],
       "body": [
-        ""
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_op_arab_sniper",
+        "mp_body_riot_op_arab",
+        "mp_body_op_sniper_ghillie_desert"
       ]
     },
-    "killhouse": {
+    "brecourt": {
       "head": [
-        ""
+        "head_tf141_forest_a",
+        "head_tf141_forest_b",
+        "head_tf141_forest_c",
+        "head_tf141_forest_d",
+        "head_allies_tf141_forest_sniper",
+        "head_riot_tf141_forest",
+        "head_allies_sniper_ghillie_forest",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_forest"
       ],
       "body": [
-        ""
+        "mp_body_forest_tf141_assault_a",
+        "mp_body_forest_tf141_assault_b",
+        "mp_body_forest_tf141_lmg",
+        "mp_body_forest_tf141_smg",
+        "mp_body_forest_tf141_shotgun",
+        "mp_body_tf141_forest_sniper",
+        "mp_body_riot_tf141_forest",
+        "mp_body_ally_sniper_ghillie_forest",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_forest"
       ]
     },
     "cargoship": {
       "head": [
-        ""
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_urban"
       ],
       "body": [
-        ""
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_urban"
       ]
     },
     "cargoshipsh": {
       "head": [
-        ""
+        "head_tf141_arctic_a",
+        "head_tf141_arctic_b",
+        "head_tf141_arctic_c",
+        "head_tf141_arctic_d",
+        "head_allies_tf141_arctic_sniper",
+        "head_riot_tf141_arctic",
+        "head_allies_sniper_ghillie_arctic",
+        "head_opforce_arctic_a",
+        "head_opforce_arctic_b",
+        "head_opforce_arctic_c",
+        "head_opforce_arctic_d",
+        "head_op_arctic_sniper",
+        "head_riot_op_arctic",
+        "head_op_sniper_ghillie_arctic"
       ],
       "body": [
-        ""
+        "mp_body_tf141_assault_a",
+        "mp_body_tf141_assault_b",
+        "mp_body_tf141_lmg",
+        "mp_body_tf141_smg",
+        "mp_body_tf141_shotgun",
+        "mp_body_tf141_arctic_sniper",
+        "mp_body_riot_tf141_arctic",
+        "mp_body_ally_sniper_ghillie_arctic",
+        "mp_body_opforce_arctic_assault_a",
+        "mp_body_opforce_arctic_assault_b",
+        "mp_body_opforce_arctic_assault_c",
+        "mp_body_opforce_arctic_lmg",
+        "mp_body_opforce_arctic_lmg_b",
+        "mp_body_opforce_arctic_lmg_c",
+        "mp_body_opforce_arctic_shotgun",
+        "mp_body_opforce_arctic_shotgun_b",
+        "mp_body_opforce_arctic_shotgun_c",
+        "mp_body_opforce_arctic_smg",
+        "mp_body_opforce_arctic_smg_b",
+        "mp_body_opforce_arctic_smg_c",
+        "mp_body_op_arctic_sniper",
+        "mp_body_riot_op_arctic",
+        "mp_body_op_sniper_ghillie_arctic"
       ]
     },
-    "shipment": {
+    "carnival": {
       "head": [
-        ""
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_riot_tf141_desert",
+        "head_allies_tf141_desert_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_militia_bc_blk",
+        "head_militia_ba_blk",
+        "head_riot_op_militia",
+        "head_militia_bb_blk_hat",
+        "head_op_militia_sniper",
+        "head_op_sniper_ghillie_urban",
+        "head_militia_a_wht",
+        "head_militia_bd_blk"
       ],
       "body": [
-        ""
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_militia_smg_aa_blk",
+        "mp_body_militia_smg_ab_blk",
+        "mp_body_militia_smg_ac_blk",
+        "mp_body_op_sniper_ghillie_urban",
+        "mp_body_militia_assault_ac_blk",
+        "mp_body_militia_lmg_ac_blk",
+        "mp_body_op_miltia_sniper",
+        "mp_body_militia_assault_ab_blk",
+        "mp_body_militia_lmg_aa_blk",
+        "mp_body_militia_lmg_ab_blk",
+        "mp_body_militia_assault_aa_blk",
+        "mp_body_riot_op_militia",
+        "mp_body_militia_smg_aa_wht",
+        "mp_body_militia_assault_aa_wht"
+      ]
+    },
+    "checkpoint": {
+      "head": [
+        "head_seal_udt_a",
+        "head_seal_udt_c",
+        "head_seal_udt_d",
+        "head_seal_udt_e",
+        "head_allies_seal_udt_sniper",
+        "head_riot_udt",
+        "head_allies_sniper_ghillie_urban",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_d_hat",
+        "head_opforce_arab_e",
+        "head_op_arab_sniper",
+        "head_riot_op_arab",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_seal_udt_assault_a",
+        "mp_body_seal_udt_assault_b",
+        "mp_body_seal_udt_sniper",
+        "mp_body_seal_udt_lmg",
+        "mp_body_seal_udt_smg",
+        "mp_body_riot_udt",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_op_arab_sniper",
+        "mp_body_riot_op_arab",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "compact": {
+      "head": [
+        "head_tf141_arctic_a",
+        "head_tf141_arctic_b",
+        "head_tf141_arctic_c",
+        "head_tf141_arctic_d",
+        "head_allies_tf141_arctic_sniper",
+        "head_allies_sniper_ghillie_arctic",
+        "head_allies_sniper_ghillie_urban",
+        "head_riot_tf141_arctic",
+        "head_opforce_arctic_a",
+        "head_opforce_arctic_b",
+        "head_opforce_arctic_c",
+        "head_opforce_arctic_d",
+        "head_op_sniper_ghillie_urban",
+        "head_op_sniper_ghillie_arctic",
+        "head_op_arctic_sniper",
+        "head_riot_op_arctic"
+      ],
+      "body": [
+        "mp_body_tf141_assault_a",
+        "mp_body_tf141_assault_b",
+        "mp_body_tf141_shotgun",
+        "mp_body_tf141_smg",
+        "mp_body_tf141_lmg",
+        "mp_body_tf141_arctic_sniper",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_ally_sniper_ghillie_arctic",
+        "mp_body_riot_tf141_arctic",
+        "mp_body_opforce_arctic_assault_a",
+        "mp_body_opforce_arctic_assault_b",
+        "mp_body_opforce_arctic_assault_c",
+        "mp_body_opforce_arctic_lmg",
+        "mp_body_opforce_arctic_lmg_b",
+        "mp_body_opforce_arctic_lmg_c",
+        "mp_body_op_sniper_ghillie_urban",
+        "mp_body_riot_op_arctic",
+        "mp_body_opforce_arctic_smg",
+        "mp_body_opforce_arctic_smg_b",
+        "mp_body_opforce_arctic_smg_c",
+        "mp_body_op_sniper_ghillie_arctic",
+        "mp_body_op_arctic_sniper",
+        "mp_body_opforce_arctic_shotgun",
+        "mp_body_opforce_arctic_shotgun_b",
+        "mp_body_opforce_arctic_shotgun_c"
+      ]
+    },
+    "complex": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_e",
+        "head_us_army_f",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_riot_op_airborne",
+        "head_op_airborne_sniper",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_army_sniper",
+        "mp_body_us_army_riot",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_airborne_lmg",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "crash": {
+      "head": [
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_riot_tf141_desert",
+        "head_allies_sniper_ghillie_urban",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_e",
+        "head_opforce_arab_d_hat",
+        "head_op_sniper_ghillie_urban",
+        "head_op_arab_sniper",
+        "head_riot_op_arab"
+      ],
+      "body": [
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_desert_tf141_smg",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_op_sniper_ghillie_urban",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_riot_op_arab",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_op_arab_sniper"
+      ]
+    },
+    "crossfire": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_f",
+        "head_us_army_e",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_riot",
+        "mp_body_army_sniper",
+        "mp_body_ally_sniper_ghillie_urban"
+      ]
+    },
+    "derail": {
+      "head": [
+        "head_tf141_arctic_a",
+        "head_tf141_arctic_b",
+        "head_tf141_arctic_c",
+        "head_tf141_arctic_d",
+        "head_allies_tf141_arctic_sniper",
+        "head_riot_tf141_arctic",
+        "head_allies_sniper_ghillie_arctic",
+        "head_opforce_arctic_a",
+        "head_opforce_arctic_b",
+        "head_opforce_arctic_c",
+        "head_opforce_arctic_d",
+        "head_op_arctic_sniper",
+        "head_riot_op_arctic",
+        "head_op_sniper_ghillie_arctic"
+      ],
+      "body": [
+        "mp_body_tf141_assault_a",
+        "mp_body_tf141_assault_b",
+        "mp_body_tf141_lmg",
+        "mp_body_tf141_smg",
+        "mp_body_tf141_shotgun",
+        "mp_body_tf141_arctic_sniper",
+        "mp_body_riot_tf141_arctic",
+        "mp_body_ally_sniper_ghillie_arctic",
+        "mp_body_opforce_arctic_assault_a",
+        "mp_body_opforce_arctic_assault_b",
+        "mp_body_opforce_arctic_assault_c",
+        "mp_body_opforce_arctic_lmg",
+        "mp_body_opforce_arctic_lmg_b",
+        "mp_body_opforce_arctic_lmg_c",
+        "mp_body_opforce_arctic_shotgun",
+        "mp_body_opforce_arctic_shotgun_b",
+        "mp_body_opforce_arctic_shotgun_c",
+        "mp_body_opforce_arctic_smg",
+        "mp_body_opforce_arctic_smg_b",
+        "mp_body_opforce_arctic_smg_c",
+        "mp_body_op_arctic_sniper",
+        "mp_body_riot_op_arctic",
+        "mp_body_op_sniper_ghillie_arctic"
+      ]
+    },
+    "estate": {
+      "head": [
+        "head_tf141_forest_a",
+        "head_tf141_forest_b",
+        "head_tf141_forest_c",
+        "head_tf141_forest_d",
+        "head_allies_tf141_forest_sniper",
+        "head_riot_tf141_forest",
+        "head_allies_sniper_ghillie_forest",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_forest"
+      ],
+      "body": [
+        "mp_body_forest_tf141_assault_a",
+        "mp_body_forest_tf141_assault_b",
+        "mp_body_forest_tf141_lmg",
+        "mp_body_forest_tf141_smg",
+        "mp_body_forest_tf141_shotgun",
+        "mp_body_tf141_forest_sniper",
+        "mp_body_riot_tf141_forest",
+        "mp_body_ally_sniper_ghillie_forest",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_forest"
+      ]
+    },
+    "favela": {
+      "head": [
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_riot_tf141_desert",
+        "head_allies_sniper_ghillie_urban",
+        "head_militia_ba_blk",
+        "head_militia_bb_blk_hat",
+        "head_militia_bc_blk",
+        "head_militia_bd_blk",
+        "head_militia_a_wht",
+        "head_riot_op_militia",
+        "head_op_militia_sniper",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_militia_assault_aa_blk",
+        "mp_body_militia_assault_aa_wht",
+        "mp_body_militia_assault_ab_blk",
+        "mp_body_militia_assault_ac_blk",
+        "mp_body_militia_lmg_aa_blk",
+        "mp_body_militia_lmg_ab_blk",
+        "mp_body_militia_lmg_ac_blk",
+        "mp_body_militia_smg_aa_blk",
+        "mp_body_militia_smg_aa_wht",
+        "mp_body_militia_smg_ab_blk",
+        "mp_body_militia_smg_ac_blk",
+        "mp_body_op_miltia_sniper",
+        "mp_body_riot_op_militia",
+        "mp_body_op_sniper_ghillie_urban"
       ]
     },
     "firingrange": {
       "head": [
-        ""
+        "head_militia_ba_blk",
+        "head_militia_bb_blk_hat",
+        "head_militia_bc_blk",
+        "head_militia_bd_blk",
+        "head_militia_a_wht",
+        "head_riot_op_militia",
+        "head_op_militia_sniper",
+        "head_op_sniper_ghillie_urban"
       ],
       "body": [
-        ""
+        "mp_body_militia_assault_aa_blk",
+        "mp_body_militia_assault_aa_wht",
+        "mp_body_militia_assault_ab_blk",
+        "mp_body_militia_assault_ac_blk",
+        "mp_body_militia_lmg_aa_blk",
+        "mp_body_militia_lmg_ab_blk",
+        "mp_body_militia_lmg_ac_blk",
+        "mp_body_militia_smg_aa_blk",
+        "mp_body_militia_smg_aa_wht",
+        "mp_body_militia_smg_ab_blk",
+        "mp_body_militia_smg_ac_blk",
+        "mp_body_op_miltia_sniper",
+        "mp_body_riot_op_militia",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "fuel": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_e",
+        "head_us_army_f",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_desert",
+        "head_op_arab_sniper",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_e",
+        "head_opforce_arab_d_hat"
+      ],
+      "body": [
+        "mp_body_us_army_smg",
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_riot",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_army_sniper",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_op_sniper_ghillie_desert",
+        "mp_body_op_arab_sniper",
+        "mp_body_op_sniper_ghillie_desert",
+        "head_op_sniper_ghillie_desert"
+      ]
+    },
+    "fuel2": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_e",
+        "head_us_army_f",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_desert",
+        "head_op_arab_sniper",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_e",
+        "head_opforce_arab_d_hat"
+      ],
+      "body": [
+        "mp_body_us_army_smg",
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_riot",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_army_sniper",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_op_sniper_ghillie_desert",
+        "mp_body_op_arab_sniper",
+        "mp_body_op_sniper_ghillie_desert",
+        "head_op_sniper_ghillie_desert"
+      ]
+    },
+    "highrise": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_f",
+        "head_us_army_e",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_riot",
+        "mp_body_army_sniper",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "invasion": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_f",
+        "head_us_army_e",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_d_hat",
+        "head_opforce_arab_e",
+        "head_op_arab_sniper",
+        "head_riot_op_arab",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_riot",
+        "mp_body_army_sniper",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_op_arab_sniper",
+        "mp_body_riot_op_arab",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "karachi": {
+      "head": [
+        "head_seal_udt_a",
+        "head_seal_udt_c",
+        "head_seal_udt_d",
+        "head_seal_udt_e",
+        "head_allies_seal_udt_sniper",
+        "head_riot_udt",
+        "head_allies_sniper_ghillie_urban",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_d_hat",
+        "head_opforce_arab_e",
+        "head_op_arab_sniper",
+        "head_riot_op_arab",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_seal_udt_assault_a",
+        "mp_body_seal_udt_assault_b",
+        "mp_body_seal_udt_sniper",
+        "mp_body_seal_udt_lmg",
+        "mp_body_seal_udt_smg",
+        "mp_body_riot_udt",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_op_arab_sniper",
+        "mp_body_riot_op_arab",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "killhouse": {
+      "head": [
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "nightshift": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_f",
+        "head_us_army_e",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_riot",
+        "mp_body_army_sniper",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "nuketown": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_f",
+        "head_us_army_e",
+        "head_allies_us_army_sniper",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne"
+      ],
+      "body": [
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_riot",
+        "mp_body_army_sniper",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne"
       ]
     },
     "oilrig": {
       "head": [
-        ""
+        "head_opforce_arctic_a",
+        "head_opforce_arctic_b",
+        "head_opforce_arctic_c",
+        "head_opforce_arctic_d",
+        "head_op_arctic_sniper",
+        "head_riot_op_arctic",
+        "head_op_sniper_ghillie_arctic"
       ],
       "body": [
-        ""
+        "mp_body_opforce_arctic_assault_a",
+        "mp_body_opforce_arctic_assault_b",
+        "mp_body_opforce_arctic_assault_c",
+        "mp_body_opforce_arctic_lmg",
+        "mp_body_opforce_arctic_lmg_b",
+        "mp_body_opforce_arctic_lmg_c",
+        "mp_body_opforce_arctic_shotgun",
+        "mp_body_opforce_arctic_shotgun_b",
+        "mp_body_opforce_arctic_shotgun_c",
+        "mp_body_opforce_arctic_smg",
+        "mp_body_opforce_arctic_smg_b",
+        "mp_body_opforce_arctic_smg_c",
+        "mp_body_op_arctic_sniper",
+        "mp_body_riot_op_arctic",
+        "mp_body_op_sniper_ghillie_arctic"
+      ]
+    },
+    "overgrown": {
+      "head": [
+        "head_tf141_forest_a",
+        "head_tf141_forest_b",
+        "head_tf141_forest_c",
+        "head_tf141_forest_d",
+        "head_riot_tf141_forest",
+        "head_allies_tf141_forest_sniper",
+        "head_allies_sniper_ghillie_forest",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_forest",
+        "head_op_airborne_sniper"
+      ],
+      "body": [
+        "mp_body_forest_tf141_smg",
+        "mp_body_forest_tf141_smg",
+        "mp_body_riot_tf141_forest",
+        "mp_body_forest_tf141_lmg",
+        "mp_body_ally_sniper_ghillie_forest",
+        "mp_body_forest_tf141_shotgun",
+        "mp_body_tf141_forest_sniper",
+        "mp_body_forest_tf141_assault_a",
+        "mp_body_forest_tf141_assault_b",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_riot_op_airborne",
+        "mp_body_airborne_smg",
+        "mp_body_op_sniper_ghillie_forest",
+        "mp_body_op_airborne_sniper",
+        "mp_body_op_airborne_sniper",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c"
+      ]
+    },
+    "quarry": {
+      "head": [
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_riot_tf141_desert",
+        "head_allies_sniper_ghillie_desert",
+        "head_militia_ba_blk",
+        "head_militia_bb_blk_hat",
+        "head_militia_bc_blk",
+        "head_militia_bd_blk",
+        "head_militia_a_wht",
+        "head_riot_op_militia",
+        "head_op_militia_sniper",
+        "head_op_sniper_ghillie_desert"
+      ],
+      "body": [
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_militia_assault_aa_blk",
+        "mp_body_militia_assault_aa_wht",
+        "mp_body_militia_assault_ab_blk",
+        "mp_body_militia_assault_ac_blk",
+        "mp_body_militia_lmg_aa_blk",
+        "mp_body_militia_lmg_ab_blk",
+        "mp_body_militia_lmg_ac_blk",
+        "mp_body_militia_smg_aa_blk",
+        "mp_body_militia_smg_aa_wht",
+        "mp_body_militia_smg_ab_blk",
+        "mp_body_militia_smg_ac_blk",
+        "mp_body_op_miltia_sniper",
+        "mp_body_riot_op_militia",
+        "mp_body_op_sniper_ghillie_desert"
+      ]
+    },
+    "rundown": {
+      "head": [
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_riot_tf141_desert",
+        "head_allies_sniper_ghillie_desert",
+        "head_militia_ba_blk",
+        "head_militia_bb_blk_hat",
+        "head_militia_bc_blk",
+        "head_militia_bd_blk",
+        "head_militia_a_wht",
+        "head_riot_op_militia",
+        "head_op_militia_sniper",
+        "head_op_sniper_ghillie_desert"
+      ],
+      "body": [
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_militia_assault_aa_blk",
+        "mp_body_militia_assault_aa_wht",
+        "mp_body_militia_assault_ab_blk",
+        "mp_body_militia_assault_ac_blk",
+        "mp_body_militia_lmg_aa_blk",
+        "mp_body_militia_lmg_ab_blk",
+        "mp_body_militia_lmg_ac_blk",
+        "mp_body_militia_smg_aa_blk",
+        "mp_body_militia_smg_aa_wht",
+        "mp_body_militia_smg_ab_blk",
+        "mp_body_militia_smg_ac_blk",
+        "mp_body_op_miltia_sniper",
+        "mp_body_riot_op_militia",
+        "mp_body_op_sniper_ghillie_desert"
+      ]
+    },
+    "rust": {
+      "head": [
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_riot_tf141_desert",
+        "head_allies_sniper_ghillie_desert",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_d_hat",
+        "head_opforce_arab_e",
+        "head_op_arab_sniper",
+        "head_riot_op_arab",
+        "head_op_sniper_ghillie_desert"
+      ],
+      "body": [
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_op_arab_sniper",
+        "mp_body_riot_op_arab",
+        "mp_body_op_sniper_ghillie_desert"
+      ]
+    },
+    "salvage": {
+      "head": [
+        "head_tf141_arctic_a",
+        "head_tf141_arctic_b",
+        "head_tf141_arctic_c",
+        "head_tf141_arctic_d",
+        "head_allies_tf141_arctic_sniper",
+        "head_allies_sniper_ghillie_arctic",
+        "head_allies_sniper_ghillie_urban",
+        "head_riot_tf141_arctic",
+        "head_opforce_arctic_a",
+        "head_opforce_arctic_b",
+        "head_opforce_arctic_c",
+        "head_opforce_arctic_d",
+        "head_op_sniper_ghillie_urban",
+        "head_op_sniper_ghillie_arctic",
+        "head_op_arctic_sniper",
+        "head_riot_op_arctic"
+      ],
+      "body": [
+        "mp_body_tf141_assault_a",
+        "mp_body_tf141_assault_b",
+        "mp_body_tf141_shotgun",
+        "mp_body_tf141_smg",
+        "mp_body_tf141_lmg",
+        "mp_body_tf141_arctic_sniper",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_ally_sniper_ghillie_arctic",
+        "mp_body_riot_tf141_arctic",
+        "mp_body_opforce_arctic_assault_a",
+        "mp_body_opforce_arctic_assault_b",
+        "mp_body_opforce_arctic_assault_c",
+        "mp_body_opforce_arctic_lmg",
+        "mp_body_opforce_arctic_lmg_b",
+        "mp_body_opforce_arctic_lmg_c",
+        "mp_body_op_sniper_ghillie_urban",
+        "mp_body_riot_op_arctic",
+        "mp_body_opforce_arctic_smg",
+        "mp_body_opforce_arctic_smg_b",
+        "mp_body_opforce_arctic_smg_c",
+        "mp_body_op_sniper_ghillie_arctic",
+        "mp_body_op_arctic_sniper",
+        "mp_body_opforce_arctic_shotgun",
+        "mp_body_opforce_arctic_shotgun_b",
+        "mp_body_opforce_arctic_shotgun_c"
+      ]
+    },
+    "scrapyard": {
+      "head": [
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_riot_tf141_desert",
+        "head_allies_sniper_ghillie_desert",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_d_hat",
+        "head_opforce_arab_e",
+        "head_op_arab_sniper",
+        "head_riot_op_arab",
+        "head_op_sniper_ghillie_desert"
+      ],
+      "body": [
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_op_arab_sniper",
+        "mp_body_riot_op_arab",
+        "mp_body_op_sniper_ghillie_desert"
+      ]
+    },
+    "shipment": {
+      "head": [
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "skidrow": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_f",
+        "head_us_army_e",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_riot",
+        "mp_body_army_sniper",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "storm": {
+      "head": [
+        "head_tf141_desert_a",
+        "head_tf141_desert_b",
+        "head_tf141_desert_c",
+        "head_tf141_desert_d",
+        "head_allies_tf141_desert_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_riot_tf141_desert",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_op_sniper_ghillie_urban",
+        "head_riot_op_airborne"
+      ],
+      "body": [
+        "mp_body_desert_tf141_assault_a",
+        "mp_body_desert_tf141_assault_b",
+        "mp_body_desert_tf141_smg",
+        "mp_body_desert_tf141_shotgun",
+        "mp_body_desert_tf141_lmg",
+        "mp_body_riot_tf141_desert",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_tf141_desert_sniper",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_op_sniper_ghillie_urban",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_riot_op_airborne"
+      ]
+    },
+    "strike": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_e",
+        "head_us_army_f",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_desert",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_e",
+        "head_opforce_arab_d_hat",
+        "head_op_arab_sniper",
+        "head_op_sniper_ghillie_desert",
+        "head_riot_op_arab"
+      ],
+      "body": [
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_ally_sniper_ghillie_desert",
+        "mp_body_us_army_riot",
+        "mp_body_army_sniper",
+        "mp_body_us_army_smg",
+        "mp_body_op_arab_sniper",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_op_sniper_ghillie_desert",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_riot_op_arab",
+        "mp_body_opforce_arab_shotgun_a"
+      ]
+    },
+    "subbase": {
+      "head": [
+        "head_allies_seal_udt_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_riot_udt",
+        "head_seal_udt_a",
+        "head_seal_udt_c",
+        "head_seal_udt_d",
+        "head_seal_udt_e",
+        "head_riot_op_arctic",
+        "head_op_arctic_sniper",
+        "head_opforce_arctic_a",
+        "head_opforce_arctic_b",
+        "head_opforce_arctic_c",
+        "head_opforce_arctic_d",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_seal_udt_assault_a",
+        "mp_body_seal_udt_assault_b",
+        "mp_body_seal_udt_sniper",
+        "mp_body_riot_udt",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_seal_udt_lmg",
+        "mp_body_seal_udt_smg",
+        "mp_body_opforce_arctic_lmg",
+        "mp_body_opforce_arctic_lmg_b",
+        "mp_body_opforce_arctic_lmg_c",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_riot_op_arctic",
+        "mp_body_opforce_arctic_assault_a",
+        "mp_body_opforce_arctic_assault_b",
+        "mp_body_opforce_arctic_assault_c",
+        "mp_body_opforce_arctic_smg",
+        "mp_body_opforce_arctic_smg_b",
+        "mp_body_opforce_arctic_smg_c",
+        "mp_body_op_arctic_sniper",
+        "mp_body_opforce_arctic_shotgun",
+        "mp_body_opforce_arctic_shotgun_b",
+        "mp_body_opforce_arctic_shotgun_c"
+      ]
+    },
+    "terminal": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_f",
+        "head_us_army_e",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_urban"
+      ],
+      "body": [
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_riot",
+        "mp_body_army_sniper",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_urban"
+      ]
+    },
+    "trailerpark": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_e",
+        "head_us_army_fmp_body_us_army_assault_a",
+        "head_allies_us_army_sniper",
+        "head_allies_sniper_ghillie_urban",
+        "head_opforce_arab_a",
+        "head_opforce_arab_b",
+        "head_opforce_arab_c",
+        "head_opforce_arab_e",
+        "head_riot_op_arab",
+        "head_op_arab_sniper",
+        "head_op_sniper_ghillie_urban",
+        "head_opforce_arab_d_hat"
+      ],
+      "body": [
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_opforce_arab_lmg_a",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_army_sniper",
+        "mp_body_us_army_riot",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_opforce_arab_shotgun_a",
+        "mp_body_riot_op_arab",
+        "mp_body_op_sniper_ghillie_urban",
+        "mp_body_opforce_arab_smg_a",
+        "mp_body_opforce_arab_assault_a",
+        "mp_body_op_arab_sniper"
+      ]
+    },
+    "underpass": {
+      "head": [
+        "head_militia_ba_blk",
+        "head_militia_bb_blk_hat",
+        "head_militia_bc_blk",
+        "head_militia_bd_blk",
+        "head_militia_a_wht",
+        "head_riot_op_militia",
+        "head_op_militia_sniper",
+        "head_op_sniper_ghillie_forest",
+        "head_tf141_forest_a",
+        "head_tf141_forest_b",
+        "head_tf141_forest_c",
+        "head_tf141_forest_d",
+        "head_allies_tf141_forest_sniper",
+        "head_riot_tf141_forest",
+        "head_allies_sniper_ghillie_forest"
+      ],
+      "body": [
+        "mp_body_militia_assault_aa_blk",
+        "mp_body_militia_assault_aa_wht",
+        "mp_body_militia_assault_ab_blk",
+        "mp_body_militia_assault_ac_blk",
+        "mp_body_militia_lmg_aa_blk",
+        "mp_body_militia_lmg_ab_blk",
+        "mp_body_militia_lmg_ac_blk",
+        "mp_body_militia_smg_aa_blk",
+        "mp_body_militia_smg_aa_wht",
+        "mp_body_militia_smg_ab_blk",
+        "mp_body_militia_smg_ac_blk",
+        "mp_body_op_miltia_sniper",
+        "mp_body_riot_op_militia",
+        "mp_body_op_sniper_ghillie_forest",
+        "mp_body_forest_tf141_assault_a",
+        "mp_body_forest_tf141_assault_b",
+        "mp_body_forest_tf141_lmg",
+        "mp_body_forest_tf141_smg",
+        "mp_body_forest_tf141_shotgun",
+        "mp_body_tf141_forest_sniper",
+        "mp_body_riot_tf141_forest",
+        "mp_body_ally_sniper_ghillie_forest"
+      ]
+    },
+    "vacant": {
+      "head": [
+        "head_us_army_a",
+        "head_us_army_b",
+        "head_us_army_c",
+        "head_us_army_d",
+        "head_us_army_e",
+        "head_us_army_f",
+        "head_allies_sniper_ghillie_urban",
+        "head_allies_us_army_sniper",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_urban",
+        "head_op_airborne_sniper"
+      ],
+      "body": [
+        "mp_body_us_army_assault_a",
+        "mp_body_us_army_assault_b",
+        "mp_body_us_army_assault_c",
+        "mp_body_us_army_lmg",
+        "mp_body_us_army_lmg_b",
+        "mp_body_us_army_lmg_c",
+        "mp_body_us_army_smg",
+        "mp_body_us_army_smg_b",
+        "mp_body_us_army_smg_c",
+        "mp_body_army_sniper",
+        "mp_body_us_army_riot",
+        "mp_body_us_army_shotgun",
+        "mp_body_us_army_shotgun_b",
+        "mp_body_us_army_shotgun_c",
+        "mp_body_ally_sniper_ghillie_urban",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_op_sniper_ghillie_urban",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_riot_op_airborne",
+        "mp_body_airborne_smg"
+      ]
+    },
+    "wasteland": {
+      "head": [
+        "head_tf141_forest_a",
+        "head_tf141_forest_b",
+        "head_tf141_forest_c",
+        "head_tf141_forest_d",
+        "head_allies_tf141_forest_sniper",
+        "head_riot_tf141_forest",
+        "head_allies_sniper_ghillie_forest",
+        "head_airborne_a",
+        "head_airborne_b",
+        "head_airborne_c",
+        "head_airborne_d",
+        "head_airborne_e",
+        "head_op_airborne_sniper",
+        "head_riot_op_airborne",
+        "head_op_sniper_ghillie_forest"
+      ],
+      "body": [
+        "mp_body_forest_tf141_assault_a",
+        "mp_body_forest_tf141_assault_b",
+        "mp_body_forest_tf141_lmg",
+        "mp_body_forest_tf141_smg",
+        "mp_body_forest_tf141_shotgun",
+        "mp_body_tf141_forest_sniper",
+        "mp_body_riot_tf141_forest",
+        "mp_body_ally_sniper_ghillie_forest",
+        "mp_body_airborne_assault_a",
+        "mp_body_airborne_assault_b",
+        "mp_body_airborne_assault_c",
+        "mp_body_airborne_lmg",
+        "mp_body_airborne_lmg_b",
+        "mp_body_airborne_lmg_c",
+        "mp_body_airborne_shotgun",
+        "mp_body_airborne_shotgun_b",
+        "mp_body_airborne_shotgun_c",
+        "mp_body_airborne_smg",
+        "mp_body_airborne_smg_b",
+        "mp_body_airborne_smg_c",
+        "mp_body_op_airborne_sniper",
+        "mp_body_riot_op_airborne",
+        "mp_body_op_sniper_ghillie_forest"
       ]
     }
   }
