@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ActorConsole.Core
+﻿namespace ActorConsole.Core
 {
     public class ActorManager
     {
@@ -12,7 +6,7 @@ namespace ActorConsole.Core
 
         public ActorManager()
         {
-            
+
         }
 
         public int SearchActorsByName(string name)

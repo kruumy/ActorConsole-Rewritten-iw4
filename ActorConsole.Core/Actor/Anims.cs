@@ -13,7 +13,7 @@
             }
             set
             {
-                _Idle = value; 
+                _Idle = value;
                 Refresh();
             }
         }
@@ -26,7 +26,7 @@
             }
             set
             {
-                _Death = value; 
+                _Death = value;
                 Refresh();
             }
         }

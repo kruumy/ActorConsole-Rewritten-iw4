@@ -4,19 +4,19 @@
     {
         private static int Amount;
         private string _Name;
-        public string Name 
-        { 
-            get 
-            { 
+        public string Name
+        {
+            get
+            {
                 return _Name;
             }
-            set 
+            set
             {
                 _Name = value;
                 this.Anims.ActorName = value;
                 this.Models.ActorName = value;
-                this.Weapons.ActorName = value; 
-            } 
+                this.Weapons.ActorName = value;
+            }
         }
         public Anims Anims { get; set; }
         public Models Models { get; set; }
