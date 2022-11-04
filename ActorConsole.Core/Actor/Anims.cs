@@ -33,13 +33,6 @@
                 Refresh("death");
             }
         }
-
-        public Anims(string idle = Idle_Default, string death = Death_Default)
-        {
-            ActorName = Actor.NextActorName;
-            Idle = idle;
-            Death = death;
-        }
         public void Refresh()
         {
             Memory.IW4.SendDvar($"mvm_actor_anim {ActorName} {Idle}");

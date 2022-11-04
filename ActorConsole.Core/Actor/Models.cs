@@ -33,14 +33,6 @@
                 Refresh();
             }
         }
-
-
-        public Models(string head = Head_Default, string body = Body_Default)
-        {
-            ActorName = Actor.NextActorName;
-            Head = head;
-            Body = body;
-        }
         public void Refresh()
         {
             Memory.IW4.SendDvar($"mvm_actor_models {ActorName} {Body} {Head}");

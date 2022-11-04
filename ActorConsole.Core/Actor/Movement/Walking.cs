@@ -1,10 +1,10 @@
 ﻿namespace ActorConsole.Core.Actor.Movement
 {
 
-    internal class Walking
+    public class Walking
     {
         internal string ActorName { get; set; }
-        private int _Speed { get; set; }
+        private int _Speed;
         public int Speed
         {
             get
@@ -32,13 +32,12 @@
                 CreateBind();
             }
         }
-        private string Command { get { return $"mvm_actor_walk {ActorName} {Speed}"; } }
-
-        public Walking(char key, int speed)
+        private string Command
         {
-            ActorName = Actor.NextActorName;
-            Speed = speed;
-            Key = key;
+            get
+            {
+                return $"mvm_actor_walk {ActorName} {Speed}";
+            }
         }
         public void Play()
         {

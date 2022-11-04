@@ -3,8 +3,7 @@
     public class Actor
     {
         private static int Amount = 1;
-        internal static string NextActorName { get { return $"actor{Amount}"; } }
-        private string _Name = NextActorName;
+        private string _Name;
         public string Name
         {
             get
@@ -13,28 +12,25 @@
             }
             set
             {
-                if(_Name != value)
-                {
+                if (_Name != null)
                     Memory.IW4.SendDvar($"mvm_actor_rename {_Name} {value}");
-                    _Name = value;
-                    this.Anims.ActorName = value;
-                    this.Models.ActorName = value;
-                    this.Weapons.ActorName = value;
-                }
-                
+                _Name = value;
+                this.Anims.ActorName = value;
+                this.Models.ActorName = value;
+                this.Weapons.ActorName = value;
             }
         }
-        public Anims Anims { get; set; }
-        public Models Models { get; set; }
-        public Weapons Weapons { get; set; }
+        public Anims Anims { get; private set; }
+        public Models Models { get; private set; }
+        public Weapons Weapons { get; private set; }
         public Actor()
         {
             SpawnDefault();
-
             Anims = new Anims();
             Models = new Models();
             Weapons = new Weapons();
             Name = $"actor{Amount}";
+            MoveToCurrentPostition();
 
             Amount++;
         }

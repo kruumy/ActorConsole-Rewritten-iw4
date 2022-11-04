@@ -16,14 +16,6 @@
                 Refresh();
             }
         }
-
-
-        public Weapons(string? __j_gun = null)
-        {
-            ActorName = Actor.NextActorName;
-            if (__j_gun != null)
-                j_gun = __j_gun;
-        }
         public void Refresh()
         {
             if (j_gun != null)

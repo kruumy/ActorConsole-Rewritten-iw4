@@ -27,6 +27,11 @@ namespace ActorConsole.CLI
                             print(am.Actors);
                             break;
                         }
+                    case "test":
+                        {
+                            am.Actors[0].Anims.Idle = "pb_stant_ads";
+                            break;
+                        }
                     default:
                         {
                             Console.WriteLine("Invalid Command");
