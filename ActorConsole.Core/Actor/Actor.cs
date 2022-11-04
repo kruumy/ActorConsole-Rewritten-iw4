@@ -27,8 +27,7 @@
         public Anims Anims { get; set; }
         public Models Models { get; set; }
         public Weapons Weapons { get; set; }
-        public Movement.MovementType MovementType { get; private set; }
-        public Actor(string? name = null, Anims? anims = null, Models? models = null, Weapons? weapons = null,Movement.MovementType movementType = Movement.MovementType.Stationary)
+        public Actor(string? name = null, Anims? anims = null, Models? models = null, Weapons? weapons = null)
         {
             SpawnDefault();
 
@@ -46,23 +45,6 @@
                 Weapons = weapons;
             else
                 Weapons = new Weapons();
-
-            MovementType = movementType;
-            switch (MovementType)
-            {
-                case Movement.MovementType.Stationary:
-                    {
-                        break;
-                    }
-                case Movement.MovementType.Basic:
-                    {
-                        break;
-                    }
-                case Movement.MovementType.Pathing:
-                    {
-                        break;
-                    }
-            }
 
             if (name != null)
                 Name = name;
