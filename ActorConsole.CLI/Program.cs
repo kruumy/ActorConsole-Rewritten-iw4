@@ -1,4 +1,7 @@
 ﻿using ActorConsole;
+using ActorConsole.Core.Misc;
+using NConsoleMenu;
+
 namespace ActorConsole.CLI
 {
     internal class Program
@@ -10,44 +13,49 @@ namespace ActorConsole.CLI
         static void Main(string[] args)
         {
             Core.ActorManager am = new Core.ActorManager();
-            
-            while (true)
+
+            var menu = new CMenu();
+
+            menu.Add("send", command => Core.Memory.IW4.SendDvar(command), "send <dvar> => Sends dvar to the game.");
+
+
+            int selectedActor = -1;
+            var actorItem = menu.Add("actor", "actor <property> => Actor options.");
+            actorItem.Add("add", x => { am.Add(); selectedActor = am.Search(am.Actors.Last().Name); }, "actor add => Spawns an actor to your cursor and selects it.");
+            actorItem.Add("list", x => print(am.Actors), "actor list => Dumps the main actor list.");
+
+            actorItem.Add("select", name => selectedActor = am.Search(name), "actor select <name> => Selects an actor for changing its properties.");
+            actorItem.Add("delete", x => { am.Delete(selectedActor); selectedActor = -1; }, "actor delete => Deletes the selected actor.");
+
+            var animsActorItem = actorItem.Add("anims", "actor anims <type> <anim> => Change selected actor's anims.");
+            animsActorItem.Add("idle", anim => am.Actors[selectedActor].Anims.Idle = anim, "actor anims idle <anim> => Change selected actor's idle anim.");
+            animsActorItem.Add("death", anim => am.Actors[selectedActor].Anims.Death = anim, "actor anims death <anim> => Change selected actor's death anim.");
+
+            var modelsActorItem = actorItem.Add("models", "actor models <type> <model> => Change selected actor's models.");
+            modelsActorItem.Add("head", model => am.Actors[selectedActor].Models.Head = model, "actor models head <model> => Change selected actor's head model.");
+            modelsActorItem.Add("body", model => am.Actors[selectedActor].Models.Body = model, "actor models body <model> => Change selected actor's body model.");
+
+            var weaponsActorItem = actorItem.Add("weapons", "actor weapons <bone> <gun> => Change selected actor's weapons.");
+            weaponsActorItem.Add("j_gun", gun => am.Actors[selectedActor].Weapons.j_gun = gun, "actor weapons j_gun <gun> => Change selected actor's j_gun weapon.");
+
+            var movementActorItem = actorItem.Add("movement", "actor movement <type> => Change selected actor's movement options.");
+            movementActorItem.Add("walking", options =>
             {
-                string[] input = Console.ReadLine().Split(' ');
-                switch (input[0])
-                {
-                    case "create":
-                        {
-                            am.Add(new Core.Actor.Actor());
-                            Console.WriteLine("Created Actor");
-                            break;
-                        }
-                    case "ls":
-                        {
-                            print(am.Actors);
-                            break;
-                        }
-                    case "sun":
-                        {
-                            print(Core.Misc.Sun.GetSunObject());
-                            break;
-                        }
-                    case "game":
-                        {
-                            print(Core.Memory.IW4.InGame);
-                            print(Core.Memory.IW4.Map);
-                            print(Core.Memory.IW4.IsRunning);
-                            break;
-                        }
-                    default:
-                        {
-                            Console.WriteLine("Invalid Command");
-                            break;
-                        }
-                }
+                string[] optionsArr = options.Split(' ');
+                am.Actors[selectedActor].Movement_Walking.Key = Convert.ToChar(optionsArr[0]);
+                am.Actors[selectedActor].Movement_Walking.Speed = Convert.ToInt32(optionsArr[1]);
+            },
+            "actor walking <key> <speed> => Change selected actor's walking options.");
+
+            var pathingMovementActorItem = movementActorItem.Add("pathing", "actor movement pathing <option> => Change selected actor's pathing options.");
+            pathingMovementActorItem.Add("speed", number => am.Actors[selectedActor].Movement_Pathing.Speed = Convert.ToInt32(number), "actor movement pathing speed <value> => Change selected actor's pathing speed.");
+
+            var nodePathingMovementActorItem = pathingMovementActorItem.Add("node", "actor movement pathing node <action> => Add or delete selected actor's pathing nodes.");
+            nodePathingMovementActorItem.Add("add", x => am.Actors[selectedActor].Movement_Pathing.CreateNode(), "actor movement pathing node add => Add selected actor pathing node. Max 13");
+            nodePathingMovementActorItem.Add("delete", x => am.Actors[selectedActor].Movement_Pathing.DeleteLastNode(), "actor movement pathing node delete => delete selected actor last pathing node.");
 
 
-            }
+            menu.Run();
         }
 
         public static void print(dynamic input, bool endl = true)
@@ -62,7 +70,6 @@ namespace ActorConsole.CLI
                 options.IncludeFields = true;
                 Console.Write(System.Text.Json.JsonSerializer.Serialize(input, input.GetType(), options));
             }
-                
             if (endl)
                 Console.WriteLine();
         }

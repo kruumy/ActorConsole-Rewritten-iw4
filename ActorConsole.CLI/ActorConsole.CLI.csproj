@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="External">
-      <HintPath>..\..\..\..\Desktop\Release\External.dll</HintPath>
+    <Reference Include="NConsoleMenu">
+      <HintPath>..\..\..\Classes\CSharp\Console\NConsoleMenu\NConsoleMenu.dll</HintPath>
     </Reference>
   </ItemGroup>
 

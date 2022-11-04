@@ -1,25 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	<TargetFramework>net6.0-windows</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <Platforms>x86</Platforms>
-    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Platforms>x86</Platforms>
+		<SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="External">
-      <HintPath>..\..\..\..\Desktop\Release\External.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="External">
+			<HintPath>..\..\..\Classes\CSharp\Memory\External\x86\Release\External.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="Misc\models.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="Misc\models.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 
 </Project>

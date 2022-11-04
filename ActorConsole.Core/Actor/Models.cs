@@ -35,7 +35,7 @@
         }
         public void Refresh()
         {
-            Memory.IW4.SendDvar($"mvm_actor_models {ActorName} {Body} {Head}");
-        }       
+            Memory.IW4.SendDvar($"mvm_actor_model {ActorName} {Body} {Head}");
+        }
     }
 }

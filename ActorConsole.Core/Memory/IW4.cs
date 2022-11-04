@@ -5,7 +5,7 @@ namespace ActorConsole.Core.Memory
 {
     public static class IW4
     {
-        public static Process? Game
+        private static Process? Game
         {
             get
             {
@@ -49,12 +49,12 @@ namespace ActorConsole.Core.Memory
             }
         }
 
-        public static ProcessEx mem = new ProcessEx(Game,true);
+        public static ProcessEx mem = new ProcessEx(Game, true);
 
         public static void SendDvar(string text)
         {
             Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("[Core.Memory.IW4.SendDvar()] => "+ text);
+            Console.WriteLine("[Core.Memory.IW4.SendDvar()] => " + text);
             Console.ForegroundColor = ConsoleColor.White;
             ExternalConsole.Send(text);
         }

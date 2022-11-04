@@ -70,7 +70,6 @@ public static class ExternalConsole
     private static IntPtr cbuf_addtext_alloc = IntPtr.Zero;
 
 
-
     [DllImport("kernel32.dll")]
     private static extern IntPtr OpenProcess(ProcessAccessFlags processAccess, bool bInheritHandle, int processId);
 
@@ -86,56 +85,25 @@ public static class ExternalConsole
     [DllImport("kernel32.dll")]
     private static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, out IntPtr lpThreadId);
 
-    private static uint FindGame()
-    {
-        uint cbuf_address;
-        uint nop_address;
-        int dwPID = -1;
-        if (Process.GetProcessesByName("iw4m").Length != 0)
-        {
-            cbuf_address = 4213536u;
-            nop_address = 0u;
-            dwPID = Process.GetProcessesByName("iw4m")[0].Id;
-        }
-        else if (Process.GetProcessesByName("iw4x").Length != 0)
-        {
-            cbuf_address = 4213536u;
-            nop_address = 0u;
-            dwPID = Process.GetProcessesByName("iw4x")[0].Id;
-        }
-        else
-        {
-            cbuf_address = 0u;
-            nop_address = 0u;
-        }
-        if (dwPID == -1)
-        {
-            throw new Exception("Process Not Running. dwPID == -1");
-        }
-        byte[] nopBytes = new byte[2] { 144, 144 };
-        hProcess = OpenProcess(ProcessAccessFlags.All, bInheritHandle: false, dwPID);
-        int lpNumberOfBytesWritten = nopBytes.Length;
-        WriteProcessMemory(hProcess, (IntPtr)nop_address, nopBytes, nopBytes.Length, out lpNumberOfBytesWritten);
-        return cbuf_address;
-    }
-
     internal static void Send(string command)
     {
-        uint cbuf_address = FindGame();
-        try
+        if (ActorConsole.Core.Memory.IW4.IsRunning)
         {
+            uint cbuf_address = 4213536u;
+            hProcess = ActorConsole.Core.Memory.IW4.mem.Handle;
+
             byte[] callbytes = BitConverter.GetBytes(cbuf_address);
             if (command == "")
             {
                 return;
             }
             byte[] cbuf_addtext_wrapper = new byte[35]
-    {
-        85, 139, 236, 131, 236, 8, 199, 69, 248, 0,
-        0, 0, 0, 199, 69, 252, 0, 0, 0, 0,
-        255, 117, 248, 106, 0, 255, 85, 252, 131, 196,
-        8, 139, 229, 93, 195
-    };
+            {
+                85, 139, 236, 131, 236, 8, 199, 69, 248, 0,
+                0, 0, 0, 199, 69, 252, 0, 0, 0, 0,
+                255, 117, 248, 106, 0, 255, 85, 252, 131, 196,
+                8, 139, 229, 93, 195
+            };
             if (cbuf_addtext_alloc == IntPtr.Zero)
             {
                 cbuf_addtext_alloc = VirtualAllocEx(hProcess, IntPtr.Zero, (IntPtr)cbuf_addtext_wrapper.Length, AllocationType.Commit | AllocationType.Reserve, MemoryProtection.ExecuteReadWrite);
@@ -156,8 +124,11 @@ public static class ExternalConsole
             }
             cbuf_addtext_alloc = IntPtr.Zero;
         }
-        catch (Exception)
+        else
         {
+            throw new Exception("Detected game not running when calling ExternalConsole.Send()");
         }
+
+
     }
 }

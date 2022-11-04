@@ -19,7 +19,7 @@
         public void Refresh()
         {
             if (j_gun != null)
-                Memory.IW4.SendDvar($"mvm_actor_weapons {ActorName} j_gun {j_gun}");
+                Memory.IW4.SendDvar($"mvm_actor_weapon {ActorName} j_gun {j_gun}");
         }
     }
 }

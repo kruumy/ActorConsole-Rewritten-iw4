@@ -2,14 +2,14 @@
 {
     public class ActorManager
     {
-        private List<Actor.Actor> ActorsList = new List<Actor.Actor>();
+        private readonly List<Actor.Actor> ActorsList = new();
         public Actor.Actor[] Actors { get { return ActorsList.ToArray(); } }
 
         public bool ShowActorNames { set { Memory.IW4.SendDvar($"ui_showActorNames {Convert.ToInt16(value)}"); } }
-        
-        public void Add(Actor.Actor actor)
+
+        public void Add()
         {
-            ActorsList.Add(actor);
+            ActorsList.Add(new Actor.Actor());
         }
         public void Delete(int index)
         {
