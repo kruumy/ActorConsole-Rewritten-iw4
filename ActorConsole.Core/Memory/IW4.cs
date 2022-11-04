@@ -27,7 +27,7 @@
 
         public static void SendDvar(string text)
         {
-
+            Console.WriteLine(text);
         }
     }
 }

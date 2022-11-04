@@ -3,7 +3,11 @@
     public class Models
     {
         internal string ActorName { get; set; }
-        private string _Head;
+
+        public const string Head_Default = "defaultactor";
+        public const string Body_Default = "defaultactor";
+
+        private string _Head = Head_Default;
         public string Head
         {
             get
@@ -16,7 +20,7 @@
                 Refresh();
             }
         }
-        private string _Body;
+        private string _Body = Body_Default;
         public string Body
         {
             get
@@ -30,14 +34,16 @@
             }
         }
 
-        public Models(string head = "default_actor", string body = "default_actor")
+
+        public Models(string head = Head_Default, string body = Body_Default)
         {
+            ActorName = Actor.NextActorName;
             Head = head;
             Body = body;
         }
-        private void Refresh()
+        public void Refresh()
         {
             Memory.IW4.SendDvar($"mvm_actor_models {ActorName} {Body} {Head}");
-        }
+        }       
     }
 }

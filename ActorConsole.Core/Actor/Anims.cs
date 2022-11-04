@@ -4,7 +4,10 @@
     {
         internal string ActorName { get; set; }
 
-        private string _Idle;
+        public const string Idle_Default = "pb_stand_alert";
+        public const string Death_Default = "pb_stand_death_neckdeath_thrash";
+
+        private string _Idle = Idle_Default;
         public string Idle
         {
             get
@@ -14,10 +17,10 @@
             set
             {
                 _Idle = value;
-                Refresh();
+                Refresh("idle");
             }
         }
-        private string _Death;
+        private string _Death = Death_Default;
         public string Death
         {
             get
@@ -27,18 +30,36 @@
             set
             {
                 _Death = value;
-                Refresh();
+                Refresh("death");
             }
         }
-        public Anims(string idle = "pb_stand_alert", string death = "pb_stand_death_neckdeath_thrash")
+
+        public Anims(string idle = Idle_Default, string death = Death_Default)
         {
+            ActorName = Actor.NextActorName;
             Idle = idle;
             Death = death;
         }
-        private void Refresh()
+        public void Refresh()
         {
             Memory.IW4.SendDvar($"mvm_actor_anim {ActorName} {Idle}");
             Memory.IW4.SendDvar($"mvm_actor_death {ActorName} {Death}");
+        }
+        public void Refresh(string option)
+        {
+            switch (option.ToLower())
+            {
+                case "idle":
+                    {
+                        Memory.IW4.SendDvar($"mvm_actor_anim {ActorName} {Idle}");
+                        break;
+                    }
+                case "death":
+                    {
+                        Memory.IW4.SendDvar($"mvm_actor_death {ActorName} {Death}");
+                        break;
+                    }
+            }
         }
 
 
