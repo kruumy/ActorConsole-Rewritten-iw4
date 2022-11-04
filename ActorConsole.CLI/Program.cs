@@ -10,21 +10,13 @@ namespace ActorConsole.CLI
         static void Main(string[] args)
         {
             Core.ActorManager am = new Core.ActorManager();
-            am.Actors.Add(new Core.Actor.Actor());
-            print(am.Actors[0]);
-            am.Actors[0].Anims.Idle = "pb_stand_ads";
-            am.Actors[0].Models.Head = "void";
-            am.Actors[0].Models.Body = "dog";
-            am.Actors[0].Weapons.j_gun = "cheytac_mp";
-            print(am.Actors[0]);
+            am.Add(new Core.Actor.Actor());
+            am.Add(new Core.Actor.Actor());
 
-            am.Actors.Add(new Core.Actor.Actor());
-            am.Actors[1].Name = "wowie";
-            print(am.Actors[1]);
 
-            am.Actors.Add(new Core.Actor.Actor());
-            print(am.Actors[2]);
-
+            print(am.Actors);
+            am.Remove(0);
+            print(am.Actors);
 
             Console.ReadLine();
         }
@@ -37,6 +29,8 @@ namespace ActorConsole.CLI
             {
                 var options = new System.Text.Json.JsonSerializerOptions();
                 options.WriteIndented = true;
+                options.MaxDepth = int.MaxValue;
+                options.IncludeFields = true;
                 Console.Write(System.Text.Json.JsonSerializer.Serialize(input, input.GetType(), options));
             }
                 
