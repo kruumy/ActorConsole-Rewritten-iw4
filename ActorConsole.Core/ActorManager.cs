@@ -6,23 +6,18 @@
         public Actor.Actor[] Actors { get { return ActorsList.ToArray(); } }
 
         public bool ShowActorNames { set { Memory.IW4.SendDvar($"ui_showActorNames {Convert.ToInt16(value)}"); } }
-
-        public ActorManager()
-        {
-
-        }
         
         public void Add(Actor.Actor actor)
         {
             ActorsList.Add(actor);
         }
-        public void Remove(int index)
+        public void Delete(int index)
         {
             ActorsList[index].Delete();
             ActorsList.RemoveAt(index);
         }
 
-        public void Reset()
+        public void ActorBack()
         {
             Memory.IW4.SendDvar("actorback");
         }

@@ -12,4 +12,10 @@
     <ProjectReference Include="..\ActorConsole.Core\ActorConsole.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="External">
+      <HintPath>..\..\..\..\Desktop\Release\External.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

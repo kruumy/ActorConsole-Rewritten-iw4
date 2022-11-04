@@ -13,8 +13,8 @@ namespace ActorConsole.CLI
             
             while (true)
             {
-                string input = Console.ReadLine();
-                switch (input.Trim())
+                string[] input = Console.ReadLine().Split(' ');
+                switch (input[0])
                 {
                     case "create":
                         {
@@ -27,9 +27,16 @@ namespace ActorConsole.CLI
                             print(am.Actors);
                             break;
                         }
-                    case "test":
+                    case "sun":
                         {
-                            am.Actors[0].Anims.Idle = "pb_stant_ads";
+                            print(Core.Misc.Sun.GetSunObject());
+                            break;
+                        }
+                    case "game":
+                        {
+                            print(Core.Memory.IW4.InGame);
+                            print(Core.Memory.IW4.Map);
+                            print(Core.Memory.IW4.IsRunning);
                             break;
                         }
                     default:

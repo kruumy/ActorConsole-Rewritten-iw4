@@ -23,12 +23,20 @@
         public Anims Anims { get; private set; }
         public Models Models { get; private set; }
         public Weapons Weapons { get; private set; }
+        public Movement.Walking Movement_Walking { get; private set; }
+        public Movement.Pathing Movement_Pathing { get; private set; }
+
+
+
         public Actor()
         {
             SpawnDefault();
             Anims = new Anims();
             Models = new Models();
             Weapons = new Weapons();
+            Movement_Pathing = new Movement.Pathing();
+            Movement_Walking = new Movement.Walking();
+
             Name = $"actor{Amount}";
             MoveToCurrentPostition();
 
