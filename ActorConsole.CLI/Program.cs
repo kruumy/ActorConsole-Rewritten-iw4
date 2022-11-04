@@ -10,15 +10,32 @@ namespace ActorConsole.CLI
         static void Main(string[] args)
         {
             Core.ActorManager am = new Core.ActorManager();
-            am.Add(new Core.Actor.Actor());
-            am.Add(new Core.Actor.Actor());
+            
+            while (true)
+            {
+                string input = Console.ReadLine();
+                switch (input.Trim())
+                {
+                    case "create":
+                        {
+                            am.Add(new Core.Actor.Actor());
+                            Console.WriteLine("Created Actor");
+                            break;
+                        }
+                    case "ls":
+                        {
+                            print(am.Actors);
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("Invalid Command");
+                            break;
+                        }
+                }
 
 
-            print(am.Actors);
-            am.Remove(0);
-            print(am.Actors);
-
-            Console.ReadLine();
+            }
         }
 
         public static void print(dynamic input, bool endl = true)

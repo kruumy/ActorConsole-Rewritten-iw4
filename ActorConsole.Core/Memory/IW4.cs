@@ -27,7 +27,9 @@
 
         public static void SendDvar(string text)
         {
-            Console.WriteLine(text);
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("[Core.Memory.IW4.SendDvar()] => "+ text);
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }

@@ -27,29 +27,14 @@
         public Anims Anims { get; set; }
         public Models Models { get; set; }
         public Weapons Weapons { get; set; }
-        public Actor(string? name = null, Anims? anims = null, Models? models = null, Weapons? weapons = null)
+        public Actor()
         {
             SpawnDefault();
 
-            if (anims != null)
-                Anims = anims;
-            else
-                Anims = new Anims();
-
-            if (models != null)
-                Models = models;
-            else
-                Models = new Models();
-
-            if (weapons != null)
-                Weapons = weapons;
-            else
-                Weapons = new Weapons();
-
-            if (name != null)
-                Name = name;
-            else
-                Name = $"actor{Amount}";
+            Anims = new Anims();
+            Models = new Models();
+            Weapons = new Weapons();
+            Name = $"actor{Amount}";
 
             Amount++;
         }
