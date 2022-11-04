@@ -9,8 +9,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<Compile Remove="Dependencies\**" />
+		<EmbeddedResource Remove="Dependencies\**" />
+		<None Remove="Dependencies\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Reference Include="External">
-			<HintPath>..\..\..\Classes\CSharp\Memory\External\x86\Release\External.dll</HintPath>
+			<HintPath>Dependencies\External\External.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 

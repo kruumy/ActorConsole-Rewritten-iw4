@@ -18,6 +18,8 @@
                 this.Anims.ActorName = value;
                 this.Models.ActorName = value;
                 this.Weapons.ActorName = value;
+                this.Movement_Walking.ActorName = value;
+                this.Movement_Pathing.ActorName = value;
             }
         }
         public Anims Anims { get; private set; }
