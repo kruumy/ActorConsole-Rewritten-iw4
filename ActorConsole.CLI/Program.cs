@@ -16,9 +16,7 @@ namespace ActorConsole.CLI
 
             var menu = new CMenu();
 
-            menu.Add("send", command => Core.Memory.IW4.SendDvar(command), "send <dvar> => Sends dvar to the game.");
-
-
+            #region actor commands
             int selectedActor = -1;
             var actorItem = menu.Add("actor", "actor <property> => Actor options.");
             actorItem.Add("add", x => { am.Add(); selectedActor = am.Search(am.Actors.Last().Name); }, "actor add => Spawns an actor to your cursor and selects it.");
@@ -53,7 +51,15 @@ namespace ActorConsole.CLI
             var nodePathingMovementActorItem = pathingMovementActorItem.Add("node", "actor movement pathing node <action> => Add or delete selected actor's pathing nodes.");
             nodePathingMovementActorItem.Add("add", x => am.Actors[selectedActor].Movement_Pathing.CreateNode(), "actor movement pathing node add => Add selected actor pathing node. Max 13");
             nodePathingMovementActorItem.Add("delete", x => am.Actors[selectedActor].Movement_Pathing.DeleteLastNode(), "actor movement pathing node delete => delete selected actor last pathing node.");
+            #endregion
 
+            var precacheItem = menu.Add("precache", "precache <type> => Prints precache.");
+            Core.Precache? precache = null;
+            precacheItem.Add("set", path => precache = new Core.Precache(path));
+            var listPrecacheItem = precacheItem.Add("list");
+            listPrecacheItem.Add("all", x => print(precache));
+
+            menu.Add("send", command => Core.Memory.IW4.SendDvar(command), "send <dvar> => Sends dvar to the game.");
 
             menu.Run();
         }

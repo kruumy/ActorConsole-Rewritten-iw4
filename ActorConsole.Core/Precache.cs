@@ -4,7 +4,6 @@
     {
         public string RawText { get; private set; }
         public string[] RawText_Lines { get; private set; }
-
         public string[] MP_Anims { get; private set; }
         public string[] MP_Anims_Idle { get; private set; }
         public string[] MP_Anims_Death { get; private set; }
