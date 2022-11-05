@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="ActorConsole.GUI.Views.ActorBar"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ActorConsole.GUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="384" d:DesignWidth="115" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox
+            Grid.Row="0"
+            x:Name="ActorSelectionComboBox"
+            Margin="3" 
+            MouseEnter="ActorSelectionComboBox_MouseEnter" MouseLeave="ActorSelectionComboBox_MouseLeave"
+            />
+
+
+        <Button 
+            Grid.Row="1"
+            Margin="3"
+            x:Name="CreateActorButton"
+            Content="Create Actor" 
+            Click="CreateActorButton_Click"
+            />
+        <Button 
+            Grid.Row="2"
+            Margin="3"
+            x:Name="DeleteActorButton"
+            Content="Delete Actor" Click="DeleteActorButton_Click"
+            />
+        <Button 
+            Grid.Row="4"
+            Margin="3"
+            x:Name="PrecacheButton"
+            Click="PrecacheButton_Click"
+            ToolTip="No Precache Selected"
+            Content="Select Precache"
+            />
+
+
+
+
+
+    </Grid>
+</UserControl>

@@ -2,6 +2,7 @@
 {
     public class Precache
     {
+        public string Path { get; private set; }
         public string RawText { get; private set; }
         public string[] RawText_Lines { get; private set; }
         public string[] MP_Anims { get; private set; }
@@ -14,6 +15,7 @@
 
         public Precache(string path_to_precache)
         {
+            Path = path_to_precache;
             RawText = File.ReadAllText(path_to_precache);
             RawText_Lines = File.ReadAllLines(path_to_precache);
 

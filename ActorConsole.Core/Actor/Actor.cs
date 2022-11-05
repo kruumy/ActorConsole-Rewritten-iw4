@@ -40,7 +40,6 @@
             Movement_Walking = new Movement.Walking();
 
             Name = $"actor{Amount}";
-            MoveToCurrentPostition();
 
             Amount++;
         }
