@@ -56,7 +56,8 @@ namespace ActorConsole.Core.Memory
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine("[Core.Memory.IW4.SendDvar()] => " + text);
             Console.ForegroundColor = ConsoleColor.White;
-            ExternalConsole.Send(text);
+            // TODO: uncomment, commented out just for testing so it does not crash while not in game
+            //ExternalConsole.Send(text);
         }
     }
 }

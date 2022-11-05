@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<Platforms>x86</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ActorConsole.Core\ActorConsole.Core.csproj" />
+	</ItemGroup>
+
+		</Project>

@@ -5,7 +5,7 @@
         internal string ActorName { get; set; }
 
         public const string Idle_Default = "pb_stand_alert";
-        public const string Death_Default = "pb_stand_death_neckdeath_thrash";
+        public const string Death_Default = "pb_stand_death_leg_kickup";
 
         private string _Idle = Idle_Default;
         public string Idle
