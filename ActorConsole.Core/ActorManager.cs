@@ -1,20 +1,27 @@
-﻿namespace ActorConsole.Core
+﻿using ActorConsole.Core.Memory;
+
+namespace ActorConsole.Core
 {
     public static class ActorManager
     {
         private static readonly List<Actor.Actor> ActorsList = new();
         public static Actor.Actor[] Actors { get { return ActorsList.ToArray(); } }
 
-        public static bool ShowActorNames { set { Memory.IW4.SendDvar($"ui_showActorNames {Convert.ToInt16(value)}"); } }
-
         public static void Add()
         {
-            ActorsList.Add(new Actor.Actor());
+            if (Core.Memory.IW4.InGame)
+            {
+                ActorsList.Add(new Actor.Actor());
+            }
+
         }
         public static void Delete(int index)
         {
-            ActorsList[index].Delete();
-            ActorsList.RemoveAt(index);
+            if (Core.Memory.IW4.InGame)
+            {
+                ActorsList[index].Delete();
+                ActorsList.RemoveAt(index);
+            }
         }
 
         public static void ActorBack()
@@ -33,6 +40,13 @@
             }
             return -1;
         }
+        public static void ResetActorManager()
+        {
+
+            ActorsList.Clear();
+            ActorConsole.Core.Actor.Actor.Amount = 1;
+        }
 
     }
+
 }

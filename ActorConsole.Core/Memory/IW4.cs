@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Text;
+using System.Threading;
 
 namespace ActorConsole.Core.Memory
 {
@@ -35,29 +36,59 @@ namespace ActorConsole.Core.Memory
         {
             get
             {
-                if (mem.GetValue<int>((PointerEx)Addresses.KeyValuePairs["InGame"]) == 0)
-                    return false;
+                if (IsRunning)
+                {
+                    try
+                    {
+                        if (mem.GetValue<int>((PointerEx)Addresses.KeyValuePairs["InGame"]) == 0)
+                            return false;
+                        else
+                            return true;
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+
+                }
                 else
-                    return true;
+                {
+                    return false;
+                }
+
             }
         }
-        public static string Map
+        public static string? Map
         {
             get
             {
-                return mem.GetString((PointerEx)Addresses.KeyValuePairs["Map"], 15).Trim();
+                try
+                {
+                    string map = mem.GetString((PointerEx)Addresses.KeyValuePairs["Map"], 15).Trim();
+                    if (map != string.Empty)
+                        return map;
+                    else
+                        return null;
+                }
+                catch { return null; }
+
             }
         }
 
+        // TODO: handle for game closing and reopening creating a new instance
         public static ProcessEx mem = new ProcessEx(Game, true);
 
         public static void SendDvar(string text)
         {
-            Console.ForegroundColor = ConsoleColor.DarkGray;
-            Console.WriteLine("[Core.Memory.IW4.SendDvar()] => " + text);
-            Console.ForegroundColor = ConsoleColor.White;
-            // TODO: uncomment, commented out just for testing so it does not crash while not in game
-            //ExternalConsole.Send(text);
+            if (text.Contains('+'))
+            {
+                text = text.Split('+')[0];
+            }
+            else if (text.Contains('-'))
+            {
+                text = text.Split("-")[0];
+            }
+            SendDvarQueue.Add(text);
         }
     }
 }

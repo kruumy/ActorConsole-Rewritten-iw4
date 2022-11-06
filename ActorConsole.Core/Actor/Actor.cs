@@ -2,7 +2,7 @@
 {
     public class Actor
     {
-        private static int Amount = 1;
+        internal static int Amount = 1;
         private string _Name;
         public string Name
         {
@@ -54,6 +54,7 @@
 
         internal void Delete()
         {
+            // TODO: delete all weapons on actor before deleting actor to not have floating weapon bug
             Memory.IW4.SendDvar($"mvm_actor_delete {Name}");
         }
     }

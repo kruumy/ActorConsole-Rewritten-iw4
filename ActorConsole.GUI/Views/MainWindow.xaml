@@ -22,6 +22,13 @@
         </mah:WindowCommands>
     </mah:MetroWindow.LeftWindowCommands>
 
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Label x:Name="MapLabel">Map = null</Label>
+            <Label x:Name="DvarQueueLabel">Dvar Queue = 0</Label>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+
     <Grid>
         <TabControl TabStripPlacement="Top">
             <TabItem Header="Actors">

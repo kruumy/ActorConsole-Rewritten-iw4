@@ -33,19 +33,22 @@ namespace ActorConsole.GUI.Views
         private static int GlobalSelectedIndex = 0;
         private void PrecacheButton_Click(object sender, RoutedEventArgs e)
         {
+            //TODO: Add filter to dialog
             OpenFileDialog openFileDialog = new();
             openFileDialog.DefaultExt = ".gsc";
             openFileDialog.Multiselect = false;
             openFileDialog.RestoreDirectory = true;
             openFileDialog.Title = "Select Precache";
+            openFileDialog.FileOk += OpenFileDialog_FileOk;
             openFileDialog.ShowDialog();
-            if (File.Exists(openFileDialog.FileName))
+            void OpenFileDialog_FileOk(object? sender, System.ComponentModel.CancelEventArgs e)
             {
                 Objects.Settings.Path_To_Precache = openFileDialog.FileName;
                 PrecacheButton.Content = "Change Precache";
                 PrecacheButton.ToolTip = Objects.Settings.Path_To_Precache;
             }
         }
+
 
         private void RefreshActorSelectionComboBox()
         {

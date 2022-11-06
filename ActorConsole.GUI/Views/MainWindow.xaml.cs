@@ -28,7 +28,36 @@ namespace ActorConsole.GUI
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
             Classes.Startup.Execute();
+            Task.Run(StatusBarUpdatingLoop);
         }
+
+        private void StatusBarUpdatingLoop()
+        {
+            while (true)
+            {
+                try
+                {
+                    if (Core.Memory.IW4.IsRunning)
+                    {
+                        string? map = Core.Memory.IW4.Map;
+                        Dispatcher.Invoke(() =>
+                        {
+
+                            DvarQueueLabel.Content = $"Dvar Queue = {Core.Memory.SendDvarQueue.Count}";
+                            if (map != null)
+                                MapLabel.Content = $"Map = {map.Split('_')[1]}";
+                            else
+                                MapLabel.Content = $"Map = null";
+                        });
+                    }
+
+                    Classes.Startup.StatusBar_Update();
+                }
+                catch { }
+                System.Threading.Thread.Sleep(1000);
+            }
+        }
+
         private void LaunchGithubSiteButton_Click(object sender, RoutedEventArgs e)
         {
             var uri = "https://github.com/kruumy/ActorConsole-Rewritten-iw4";

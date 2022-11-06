@@ -15,5 +15,15 @@ namespace ActorConsole.GUI.Classes
         {
             Objects.Settings = new Settings.Settings();
         }
+        /// <summary>
+        /// Called every second when statusbar mainwindow is updated
+        /// </summary>
+        public static void StatusBar_Update()
+        {
+            if (!Core.Memory.IW4.InGame)
+            {
+                Core.ActorManager.ResetActorManager();
+            }
+        }
     }
 }
