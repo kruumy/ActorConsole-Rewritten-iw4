@@ -25,7 +25,10 @@ namespace ActorConsole.GUI
         {
             InitializeComponent();
         }
-
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Classes.Startup.Execute();
+        }
         private void LaunchGithubSiteButton_Click(object sender, RoutedEventArgs e)
         {
             var uri = "https://github.com/kruumy/ActorConsole-Rewritten-iw4";

@@ -2,7 +2,7 @@
 {
     public class Precache
     {
-        public string Path { get; private set; }
+        public string Path { get; set; }
         public string RawText { get; private set; }
         public string[] RawText_Lines { get; private set; }
         public string[] MP_Anims { get; private set; }

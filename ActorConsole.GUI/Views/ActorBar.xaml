@@ -17,13 +17,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <ComboBox
             Grid.Row="0"
             x:Name="ActorSelectionComboBox"
             Margin="3" 
-            MouseEnter="ActorSelectionComboBox_MouseEnter" MouseLeave="ActorSelectionComboBox_MouseLeave"
+            MouseEnter="ActorSelectionComboBox_MouseEnter" 
+            MouseLeave="ActorSelectionComboBox_MouseLeave"
             />
 
 
@@ -31,7 +33,7 @@
             Grid.Row="1"
             Margin="3"
             x:Name="CreateActorButton"
-            Content="Create Actor" 
+            Content="Spawn Actor" 
             Click="CreateActorButton_Click"
             />
         <Button 
@@ -48,10 +50,6 @@
             ToolTip="No Precache Selected"
             Content="Select Precache"
             />
-
-
-
-
 
     </Grid>
 </UserControl>
