@@ -25,6 +25,19 @@ namespace ActorConsole.Core.Misc
                     }
             }
         }
+        public static string[]? Get(ModelType modelType)
+        {
+            string? map = Core.Memory.IW4.Map;
+            if (map == null)
+            {
+                return null;
+            }
+
+            if (map.StartsWith("mp_"))
+                map = map.Replace("mp_", string.Empty);
+
+            return (string[])Get(map, modelType).Deserialize(Array.Empty<string>().GetType());
+        }
     }
     public enum ModelType
     {

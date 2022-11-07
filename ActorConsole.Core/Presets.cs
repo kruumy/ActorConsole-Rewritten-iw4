@@ -20,6 +20,7 @@ namespace ActorConsole.Core
         /// </summary>
         public static void Load(string path)
         {
+            // TODO: handle for incorrect file pass thru
             string RawJson = File.ReadAllText(path);
             System.Text.Json.JsonElement ActorJson = System.Text.Json.JsonDocument.Parse(RawJson).RootElement;
 

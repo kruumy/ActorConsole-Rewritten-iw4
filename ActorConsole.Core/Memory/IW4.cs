@@ -76,7 +76,17 @@ namespace ActorConsole.Core.Memory
         }
 
         // TODO: handle for game closing and reopening creating a new instance
-        public static ProcessEx mem = new ProcessEx(Game, true);
+        private static ProcessEx? _mem = new ProcessEx(Game, true);
+
+        public static ProcessEx mem
+        {
+            get
+            {
+                _mem = new ProcessEx(Game, true);
+                return _mem;
+
+            }
+        }
 
         public static void SendDvar(string text)
         {
@@ -89,6 +99,7 @@ namespace ActorConsole.Core.Memory
                 text = text.Split("-")[0];
             }
             SendDvarQueue.Add(text);
+
         }
     }
 }

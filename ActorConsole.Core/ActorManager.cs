@@ -47,6 +47,7 @@ namespace ActorConsole.Core
             ActorConsole.Core.Actor.Actor.Amount = 1;
         }
 
+
     }
 
 }

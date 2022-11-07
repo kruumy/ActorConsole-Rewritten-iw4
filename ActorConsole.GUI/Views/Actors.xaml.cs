@@ -50,6 +50,12 @@ namespace ActorConsole.GUI.Views
                 RefreshDataGrid();
             }
         }
+
+        private void MoveActorButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ActorsDataGrid.SelectedIndex > -1)
+                Core.ActorManager.Actors[ActorsDataGrid.SelectedIndex].MoveToCurrentPostition();
+        }
         private void RefreshDataGrid()
         {
             ActorsDataGrid.Items.Clear();
@@ -99,6 +105,11 @@ namespace ActorConsole.GUI.Views
                 }
             }
 
+        }
+
+        private void SpawnActorContextMenu_Click(object sender, RoutedEventArgs e)
+        {
+            AddActorButton_Click(null, null);
         }
 
 

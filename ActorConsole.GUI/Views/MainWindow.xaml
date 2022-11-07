@@ -30,7 +30,8 @@
     </mah:MetroWindow.RightWindowCommands>
 
     <Grid>
-        <TabControl TabStripPlacement="Top">
+        <TabControl TabStripPlacement="Top"  
+                    mah:TabControlHelper.Underlined="SelectedTabItem">
             <TabItem Header="Actors">
                 <views:Actors></views:Actors>
             </TabItem>
@@ -57,7 +58,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <viewsA:Models Grid.Column="1">></viewsA:Models>
+                    <viewsA:Models Grid.Column="1"></viewsA:Models>
                     <views:ActorBar Grid.Column="0"></views:ActorBar>
                 </Grid>
             </TabItem>
@@ -75,7 +76,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Movement">
-                <TabControl>
+                <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem">
                     <TabItem Header="Walking">
                         <viewsAM:Walking></viewsAM:Walking>
                     </TabItem>
@@ -85,7 +86,7 @@
                 </TabControl>
             </TabItem>
             <TabItem Header="Other">
-                <TabControl>
+                <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem">
                     <TabItem Header="Sun">
                         <viewsO:Sun></viewsO:Sun>
                     </TabItem>

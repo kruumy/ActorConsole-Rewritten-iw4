@@ -43,6 +43,12 @@
             Content="Delete Actor" Click="DeleteActorButton_Click"
             />
         <Button 
+            Grid.Row="3"
+            Margin="3"
+            x:Name="MoveActorButton"
+            Content="Move Actor"
+            />
+        <Button 
             Grid.Row="4"
             Margin="3"
             x:Name="PrecacheButton"

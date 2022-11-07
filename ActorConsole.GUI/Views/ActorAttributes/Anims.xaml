@@ -1,12 +1,45 @@
-﻿<UserControl x:Class="ActorConsole.GUI.Views.ActorAttributes.Anims"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ActorConsole.GUI.Views.ActorAttributes"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ActorConsole.GUI.Views.ActorAttributes.Anims"
              mc:Ignorable="d" 
              d:DesignHeight="384" d:DesignWidth="768">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <mah:MetroTabControl Grid.Column="1" mah:TabControlHelper.Underlined="SelectedTabItem">
+            <TabItem Header="Idle">
+
+                <ListView
+                    x:Name="IdleAnimsBox"
+                    d:ItemsSource="{d:SampleData ItemCount=5}" 
+                    Loaded="IdleAnimsBox_Loaded" 
+                    MouseDoubleClick="IdleAnimsBox_MouseDoubleClick" MouseEnter="IdleAnimsBox_MouseEnter">
+                </ListView>
+
+            </TabItem>
+            <TabItem Header="Death">
+
+                <ListView
+                    x:Name="DeathAnimsBox"
+                    d:ItemsSource="{d:SampleData ItemCount=5}" 
+                    Loaded="DeathAnimsBox_Loaded"
+                    MouseDoubleClick="DeathAnimsBox_MouseDoubleClick" MouseEnter="DeathAnimsBox_MouseEnter">
+                </ListView>
+
+            </TabItem>
+
+        </mah:MetroTabControl>
+
 
 
     </Grid>
