@@ -10,7 +10,12 @@
         xmlns:viewsAM="clr-namespace:ActorConsole.GUI.Views.ActorAttributes.Movement"
         xmlns:viewsO="clr-namespace:ActorConsole.GUI.Views.Other"
         mc:Ignorable="d"
-        Title="ActorConsole" Height="300" Width="700" MinHeight="300" MinWidth="700" Loaded="MetroWindow_Loaded">
+        Title="ActorConsole" 
+    Height="300" 
+    Width="700" 
+    MinHeight="300" 
+    MinWidth="700" 
+    Loaded="MetroWindow_Loaded">
 
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
@@ -31,7 +36,9 @@
 
     <Grid>
         <TabControl TabStripPlacement="Top"  
-                    mah:TabControlHelper.Underlined="SelectedTabItem">
+                    mah:TabControlHelper.Underlined="SelectedTabItem" 
+                    mah:HeaderedControlHelper.HeaderFontSize="20"
+                    mah:HeaderedControlHelper.HeaderFontFamily="B612 Mono">
             <TabItem Header="Actors">
                 <views:Actors></views:Actors>
             </TabItem>

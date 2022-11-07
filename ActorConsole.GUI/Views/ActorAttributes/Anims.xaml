@@ -16,7 +16,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <mah:MetroTabControl Grid.Column="1" mah:TabControlHelper.Underlined="SelectedTabItem">
+        <mah:MetroTabControl Grid.Column="1" mah:HeaderedControlHelper.HeaderFontSize="15" mah:TabControlHelper.Underlined="SelectedTabItem">
             <TabItem Header="Idle">
 
                 <ListView

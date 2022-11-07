@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using ControlzEx.Theming;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,9 +26,12 @@ namespace ActorConsole.GUI
         public MainWindow()
         {
             InitializeComponent();
+
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            ThemeManager.Current.ChangeTheme(this, $"Dark.{Classes.MetroColorTheme.GetRandomColorTheme()}");
+
             Classes.Startup.Execute();
             Task.Run(StatusBarUpdatingLoop);
         }

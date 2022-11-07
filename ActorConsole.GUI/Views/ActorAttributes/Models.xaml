@@ -18,7 +18,7 @@
         </Grid.RowDefinitions>
 
 
-        <mah:MetroTabControl Grid.Column="1" mah:TabControlHelper.Underlined="SelectedTabItem">
+        <mah:MetroTabControl Grid.Column="1" mah:HeaderedControlHelper.HeaderFontSize="15" mah:TabControlHelper.Underlined="SelectedTabItem">
             <TabItem Header="Head">
 
                 <ListView
@@ -39,6 +39,10 @@
                     MouseDoubleClick="BodyModelsBox_MouseDoubleClick" MouseEnter="BodyModelsBox_MouseEnter" 
                     >
                 </ListView>
+
+            </TabItem>
+            <TabItem Header="SinglePlayer">
+
 
             </TabItem>
         </mah:MetroTabControl>
