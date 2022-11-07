@@ -46,7 +46,7 @@
             Grid.Row="3"
             Margin="3"
             x:Name="MoveActorButton"
-            Content="Move Actor"
+            Content="Move Actor" Click="MoveActorButton_Click"
             />
         <Button 
             Grid.Row="4"
