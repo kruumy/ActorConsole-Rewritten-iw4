@@ -83,7 +83,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Movement">
-                <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem">
+                <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">
                     <TabItem Header="Walking">
                         <viewsAM:Walking></viewsAM:Walking>
                     </TabItem>
@@ -93,7 +93,7 @@
                 </TabControl>
             </TabItem>
             <TabItem Header="Other">
-                <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem">
+                <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">
                     <TabItem Header="Sun">
                         <viewsO:Sun></viewsO:Sun>
                     </TabItem>
