@@ -1,5 +1,5 @@
 ﻿using ActorConsole.GUI.Classes;
-using ActorConsole.GUI.Classes.Settings;
+using ActorConsole.GUI.Classes;
 using Microsoft.Win32;
 using System;
 using System.Collections;

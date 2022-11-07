@@ -1,30 +1,46 @@
-﻿using System;
+﻿using ActorConsole.Core.Misc.Settings;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace ActorConsole.GUI.Classes.Settings
+namespace ActorConsole.Core.Misc.Settings
 {
-    internal class Settings
+    public class Settings
     {
         private IniFile ini = new IniFile();
         private string FileName = "settings.ini";
+        public Core.Precache? Precache = null;
         public string? Path_To_Precache
         {
             get
             {
-                if (Objects.Precache != null)
-                    return Objects.Precache.Path;
+                if (Precache != null)
+                    return Precache.Path;
                 else
                     return null;
             }
             set
             {
-                Objects.Precache = new Core.Precache(value);
+                Precache = new Core.Precache(value);
                 ini["options"]["Path_To_Precache"] = value;
                 ini.Save(FileName);
+            }
+        }
+        public bool IsPrecacheSelected
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Path_To_Precache))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
             }
         }
 

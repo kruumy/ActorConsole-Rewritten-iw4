@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ActorConsole.Core.Actor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,29 +34,45 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         private void IdleAnimsBox_Loaded(object sender, RoutedEventArgs e)
         {
             IdleAnimsBox.Items.Clear();
-            foreach (string anims in Classes.Objects.Precache.MP_Anims_Idle)
+            if (Classes.Objects.Settings.IsPrecacheSelected)
             {
-                IdleAnimsBox.Items.Add(anims);
+                foreach (string anims in Classes.Objects.Precache.MP_Anims_Idle)
+                {
+                    IdleAnimsBox.Items.Add(anims);
+                }
             }
+            else
+            {
+                IdleAnimsBox.Items.Add("No Precache Selected");
+            }
+
         }
         private void DeathAnimsBox_Loaded(object sender, RoutedEventArgs e)
         {
             DeathAnimsBox.Items.Clear();
-            foreach (string anims in Classes.Objects.Precache.MP_Anims_Death)
+            if (Classes.Objects.Settings.IsPrecacheSelected)
             {
-                DeathAnimsBox.Items.Add(anims);
+                foreach (string anims in Classes.Objects.Precache.MP_Anims_Death)
+                {
+                    DeathAnimsBox.Items.Add(anims);
+                }
             }
+            else
+            {
+                DeathAnimsBox.Items.Add("No Precache Selected");
+            }
+
         }
 
         private void IdleAnimsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.SelectedActorIndex > -1 && Classes.Objects.Settings.IsPrecacheSelected)
                 ActorBar.SelectedActor.Anims.Idle = IdleAnimsBox.SelectedItem.ToString();
         }
 
         private void DeathAnimsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.SelectedActorIndex > -1 && Classes.Objects.Settings.IsPrecacheSelected)
                 ActorBar.SelectedActor.Anims.Death = DeathAnimsBox.SelectedItem.ToString();
         }
 

@@ -13,7 +13,7 @@ namespace ActorConsole.GUI.Classes
         /// </summary>
         public static void Execute()
         {
-            Objects.Settings = new Settings.Settings();
+            Objects.Settings = new Core.Misc.Settings.Settings();
         }
         /// <summary>
         /// Called every second when statusbar mainwindow is updated

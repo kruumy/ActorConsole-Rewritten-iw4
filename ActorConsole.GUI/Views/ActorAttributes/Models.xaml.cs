@@ -64,13 +64,13 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void BodyModelsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame)
                 ActorBar.SelectedActor.Models.Body = BodyModelsBox.SelectedItem.ToString();
         }
 
         private void HeadModelsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame)
                 ActorBar.SelectedActor.Models.Head = HeadModelsBox.SelectedItem.ToString();
         }
 
