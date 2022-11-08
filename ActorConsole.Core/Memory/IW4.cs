@@ -90,16 +90,18 @@ namespace ActorConsole.Core.Memory
 
         public static void SendDvar(string text)
         {
-            if (text.Contains('+'))
+            if (ActorConsole.Core.Memory.IW4.IsRunning)
             {
-                text = text.Split('+')[0];
+                if (text.Contains('+'))
+                {
+                    text = text.Split('+')[0];
+                }
+                else if (text.Contains('-'))
+                {
+                    text = text.Split("-")[0];
+                }
+                SendDvarQueue.Add(text);
             }
-            else if (text.Contains('-'))
-            {
-                text = text.Split("-")[0];
-            }
-            SendDvarQueue.Add(text);
-
         }
     }
 }

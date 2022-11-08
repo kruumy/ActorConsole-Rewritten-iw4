@@ -94,6 +94,12 @@
             </TabItem>
             <TabItem Header="Other">
                 <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">
+                    <TabItem Header="Player">
+                        <viewsO:Player></viewsO:Player>
+                    </TabItem>
+                    <TabItem Header="KillStreaks">
+                        <viewsO:KillStreaks></viewsO:KillStreaks>
+                    </TabItem>
                     <TabItem Header="Sun">
                         <viewsO:Sun></viewsO:Sun>
                     </TabItem>

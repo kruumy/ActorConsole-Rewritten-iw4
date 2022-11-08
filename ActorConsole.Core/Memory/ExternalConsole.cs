@@ -87,48 +87,42 @@ public static class ExternalConsole
 
     internal static void Send(string command)
     {
-        if (ActorConsole.Core.Memory.IW4.IsRunning)
-        {
-            uint cbuf_address = 4213536u;
-            hProcess = ActorConsole.Core.Memory.IW4.mem.Handle;
+        uint cbuf_address = 4213536u;
+        hProcess = ActorConsole.Core.Memory.IW4.mem.Handle;
 
-            byte[] callbytes = BitConverter.GetBytes(cbuf_address);
-            if (command == "")
-            {
-                return;
-            }
-            byte[] cbuf_addtext_wrapper = new byte[35]
-            {
+        byte[] callbytes = BitConverter.GetBytes(cbuf_address);
+        if (command == "")
+        {
+            return;
+        }
+        byte[] cbuf_addtext_wrapper = new byte[35]
+        {
                 85, 139, 236, 131, 236, 8, 199, 69, 248, 0,
                 0, 0, 0, 199, 69, 252, 0, 0, 0, 0,
                 255, 117, 248, 106, 0, 255, 85, 252, 131, 196,
                 8, 139, 229, 93, 195
-            };
-            if (cbuf_addtext_alloc == IntPtr.Zero)
-            {
-                cbuf_addtext_alloc = VirtualAllocEx(hProcess, IntPtr.Zero, (IntPtr)cbuf_addtext_wrapper.Length, AllocationType.Commit | AllocationType.Reserve, MemoryProtection.ExecuteReadWrite);
-                byte[] commandbytes = Encoding.ASCII.GetBytes(command);
-                IntPtr commandaddress = VirtualAllocEx(hProcess, IntPtr.Zero, (IntPtr)commandbytes.Length, AllocationType.Commit | AllocationType.Reserve, MemoryProtection.ExecuteReadWrite);
-                int lpNumberOfBytesWritten = 0;
-                int lpNumberOfBytesWritten2 = commandbytes.Length;
-                WriteProcessMemory(hProcess, commandaddress, commandbytes, commandbytes.Length, out lpNumberOfBytesWritten2);
-                Array.Copy(BitConverter.GetBytes(commandaddress.ToInt64()), 0, cbuf_addtext_wrapper, 9, 4);
-                Array.Copy(callbytes, 0, cbuf_addtext_wrapper, 16, 4);
-                WriteProcessMemory(hProcess, cbuf_addtext_alloc, cbuf_addtext_wrapper, cbuf_addtext_wrapper.Length, out lpNumberOfBytesWritten);
-                CreateRemoteThread(hProcess, IntPtr.Zero, 0u, cbuf_addtext_alloc, IntPtr.Zero, 0u, out var _);
-                if (cbuf_addtext_alloc != IntPtr.Zero && commandaddress != IntPtr.Zero)
-                {
-                    VirtualFreeEx(hProcess, cbuf_addtext_alloc, cbuf_addtext_wrapper.Length, FreeType.Release);
-                    VirtualFreeEx(hProcess, commandaddress, cbuf_addtext_wrapper.Length, FreeType.Release);
-                }
-            }
-            cbuf_addtext_alloc = IntPtr.Zero;
-        }
-        else
+        };
+        if (cbuf_addtext_alloc == IntPtr.Zero)
         {
-            throw new Exception("Detected game not running when calling ExternalConsole.Send()");
+            cbuf_addtext_alloc = VirtualAllocEx(hProcess, IntPtr.Zero, (IntPtr)cbuf_addtext_wrapper.Length, AllocationType.Commit | AllocationType.Reserve, MemoryProtection.ExecuteReadWrite);
+            byte[] commandbytes = Encoding.ASCII.GetBytes(command);
+            IntPtr commandaddress = VirtualAllocEx(hProcess, IntPtr.Zero, (IntPtr)commandbytes.Length, AllocationType.Commit | AllocationType.Reserve, MemoryProtection.ExecuteReadWrite);
+            int lpNumberOfBytesWritten = 0;
+            int lpNumberOfBytesWritten2 = commandbytes.Length;
+            WriteProcessMemory(hProcess, commandaddress, commandbytes, commandbytes.Length, out lpNumberOfBytesWritten2);
+            Array.Copy(BitConverter.GetBytes(commandaddress.ToInt64()), 0, cbuf_addtext_wrapper, 9, 4);
+            Array.Copy(callbytes, 0, cbuf_addtext_wrapper, 16, 4);
+            WriteProcessMemory(hProcess, cbuf_addtext_alloc, cbuf_addtext_wrapper, cbuf_addtext_wrapper.Length, out lpNumberOfBytesWritten);
+            CreateRemoteThread(hProcess, IntPtr.Zero, 0u, cbuf_addtext_alloc, IntPtr.Zero, 0u, out var _);
+            if (cbuf_addtext_alloc != IntPtr.Zero && commandaddress != IntPtr.Zero)
+            {
+                VirtualFreeEx(hProcess, cbuf_addtext_alloc, cbuf_addtext_wrapper.Length, FreeType.Release);
+                VirtualFreeEx(hProcess, commandaddress, cbuf_addtext_wrapper.Length, FreeType.Release);
+            }
         }
-
-
+        cbuf_addtext_alloc = IntPtr.Zero;
     }
+
+
 }
+

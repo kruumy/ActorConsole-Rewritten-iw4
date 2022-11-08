@@ -18,18 +18,18 @@ namespace ActorConsole.Core.Memory
             }
         }
         internal static bool IsRunning { get; private set; }
-        private static int WaitTime = 1100;
+        private static readonly int WaitTime = 1100;
         internal static void Add(string input)
         {
             Queue.Add(input);
             if (!IsRunning)
             {
-                IsRunning = true;
                 Task.Run(MainLoop);
             }
         }
         private static void MainLoop()
         {
+            IsRunning = true;
             while (Queue.Count > 0)
             {
                 string dvar = Queue.First();
