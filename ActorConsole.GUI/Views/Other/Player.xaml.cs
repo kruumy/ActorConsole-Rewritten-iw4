@@ -24,63 +24,12 @@ namespace ActorConsole.GUI.Views.Other
         {
             InitializeComponent();
         }
-        private void BodyModelsBox_Loaded(object sender, RoutedEventArgs e)
+        // TODO finish this
+        private void PlayerNameBox_Loaded(object sender, RoutedEventArgs e)
         {
-            BodyModelsBox.Items.Clear();
-            try
-            {
-
-                foreach (string models in ActorConsole.Core.Misc.ModelsJsonWrapper.Get(Core.Misc.ModelType.Body))
-                {
-                    BodyModelsBox.Items.Add(models);
-                }
-                BodyModelsBox.Items.Add("void");
-            }
-            catch
-            {
-                BodyModelsBox.Items.Add("Failure adding models from map.");
-            }
-
-        }
-
-        private void HeadModelsBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            HeadModelsBox.Items.Clear();
-            try
-            {
-
-                foreach (string models in ActorConsole.Core.Misc.ModelsJsonWrapper.Get(Core.Misc.ModelType.Head))
-                {
-                    HeadModelsBox.Items.Add(models);
-                }
-                HeadModelsBox.Items.Add("void");
-            }
-            catch
-            {
-                HeadModelsBox.Items.Add("Failure adding models from map.");
-            }
-        }
-
-        private void BodyModelsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame)
-                ActorBar.SelectedActor.Models.Body = BodyModelsBox.SelectedItem.ToString();
-        }
-
-        private void HeadModelsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame)
-                ActorBar.SelectedActor.Models.Head = HeadModelsBox.SelectedItem.ToString();
-        }
-
-        private void BodyModelsBox_MouseEnter(object sender, MouseEventArgs e)
-        {
-            BodyModelsBox_Loaded(null, null);
-        }
-
-        private void HeadModelsBox_MouseEnter(object sender, MouseEventArgs e)
-        {
-            HeadModelsBox_Loaded(null, null);
+            var name = Core.Misc.Player.Name;
+            if (name != null)
+                PlayerNameBox.Text = name;
         }
     }
 }

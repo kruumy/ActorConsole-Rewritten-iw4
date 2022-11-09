@@ -7,7 +7,7 @@ namespace ActorConsole.CLI
     internal class Program
     {
         /// <summary>
-        /// Used for testing currently, will be a fleshed out cli later.
+        /// Used for testing.
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)

@@ -14,34 +14,49 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
 
-        <mah:MetroTabControl Grid.Column="0" mah:HeaderedControlHelper.HeaderFontSize="15" >
-            <TabItem Header="Head">
-
-                <ListView
-                    x:Name="HeadModelsBox"
-                    d:ItemsSource="{d:SampleData ItemCount=5}"
-                    Loaded="HeadModelsBox_Loaded" 
-                    MouseDoubleClick="HeadModelsBox_MouseDoubleClick" MouseEnter="HeadModelsBox_MouseEnter" 
+        <ListView
+                    x:Name="ModelsBox"
                     >
-                </ListView>
+            <ListViewItem>ASSAULT</ListViewItem>
+            <ListViewItem>SHOTGUN</ListViewItem>
+            <ListViewItem>SMG</ListViewItem>
+            <ListViewItem>LMG</ListViewItem>
+            <ListViewItem>RIOT</ListViewItem>
+            <ListViewItem>SNIPER</ListViewItem>
+            <ListViewItem>GHILLIE</ListViewItem>
+        </ListView>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            </TabItem>
-        </mah:MetroTabControl>
-        <mah:MetroTabControl Grid.Column="1" mah:HeaderedControlHelper.HeaderFontSize="15">
-            <TabItem Header="Body">
+            <TextBox 
+                x:Name="PlayerNameBox"
+                Grid.Column="0"
+                Margin="3" Loaded="PlayerNameBox_Loaded">
+            </TextBox>
+            <Button 
+                x:Name="ApplyModelsButton" 
+                Grid.Column="1"
+                Margin="3">
+                Apply
+            </Button>
+        </Grid>
+        <mah:ToggleSwitch 
+            x:Name="TeamSwitch"
+            Grid.Column="1"
+            Grid.Row="1"
+            HorizontalAlignment="Left" VerticalAlignment="Center" OffContent="Axis" OnContent="Allies">
 
-                <ListView
-                    x:Name="BodyModelsBox"
-                    d:ItemsSource="{d:SampleData ItemCount=5}" 
-                    Loaded="BodyModelsBox_Loaded" 
-                    MouseDoubleClick="BodyModelsBox_MouseDoubleClick" MouseEnter="BodyModelsBox_MouseEnter" 
-                    >
-                </ListView>
+        </mah:ToggleSwitch>
 
-            </TabItem>
-        </mah:MetroTabControl>
     </Grid>
 </UserControl>

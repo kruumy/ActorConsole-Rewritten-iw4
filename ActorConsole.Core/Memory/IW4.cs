@@ -74,6 +74,22 @@ namespace ActorConsole.Core.Memory
 
             }
         }
+        public static string? PlayerName
+        {
+            get
+            {
+                try
+                {
+                    string name = mem.GetString((PointerEx)Addresses.KeyValuePairs["PlayerName"]).Trim();
+                    if (name != string.Empty)
+                        return name;
+                    else
+                        return null;
+                }
+                catch { return null; }
+
+            }
+        }
 
         // TODO: handle for game closing and reopening creating a new instance
         private static ProcessEx? _mem = new ProcessEx(Game, true);
