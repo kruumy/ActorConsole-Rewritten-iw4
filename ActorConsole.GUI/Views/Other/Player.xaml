@@ -46,7 +46,7 @@
             <Button 
                 x:Name="ApplyModelsButton" 
                 Grid.Column="1"
-                Margin="3">
+                Margin="3" Click="ApplyModelsButton_Click">
                 Apply
             </Button>
         </Grid>
@@ -54,7 +54,10 @@
             x:Name="TeamSwitch"
             Grid.Column="1"
             Grid.Row="1"
-            HorizontalAlignment="Left" VerticalAlignment="Center" OffContent="Axis" OnContent="Allies">
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center"
+            OffContent="Axis" 
+            OnContent="Allies">
 
         </mah:ToggleSwitch>
 

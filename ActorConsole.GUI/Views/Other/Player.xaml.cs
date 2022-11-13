@@ -24,12 +24,22 @@ namespace ActorConsole.GUI.Views.Other
         {
             InitializeComponent();
         }
-        // TODO finish this
         private void PlayerNameBox_Loaded(object sender, RoutedEventArgs e)
         {
-            var name = Core.Misc.Player.Name;
+            var name = Core.Memory.IW4.PlayerName;
             if (name != null)
                 PlayerNameBox.Text = name;
+        }
+
+        private void ApplyModelsButton_Click(object sender, RoutedEventArgs e)
+        {
+            string team = "";
+            if (TeamSwitch.IsOn)
+                team = "allies";
+            else
+                team = "axis";
+
+            Core.Misc.Player.SetModel((string)((ListViewItem)ModelsBox.SelectedValue).Content, team, PlayerNameBox.Text);
         }
     }
 }
