@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ActorConsole.Core.Misc.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
 
-                foreach (string models in ActorConsole.Core.Misc.ModelsJsonWrapper.Get(Core.Misc.ModelType.Body))
+                foreach (string models in ModelsJsonWrapper.Get(ModelType.Body))
                 {
                     BodyModelsBox.Items.Add(models);
                 }
@@ -50,7 +51,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
 
-                foreach (string models in ActorConsole.Core.Misc.ModelsJsonWrapper.Get(Core.Misc.ModelType.Head))
+                foreach (string models in ModelsJsonWrapper.Get(ModelType.Head))
                 {
                     HeadModelsBox.Items.Add(models);
                 }

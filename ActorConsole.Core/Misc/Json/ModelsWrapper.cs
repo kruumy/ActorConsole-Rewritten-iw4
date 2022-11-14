@@ -1,8 +1,8 @@
 ﻿using System.Text.Json;
 
-namespace ActorConsole.Core.Misc
+namespace ActorConsole.Core.Misc.Json
 {
-    public static class ModelsJsonWrapper
+    public static class ModelsWrapper
     {
         public static string RawText = File.ReadAllText("Misc/models.json");
         public static JsonElement RootElement = JsonDocument.Parse(RawText).RootElement;
@@ -27,7 +27,7 @@ namespace ActorConsole.Core.Misc
         }
         public static string[]? Get(ModelType modelType)
         {
-            string? map = Core.Memory.IW4.Map;
+            string? map = Memory.IW4.Map;
             if (map == null)
             {
                 return null;
