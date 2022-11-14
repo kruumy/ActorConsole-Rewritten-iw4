@@ -14,7 +14,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <TreeView x:Name="Tree" Loaded="Tree_Loaded">
 
+        </TreeView>
 
     </Grid>
 </UserControl>

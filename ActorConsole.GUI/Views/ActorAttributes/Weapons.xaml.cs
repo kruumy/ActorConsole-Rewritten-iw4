@@ -24,5 +24,12 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             InitializeComponent();
         }
+
+        private void Tree_Loaded(object sender, RoutedEventArgs e)
+        {
+            Tree.Items.Clear();
+        }
+        //Bind json to the treeview
+
     }
 }

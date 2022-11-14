@@ -4,7 +4,7 @@ namespace ActorConsole.Core.Misc.Json
 {
     public static class ModelsWrapper
     {
-        public static string RawText = File.ReadAllText("Misc/models.json");
+        public static string RawText = File.ReadAllText("Misc/Json/models.json");
         public static JsonElement RootElement = JsonDocument.Parse(RawText).RootElement;
 
         public static JsonElement Get(string Map, ModelType modelType)

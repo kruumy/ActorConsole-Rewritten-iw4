@@ -32,7 +32,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
 
-                foreach (string models in ModelsJsonWrapper.Get(ModelType.Body))
+                foreach (string models in ModelsWrapper.Get(ModelType.Body))
                 {
                     BodyModelsBox.Items.Add(models);
                 }
@@ -51,7 +51,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
 
-                foreach (string models in ModelsJsonWrapper.Get(ModelType.Head))
+                foreach (string models in ModelsWrapper.Get(ModelType.Head))
                 {
                     HeadModelsBox.Items.Add(models);
                 }
