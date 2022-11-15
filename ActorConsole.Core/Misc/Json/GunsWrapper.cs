@@ -21,36 +21,6 @@ namespace ActorConsole.Core.Misc.Json
                     .Deserialize(Array.Empty<string>().GetType());
             }
         }
-        public static string[] GetClasses()
-        {
-            List<string> result = new List<string>();
-            foreach (var item in RootElement.GetProperty("weapons").EnumerateObject())
-            {
-                result.Add(item.Name);
-            }
-            return result.ToArray();
-        }
-        public static string[] GetWeapons(string GunClass)
-        {
-            List<string> result = new List<string>();
-            foreach (var item in RootElement.GetProperty("weapons").GetProperty(GunClass).EnumerateObject())
-            {
-                result.Add(item.Name);
-            }
-            return result.ToArray();
-        }
-        public static string[] GetWeaponTypes(string GunClass, string GunName)
-        {
-            List<string> result = new List<string>();
-            foreach (var item in RootElement.GetProperty("weapons").GetProperty(GunClass).GetProperty(GunName).EnumerateArray())
-            {
-                result.Add(item.GetString());
-            }
-            return result.ToArray();
-        }
-
-
-        //TODO: finish this
 
     }
 }

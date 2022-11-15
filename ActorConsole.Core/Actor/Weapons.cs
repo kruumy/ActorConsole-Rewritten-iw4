@@ -4,6 +4,11 @@
     {
         internal string ActorName { get; set; }
         private string? _j_gun;
+        public static readonly string[] Bones = new string[]
+        {
+            "j_gun"
+        };
+
         public string? j_gun
         {
             get
