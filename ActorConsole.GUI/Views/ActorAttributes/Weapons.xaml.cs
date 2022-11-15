@@ -82,14 +82,13 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame)
+            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame && SelectedWeaponBox.Text != string.Empty)
             {
                 string Camo = "";
                 string Weapon = "";
                 if (CamoBox.Text != "None")
                     Camo = CamoBox.Text;
-                if (SelectedWeaponBox.Text != string.Empty)
-                    Weapon = SelectedWeaponBox.Text;
+                Weapon = SelectedWeaponBox.Text;
 
                 switch (BoneBox.SelectedItem.ToString())
                 {

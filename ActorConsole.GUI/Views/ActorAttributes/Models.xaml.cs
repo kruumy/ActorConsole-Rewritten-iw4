@@ -75,14 +75,14 @@ namespace ActorConsole.GUI.Views.ActorAttributes
                 ActorBar.SelectedActor.Models.Head = HeadModelsBox.SelectedItem.ToString();
         }
 
-        private void BodyModelsBox_MouseEnter(object sender, MouseEventArgs e)
+        private void SPModelsBox_Loaded(object sender, RoutedEventArgs e)
         {
-            BodyModelsBox_Loaded(null, null);
+
         }
 
-        private void HeadModelsBox_MouseEnter(object sender, MouseEventArgs e)
+        private void SPModelsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            HeadModelsBox_Loaded(null, null);
+
         }
     }
 }

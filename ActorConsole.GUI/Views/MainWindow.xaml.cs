@@ -50,7 +50,7 @@ namespace ActorConsole.GUI
 
                             DvarQueueLabel.Content = $"Dvar Queue = {Core.Memory.SendDvarQueue.Count}";
                             if (map != null)
-                                MapLabel.Content = $"Map = {map.Split('_')[1]}";
+                                MapLabel.Content = $"Map = {map}";
                             else
                                 MapLabel.Content = $"Map = null";
                         });

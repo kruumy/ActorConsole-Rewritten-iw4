@@ -25,7 +25,7 @@
                     x:Name="HeadModelsBox"
                     d:ItemsSource="{d:SampleData ItemCount=5}"
                     Loaded="HeadModelsBox_Loaded" 
-                    MouseDoubleClick="HeadModelsBox_MouseDoubleClick" MouseEnter="HeadModelsBox_MouseEnter" 
+                    MouseDoubleClick="HeadModelsBox_MouseDoubleClick"
                     >
                 </ListView>
 
@@ -36,13 +36,19 @@
                     x:Name="BodyModelsBox"
                     d:ItemsSource="{d:SampleData ItemCount=5}" 
                     Loaded="BodyModelsBox_Loaded" 
-                    MouseDoubleClick="BodyModelsBox_MouseDoubleClick" MouseEnter="BodyModelsBox_MouseEnter" 
+                    MouseDoubleClick="BodyModelsBox_MouseDoubleClick"
                     >
                 </ListView>
 
             </TabItem>
             <TabItem Header="SinglePlayer">
-
+                <ListView
+                    x:Name="SPModelsBox"
+                    d:ItemsSource="{d:SampleData ItemCount=5}"
+                    Loaded="SPModelsBox_Loaded"
+                    MouseDoubleClick="SPModelsBox_MouseDoubleClick" 
+                    >
+                </ListView>
 
             </TabItem>
         </mah:MetroTabControl>

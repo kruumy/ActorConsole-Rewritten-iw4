@@ -14,6 +14,7 @@ namespace ActorConsole.GUI.Classes
         public static void Execute()
         {
             Objects.Settings = new Core.Misc.Settings.Settings();
+            // TODO: Check for guns.json and models.json
         }
         /// <summary>
         /// Called every second when statusbar mainwindow is updated
@@ -24,7 +25,7 @@ namespace ActorConsole.GUI.Classes
             {
                 Core.ActorManager.ResetActorManager();
             }
-            // TODO: Check for guns.json and models.json
+
         }
     }
 }
