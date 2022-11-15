@@ -14,13 +14,13 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
 
 
         <ListView
-                    x:Name="ModelsBox"
-                    >
+            x:Name="ModelsBox"
+            >
             <ListViewItem>ASSAULT</ListViewItem>
             <ListViewItem>SHOTGUN</ListViewItem>
             <ListViewItem>SMG</ListViewItem>
