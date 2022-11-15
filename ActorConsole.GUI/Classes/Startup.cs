@@ -24,6 +24,7 @@ namespace ActorConsole.GUI.Classes
             {
                 Core.ActorManager.ResetActorManager();
             }
+            // TODO: Check for guns.json and models.json
         }
     }
 }

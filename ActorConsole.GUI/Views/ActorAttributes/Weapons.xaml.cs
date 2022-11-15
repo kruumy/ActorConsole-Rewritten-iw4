@@ -25,7 +25,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             InitializeComponent();
         }
 
-        private void WeaponsClassBrowser_Loaded(object sender, RoutedEventArgs e)
+        private void WeaponsClassBrowser_Initialized(object sender, EventArgs e)
         {
             try
             {
@@ -82,20 +82,23 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
-            string Camo = "";
-            string Weapon = "";
-            if (CamoBox.Text != "None")
-                Camo = CamoBox.Text;
-            if (SelectedWeaponBox.Text != string.Empty)
-                Weapon = SelectedWeaponBox.Text;
-
-            switch (BoneBox.SelectedItem.ToString())
+            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame)
             {
-                case "j_gun":
-                    {
-                        ActorBar.SelectedActor.Weapons.j_gun = $"{Weapon} {Camo}";
-                        break;
-                    }
+                string Camo = "";
+                string Weapon = "";
+                if (CamoBox.Text != "None")
+                    Camo = CamoBox.Text;
+                if (SelectedWeaponBox.Text != string.Empty)
+                    Weapon = SelectedWeaponBox.Text;
+
+                switch (BoneBox.SelectedItem.ToString())
+                {
+                    case "j_gun":
+                        {
+                            ActorBar.SelectedActor.Weapons.j_gun = $"{Weapon} {Camo}";
+                            break;
+                        }
+                }
             }
         }
     }

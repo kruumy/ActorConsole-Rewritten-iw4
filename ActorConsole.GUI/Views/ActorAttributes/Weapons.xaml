@@ -18,7 +18,7 @@
             <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
         <ListView x:Name="WeaponsClassBrowser"
-                  Loaded="WeaponsClassBrowser_Loaded"
+                  Initialized="WeaponsClassBrowser_Initialized"
                   SelectionChanged="WeaponsClassBrowser_SelectionChanged"
                   Grid.Column="0">
         </ListView>
