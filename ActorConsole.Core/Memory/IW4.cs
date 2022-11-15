@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿
+using System.Diagnostics;
 using System.Text;
 using System.Threading;
 
@@ -40,7 +41,7 @@ namespace ActorConsole.Core.Memory
                 {
                     try
                     {
-                        if (mem.GetValue<int>((PointerEx)Addresses.KeyValuePairs["InGame"]) == 0)
+                        if (mem.Read<int>((PointerEx)Addresses.KeyValuePairs["InGame"]) == 0)
                             return false;
                         else
                             return true;
@@ -64,7 +65,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string map = mem.GetString((PointerEx)Addresses.KeyValuePairs["Map"], 15).Trim();
+                    string map = mem.ReadString((PointerEx)Addresses.KeyValuePairs["Map"], 15).Trim();
                     if (map != string.Empty)
                         return map;
                     else
@@ -80,7 +81,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string name = mem.GetString((PointerEx)Addresses.KeyValuePairs["PlayerName"]).Trim();
+                    string name = mem.ReadString((PointerEx)Addresses.KeyValuePairs["PlayerName"]).Trim();
                     if (name != string.Empty)
                         return name;
                     else
@@ -92,13 +93,13 @@ namespace ActorConsole.Core.Memory
         }
 
         // TODO: handle for game closing and reopening creating a new instance
-        private static ProcessEx? _mem = new ProcessEx(Game, true);
+        private static MemoryLite? _mem = new MemoryLite(Game);
 
-        public static ProcessEx mem
+        public static MemoryLite mem
         {
             get
             {
-                _mem = new ProcessEx(Game, true);
+                _mem = new MemoryLite(Game);
                 return _mem;
 
             }

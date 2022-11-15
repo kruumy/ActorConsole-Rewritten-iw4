@@ -7,66 +7,66 @@
         {
             get
             {
-                return Memory.IW4.mem.GetValue<float>(Addrs.Red);
+                return Memory.IW4.mem.Read<float>(Addrs.Red);
             }
             set
             {
-                Memory.IW4.mem.SetValue(Addrs.Red, value);
+                Memory.IW4.mem.Write(Addrs.Red, value);
             }
         }
         public static float Green
         {
             get
             {
-                return Memory.IW4.mem.GetValue<float>(Addrs.Green);
+                return Memory.IW4.mem.Read<float>(Addrs.Green);
             }
             set
             {
-                Memory.IW4.mem.SetValue(Addrs.Green, value);
+                Memory.IW4.mem.Write(Addrs.Green, value);
             }
         }
         public static float Blue
         {
             get
             {
-                return Memory.IW4.mem.GetValue<float>(Addrs.Blue);
+                return Memory.IW4.mem.Read<float>(Addrs.Blue);
             }
             set
             {
-                Memory.IW4.mem.SetValue(Addrs.Blue, value);
+                Memory.IW4.mem.Write(Addrs.Blue, value);
             }
         }
         public static float X
         {
             get
             {
-                return Memory.IW4.mem.GetValue<float>(Addrs.X);
+                return Memory.IW4.mem.Read<float>(Addrs.X);
             }
             set
             {
-                Memory.IW4.mem.SetValue(Addrs.X, value);
+                Memory.IW4.mem.Write(Addrs.X, value);
             }
         }
         public static float Y
         {
             get
             {
-                return Memory.IW4.mem.GetValue<float>(Addrs.Y);
+                return Memory.IW4.mem.Read<float>(Addrs.Y);
             }
             set
             {
-                Memory.IW4.mem.SetValue(Addrs.Y, value);
+                Memory.IW4.mem.Write(Addrs.Y, value);
             }
         }
         public static float Z
         {
             get
             {
-                return Memory.IW4.mem.GetValue<float>(Addrs.Z);
+                return Memory.IW4.mem.Read<float>(Addrs.Z);
             }
             set
             {
-                Memory.IW4.mem.SetValue(Addrs.Z, value);
+                Memory.IW4.mem.Write<float>(Addrs.Z, value);
             }
         }
         public static object GetSunObject()

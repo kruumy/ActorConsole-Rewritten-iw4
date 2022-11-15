@@ -1,4 +1,5 @@
-﻿namespace ActorConsole.Core.Memory
+﻿
+namespace ActorConsole.Core.Memory
 {
     internal static class Addresses
     {

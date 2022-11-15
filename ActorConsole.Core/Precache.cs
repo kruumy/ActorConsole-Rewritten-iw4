@@ -21,9 +21,6 @@
             MP_Anims = RawText.Split('"').Where(x => x.Contains("pb")).ToArray();
             MP_Anims_Idle = MP_Anims.Where(x => !x.Contains("death")).ToArray();
             MP_Anims_Death = MP_Anims.Where(x => x.Contains("death")).ToArray();
-
-
-
         }
     }
 

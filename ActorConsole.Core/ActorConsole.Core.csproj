@@ -5,18 +5,13 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<Platforms>x86</Platforms>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<Compile Remove="Dependencies\**" />
 		<EmbeddedResource Remove="Dependencies\**" />
 		<None Remove="Dependencies\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Reference Include="External">
-			<HintPath>Dependencies\External\External.dll</HintPath>
-		</Reference>
 	</ItemGroup>
 
 	<ItemGroup>
