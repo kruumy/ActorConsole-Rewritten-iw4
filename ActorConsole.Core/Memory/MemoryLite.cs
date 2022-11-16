@@ -100,17 +100,6 @@ namespace ActorConsole.Core.Memory
             else throw new Exception($"Invalid Type, {typeof(T)}");
             WriteBytes(addr, data);
         }
-
-        public T ReadStruct<T>(PointerEx absoluteAddress) where T : struct
-        {
-            return ReadBytes(absoluteAddress, Marshal.SizeOf(typeof(T))).ToStruct<T>();
-        }
-
-        public void WriteStruct<T>(PointerEx absoluteAddress, T s) where T : struct
-        {
-            WriteBytes(absoluteAddress, s.ToByteArray());
-        }
-
         public T[] ReadArray<T>(PointerEx absoluteAddress, PointerEx numItems) where T : struct
         {
             // Modified to do less IPC reads, in exchange for slightly worse local performance via 
@@ -164,17 +153,6 @@ namespace ActorConsole.Core.Memory
             WriteArray(addr, Value.Bytes());
         }
 
-
-        #endregion
-
-        #region Misc
-        public PointerEx this[PointerEx offset]
-        {
-            get
-            {
-                return BaseAddress + offset;
-            }
-        }
 
         #endregion
     }
