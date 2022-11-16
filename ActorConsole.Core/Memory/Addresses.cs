@@ -1,4 +1,4 @@
-﻿
+﻿using AnotherExternalMemoryLibrary;
 namespace ActorConsole.Core.Memory
 {
     internal static class Addresses

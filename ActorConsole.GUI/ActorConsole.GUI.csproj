@@ -10,11 +10,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+		<PackageReference Include="MahApps.Metro" Version="2.4.9" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\ActorConsole.Core\ActorConsole.Core.csproj" />
 	</ItemGroup>
 
-		</Project>
+</Project>

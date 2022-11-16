@@ -5,18 +5,17 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<Platforms>x86</Platforms>
-		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Remove="Dependencies\**" />
-		<EmbeddedResource Remove="Dependencies\**" />
-		<None Remove="Dependencies\**" />
+		<Reference Include="AnotherExternalMemoryLibrary">
+			<HintPath>Memory\AnotherExternalMemoryLibrary.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 
 	<ItemGroup>
 		<None Update="Misc\Json\guns.json">
-		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Misc\Json\models.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>

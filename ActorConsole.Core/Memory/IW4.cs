@@ -1,4 +1,5 @@
 ﻿
+using AnotherExternalMemoryLibrary;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
@@ -65,7 +66,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string map = mem.ReadString((PointerEx)Addresses.KeyValuePairs["Map"], 15).Trim();
+                    string map = mem.Read<string>((PointerEx)Addresses.KeyValuePairs["Map"]);
                     if (map != string.Empty)
                         return map;
                     else
@@ -81,7 +82,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string name = mem.ReadString((PointerEx)Addresses.KeyValuePairs["PlayerName"]).Trim();
+                    string name = mem.Read<string>((PointerEx)Addresses.KeyValuePairs["PlayerName"]);
                     if (name != string.Empty)
                         return name;
                     else
@@ -93,17 +94,8 @@ namespace ActorConsole.Core.Memory
         }
 
         // TODO: handle for game closing and reopening creating a new instance
-        private static MemoryLite? _mem = new MemoryLite(Game);
+        public static ProcessEx mem => new ProcessEx(Game);
 
-        public static MemoryLite mem
-        {
-            get
-            {
-                _mem = new MemoryLite(Game);
-                return _mem;
-
-            }
-        }
 
         public static void SendDvar(string text)
         {
