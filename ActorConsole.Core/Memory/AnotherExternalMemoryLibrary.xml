@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AnotherExternalMemoryLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:AnotherExternalMemoryLibrary.ProcessEx.Read``1(AnotherExternalMemoryLibrary.PointerEx)">
+            <summary>
+            Reads Process Memory (Value)
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="addr">Absolute address</param>
+            <returns>Value of Type(</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.ProcessEx.Read``1(AnotherExternalMemoryLibrary.PointerEx,System.Int32)">
+            <summary>
+            Reads Process Memory (Array)
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="addr">Absolute address</param>
+            <param name="NumOfItems">Number of items to read</param>
+            <returns>Array of Type</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.ProcessEx.Write``1(AnotherExternalMemoryLibrary.PointerEx,``0)">
+            <summary>
+            Writes Process Memory (Value)
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="addr">Absolute address</param>
+            <param name="value">Value of type to write</param>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.ProcessEx.Write``1(AnotherExternalMemoryLibrary.PointerEx,``0[])">
+            <summary>
+            Writes Process Memory (Array)
+            </summary>
+            <typeparam name="T">Type</typeparam>
+            <param name="addr">Absolute address</param>
+            <param name="array">Array of type to write</param>
+        </member>
+        <member name="P:AnotherExternalMemoryLibrary.ProcessEx.Item(AnotherExternalMemoryLibrary.PointerEx)">
+            <summary>
+            Adds Offset To BaseAddress
+            </summary>
+            <param name="BaseOffset">Offset for BaseAddress</param>
+            <returns>Pointer</returns>
+        </member>
+        <member name="P:AnotherExternalMemoryLibrary.ProcessEx.Item(AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx[])">
+            <summary>
+            Adds Offsets to get Pointer
+            Uses Utils.OffsetCalculator()
+            </summary>
+            <param name="BaseOffset">Offset for BaseAddress</param>
+            <param name="Offsets">Offsets for Pointer</param>
+            <returns>Pointer</returns>
+        </member>
+        <member name="P:AnotherExternalMemoryLibrary.ProcessEx.Item(System.String,AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx[])">
+            <summary>
+            Adds Offsets to get Pointer
+            Uses Utils.OffsetCalculator()
+            </summary>
+            <param name="ModuleName">Name of target module</param>
+            <param name="ModuleOffset">Offset for ModuleAddress</param>
+            <param name="Offsets">Offsets for Pointer</param>
+            <returns>Pointer</returns>
+        </member>
+        <member name="P:AnotherExternalMemoryLibrary.ProcessEx.Item(System.String)">
+            <summary>
+            Gets Module Address in BaseProcess that matches name
+            </summary>
+            <param name="ModuleName">Module Name</param>
+            <returns>Module BaseAddress</returns>
+        </member>
+    </members>
+</doc>
