@@ -37,7 +37,7 @@
     <Grid>
         <TabControl TabStripPlacement="Top"  
                     mah:TabControlHelper.Underlined="SelectedTabItem" 
-                    mah:HeaderedControlHelper.HeaderFontSize="20"
+                    mah:HeaderedControlHelper.HeaderFontSize="15"
                     mah:HeaderedControlHelper.HeaderFontFamily="B612 Mono">
             <TabItem Header="Actors">
                 <views:Actors></views:Actors>
