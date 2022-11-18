@@ -42,7 +42,7 @@
             Adds Offset To BaseAddress
             </summary>
             <param name="BaseOffset">Offset for BaseAddress</param>
-            <returns>Pointer</returns>
+            <returns>Absolute Address</returns>
         </member>
         <member name="P:AnotherExternalMemoryLibrary.ProcessEx.Item(AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx[])">
             <summary>
@@ -51,7 +51,7 @@
             </summary>
             <param name="BaseOffset">Offset for BaseAddress</param>
             <param name="Offsets">Offsets for Pointer</param>
-            <returns>Pointer</returns>
+            <returns>Absolute Address</returns>
         </member>
         <member name="P:AnotherExternalMemoryLibrary.ProcessEx.Item(System.String,AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx[])">
             <summary>
@@ -61,7 +61,7 @@
             <param name="ModuleName">Name of target module</param>
             <param name="ModuleOffset">Offset for ModuleAddress</param>
             <param name="Offsets">Offsets for Pointer</param>
-            <returns>Pointer</returns>
+            <returns>Absolute Address</returns>
         </member>
         <member name="P:AnotherExternalMemoryLibrary.ProcessEx.Item(System.String)">
             <summary>
