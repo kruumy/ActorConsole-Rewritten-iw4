@@ -220,7 +220,7 @@ namespace ActorConsole.Core.Misc.Settings
         }
 
         private static readonly IniValue _default = new IniValue();
-        public static IniValue Default { get { return _default; } }
+        public static IniValue Default => _default;
     }
 
     internal class IniFile : IEnumerable<KeyValuePair<string, IniSection>>, IDictionary<string, IniSection>
@@ -387,15 +387,9 @@ namespace ActorConsole.Core.Misc.Settings
             return ContainsSection(key);
         }
 
-        public ICollection<string> Keys
-        {
-            get { return sections.Keys; }
-        }
+        public ICollection<string> Keys => sections.Keys;
 
-        public ICollection<IniSection> Values
-        {
-            get { return sections.Values; }
-        }
+        public ICollection<IniSection> Values => sections.Values;
 
         void ICollection<KeyValuePair<string, IniSection>>.Add(KeyValuePair<string, IniSection> item)
         {
@@ -417,15 +411,9 @@ namespace ActorConsole.Core.Misc.Settings
             ((IDictionary<string, IniSection>)sections).CopyTo(array, arrayIndex);
         }
 
-        public int Count
-        {
-            get { return sections.Count; }
-        }
+        public int Count => sections.Count;
 
-        bool ICollection<KeyValuePair<string, IniSection>>.IsReadOnly
-        {
-            get { return ((IDictionary<string, IniSection>)sections).IsReadOnly; }
-        }
+        bool ICollection<KeyValuePair<string, IniSection>>.IsReadOnly => ((IDictionary<string, IniSection>)sections).IsReadOnly;
 
         bool ICollection<KeyValuePair<string, IniSection>>.Remove(KeyValuePair<string, IniSection> item)
         {
@@ -758,10 +746,7 @@ namespace ActorConsole.Core.Misc.Settings
 
         public bool Ordered
         {
-            get
-            {
-                return orderedKeys != null;
-            }
+            get => orderedKeys != null;
             set
             {
                 if (Ordered != value)
@@ -819,10 +804,7 @@ namespace ActorConsole.Core.Misc.Settings
         /// <summary>
         /// Returns this IniSection's collection of keys. If the IniSection is ordered, the keys will be returned in order.
         /// </summary>
-        public ICollection<string> Keys
-        {
-            get { return Ordered ? orderedKeys : values.Keys; }
-        }
+        public ICollection<string> Keys => Ordered ? orderedKeys : values.Keys;
 
         public bool Remove(string key)
         {
@@ -849,13 +831,7 @@ namespace ActorConsole.Core.Misc.Settings
         /// <summary>
         /// Returns the values in this IniSection. These values are always out of order. To get ordered values from an IniSection call GetOrderedValues instead.
         /// </summary>
-        public ICollection<IniValue> Values
-        {
-            get
-            {
-                return values.Values;
-            }
-        }
+        public ICollection<IniValue> Values => values.Values;
 
         void ICollection<KeyValuePair<string, IniValue>>.Add(KeyValuePair<string, IniValue> item)
         {
@@ -885,15 +861,9 @@ namespace ActorConsole.Core.Misc.Settings
             ((IDictionary<string, IniValue>)values).CopyTo(array, arrayIndex);
         }
 
-        public int Count
-        {
-            get { return values.Count; }
-        }
+        public int Count => values.Count;
 
-        bool ICollection<KeyValuePair<string, IniValue>>.IsReadOnly
-        {
-            get { return ((IDictionary<string, IniValue>)values).IsReadOnly; }
-        }
+        bool ICollection<KeyValuePair<string, IniValue>>.IsReadOnly => ((IDictionary<string, IniValue>)values).IsReadOnly;
 
         bool ICollection<KeyValuePair<string, IniValue>>.Remove(KeyValuePair<string, IniValue> item)
         {
@@ -937,7 +907,7 @@ namespace ActorConsole.Core.Misc.Settings
             return GetEnumerator();
         }
 
-        public IEqualityComparer<string> Comparer { get { return values.Comparer; } }
+        public IEqualityComparer<string> Comparer => values.Comparer;
 
         public IniValue this[string name]
         {

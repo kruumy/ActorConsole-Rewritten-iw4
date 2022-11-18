@@ -6,10 +6,7 @@
         private string _Name;
         public string Name
         {
-            get
-            {
-                return _Name;
-            }
+            get => _Name;
             set
             {
                 if (_Name != null)

@@ -10,10 +10,7 @@
         private string _Idle = Idle_Default;
         public string Idle
         {
-            get
-            {
-                return _Idle;
-            }
+            get => _Idle;
             set
             {
                 _Idle = value;
@@ -23,10 +20,7 @@
         private string _Death = Death_Default;
         public string Death
         {
-            get
-            {
-                return _Death;
-            }
+            get => _Death;
             set
             {
                 _Death = value;

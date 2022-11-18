@@ -3,7 +3,7 @@
     public static class ActorManager
     {
         private static readonly List<Actor.Actor> ActorsList = new();
-        public static Actor.Actor[] Actors { get { return ActorsList.ToArray(); } }
+        public static Actor.Actor[] Actors => ActorsList.ToArray();
 
         public static void Add()
         {

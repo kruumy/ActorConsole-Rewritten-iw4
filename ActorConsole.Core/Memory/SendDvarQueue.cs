@@ -3,13 +3,7 @@
     public static class SendDvarQueue
     {
         private static readonly List<string> Queue = new List<string>();
-        public static int Count
-        {
-            get
-            {
-                return Queue.Count;
-            }
-        }
+        public static int Count => Queue.Count;
         internal static bool IsRunning { get; private set; }
         private static readonly int WaitTime = 1100;
         internal static void Add(string input)

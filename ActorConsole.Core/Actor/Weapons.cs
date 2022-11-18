@@ -11,10 +11,7 @@
 
         public string? j_gun
         {
-            get
-            {
-                return _j_gun;
-            }
+            get => _j_gun;
             set
             {
                 _j_gun = value;

@@ -17,8 +17,8 @@ namespace ActorConsole.GUI.Views
             InitializeComponent();
         }
         // TODO: move to another file.
-        public static int SelectedActorIndex { get { return GlobalSelectedIndex; } }
-        public static Core.Actor.Actor SelectedActor { get { return Core.ActorManager.Actors[GlobalSelectedIndex]; } }
+        public static int SelectedActorIndex => GlobalSelectedIndex;
+        public static Core.Actor.Actor SelectedActor => Core.ActorManager.Actors[GlobalSelectedIndex];
         private static int GlobalSelectedIndex = -1;
         private void PrecacheButton_Click(object sender, RoutedEventArgs e)
         {

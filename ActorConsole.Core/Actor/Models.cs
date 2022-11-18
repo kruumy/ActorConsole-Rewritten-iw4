@@ -10,10 +10,7 @@
         private string _Head = Head_Default;
         public string Head
         {
-            get
-            {
-                return _Head;
-            }
+            get => _Head;
             set
             {
                 _Head = value;
@@ -23,10 +20,7 @@
         private string _Body = Body_Default;
         public string Body
         {
-            get
-            {
-                return _Body;
-            }
+            get => _Body;
             set
             {
                 _Body = value;

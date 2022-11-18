@@ -7,10 +7,7 @@
         private int _Speed;
         public int Speed
         {
-            get
-            {
-                return _Speed;
-            }
+            get => _Speed;
             set
             {
                 RemoveBind();
@@ -21,10 +18,7 @@
         private char _Key;
         public char Key
         {
-            get
-            {
-                return _Key;
-            }
+            get => _Key;
             set
             {
                 RemoveBind();
