@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ActorConsole.GUI.Views.ActorAttributes
 {
@@ -30,7 +19,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
                 WeaponsClassBrowser.Items.Clear();
-                foreach (var item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").EnumerateObject())
+                foreach (System.Text.Json.JsonProperty item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").EnumerateObject())
                     WeaponsClassBrowser.Items.Add(item.Name);
             }
             catch { }
@@ -41,7 +30,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
                 WeaponsTypeBrowser.Items.Clear();
-                foreach (var item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).EnumerateObject())
+                foreach (System.Text.Json.JsonProperty item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).EnumerateObject())
                     WeaponsTypeBrowser.Items.Add(item.Name);
             }
             catch { }
@@ -52,7 +41,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
                 WeaponsExactBrowser.Items.Clear();
-                foreach (var item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).GetProperty(WeaponsTypeBrowser.SelectedItem.ToString()).EnumerateArray())
+                foreach (System.Text.Json.JsonElement item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).GetProperty(WeaponsTypeBrowser.SelectedItem.ToString()).EnumerateArray())
                     WeaponsExactBrowser.Items.Add(item.GetString());
             }
             catch { }
@@ -68,14 +57,14 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             CamoBox.Items.Clear();
             CamoBox.Items.Add("None");
             CamoBox.SelectedIndex = 0;
-            foreach (var item in Core.Misc.Json.GunsWrapper.Camos)
+            foreach (string item in Core.Misc.Json.GunsWrapper.Camos)
                 CamoBox.Items.Add(item);
         }
 
         private void BoneBox_Initialized(object sender, EventArgs e)
         {
             BoneBox.Items.Clear();
-            foreach (var item in Core.Actor.Weapons.Bones)
+            foreach (string item in Core.Actor.Weapons.Bones)
                 BoneBox.Items.Add(item);
             BoneBox.SelectedIndex = 0;
         }

@@ -1,17 +1,9 @@
-﻿using ActorConsole.Core.Misc.Settings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-
-namespace ActorConsole.Core.Misc.Settings
+﻿namespace ActorConsole.Core.Misc.Settings
 {
     public class Settings
     {
-        private IniFile ini = new IniFile();
-        private string FileName = "settings.ini";
+        private readonly IniFile ini = new IniFile();
+        private readonly string FileName = "settings.ini";
         public Core.Precache? Precache = null;
         public string? Path_To_Precache
         {

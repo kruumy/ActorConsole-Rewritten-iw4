@@ -1,6 +1,4 @@
-﻿using ActorConsole.Core.Memory;
-
-namespace ActorConsole.Core
+﻿namespace ActorConsole.Core
 {
     public static class ActorManager
     {

@@ -1,7 +1,4 @@
-﻿using ActorConsole.Core.Memory;
-using System;
-
-namespace ActorConsole.Core
+﻿namespace ActorConsole.Core
 {
     public static class Presets
     {

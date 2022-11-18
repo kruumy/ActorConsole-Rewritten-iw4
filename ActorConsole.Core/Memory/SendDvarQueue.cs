@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace ActorConsole.Core.Memory
+﻿namespace ActorConsole.Core.Memory
 {
     public static class SendDvarQueue
     {
-        private static List<string> Queue = new List<string>();
+        private static readonly List<string> Queue = new List<string>();
         public static int Count
         {
             get

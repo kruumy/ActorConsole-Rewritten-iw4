@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ActorConsole.Core.Misc
+﻿namespace ActorConsole.Core.Misc
 {
     public static class KillStreak
     {

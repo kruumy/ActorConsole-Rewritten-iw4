@@ -2,7 +2,6 @@
 using AnotherExternalMemoryLibrary;
 using System.Diagnostics;
 using System.Text;
-using System.Threading;
 
 namespace ActorConsole.Core.Memory
 {
@@ -13,7 +12,7 @@ namespace ActorConsole.Core.Memory
             get
             {
                 Process[] ps = Process.GetProcesses();
-                foreach (var p in ps)
+                foreach (Process p in ps)
                 {
                     if (p.ProcessName == "iw4m" || p.ProcessName == "iw4x")
                     {

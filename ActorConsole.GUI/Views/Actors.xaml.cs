@@ -1,22 +1,8 @@
 ﻿using ActorConsole.Core.Actor;
-using ActorConsole.GUI.Classes;
 using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ActorConsole.GUI.Views
 {
@@ -59,7 +45,7 @@ namespace ActorConsole.GUI.Views
         private void RefreshDataGrid()
         {
             ActorsDataGrid.Items.Clear();
-            foreach (var actor in Core.ActorManager.Actors)
+            foreach (Actor actor in Core.ActorManager.Actors)
             {
                 ActorsDataGrid.Items.Add(actor);
             }
@@ -71,7 +57,7 @@ namespace ActorConsole.GUI.Views
             if (selectedIndex > -1)
             {
                 //TODO: Add filter to dialog
-                var actor = Core.ActorManager.Actors[selectedIndex];
+                Actor actor = Core.ActorManager.Actors[selectedIndex];
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Title = "Save Actor";
                 saveFileDialog.FileName = actor.Name;

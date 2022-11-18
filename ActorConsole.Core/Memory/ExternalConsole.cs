@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -107,13 +106,12 @@ public static class ExternalConsole
             cbuf_addtext_alloc = VirtualAllocEx(hProcess, IntPtr.Zero, (IntPtr)cbuf_addtext_wrapper.Length, AllocationType.Commit | AllocationType.Reserve, MemoryProtection.ExecuteReadWrite);
             byte[] commandbytes = Encoding.ASCII.GetBytes(command);
             IntPtr commandaddress = VirtualAllocEx(hProcess, IntPtr.Zero, (IntPtr)commandbytes.Length, AllocationType.Commit | AllocationType.Reserve, MemoryProtection.ExecuteReadWrite);
-            int lpNumberOfBytesWritten = 0;
             int lpNumberOfBytesWritten2 = commandbytes.Length;
             WriteProcessMemory(hProcess, commandaddress, commandbytes, commandbytes.Length, out lpNumberOfBytesWritten2);
             Array.Copy(BitConverter.GetBytes(commandaddress.ToInt64()), 0, cbuf_addtext_wrapper, 9, 4);
             Array.Copy(callbytes, 0, cbuf_addtext_wrapper, 16, 4);
-            WriteProcessMemory(hProcess, cbuf_addtext_alloc, cbuf_addtext_wrapper, cbuf_addtext_wrapper.Length, out lpNumberOfBytesWritten);
-            CreateRemoteThread(hProcess, IntPtr.Zero, 0u, cbuf_addtext_alloc, IntPtr.Zero, 0u, out var _);
+            WriteProcessMemory(hProcess, cbuf_addtext_alloc, cbuf_addtext_wrapper, cbuf_addtext_wrapper.Length, out int lpNumberOfBytesWritten);
+            CreateRemoteThread(hProcess, IntPtr.Zero, 0u, cbuf_addtext_alloc, IntPtr.Zero, 0u, out IntPtr _);
             if (cbuf_addtext_alloc != IntPtr.Zero && commandaddress != IntPtr.Zero)
             {
                 VirtualFreeEx(hProcess, cbuf_addtext_alloc, cbuf_addtext_wrapper.Length, FreeType.Release);
