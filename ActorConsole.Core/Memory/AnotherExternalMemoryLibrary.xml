@@ -70,5 +70,11 @@
             <param name="ModuleName">Module Name</param>
             <returns>Module BaseAddress</returns>
         </member>
+        <member name="M:AnotherExternalMemoryLibrary.ProcessEx.InjectDLL(System.String)">
+            <summary>
+            Simple DLL Injection
+            </summary>
+            <param name="dllPath">path to dll file</param>
+        </member>
     </members>
 </doc>
