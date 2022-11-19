@@ -23,7 +23,8 @@
                     x:Name="IdleAnimsBox"
                     d:ItemsSource="{d:SampleData ItemCount=5}" 
                     Loaded="IdleAnimsBox_Loaded" 
-                    MouseDoubleClick="IdleAnimsBox_MouseDoubleClick" MouseEnter="IdleAnimsBox_MouseEnter">
+                    MouseDoubleClick="IdleAnimsBox_MouseDoubleClick" 
+                    MouseEnter="IdleAnimsBox_MouseEnter">
                 </ListView>
 
             </TabItem>
@@ -33,10 +34,23 @@
                     x:Name="DeathAnimsBox"
                     d:ItemsSource="{d:SampleData ItemCount=5}" 
                     Loaded="DeathAnimsBox_Loaded"
-                    MouseDoubleClick="DeathAnimsBox_MouseDoubleClick" MouseEnter="DeathAnimsBox_MouseEnter">
+                    MouseDoubleClick="DeathAnimsBox_MouseDoubleClick"
+                    MouseEnter="DeathAnimsBox_MouseEnter">
                 </ListView>
 
             </TabItem>
+            <TabItem Header="SinglePlayer">
+
+                <ListView
+                    x:Name="SinglePlayerAnimsBox"
+                    d:ItemsSource="{d:SampleData ItemCount=5}" 
+                    Loaded="SinglePlayer_Loaded"
+                    MouseDoubleClick="SinglePlayer_MouseDoubleClick" 
+                    MouseEnter="SinglePlayer_MouseEnter">
+                </ListView>
+
+            </TabItem>
+
 
         </mah:MetroTabControl>
 

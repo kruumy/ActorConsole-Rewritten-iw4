@@ -73,5 +73,31 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             IdleAnimsBox_Loaded(null, null);
         }
+
+        private void SinglePlayer_Loaded(object sender, RoutedEventArgs e)
+        {
+            SinglePlayerAnimsBox.Items.Clear();
+            if (Classes.Objects.Settings.IsPrecacheSelected)
+            {
+                foreach (string anims in Classes.Objects.Precache.SP_Anims)
+                {
+                    SinglePlayerAnimsBox.Items.Add(anims);
+                }
+            }
+            else
+            {
+                SinglePlayerAnimsBox.Items.Add("No Precache Selected");
+            }
+        }
+
+        private void SinglePlayer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SinglePlayer_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SinglePlayer_Loaded(null, null);
+        }
     }
 }

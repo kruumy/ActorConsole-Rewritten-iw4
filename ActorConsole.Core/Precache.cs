@@ -16,7 +16,7 @@
         {
             Path = path_to_precache;
             RawText = File.ReadAllText(path_to_precache);
-            RawText_Lines = RawText.Split(';').Where(x => !x.StartsWith("//")).ToArray();
+            RawText_Lines = RawText.Split(';').Where(x => !x.Contains("//")).ToArray();
 
             MP_Anims = RawText.Split('"').Where(x => x.Contains("pb")).ToArray();
             MP_Anims_Idle = MP_Anims.Where(x => !x.Contains("death")).ToArray();
