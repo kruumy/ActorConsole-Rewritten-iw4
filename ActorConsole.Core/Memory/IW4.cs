@@ -1,6 +1,6 @@
 ﻿
 using AnotherExternalMemoryLibrary;
-using AnotherExternalMemoryLibrary.Extensions;
+using AnotherExternalMemoryLibrary.Core.Extensions;
 using System.Diagnostics;
 using System.Text;
 
