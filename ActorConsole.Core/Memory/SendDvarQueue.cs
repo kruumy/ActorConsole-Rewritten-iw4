@@ -1,4 +1,6 @@
-﻿namespace ActorConsole.Core.Memory
+﻿using AnotherExternalMemoryLibrary;
+
+namespace ActorConsole.Core.Memory
 {
     public static class SendDvarQueue
     {
@@ -20,7 +22,7 @@
             while (Queue.Count > 0)
             {
                 string dvar = Queue.First();
-                ExternalConsole.Send(dvar);
+                ExternalCall.Callx86(Core.Memory.IW4.mem.Handle, 4213536u, 0, dvar);
                 Queue.Remove(dvar);
                 System.Threading.Thread.Sleep(WaitTime);
             }

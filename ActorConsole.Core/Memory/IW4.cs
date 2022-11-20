@@ -66,7 +66,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string map = mem.Read<char>((PointerEx)Addresses.KeyValuePairs["Map"], 32).GetString();
+                    string map = mem.Read<byte>((PointerEx)Addresses.KeyValuePairs["Map"], 15).GetString();
                     if (map != string.Empty)
                         return map;
                     else
@@ -82,7 +82,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string name = mem.Read<char>((PointerEx)Addresses.KeyValuePairs["PlayerName"], 32).GetString();
+                    string name = mem.Read<byte>((PointerEx)Addresses.KeyValuePairs["PlayerName"], 20).GetString();
                     if (name != string.Empty)
                         return name;
                     else
