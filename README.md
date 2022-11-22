@@ -1,11 +1,11 @@
-# WIP
+# ActorConsole-Rewritten-iw4
 
 ```
 ActorConsole-Rewritten-iw4
 ├── ActorConsole.Core
-│   ├── WIP
-├── ActorConsole.CLI
-│   ├── WIP
+│   ├── Core Functionality.
 ├── ActorConsole.GUI
-│   ├── WIP
+│   ├── WPF Front-end.
+├── ActorConsole.CLI
+│   ├── For Testing.
 ```
