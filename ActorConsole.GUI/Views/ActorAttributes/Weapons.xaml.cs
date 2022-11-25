@@ -47,7 +47,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             catch { }
         }
 
-        private void WeaponsExactBrowser_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void WeaponsExactBrowser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedWeaponBox.Text = WeaponsExactBrowser.SelectedItem.ToString();
         }

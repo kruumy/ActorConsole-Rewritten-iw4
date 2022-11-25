@@ -40,19 +40,81 @@
 
             </TabItem>
             <TabItem Header="SinglePlayer">
-
-                <ListView
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <ListView
                     x:Name="SinglePlayerAnimsBox"
                     d:ItemsSource="{d:SampleData ItemCount=5}" 
                     Loaded="SinglePlayer_Loaded"
                     MouseDoubleClick="SinglePlayer_MouseDoubleClick" 
                     MouseEnter="SinglePlayer_MouseEnter">
-                </ListView>
+                    </ListView>
+                    <mah:ToggleSwitch
+                        x:Name="SPAnimSwitch"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Grid.Row="1"
+                        OnContent="Idle"
+                        OffContent="Death">
+                    </mah:ToggleSwitch>
+                </Grid>
+                
 
             </TabItem>
 
 
         </mah:MetroTabControl>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="0"/>
+            </Grid.RowDefinitions>
+            <TextBox
+                x:Name="IdleAnimTextBox"
+                Grid.Row="1"
+                Grid.Column="0"
+                Loaded="IdleAnimTextBox_Loaded"
+                Margin="3">
+            </TextBox>
+            <TextBox
+                x:Name="DeathAnimTextBox"
+                Grid.Row="2"
+                Grid.Column="0"
+                Loaded="DeathAnimTextBox_Loaded"
+                Margin="3">
+            </TextBox>
+            <Button
+                x:Name="applyidlebtn"
+                Grid.Row="1"
+                Grid.Column="2"
+                Margin="3"
+                Content="Apply Idle Anim"
+                Click="applyidlebtn_Click">
+            </Button>
+            <Button
+                x:Name="applydeathbtn"
+                Grid.Row="2"
+                Grid.Column="2"
+                Margin="3"
+                Content="Apply Death Anim"
+                Click="applydeathbtn_Click">
+            </Button>
+        </Grid>
+
 
 
 

@@ -27,7 +27,7 @@
                   Grid.Column="1">
         </ListView>
         <ListView x:Name="WeaponsExactBrowser" 
-                  MouseDoubleClick="WeaponsExactBrowser_MouseDoubleClick"
+                  SelectionChanged="WeaponsExactBrowser_SelectionChanged"
                   Grid.Column="2">
         </ListView>
         <Button x:Name="ApplyBtn" Grid.Column="2"
