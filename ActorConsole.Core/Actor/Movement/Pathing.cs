@@ -5,6 +5,7 @@
         internal string ActorName { get; set; }
         public int Speed { get; set; }
         private int LastNode = 1;
+        public int NodeCount => LastNode-1;
         public int CreateNode()
         {
             if (LastNode <= 13)

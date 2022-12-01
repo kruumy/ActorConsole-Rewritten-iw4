@@ -2,7 +2,7 @@
 {
     public class Settings
     {
-        private readonly IniFile ini = new IniFile();
+        private readonly IniFile ini = new();
         private readonly string FileName = "settings.ini";
         public Core.Precache? Precache = null;
         public string? Path_To_Precache

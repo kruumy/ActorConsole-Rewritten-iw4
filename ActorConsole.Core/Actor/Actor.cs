@@ -22,6 +22,8 @@
         public Anims Anims { get; private set; }
         public Models Models { get; private set; }
         public Weapons Weapons { get; private set; }
+        public bool IsMovement_Walking => Movement_Walking.Key != '\u0000';
+        public bool IsMovement_Pathing => Movement_Pathing.NodeCount > 0;
         public Movement.Walking Movement_Walking { get; private set; }
         public Movement.Pathing Movement_Pathing { get; private set; }
 

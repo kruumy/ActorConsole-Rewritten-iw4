@@ -83,14 +83,25 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Movement">
-                <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">
-                    <TabItem Header="Walking">
-                        <viewsAM:Walking></viewsAM:Walking>
-                    </TabItem>
-                    <TabItem Header="Pathing">
-                        <viewsAM:Pathing></viewsAM:Pathing>
-                    </TabItem>
-                </TabControl>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="115"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TabControl Grid.Column="1"  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">
+                        <TabItem Header="Walking">
+                            <viewsAM:Walking></viewsAM:Walking>
+                        </TabItem>
+                        <TabItem Header="Pathing">
+                            <viewsAM:Pathing></viewsAM:Pathing>
+                        </TabItem>
+                    </TabControl>
+                    <views:ActorBar Grid.Column="0"></views:ActorBar>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Other">
                 <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">
