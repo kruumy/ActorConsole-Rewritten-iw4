@@ -10,13 +10,13 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <mah:MetroTabControl Grid.Column="1" mah:HeaderedControlHelper.HeaderFontSize="15" mah:TabControlHelper.Underlined="SelectedTabItem">
+        <mah:MetroTabControl mah:HeaderedControlHelper.HeaderFontSize="15" mah:TabControlHelper.Underlined="SelectedTabItem">
             <TabItem Header="Idle">
 
                 <ListView
@@ -71,7 +71,7 @@
 
         </mah:MetroTabControl>
 
-        <Grid>
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="auto"/>

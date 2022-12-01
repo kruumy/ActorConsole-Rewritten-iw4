@@ -54,24 +54,37 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void IdleAnimsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if((string)IdleAnimsBox.SelectedItem != "No Precache Selected")
+            if ((string)IdleAnimsBox.SelectedItem != "No Precache Selected")
+            {
                 IdleAnimTextBox.Text = (string)IdleAnimsBox.SelectedItem;
+                applyidlebtn_Click(null, null);
+            }
+
         }
 
         private void DeathAnimsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if ((string)DeathAnimsBox.SelectedItem != "No Precache Selected")
+            {
                 DeathAnimTextBox.Text = (string)DeathAnimsBox.SelectedItem;
+                applydeathbtn_Click(null, null);
+            }
         }
 
         private void DeathAnimsBox_MouseEnter(object sender, MouseEventArgs e)
         {
-            DeathAnimsBox_Loaded(null, null);
+            if (!Classes.Objects.Settings.IsPrecacheSelected)
+            {
+                DeathAnimsBox_Loaded(null, null);
+            }
         }
 
         private void IdleAnimsBox_MouseEnter(object sender, MouseEventArgs e)
         {
-            IdleAnimsBox_Loaded(null, null);
+            if (!Classes.Objects.Settings.IsPrecacheSelected)
+            {
+                IdleAnimsBox_Loaded(null, null);
+            }
         }
 
         private void SinglePlayer_Loaded(object sender, RoutedEventArgs e)
@@ -95,15 +108,24 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             if ((string)SinglePlayerAnimsBox.SelectedItem != "No Precache Selected")
             {
                 if (SPAnimSwitch.IsOn)
+                {
                     IdleAnimTextBox.Text = (string)SinglePlayerAnimsBox.SelectedItem;
+                    applyidlebtn_Click(null, null);
+                }
                 else
+                {
                     DeathAnimTextBox.Text = (string)SinglePlayerAnimsBox.SelectedItem;
+                    applydeathbtn_Click(null, null);
+                }
             }
         }
 
         private void SinglePlayer_MouseEnter(object sender, MouseEventArgs e)
         {
-            SinglePlayer_Loaded(null, null);
+            if (!Classes.Objects.Settings.IsPrecacheSelected)
+            {
+                SinglePlayer_Loaded(null, null);
+            }
         }
 
         private void IdleAnimTextBox_Loaded(object sender, RoutedEventArgs e)

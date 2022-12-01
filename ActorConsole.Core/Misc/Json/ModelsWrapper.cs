@@ -25,7 +25,7 @@ namespace ActorConsole.Core.Misc.Json
                     }
             }
         }
-        public static string[]? Get(ModelType modelType)
+        public static string[]? GetByCurrentMap(ModelType modelType)
         {
             string? map = Memory.IW4.Map;
             if (map == null)
@@ -36,7 +36,7 @@ namespace ActorConsole.Core.Misc.Json
             if (map.StartsWith("mp_"))
                 map = map.Replace("mp_", string.Empty);
 
-            return (string[])Get(map, modelType).Deserialize(Array.Empty<string>().GetType());
+            return (string[]?)Get(map, modelType).Deserialize(Array.Empty<string>().GetType());
         }
     }
     public enum ModelType

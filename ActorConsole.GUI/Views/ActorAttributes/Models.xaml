@@ -11,14 +11,14 @@
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
 
-        <mah:MetroTabControl Grid.Column="1" mah:HeaderedControlHelper.HeaderFontSize="15" mah:TabControlHelper.Underlined="SelectedTabItem">
+        <mah:MetroTabControl mah:HeaderedControlHelper.HeaderFontSize="15" mah:TabControlHelper.Underlined="SelectedTabItem">
             <TabItem Header="Head">
 
                 <ListView
@@ -54,5 +54,49 @@
         </mah:MetroTabControl>
 
 
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="0"/>
+            </Grid.RowDefinitions>
+            <TextBox
+                x:Name="HeadModelTextBox"
+                Grid.Row="1"
+                Grid.Column="0"
+                Loaded="HeadModelTextBox_Loaded"
+                Margin="3">
+            </TextBox>
+            <TextBox
+                x:Name="BodyModelTextBox"
+                Grid.Row="2"
+                Grid.Column="0"
+                Loaded="BodyModelTextBox_Loaded"
+                Margin="3">
+            </TextBox>
+            <Button
+                x:Name="applyheadbtn"
+                Grid.Row="1"
+                Grid.Column="2"
+                Margin="3"
+                Content="Apply Head Model"
+                Click="applyheadbtn_Click">
+            </Button>
+            <Button
+                x:Name="applybodybtn"
+                Grid.Row="2"
+                Grid.Column="2"
+                Margin="3"
+                Content="Apply Body Model"
+                Click="applybodybtn_Click">
+            </Button>
+        </Grid>
+        
     </Grid>
 </UserControl>

@@ -13,8 +13,8 @@
         Title="ActorConsole" 
     Height="300" 
     Width="700" 
-    MinHeight="300" 
-    MinWidth="700" 
+    MinHeight="250" 
+    MinWidth="400" 
     Loaded="MetroWindow_Loaded">
 
     <mah:MetroWindow.LeftWindowCommands>
