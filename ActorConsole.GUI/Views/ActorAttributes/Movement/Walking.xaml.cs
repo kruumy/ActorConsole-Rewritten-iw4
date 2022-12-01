@@ -25,10 +25,13 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
         }
         private void AddBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ActorBar.SelectedActor.Movement_Walking.Key = (char)KeyBox.HotKey.Key;
-            if(SpeedBox.Value != null)
-                ActorBar.SelectedActor.Movement_Walking.Speed = (int)SpeedBox.Value; 
-            BindsDataGrid_Loaded(null, null);
+            if (ActorBar.SelectedActorIndex > -1)
+            {
+                ActorBar.SelectedActor.Movement_Walking.Key = (char)KeyBox.HotKey.Key;
+                if (SpeedBox.Value != null)
+                    ActorBar.SelectedActor.Movement_Walking.Speed = (int)SpeedBox.Value;
+                BindsDataGrid_Loaded(null, null);
+            }
         }
 
         private void RemoveBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
