@@ -26,28 +26,19 @@
                 CreateBind();
             }
         }
-        private string? Command
-        {
-            get
-            {
-                if (Speed != 0)
-                    return $"mvm_actor_walk {ActorName} {Speed}";
-                else
-                    return null;
-            }
-        }
+        private string Command => $"mvm_actor_walk {ActorName} {Speed}";
         public void Play()
         {
             Memory.IW4.SendDvar(Command);
         }
         private void CreateBind()
         {
-            if (Key != '\u0000' && Command != null)
+            if (Key != '\u0000')
                 Memory.IW4.SendDvar($"bind {Key} \"{Command}\"");
         }
         public void RemoveBind()
         {
-            if (Key != '\u0000' && Command != null)
+            if (Key != '\u0000')
                 Memory.IW4.SendDvar($"bind {Key} say");
         }
     }

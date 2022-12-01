@@ -11,7 +11,6 @@
             {
                 ActorsList.Add(new Actor.Actor());
             }
-
         }
         public static void Delete(int index)
         {

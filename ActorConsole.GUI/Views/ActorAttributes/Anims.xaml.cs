@@ -143,13 +143,13 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         private void applydeathbtn_Click(object sender, RoutedEventArgs e)
         {
             if (ActorBar.SelectedActorIndex > -1 && Classes.Objects.Settings.IsPrecacheSelected && !string.IsNullOrEmpty(IdleAnimTextBox.Text))
-                ActorBar.SelectedActor.Anims.Death = IdleAnimTextBox.Text;
+                ActorBar.SelectedActor.Anims.Death = DeathAnimTextBox.Text;
         }
 
         private void applyidlebtn_Click(object sender, RoutedEventArgs e)
         {
             if (ActorBar.SelectedActorIndex > -1 && Classes.Objects.Settings.IsPrecacheSelected && !string.IsNullOrEmpty(DeathAnimTextBox.Text))
-                ActorBar.SelectedActor.Anims.Idle = DeathAnimTextBox.Text;
+                ActorBar.SelectedActor.Anims.Idle = IdleAnimTextBox.Text;
         }
     }
 }

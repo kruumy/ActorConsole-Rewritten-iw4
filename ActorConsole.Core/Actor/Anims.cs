@@ -3,7 +3,6 @@
     public class Anims
     {
         internal string ActorName { get; set; }
-
         public const string Idle_Default = "pb_stand_alert";
         public const string Death_Default = "pb_stand_death_leg_kickup";
 
@@ -14,7 +13,7 @@
             set
             {
                 _Idle = value;
-                Refresh("idle");
+                Memory.IW4.SendDvar($"mvm_actor_anim {ActorName} {Idle}");
             }
         }
         private string _Death = Death_Default;
@@ -24,31 +23,8 @@
             set
             {
                 _Death = value;
-                Refresh("death");
+                Memory.IW4.SendDvar($"mvm_actor_death {ActorName} {Death}");
             }
         }
-        public void Refresh()
-        {
-            Memory.IW4.SendDvar($"mvm_actor_anim {ActorName} {Idle}");
-            Memory.IW4.SendDvar($"mvm_actor_death {ActorName} {Death}");
-        }
-        public void Refresh(string option)
-        {
-            switch (option.ToLower())
-            {
-                case "idle":
-                    {
-                        Memory.IW4.SendDvar($"mvm_actor_anim {ActorName} {Idle}");
-                        break;
-                    }
-                case "death":
-                    {
-                        Memory.IW4.SendDvar($"mvm_actor_death {ActorName} {Death}");
-                        break;
-                    }
-            }
-        }
-
-
     }
 }

@@ -31,7 +31,7 @@
 
         public Actor()
         {
-            SpawnDefault();
+            Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
             Anims = new Anims();
             Models = new Models();
             Weapons = new Weapons();
@@ -41,10 +41,6 @@
             Name = $"actor{Amount}";
 
             Amount++;
-        }
-        private void SpawnDefault()
-        {
-            Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
         }
         public void MoveToCurrentPostition()
         {
