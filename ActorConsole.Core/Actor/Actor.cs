@@ -26,9 +26,6 @@
         public bool IsMovement_Pathing => Movement_Pathing.NodeCount > 0;
         public Movement.Walking Movement_Walking { get; private set; }
         public Movement.Pathing Movement_Pathing { get; private set; }
-
-
-
         public Actor()
         {
             Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
@@ -46,7 +43,6 @@
         {
             Memory.IW4.SendDvar($"mvm_actor_move {Name}");
         }
-
         internal void Delete()
         {
             // TODO: delete all weapons on actor before deleting actor to not have floating weapon bug

@@ -25,15 +25,15 @@
                 <DataGridTextColumn Header="Name"
                                         Binding="{Binding Name}"
                                         Width="75"
-                                        IsReadOnly="False"/>
+                                        IsReadOnly="True"/>
                 <DataGridTextColumn Header="Speed"
                                         Binding="{Binding Movement_Walking.Speed}"
                                         Width="75"
-                                        IsReadOnly="False"/>
+                                        IsReadOnly="True"/>
                 <DataGridTextColumn Header="Key"
                                         Binding="{Binding Movement_Walking.Key}"
                                         Width="75"
-                                        IsReadOnly="False"/>
+                                        IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         
@@ -41,7 +41,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -62,21 +62,26 @@
             </Button>
             <Grid Grid.Column="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <mah:NumericUpDown 
                     x:Name="SpeedBox"
-                    Grid.Column="0">
+                    Grid.Column="1"
+                    Margin="3">
                 </mah:NumericUpDown>
-                <mah:HotKeyBox 
+                <TextBox
                     x:Name="KeyBox"
-                    Grid.Column="1">
+                    Grid.Column="0"
+                    Margin="3"
+                    Width="40"
+                    MaxLength="1"
+                    TextAlignment="Center">
                     
-                </mah:HotKeyBox>
+                </TextBox>
             </Grid>
         </Grid>
     </Grid>

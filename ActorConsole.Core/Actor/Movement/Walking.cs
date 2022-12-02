@@ -10,7 +10,6 @@
             get => _Speed;
             set
             {
-                RemoveBind();
                 _Speed = value;
                 CreateBind();
             }
@@ -21,7 +20,6 @@
             get => _Key;
             set
             {
-                RemoveBind();
                 _Key = value;
                 CreateBind();
             }
@@ -39,7 +37,11 @@
         public void RemoveBind()
         {
             if (Key != '\u0000')
+            {
                 Memory.IW4.SendDvar($"bind {Key} say");
+                Key = '\u0000';
+                Speed = 0;
+            }
         }
     }
 

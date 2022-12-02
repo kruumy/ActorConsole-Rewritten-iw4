@@ -14,14 +14,20 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
         }
         private void BindsDataGrid_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            BindsDataGrid.ItemsSource = Core.ActorManager.Actors;
-            // TODO: remove actors that arnt IsMovement_Walking
+            BindsDataGrid.Items.Clear();
+            foreach (Core.Actor.Actor actor in Core.ActorManager.Actors)
+            {
+                if (actor.IsMovement_Walking)
+                {
+                    BindsDataGrid.Items.Add(actor);
+                }
+            }
         }
         private void AddBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (ActorBar.SelectedActorIndex > -1)
             {
-                ActorBar.SelectedActor.Movement_Walking.Key = (char)KeyBox.HotKey.Key;
+                ActorBar.SelectedActor.Movement_Walking.Key = KeyBox.Text[0];
                 if (SpeedBox.Value != null)
                     ActorBar.SelectedActor.Movement_Walking.Speed = (int)SpeedBox.Value;
                 BindsDataGrid_Loaded(null, null);
@@ -30,7 +36,8 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
 
         private void RemoveBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-
+            ActorBar.SelectedActor.Movement_Walking.RemoveBind();
+            BindsDataGrid_Loaded(null, null);
         }
     }
 }
