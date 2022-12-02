@@ -57,5 +57,17 @@ namespace ActorConsole.GUI
             p.FileName = uri;
             Process.Start(p);
         }
+
+        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (Core.Memory.IW4.IsRunning)
+            {
+                MessageBoxResult result = MessageBox.Show("", "", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No);
+                if(result == MessageBoxResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
     }
 }
