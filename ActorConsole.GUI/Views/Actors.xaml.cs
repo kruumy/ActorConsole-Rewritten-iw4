@@ -16,16 +16,14 @@ namespace ActorConsole.GUI.Views
         {
             InitializeComponent();
         }
-
-        private void ActorsDataGrid_MouseEnter(object sender, MouseEventArgs e)
+        private void ActorsDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            RefreshDataGrid();
+            ActorsDataGrid.ItemsSource = Core.ActorManager.Actors;
         }
-
         private void AddActorButton_Click(object sender, RoutedEventArgs e)
         {
             Core.ActorManager.Add();
-            RefreshDataGrid();
+            ActorsDataGrid_Loaded(null, null);
         }
         private void RemoveActorButton_Click(object sender, RoutedEventArgs e)
         {
@@ -33,24 +31,14 @@ namespace ActorConsole.GUI.Views
             if (selectedIndex > -1)
             {
                 Core.ActorManager.Delete(selectedIndex);
-                RefreshDataGrid();
+                ActorsDataGrid_Loaded(null,null);
             }
         }
-
         private void MoveActorButton_Click(object sender, RoutedEventArgs e)
         {
             if (ActorsDataGrid.SelectedIndex > -1)
                 Core.ActorManager.Actors[ActorsDataGrid.SelectedIndex].MoveToCurrentPostition();
         }
-        private void RefreshDataGrid()
-        {
-            ActorsDataGrid.Items.Clear();
-            foreach (Actor actor in Core.ActorManager.Actors)
-            {
-                ActorsDataGrid.Items.Add(actor);
-            }
-        }
-
         private void SavePresetButton_Click(object sender, RoutedEventArgs e)
         {
             int selectedIndex = ActorsDataGrid.SelectedIndex;
@@ -72,7 +60,6 @@ namespace ActorConsole.GUI.Views
                 }
             }
         }
-
         private void LoadPresetButton_Click(object sender, RoutedEventArgs e)
         {
             if (Core.Memory.IW4.InGame)
@@ -89,15 +76,9 @@ namespace ActorConsole.GUI.Views
                 {
                     Core.Presets.Load(openFileDialog.FileName);
                 }
+                ActorsDataGrid_Loaded(null, null);
             }
 
         }
-
-        private void SpawnActorContextMenu_Click(object sender, RoutedEventArgs e)
-        {
-            AddActorButton_Click(null, null);
-        }
-
-
     }
 }

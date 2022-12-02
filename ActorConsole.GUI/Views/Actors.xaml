@@ -18,42 +18,35 @@
         <DataGrid 
                 x:Name="ActorsDataGrid" 
                 d:ItemsSource="{d:SampleData ItemCount=5}"
-                MouseEnter="ActorsDataGrid_MouseEnter" 
-                mah:DataGridHelper.CellPadding="5">
+                Loaded="ActorsDataGrid_Loaded"
+                mah:DataGridHelper.CellPadding="5"
+                AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name"
                                         Binding="{Binding Name}"
                                         Width="75"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
                 <DataGridTextColumn Header="Idle Anim"
                                         Binding="{Binding Anims.Idle}"
                                         Width="150"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
                 <DataGridTextColumn Header="Death Anim"
                                         Binding="{Binding Anims.Death}"
                                         Width="200"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
                 <DataGridTextColumn Header="Head Model"
                                         Binding="{Binding Models.Head}"
                                         Width="150"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
                 <DataGridTextColumn Header="Body Model"
                                         Binding="{Binding Models.Body}"
                                         Width="150"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
                 <DataGridTextColumn Header="j_gun"
                                         Binding="{Binding Weapons.j_gun}"
                                         Width="125"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
             </DataGrid.Columns>
-            <DataGrid.ContextMenu>
-                <ContextMenu>
-                    <MenuItem 
-                        x:Name="SpawnActorContextMenu" 
-                        Header="Spawn Actor" 
-                        Click="SpawnActorContextMenu_Click" />
-                </ContextMenu>
-            </DataGrid.ContextMenu>
         </DataGrid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

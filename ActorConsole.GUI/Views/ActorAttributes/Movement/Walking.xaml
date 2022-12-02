@@ -19,20 +19,21 @@
         <DataGrid 
                 x:Name="BindsDataGrid"
                 Loaded="BindsDataGrid_Loaded"
-                mah:DataGridHelper.CellPadding="5">
+                mah:DataGridHelper.CellPadding="5"
+                AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name"
                                         Binding="{Binding Name}"
                                         Width="75"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
                 <DataGridTextColumn Header="Speed"
                                         Binding="{Binding Movement_Walking.Speed}"
                                         Width="75"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
                 <DataGridTextColumn Header="Key"
                                         Binding="{Binding Movement_Walking.Key}"
                                         Width="75"
-                                        IsReadOnly="True"/>
+                                        IsReadOnly="False"/>
             </DataGrid.Columns>
         </DataGrid>
         

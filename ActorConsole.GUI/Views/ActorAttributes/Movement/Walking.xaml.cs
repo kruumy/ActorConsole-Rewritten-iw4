@@ -14,14 +14,8 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
         }
         private void BindsDataGrid_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            BindsDataGrid.Items.Clear();
-            foreach (Core.Actor.Actor actor in Core.ActorManager.Actors)
-            {
-                if (actor.IsMovement_Walking)
-                {
-                    BindsDataGrid.Items.Add(actor);
-                }
-            }
+            BindsDataGrid.ItemsSource = Core.ActorManager.Actors;
+            // TODO: remove actors that arnt IsMovement_Walking
         }
         private void AddBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {

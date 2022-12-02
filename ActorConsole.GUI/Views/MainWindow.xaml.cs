@@ -19,40 +19,40 @@ namespace ActorConsole.GUI
             ThemeManager.Current.ChangeTheme(this, $"Dark.{Classes.MetroColorTheme.GetRandomColorTheme()}");
 
             Classes.Startup.Execute();
-            Task.Run(StatusBarUpdatingLoop);
+            StatusBarUpdatingLoop();
         }
 
-        private void StatusBarUpdatingLoop()
+        private Task StatusBarUpdatingLoop()
         {
-            while (true)
+            return Task.Run(() =>
             {
-                try
-                {
-                    if (Core.Memory.IW4.IsRunning)
+                while (true)
+                    try
                     {
-                        string? map = Core.Memory.IW4.Map;
-                        Dispatcher.Invoke(() =>
+                        if (Core.Memory.IW4.IsRunning)
                         {
+                            string? map = Core.Memory.IW4.Map;
+                            Dispatcher.Invoke(() =>
+                            {
 
-                            DvarQueueLabel.Content = $"Dvar Queue = {Core.Memory.SendDvarQueue.Count}";
-                            if (map != null)
-                                MapLabel.Content = $"Map = {map}";
-                            else
-                                MapLabel.Content = $"Map = null";
-                        });
+                                DvarQueueLabel.Content = $"Dvar Queue = {Core.Memory.SendDvarQueue.Count}";
+                                if (map != null)
+                                    MapLabel.Content = $"Map = {map}";
+                                else
+                                    MapLabel.Content = $"Map = null";
+                            });
+                        }
+
+                        Classes.Startup.StatusBar_Update();
                     }
-
-                    Classes.Startup.StatusBar_Update();
-                }
-                catch { }
+                    catch { }
                 System.Threading.Thread.Sleep(1000);
-            }
+            });
         }
-
         private void LaunchGithubSiteButton_Click(object sender, RoutedEventArgs e)
         {
             string uri = "https://github.com/kruumy/ActorConsole-Rewritten-iw4";
-            ProcessStartInfo p = new ProcessStartInfo();
+            ProcessStartInfo p = new();
             p.UseShellExecute = true;
             p.FileName = uri;
             Process.Start(p);

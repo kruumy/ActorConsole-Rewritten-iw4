@@ -6,7 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ActorConsole.GUI.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="384" d:DesignWidth="115" Loaded="UserControl_Loaded">
+             d:DesignHeight="384" d:DesignWidth="115">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -24,9 +24,10 @@
             Grid.Row="0"
             x:Name="ActorSelectionComboBox"
             Margin="3" 
-            MouseEnter="ActorSelectionComboBox_MouseEnter" 
-            MouseLeave="ActorSelectionComboBox_MouseLeave"
-            />
+            Loaded="ActorSelectionComboBox_Loaded"
+            SelectionChanged="ActorSelectionComboBox_SelectionChanged"
+            DisplayMemberPath="Name">
+        </ComboBox>
 
 
         <Button 
@@ -40,13 +41,15 @@
             Grid.Row="2"
             Margin="3"
             x:Name="DeleteActorButton"
-            Content="Delete Actor" Click="DeleteActorButton_Click"
+            Content="Delete Actor" 
+            Click="DeleteActorButton_Click"
             />
         <Button 
             Grid.Row="3"
             Margin="3"
             x:Name="MoveActorButton"
-            Content="Move Actor" Click="MoveActorButton_Click"
+            Content="Move Actor" 
+            Click="MoveActorButton_Click"
             />
         <Button 
             Grid.Row="4"
@@ -54,6 +57,7 @@
             x:Name="PrecacheButton"
             Click="PrecacheButton_Click"
             ToolTip="No Precache Selected"
+            Loaded="PrecacheButton_Loaded"
             Content="Select Precache"
             />
 
