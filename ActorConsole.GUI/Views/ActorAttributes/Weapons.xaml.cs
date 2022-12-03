@@ -16,21 +16,20 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void WeaponsClassBrowser_Initialized(object sender, EventArgs e)
         {
+            WeaponsClassBrowser.Items.Clear();
             try
             {
-                WeaponsClassBrowser.Items.Clear();
                 foreach (System.Text.Json.JsonProperty item in GunsWrapper.RootElement.GetProperty("weapons").EnumerateObject())
                     WeaponsClassBrowser.Items.Add(item.Name);
-
             }
             catch { }
         }
 
         private void WeaponsClassBrowser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            WeaponsTypeBrowser.Items.Clear();
             try
             {
-                WeaponsTypeBrowser.Items.Clear();
                 foreach (System.Text.Json.JsonProperty item in GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).EnumerateObject())
                     WeaponsTypeBrowser.Items.Add(item.Name);
             }
@@ -39,9 +38,9 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void WeaponsTypeBrowser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            WeaponsExactBrowser.Items.Clear();
             try
             {
-                WeaponsExactBrowser.Items.Clear();
                 foreach (System.Text.Json.JsonElement item in GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).GetProperty(WeaponsTypeBrowser.SelectedItem.ToString()).EnumerateArray())
                     WeaponsExactBrowser.Items.Add(item.GetString());
             }
@@ -50,7 +49,11 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void WeaponsExactBrowser_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SelectedWeaponBox.Text = WeaponsExactBrowser.SelectedItem.ToString();
+            try
+            {
+                SelectedWeaponBox.Text = WeaponsExactBrowser.SelectedItem.ToString();
+            }
+            catch { }
         }
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
