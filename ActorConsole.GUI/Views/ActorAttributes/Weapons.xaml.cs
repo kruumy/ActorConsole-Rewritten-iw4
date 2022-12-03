@@ -52,24 +52,6 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             SelectedWeaponBox.Text = WeaponsExactBrowser.SelectedItem.ToString();
         }
-
-        private void CamoBox_Initialized(object sender, EventArgs e)
-        {
-            CamoBox.Items.Clear();
-            CamoBox.Items.Add("None");
-            CamoBox.SelectedIndex = 0;
-            foreach (string item in GunsWrapper.Camos)
-                CamoBox.Items.Add(item);
-        }
-
-        private void BoneBox_Initialized(object sender, EventArgs e)
-        {
-            BoneBox.Items.Clear();
-            foreach (string item in Core.Actor.Weapons.Bones)
-                BoneBox.Items.Add(item);
-            BoneBox.SelectedIndex = 0;
-        }
-
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
             if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame && SelectedWeaponBox.Text != string.Empty)

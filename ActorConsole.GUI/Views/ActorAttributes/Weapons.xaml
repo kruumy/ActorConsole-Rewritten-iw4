@@ -55,14 +55,31 @@
             <ComboBox 
                 x:Name="CamoBox"
                 Grid.Column="1"
-                Initialized="CamoBox_Initialized"
+                SelectedIndex="0"
                 Margin="3">
+                <ComboBoxItem>None</ComboBoxItem>
+                <ComboBoxItem>arctic</ComboBoxItem>
+                <ComboBoxItem>desert</ComboBoxItem>
+                <ComboBoxItem>woodland</ComboBoxItem>
+                <ComboBoxItem>digital</ComboBoxItem>
+                <ComboBoxItem>urban</ComboBoxItem>
+                <ComboBoxItem>red</ComboBoxItem>
+                <ComboBoxItem>blue</ComboBoxItem>
+                <ComboBoxItem>fall</ComboBoxItem>
+                <ComboBoxItem>gold</ComboBoxItem>
             </ComboBox>
             <ComboBox 
                 x:Name="BoneBox"
                 Grid.Column="0"
-                Initialized="BoneBox_Initialized"
-                Margin="3">
+                Margin="3"
+                SelectedIndex="0">
+                <ComboBoxItem>j_gun</ComboBoxItem>
+                <ComboBoxItem>tag_weapon_right</ComboBoxItem>
+                <ComboBoxItem>tag_weapon_left</ComboBoxItem>
+                <ComboBoxItem>tag_stowed_back</ComboBoxItem>
+                <ComboBoxItem>tag_inhand</ComboBoxItem>
+                <ComboBoxItem>tag_weapon_chest</ComboBoxItem>
+                <ComboBoxItem>tag_stowed_hip_rear</ComboBoxItem>
             </ComboBox>
         </Grid>
 

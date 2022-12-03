@@ -1,15 +1,4 @@
 {
-  "camos": [
-    "arctic",
-    "desert",
-    "woodland",
-    "digital",
-    "urban",
-    "red",
-    "blue",
-    "fall",
-    "gold"
-  ],
   "weapons": {
     "assault": {
       "ak47_mp": [

@@ -2,7 +2,6 @@
 using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace ActorConsole.GUI.Views
 {
@@ -31,7 +30,7 @@ namespace ActorConsole.GUI.Views
             if (selectedIndex > -1)
             {
                 Core.ActorManager.Delete(selectedIndex);
-                ActorsDataGrid_Loaded(null,null);
+                ActorsDataGrid_Loaded(null, null);
             }
         }
         private void MoveActorButton_Click(object sender, RoutedEventArgs e)

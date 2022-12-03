@@ -46,6 +46,30 @@
                                         Binding="{Binding Weapons.j_gun}"
                                         Width="125"
                                         IsReadOnly="False"/>
+                <DataGridTextColumn Header="tag_stowed_back"
+                                        Binding="{Binding Weapons.tag_stowed_back}"
+                                        Width="130"
+                                        IsReadOnly="False"/>
+                <DataGridTextColumn Header="tag_inhand"
+                                        Binding="{Binding Weapons.tag_inhand}"
+                                        Width="125"
+                                        IsReadOnly="False"/>
+                <DataGridTextColumn Header="tag_weapon_right"
+                                        Binding="{Binding Weapons.tag_weapon_right}"
+                                        Width="135"
+                                        IsReadOnly="False"/>
+                <DataGridTextColumn Header="tag_weapon_left"
+                                        Binding="{Binding Weapons.tag_weapon_left}"
+                                        Width="125"
+                                        IsReadOnly="False"/>
+                <DataGridTextColumn Header="tag_weapon_chest"
+                                        Binding="{Binding Weapons.tag_weapon_chest}"
+                                        Width="135"
+                                        IsReadOnly="False"/>
+                <DataGridTextColumn Header="tag_stowed_hip_rear"
+                                        Binding="{Binding Weapons.tag_stowed_hip_rear}"
+                                        Width="150"
+                                        IsReadOnly="False"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="1">
