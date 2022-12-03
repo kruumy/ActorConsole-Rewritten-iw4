@@ -64,8 +64,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
                 if (CamoBox.Text != "None")
                     Camo = CamoBox.Text;
                 Weapon = SelectedWeaponBox.Text;
-
-                switch (BoneBox.SelectedItem.ToString())
+                switch (BoneBox.Text)
                 {
                     case "j_gun":
                         {
