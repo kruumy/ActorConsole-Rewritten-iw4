@@ -69,6 +69,36 @@ namespace ActorConsole.GUI.Views.ActorAttributes
                             ActorBar.SelectedActor.Weapons.j_gun = $"{Weapon} {Camo}";
                             break;
                         }
+                    case "tag_inhand":
+                        {
+                            ActorBar.SelectedActor.Weapons.tag_inhand = $"{Weapon} {Camo}";
+                            break;
+                        }
+                    case "tag_stowed_back":
+                        {
+                            ActorBar.SelectedActor.Weapons.tag_stowed_back = $"{Weapon} {Camo}";
+                            break;
+                        }
+                    case "tag_stowed_hip_rear":
+                        {
+                            ActorBar.SelectedActor.Weapons.tag_stowed_hip_rear = $"{Weapon} {Camo}";
+                            break;
+                        }
+                    case "tag_weapon_chest":
+                        {
+                            ActorBar.SelectedActor.Weapons.tag_weapon_chest = $"{Weapon} {Camo}";
+                            break;
+                        }
+                    case "tag_weapon_left":
+                        {
+                            ActorBar.SelectedActor.Weapons.tag_weapon_left = $"{Weapon} {Camo}";
+                            break;
+                        }
+                    case "tag_weapon_right":
+                        {
+                            ActorBar.SelectedActor.Weapons.tag_weapon_right = $"{Weapon} {Camo}";
+                            break;
+                        }
                 }
             }
         }
