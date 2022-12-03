@@ -39,7 +39,6 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             HeadModelsBox.Items.Clear();
             try
             {
-
                 foreach (string models in ModelsWrapper.GetByCurrentMap(ModelType.Head))
                 {
                     HeadModelsBox.Items.Add(models);
