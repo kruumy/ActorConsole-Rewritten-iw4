@@ -99,6 +99,8 @@ namespace ActorConsole.GUI.Views.ActorAttributes
                             ActorBar.SelectedActor.Weapons.tag_weapon_right = $"{Weapon} {Camo}";
                             break;
                         }
+                    default:
+                        break;
                 }
             }
         }
