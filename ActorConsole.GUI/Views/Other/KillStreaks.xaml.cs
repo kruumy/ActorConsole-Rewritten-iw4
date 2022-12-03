@@ -16,7 +16,7 @@ namespace ActorConsole.GUI.Views.Other
         private void GiveKillStreakBtn_Click(object sender, RoutedEventArgs e)
         {
             if (KillStreakComboBox.SelectedIndex > -1)
-                Core.Misc.KillStreak.Give(KillStreakComboBox.Text);
+                Core.Other.Player.GiveKillstreak(KillStreakComboBox.Text);
         }
     }
 }

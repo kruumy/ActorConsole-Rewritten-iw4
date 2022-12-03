@@ -21,20 +21,7 @@
                 ini.Save(FileName);
             }
         }
-        public bool IsPrecacheSelected
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(Path_To_Precache))
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-        }
+        public bool IsPrecacheSelected => !string.IsNullOrEmpty(Path_To_Precache);
 
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace ActorConsole.Core.Misc
+﻿namespace ActorConsole.Core.Other
 {
     public static class Sun
     {

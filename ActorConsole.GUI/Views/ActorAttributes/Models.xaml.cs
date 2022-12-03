@@ -1,4 +1,4 @@
-﻿using ActorConsole.Core.Misc.Json;
+﻿using ActorConsole.Core.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;

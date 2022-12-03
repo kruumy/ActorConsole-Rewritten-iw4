@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ActorConsole.Core.Json;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ActorConsole.GUI.Views.ActorAttributes
@@ -18,8 +19,9 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
                 WeaponsClassBrowser.Items.Clear();
-                foreach (System.Text.Json.JsonProperty item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").EnumerateObject())
+                foreach (System.Text.Json.JsonProperty item in GunsWrapper.RootElement.GetProperty("weapons").EnumerateObject())
                     WeaponsClassBrowser.Items.Add(item.Name);
+
             }
             catch { }
         }
@@ -29,7 +31,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
                 WeaponsTypeBrowser.Items.Clear();
-                foreach (System.Text.Json.JsonProperty item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).EnumerateObject())
+                foreach (System.Text.Json.JsonProperty item in GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).EnumerateObject())
                     WeaponsTypeBrowser.Items.Add(item.Name);
             }
             catch { }
@@ -40,7 +42,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             try
             {
                 WeaponsExactBrowser.Items.Clear();
-                foreach (System.Text.Json.JsonElement item in Core.Misc.Json.GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).GetProperty(WeaponsTypeBrowser.SelectedItem.ToString()).EnumerateArray())
+                foreach (System.Text.Json.JsonElement item in GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).GetProperty(WeaponsTypeBrowser.SelectedItem.ToString()).EnumerateArray())
                     WeaponsExactBrowser.Items.Add(item.GetString());
             }
             catch { }
@@ -56,7 +58,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             CamoBox.Items.Clear();
             CamoBox.Items.Add("None");
             CamoBox.SelectedIndex = 0;
-            foreach (string item in Core.Misc.Json.GunsWrapper.Camos)
+            foreach (string item in GunsWrapper.Camos)
                 CamoBox.Items.Add(item);
         }
 

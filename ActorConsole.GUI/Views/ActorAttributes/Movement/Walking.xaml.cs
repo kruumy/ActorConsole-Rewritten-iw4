@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace ActorConsole.GUI.Views.ActorAttributes.Movement
 {
@@ -36,8 +35,11 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
 
         private void RemoveBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ActorBar.SelectedActor.Movement_Walking.RemoveBind();
-            BindsDataGrid_Loaded(null, null);
+            if (ActorBar.SelectedActorIndex > -1)
+            {
+                ActorBar.SelectedActor.Movement_Walking.RemoveBind();
+                BindsDataGrid_Loaded(null, null);
+            }
         }
     }
 }

@@ -14,10 +14,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Misc\Json\guns.json">
+		<None Update="Json\guns.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="Misc\Json\models.json">
+		<None Update="Json\models.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
