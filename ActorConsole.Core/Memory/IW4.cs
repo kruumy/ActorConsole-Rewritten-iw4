@@ -42,7 +42,7 @@ namespace ActorConsole.Core.Memory
                 {
                     try
                     {
-                        if (mem.Read<int>((PointerEx)Addresses.KeyValuePairs["InGame"]) == 0)
+                        if (mem.Read<int>(Addresses.InGame) == 0)
                             return false;
                         else
                             return true;
@@ -66,7 +66,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string map = mem.Read<byte>((PointerEx)Addresses.KeyValuePairs["Map"], 15).GetString(true);
+                    string map = mem.Read<byte>(Addresses.MapName, 15).GetString(true);
                     if (map != string.Empty)
                         return map;
                     else
@@ -82,7 +82,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string name = mem.Read<byte>((PointerEx)Addresses.KeyValuePairs["PlayerName"], 20).GetString(true);
+                    string name = mem.Read<byte>(Addresses.PlayerName, 20).GetString(true);
                     if (name != string.Empty)
                         return name;
                     else
@@ -99,7 +99,7 @@ namespace ActorConsole.Core.Memory
 
         public static void SendDvar(string text)
         {
-            if (ActorConsole.Core.Memory.IW4.IsRunning)
+            if (IsRunning)
             {
                 if (text.Contains('+'))
                 {
