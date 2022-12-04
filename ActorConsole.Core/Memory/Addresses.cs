@@ -4,9 +4,9 @@ namespace ActorConsole.Core.Memory
     internal static class Addresses
     {
         internal static RGBXYZ_POINTER Sun => new RGBXYZ_POINTER(0x0085B878, 0x0085B87C, 0x0085B880, 0x0085B884, 0x0085B888, 0x0085B88C);
-        internal static PointerEx MapName => IW4.mem.BaseAddress + 0x5EE27A0;
-        internal static PointerEx InGame => 0x7F0F88;
-        internal static PointerEx PlayerName => IW4.mem.BaseAddress + 0x427464;
+        internal static PointerEx MapName => IW4.Game.MainModule.BaseAddress + 0x5EE27A0;
+        internal static PointerEx IsInGame => 0x7F0F88;
+        internal static PointerEx PlayerName => IW4.Game.MainModule.BaseAddress + 0x427464;
         internal struct RGBXYZ_POINTER
         {
             public PointerEx Red;

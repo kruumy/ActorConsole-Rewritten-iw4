@@ -1,6 +1,4 @@
-﻿
-using AnotherExternalMemoryLibrary;
-using AnotherExternalMemoryLibrary.Core.Extensions;
+﻿using AnotherExternalMemoryLibrary.Extensions;
 using System.Diagnostics;
 using System.Text;
 
@@ -8,7 +6,7 @@ namespace ActorConsole.Core.Memory
 {
     public static class IW4
     {
-        private static Process? Game
+        public static Process? Game
         {
             get
             {
@@ -21,7 +19,6 @@ namespace ActorConsole.Core.Memory
                     }
                 }
                 return null;
-
             }
         }
         public static bool IsRunning
@@ -34,7 +31,7 @@ namespace ActorConsole.Core.Memory
                     return false;
             }
         }
-        public static bool InGame
+        public static bool IsInGame
         {
             get
             {
@@ -42,7 +39,7 @@ namespace ActorConsole.Core.Memory
                 {
                     try
                     {
-                        if (mem.Read<int>(Addresses.InGame) == 0)
+                        if (Game.Read<int>(Addresses.IsInGame) == 0)
                             return false;
                         else
                             return true;
@@ -66,7 +63,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string map = mem.Read<byte>(Addresses.MapName, 15).GetString(true);
+                    string map = Game.Read<byte>(Addresses.MapName, 15).GetString(true);
                     if (map != string.Empty)
                         return map;
                     else
@@ -82,7 +79,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string name = mem.Read<byte>(Addresses.PlayerName, 20).GetString(true);
+                    string name = Game.Read<byte>(Addresses.PlayerName, 20).GetString(true);
                     if (name != string.Empty)
                         return name;
                     else
@@ -92,9 +89,6 @@ namespace ActorConsole.Core.Memory
 
             }
         }
-
-        // TODO: handle for game closing and reopening creating a new instance
-        public static ProcessEx mem => new ProcessEx(Game);
 
 
         public static void SendDvar(string text)

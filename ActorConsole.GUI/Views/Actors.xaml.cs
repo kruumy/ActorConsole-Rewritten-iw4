@@ -61,7 +61,7 @@ namespace ActorConsole.GUI.Views
         }
         private void LoadPresetButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Core.Memory.IW4.InGame)
+            if (Core.Memory.IW4.IsInGame)
             {
                 //TODO: Add filter to dialog
                 OpenFileDialog openFileDialog = new();

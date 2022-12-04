@@ -116,13 +116,13 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void applybodybtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame)
+            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.IsInGame)
                 ActorBar.SelectedActor.Models.Body = BodyModelTextBox.Text;
         }
 
         private void applyheadbtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame)
+            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.IsInGame)
                 ActorBar.SelectedActor.Models.Head = HeadModelTextBox.Text;
         }
     }

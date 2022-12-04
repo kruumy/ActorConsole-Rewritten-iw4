@@ -63,7 +63,7 @@ namespace ActorConsole.GUI
             if (Core.Memory.IW4.IsRunning)
             {
                 MessageBoxResult result = MessageBox.Show("", "", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No);
-                if(result == MessageBoxResult.No)
+                if (result == MessageBoxResult.No)
                 {
                     e.Cancel = true;
                 }

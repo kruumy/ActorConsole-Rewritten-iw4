@@ -7,14 +7,14 @@
 
         public static void Add()
         {
-            if (Core.Memory.IW4.InGame)
+            if (Core.Memory.IW4.IsInGame)
             {
                 ActorsList.Add(new Actor.Actor());
             }
         }
         public static void Delete(int index)
         {
-            if (Core.Memory.IW4.InGame)
+            if (Core.Memory.IW4.IsInGame)
             {
                 ActorsList[index].Delete();
                 ActorsList.RemoveAt(index);

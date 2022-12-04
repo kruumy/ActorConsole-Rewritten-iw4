@@ -57,7 +57,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         }
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.InGame && SelectedWeaponBox.Text != string.Empty)
+            if (ActorBar.SelectedActorIndex > -1 && Core.Memory.IW4.IsInGame && SelectedWeaponBox.Text != string.Empty)
             {
                 string Camo = "";
                 string Weapon = "";
