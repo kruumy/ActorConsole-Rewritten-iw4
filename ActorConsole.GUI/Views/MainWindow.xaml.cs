@@ -1,6 +1,7 @@
 ﻿using ControlzEx.Theming;
 using MahApps.Metro.Controls;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows;
 namespace ActorConsole.GUI
 {
@@ -32,7 +33,7 @@ namespace ActorConsole.GUI
                     {
                         if (Core.Memory.IW4.IsRunning)
                         {
-                            string? map = Core.Memory.IW4.Map;
+                            string map = Core.Memory.IW4.Map;
                             Dispatcher.Invoke(() =>
                             {
 
@@ -53,7 +54,7 @@ namespace ActorConsole.GUI
         private void LaunchGithubSiteButton_Click(object sender, RoutedEventArgs e)
         {
             string uri = "https://github.com/kruumy/ActorConsole-Rewritten-iw4";
-            ProcessStartInfo p = new();
+            ProcessStartInfo p = new ProcessStartInfo();
             p.UseShellExecute = true;
             p.FileName = uri;
             Process.Start(p);

@@ -2,11 +2,11 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net7.0-windows</TargetFramework>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<Nullable>enable</Nullable>
+		<TargetFramework>net472</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
 		<UseWPF>true</UseWPF>
 		<Platforms>x86</Platforms>
+		<StartupObject>ActorConsole.GUI.App</StartupObject>
 	</PropertyGroup>
 
 	<ItemGroup>

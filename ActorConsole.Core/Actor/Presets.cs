@@ -1,4 +1,7 @@
-﻿namespace ActorConsole.Core.Actor
+﻿using System.IO;
+using System.Linq;
+
+namespace ActorConsole.Core.Actor
 {
     public static class Presets
     {
@@ -7,8 +10,10 @@
         /// </summary>
         public static void Save(Actor actor, string path)
         {
-            System.Text.Json.JsonSerializerOptions options = new();
-            options.WriteIndented = true;
+            System.Text.Json.JsonSerializerOptions options = new System.Text.Json.JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
             string ActorJson = System.Text.Json.JsonSerializer.Serialize(actor, options);
             File.WriteAllText(path, ActorJson);
         }

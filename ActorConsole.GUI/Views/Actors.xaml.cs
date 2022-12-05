@@ -53,7 +53,7 @@ namespace ActorConsole.GUI.Views
                 saveFileDialog.FileOk += SaveFileDialog_FileOk;
                 saveFileDialog.ShowDialog();
 
-                void SaveFileDialog_FileOk(object? sender, System.ComponentModel.CancelEventArgs e)
+                void SaveFileDialog_FileOk(object sender2, System.ComponentModel.CancelEventArgs e2)
                 {
                     Presets.Save(actor, saveFileDialog.FileName);
                 }
@@ -64,14 +64,14 @@ namespace ActorConsole.GUI.Views
             if (Core.Memory.IW4.IsInGame)
             {
                 //TODO: Add filter to dialog
-                OpenFileDialog openFileDialog = new();
+                OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.DefaultExt = ".json";
                 openFileDialog.Multiselect = false;
                 openFileDialog.RestoreDirectory = true;
                 openFileDialog.Title = "Select Actor";
                 openFileDialog.FileOk += OpenFileDialog_FileOk;
                 openFileDialog.ShowDialog();
-                void OpenFileDialog_FileOk(object? sender, System.ComponentModel.CancelEventArgs e)
+                void OpenFileDialog_FileOk(object sender2, System.ComponentModel.CancelEventArgs e2)
                 {
                     Presets.Load(openFileDialog.FileName);
                 }

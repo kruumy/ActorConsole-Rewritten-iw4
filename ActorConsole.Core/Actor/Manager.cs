@@ -1,8 +1,10 @@
-﻿namespace ActorConsole.Core.Actor
+﻿using System.Collections.Generic;
+
+namespace ActorConsole.Core.Actor
 {
     public static class Manager
     {
-        private static readonly List<Actor> ActorsList = new();
+        private static readonly List<Actor> ActorsList = new List<Actor>();
         public static Actor[] Actors => ActorsList.ToArray();
 
         public static void Add()

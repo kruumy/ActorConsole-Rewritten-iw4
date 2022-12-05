@@ -1,13 +1,14 @@
 ﻿using ActorConsole.Core.Player;
+using System.IO;
 
 namespace ActorConsole.Core.Misc.Settings
 {
     public class Settings
     {
-        private readonly IniFile ini = new();
+        private readonly IniFile ini = new IniFile();
         private readonly string FileName = "settings.ini";
-        public Precache? Precache = null;
-        public string? Path_To_Precache
+        public Precache Precache = null;
+        public string Path_To_Precache
         {
             get
             {
@@ -18,7 +19,7 @@ namespace ActorConsole.Core.Misc.Settings
             }
             set
             {
-                if (Precache != null)
+                if (value != null)
                 {
                     Precache = new Core.Player.Precache(value);
                     ini["options"]["Path_To_Precache"] = value;

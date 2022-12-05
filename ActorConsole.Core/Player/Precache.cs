@@ -1,4 +1,7 @@
-﻿namespace ActorConsole.Core.Player
+﻿using System.IO;
+using System.Linq;
+
+namespace ActorConsole.Core.Player
 {
     public class Precache
     {

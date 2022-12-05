@@ -6,7 +6,7 @@ namespace ActorConsole.Core.Memory
 {
     public static class IW4
     {
-        public static Process? Game
+        public static Process Game
         {
             get
             {
@@ -57,7 +57,7 @@ namespace ActorConsole.Core.Memory
 
             }
         }
-        public static string? Map
+        public static string Map
         {
             get
             {
@@ -73,7 +73,7 @@ namespace ActorConsole.Core.Memory
 
             }
         }
-        public static string? PlayerName
+        public static string PlayerName
         {
             get
             {
@@ -93,13 +93,13 @@ namespace ActorConsole.Core.Memory
         {
             if (IsRunning)
             {
-                if (text.Contains('+'))
+                if (text.Contains("+"))
                 {
                     text = text.Split('+')[0];
                 }
-                else if (text.Contains('-'))
+                else if (text.Contains("-"))
                 {
-                    text = text.Split("-")[0];
+                    text = text.Split('-')[0];
                 }
                 SendDvarQueue.Add(text);
             }

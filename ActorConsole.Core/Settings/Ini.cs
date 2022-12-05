@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 /*
  *
@@ -243,14 +246,16 @@ namespace ActorConsole.Core.Misc.Settings
 
         public void Save(string path, FileMode mode = FileMode.Create)
         {
-            using FileStream stream = new FileStream(path, mode, FileAccess.Write);
+            FileStream stream = new FileStream(path, mode, FileAccess.Write);
             Save(stream);
+            stream.Dispose();
         }
 
         public void Save(Stream stream)
         {
-            using StreamWriter writer = new StreamWriter(stream);
+            StreamWriter writer = new StreamWriter(stream);
             Save(writer);
+            writer.Dispose();
         }
 
         public void Save(StreamWriter writer)
@@ -271,14 +276,16 @@ namespace ActorConsole.Core.Misc.Settings
 
         public void Load(string path, bool ordered = false)
         {
-            using FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read);
+            FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read);
             Load(stream, ordered);
+            stream.Dispose();
         }
 
         public void Load(Stream stream, bool ordered = false)
         {
-            using StreamReader reader = new StreamReader(stream);
+            StreamReader reader = new StreamReader(stream);
             Load(reader, ordered);
+            reader.Dispose();
         }
 
         public void Load(StreamReader reader, bool ordered = false)
@@ -287,7 +294,7 @@ namespace ActorConsole.Core.Misc.Settings
 
             while (!reader.EndOfStream)
             {
-                string? line = reader.ReadLine();
+                string line = reader.ReadLine();
 
                 if (line != null)
                 {
@@ -455,10 +462,11 @@ namespace ActorConsole.Core.Misc.Settings
 
         public string GetContents()
         {
-            using MemoryStream stream = new MemoryStream();
+            MemoryStream stream = new MemoryStream();
             Save(stream);
             stream.Flush();
             StringBuilder builder = new StringBuilder(Encoding.UTF8.GetString(stream.ToArray()));
+            stream.Dispose();
             return builder.ToString();
         }
 
@@ -804,7 +812,20 @@ namespace ActorConsole.Core.Misc.Settings
         /// <summary>
         /// Returns this IniSection's collection of keys. If the IniSection is ordered, the keys will be returned in order.
         /// </summary>
-        public ICollection<string> Keys => Ordered ? orderedKeys : values.Keys;
+        public ICollection<string> Keys
+        {
+            get
+            {
+                if (Ordered)
+                {
+                    return orderedKeys;
+                }
+                else
+                {
+                    return values.Keys;
+                }
+            }
+        }
 
         public bool Remove(string key)
         {
@@ -921,7 +942,7 @@ namespace ActorConsole.Core.Misc.Settings
             }
             set
             {
-                if (Ordered && !orderedKeys.Contains(name, Comparer))
+                if (Ordered && !orderedKeys.Contains(name))
                 {
                     orderedKeys.Add(name);
                 }

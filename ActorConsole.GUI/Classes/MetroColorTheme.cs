@@ -1,26 +1,42 @@
-﻿namespace ActorConsole.GUI.Classes
+﻿using System;
+
+namespace ActorConsole.GUI.Classes
 {
     internal static class MetroColorTheme
     {
 
         public static string GetRandomColorTheme()
         {
-            return new Random().Next(0, 11) switch
+            switch (new Random().Next(0, 11))
             {
-                0 => "Red",
-                1 => "Green",
-                2 => "Teal",
-                3 => "Cyan",
-                4 => "Purple",
-                5 => "Orange",
-                6 => "Magenta",
-                7 => "Violet",
-                8 => "Brown",
-                9 => "Pink",
-                10 => "Lime",
-                11 => "Olive",
-                _ => "Orange",
-            };
+                case 0:
+                    return "Red";
+                case 1:
+                    return "Green";
+                case 2:
+                    return "Teal";
+                case 3:
+                    return "Cyan";
+                case 4:
+                    return "Purple";
+                case 5:
+                    return "Orange";
+                case 6:
+                    return "Magenta";
+                case 7:
+                    return "Violet";
+                case 8:
+                    return "Brown";
+                case 9:
+                    return "Pink";
+                case 10:
+                    return "Lime";
+                case 11:
+                    return "Olive";
+                default:
+                    return "Orange";
+            }
+
         }
 
 

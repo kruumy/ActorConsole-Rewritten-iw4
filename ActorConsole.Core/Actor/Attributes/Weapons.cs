@@ -3,13 +3,14 @@
     public class Weapons
     {
         internal string ActorName { get; set; }
-        private void ApplyGunToBone(string boneName, string? gunName)
+        private void ApplyGunToBone(string boneName, string gunName)
         {
-            gunName ??= "";
+            if (gunName == null)
+                gunName = "";
             Memory.IW4.SendDvar($"mvm_actor_weapon {ActorName} {boneName} {gunName}");
         }
-        private string? _j_gun = null;
-        public string? j_gun
+        private string _j_gun = null;
+        public string j_gun
         {
             get => _j_gun;
             set
@@ -18,8 +19,8 @@
                 ApplyGunToBone("j_gun", value);
             }
         }
-        private string? _tag_stowed_back = null;
-        public string? tag_stowed_back
+        private string _tag_stowed_back = null;
+        public string tag_stowed_back
         {
             get => _tag_stowed_back;
             set
@@ -28,8 +29,8 @@
                 ApplyGunToBone("tag_stowed_back", value);
             }
         }
-        private string? _tag_inhand = null;
-        public string? tag_inhand
+        private string _tag_inhand = null;
+        public string tag_inhand
         {
             get => _tag_inhand;
             set
@@ -38,8 +39,8 @@
                 ApplyGunToBone("tag_inhand", value);
             }
         }
-        private string? _tag_weapon_right = null;
-        public string? tag_weapon_right
+        private string _tag_weapon_right = null;
+        public string tag_weapon_right
         {
             get => _tag_weapon_right;
             set
@@ -48,8 +49,8 @@
                 ApplyGunToBone("tag_weapon_right", value);
             }
         }
-        private string? _tag_weapon_left = null;
-        public string? tag_weapon_left
+        private string _tag_weapon_left = null;
+        public string tag_weapon_left
         {
             get => _tag_weapon_left;
             set
@@ -58,8 +59,8 @@
                 ApplyGunToBone("tag_weapon_left", value);
             }
         }
-        private string? _tag_weapon_chest = null;
-        public string? tag_weapon_chest
+        private string _tag_weapon_chest = null;
+        public string tag_weapon_chest
         {
             get => _tag_weapon_chest;
             set
@@ -68,8 +69,8 @@
                 ApplyGunToBone("tag_weapon_chest", value);
             }
         }
-        private string? _tag_stowed_hip_rear = null;
-        public string? tag_stowed_hip_rear
+        private string _tag_stowed_hip_rear = null;
+        public string tag_stowed_hip_rear
         {
             get => _tag_stowed_hip_rear;
             set
