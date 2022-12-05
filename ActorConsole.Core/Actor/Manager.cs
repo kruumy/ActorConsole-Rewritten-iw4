@@ -23,6 +23,10 @@ namespace ActorConsole.Core.Actor
                 ActorsList.RemoveAt(index);
             }
         }
+        public static void Delete(string name)
+        {
+            Delete(Search(name));
+        }
 
         public static void ActorBack()
         {
@@ -32,12 +36,8 @@ namespace ActorConsole.Core.Actor
         public static int Search(string name)
         {
             for (int i = 0; i < ActorsList.Count; i++)
-            {
                 if (ActorsList[i].Name == name)
-                {
                     return i;
-                }
-            }
             return -1;
         }
         public static void ResetActorManager()
