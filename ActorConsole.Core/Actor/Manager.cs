@@ -39,7 +39,6 @@
         }
         public static void ResetActorManager()
         {
-
             ActorsList.Clear();
             Actor.Amount = 1;
         }

@@ -27,6 +27,7 @@ namespace ActorConsole.GUI
             return Task.Run(() =>
             {
                 while (true)
+                {
                     try
                     {
                         if (Core.Memory.IW4.IsRunning)
@@ -42,11 +43,11 @@ namespace ActorConsole.GUI
                                     MapLabel.Content = $"Map = null";
                             });
                         }
-
                         Classes.Startup.StatusBar_Update();
                     }
                     catch { }
-                System.Threading.Thread.Sleep(1000);
+                    System.Threading.Thread.Sleep(1000);
+                }
             });
         }
         private void LaunchGithubSiteButton_Click(object sender, RoutedEventArgs e)
