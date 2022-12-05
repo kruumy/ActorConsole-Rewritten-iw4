@@ -1,4 +1,6 @@
-﻿namespace ActorConsole.Core.Actor.Attributes
+﻿using System;
+
+namespace ActorConsole.Core.Actor.Attributes
 {
     public class Anims
     {
@@ -14,6 +16,7 @@
             {
                 _Idle = value;
                 Memory.IW4.SendDvar($"mvm_actor_anim {ActorName} {Idle}");
+                Manager.RaiseActorPropertyChanged(this, ActorName);
             }
         }
         private string _Death = Death_Default;
@@ -24,6 +27,7 @@
             {
                 _Death = value;
                 Memory.IW4.SendDvar($"mvm_actor_death {ActorName} {Death}");
+                Manager.RaiseActorPropertyChanged(this, ActorName);
             }
         }
     }

@@ -14,6 +14,7 @@
             {
                 _Head = value;
                 Memory.IW4.SendDvar($"mvm_actor_model {ActorName} {Body} {Head}");
+                Manager.RaiseActorPropertyChanged(this, ActorName);
             }
         }
         private string _Body = Body_Default;
@@ -24,6 +25,7 @@
             {
                 _Body = value;
                 Memory.IW4.SendDvar($"mvm_actor_model {ActorName} {Body} {Head}");
+                Manager.RaiseActorPropertyChanged(this, ActorName);
             }
         }
     }

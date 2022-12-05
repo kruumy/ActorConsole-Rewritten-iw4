@@ -13,6 +13,7 @@
             {
                 _Speed = value;
                 CreateBind();
+                Manager.RaiseActorPropertyChanged(this, ActorName);
             }
         }
         private char _Key;
@@ -23,6 +24,7 @@
             {
                 _Key = value;
                 CreateBind();
+                Manager.RaiseActorPropertyChanged(this, ActorName);
             }
         }
         private string Command => $"mvm_actor_walk {ActorName} {Speed}";
@@ -32,12 +34,12 @@
         }
         private void CreateBind()
         {
-            if (Key != '\u0000')
+            if (IsEnabled)
                 Memory.IW4.SendDvar($"bind {Key} \"{Command}\"");
         }
         public void RemoveBind()
         {
-            if (Key != '\u0000')
+            if (IsEnabled)
             {
                 Memory.IW4.SendDvar($"bind {Key} say");
                 Key = '\u0000';

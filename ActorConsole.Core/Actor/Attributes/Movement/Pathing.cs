@@ -4,8 +4,19 @@
     {
         internal string ActorName { get; set; }
         public bool IsEnabled => NodeCount > 0;
-        public int Speed { get; set; }
+        private int _Speed;
+        public int Speed 
+        { 
+            get => _Speed; 
+            set 
+            {
+                _Speed = value;
+                Manager.RaiseActorPropertyChanged(this, ActorName); 
+            } 
+        }
         private int NextNode = 1;
+        
+
         public int NodeCount => NextNode - 1;
         public int CreateNode()
         {

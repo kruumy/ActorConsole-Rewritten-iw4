@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ActorConsole.Core.Actor
 {
@@ -44,8 +45,8 @@ namespace ActorConsole.Core.Actor
             ActorsList.Clear();
             Actor.Amount = 1;
         }
-
-
+        public delegate void ActorPropertyChanged(object sender, string actorName);
+        public static event ActorPropertyChanged OnActorPropertyChanged;
+        internal static void RaiseActorPropertyChanged(object sender, string actorName) => OnActorPropertyChanged?.Invoke(sender,actorName);
     }
-
 }
