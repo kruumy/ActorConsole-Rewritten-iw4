@@ -18,25 +18,23 @@ namespace ActorConsole.Core.Actor
                 this.Anims.ActorName = value;
                 this.Models.ActorName = value;
                 this.Weapons.ActorName = value;
-                this.Movement_Walking.ActorName = value;
-                this.Movement_Pathing.ActorName = value;
+                this.Walking.ActorName = value;
+                this.Pathing.ActorName = value;
             }
         }
         public Anims Anims { get; private set; }
         public Models Models { get; private set; }
         public Weapons Weapons { get; private set; }
-        public bool IsMovement_Walking => Movement_Walking.Key != '\u0000';
-        public bool IsMovement_Pathing => Movement_Pathing.NodeCount > 0;
-        public Walking Movement_Walking { get; private set; }
-        public Pathing Movement_Pathing { get; private set; }
+        public Walking Walking { get; private set; }
+        public Pathing Pathing { get; private set; }
         public Actor()
         {
             Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
             Anims = new Anims();
             Models = new Models();
             Weapons = new Weapons();
-            Movement_Pathing = new Pathing();
-            Movement_Walking = new Walking();
+            Pathing = new Pathing();
+            Walking = new Walking();
 
             Name = $"actor{Amount}";
 
@@ -46,9 +44,15 @@ namespace ActorConsole.Core.Actor
         {
             Memory.IW4.SendDvar($"mvm_actor_move {Name}");
         }
-        internal void Delete()
+        public void Delete()
         {
-            // TODO: delete all weapons on actor before deleting actor to not have floating weapon bug
+            this.Weapons.j_gun = null;
+            this.Weapons.tag_inhand = null;
+            this.Weapons.tag_stowed_back = null;
+            this.Weapons.tag_stowed_hip_rear = null;
+            this.Weapons.tag_weapon_chest = null;
+            this.Weapons.tag_weapon_left = null;
+            this.Weapons.tag_weapon_right = null;
             Memory.IW4.SendDvar($"mvm_actor_delete {Name}");
         }
     }

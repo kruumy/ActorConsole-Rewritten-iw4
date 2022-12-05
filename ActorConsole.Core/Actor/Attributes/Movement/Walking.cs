@@ -4,6 +4,7 @@
     public class Walking
     {
         internal string ActorName { get; set; }
+        public bool IsEnabled => Key != '\u0000';
         private int _Speed;
         public int Speed
         {

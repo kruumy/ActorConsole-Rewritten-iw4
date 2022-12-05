@@ -16,7 +16,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
             BindsDataGrid.Items.Clear();
             foreach (Core.Actor.Actor actor in Core.Actor.Manager.Actors)
             {
-                if (actor.IsMovement_Walking)
+                if (actor.Walking.IsEnabled)
                 {
                     BindsDataGrid.Items.Add(actor);
                 }
@@ -26,9 +26,9 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
         {
             if (ActorBar.SelectedActorIndex > -1)
             {
-                ActorBar.SelectedActor.Movement_Walking.Key = KeyBox.Text[0];
+                ActorBar.SelectedActor.Walking.Key = KeyBox.Text[0];
                 if (SpeedBox.Value != null)
-                    ActorBar.SelectedActor.Movement_Walking.Speed = (int)SpeedBox.Value;
+                    ActorBar.SelectedActor.Walking.Speed = (int)SpeedBox.Value;
                 BindsDataGrid_Loaded(null, null);
             }
         }
@@ -37,7 +37,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
         {
             if (ActorBar.SelectedActorIndex > -1)
             {
-                ActorBar.SelectedActor.Movement_Walking.RemoveBind();
+                ActorBar.SelectedActor.Walking.RemoveBind();
                 BindsDataGrid_Loaded(null, null);
             }
         }
