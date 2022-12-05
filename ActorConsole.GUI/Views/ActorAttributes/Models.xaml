@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:ActorConsole.GUI.Views.ActorAttributes"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ActorConsole.GUI.Views.ActorAttributes.Models"
              mc:Ignorable="d" 
-             d:DesignHeight="384" d:DesignWidth="768">
+             d:DesignHeight="384" d:DesignWidth="768"
+    Initialized="UserControl_Initialized">
     <Grid>
 
         <Grid.ColumnDefinitions>

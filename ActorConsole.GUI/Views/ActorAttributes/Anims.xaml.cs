@@ -13,10 +13,15 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             InitializeComponent();
         }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        private void UserControl_Initialized(object sender, System.EventArgs e)
         {
+            ActorBar.OnSelectedActorChanged += ActorBar_OnSelectedActorChanged;
+        }
 
+        private void ActorBar_OnSelectedActorChanged(object sender, int index, Core.Actor.Actor actor)
+        {
+            IdleAnimTextBox_Loaded(null, null);
+            DeathAnimTextBox_Loaded(null, null);
         }
 
         private void IdleAnimsBox_Loaded(object sender, RoutedEventArgs e)

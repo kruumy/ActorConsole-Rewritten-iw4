@@ -14,6 +14,16 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             InitializeComponent();
         }
+        private void UserControl_Initialized(object sender, System.EventArgs e)
+        {
+            ActorBar.OnSelectedActorChanged += ActorBar_OnSelectedActorChanged;
+        }
+
+        private void ActorBar_OnSelectedActorChanged(object sender, int index, Core.Actor.Actor actor)
+        {
+            BodyModelTextBox_Loaded(null, null);
+            HeadModelTextBox_Loaded(null, null);
+        }
 
         private void BodyModelsBox_Loaded(object sender, RoutedEventArgs e)
         {

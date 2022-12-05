@@ -8,6 +8,10 @@ namespace ActorConsole.Core.Actor
         private static readonly List<Actor> ActorsList = new List<Actor>();
         public static Actor[] Actors => ActorsList.ToArray();
 
+        public delegate void ActorPropertyChanged(object sender, string actorName);
+        public static event ActorPropertyChanged OnActorPropertyChanged;
+        internal static void RaiseActorPropertyChanged(object sender, string actorName) => OnActorPropertyChanged?.Invoke(sender, actorName);
+
         public static void Add()
         {
             if (Memory.IW4.IsInGame)
@@ -45,8 +49,5 @@ namespace ActorConsole.Core.Actor
             ActorsList.Clear();
             Actor.Amount = 1;
         }
-        public delegate void ActorPropertyChanged(object sender, string actorName);
-        public static event ActorPropertyChanged OnActorPropertyChanged;
-        internal static void RaiseActorPropertyChanged(object sender, string actorName) => OnActorPropertyChanged?.Invoke(sender,actorName);
     }
 }

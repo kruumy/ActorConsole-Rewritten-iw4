@@ -1,5 +1,6 @@
 ﻿using ActorConsole.GUI.Classes;
 using Microsoft.Win32;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,6 +8,9 @@ namespace ActorConsole.GUI.Views
 {
     public partial class ActorBar : UserControl
     {
+
+        public delegate void SelectedActorChanged(object sender, int index, Core.Actor.Actor actor);
+        public static event SelectedActorChanged OnSelectedActorChanged;
         public static int SelectedActorIndex { get; private set; } = -1;
         public static Core.Actor.Actor SelectedActor => Core.Actor.Manager.Actors[SelectedActorIndex];
 
@@ -22,6 +26,7 @@ namespace ActorConsole.GUI.Views
         private void ActorSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedActorIndex = ActorSelectionComboBox.SelectedIndex;
+            OnSelectedActorChanged?.Invoke(this, SelectedActorIndex, SelectedActor);
         }
         private void CreateActorButton_Click(object sender, RoutedEventArgs e)
         {
