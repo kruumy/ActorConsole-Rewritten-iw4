@@ -14,7 +14,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes.Movement
         private void BindsDataGrid_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             BindsDataGrid.Items.Clear();
-            foreach (Core.Actor.Actor actor in Core.ActorManager.Actors)
+            foreach (Core.Actor.Actor actor in Core.Actor.Manager.Actors)
             {
                 if (actor.IsMovement_Walking)
                 {

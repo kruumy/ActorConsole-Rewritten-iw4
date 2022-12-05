@@ -17,7 +17,7 @@
         {
             if (!Core.Memory.IW4.IsInGame)
             {
-                Core.ActorManager.ResetActorManager();
+                Core.Actor.Manager.ResetActorManager();
             }
 
         }

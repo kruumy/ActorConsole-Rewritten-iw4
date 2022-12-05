@@ -1,20 +1,20 @@
-﻿namespace ActorConsole.Core
+﻿namespace ActorConsole.Core.Actor
 {
-    public static class ActorManager
+    public static class Manager
     {
-        private static readonly List<Actor.Actor> ActorsList = new();
-        public static Actor.Actor[] Actors => ActorsList.ToArray();
+        private static readonly List<Actor> ActorsList = new();
+        public static Actor[] Actors => ActorsList.ToArray();
 
         public static void Add()
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Memory.IW4.IsInGame)
             {
-                ActorsList.Add(new Actor.Actor());
+                ActorsList.Add(new Actor());
             }
         }
         public static void Delete(int index)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Memory.IW4.IsInGame)
             {
                 ActorsList[index].Delete();
                 ActorsList.RemoveAt(index);
@@ -41,7 +41,7 @@
         {
 
             ActorsList.Clear();
-            ActorConsole.Core.Actor.Actor.Amount = 1;
+            Actor.Amount = 1;
         }
 
 

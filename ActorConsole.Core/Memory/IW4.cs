@@ -89,8 +89,6 @@ namespace ActorConsole.Core.Memory
 
             }
         }
-
-
         public static void SendDvar(string text)
         {
             if (IsRunning)

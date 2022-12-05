@@ -1,4 +1,4 @@
-﻿namespace ActorConsole.Core.Actor.Movement
+﻿namespace ActorConsole.Core.Actor.Attributes.Movement
 {
 
     public class Walking

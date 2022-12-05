@@ -11,9 +11,7 @@ namespace ActorConsole.Core.Memory
         {
             Queue.Add(input);
             if (!IsRunning)
-            {
                 Task.Run(MainLoop);
-            }
         }
         private static void MainLoop()
         {
@@ -21,9 +19,9 @@ namespace ActorConsole.Core.Memory
             while (Queue.Count > 0)
             {
                 string dvar = Queue.First();
-                Core.Memory.IW4.Game.Call(4213536u, 0, dvar);
+                IW4.Game.Call(0x404B20u, 0, dvar);
                 Queue.Remove(dvar);
-                System.Threading.Thread.Sleep(WaitTime);
+                Thread.Sleep(WaitTime);
             }
             IsRunning = false;
         }

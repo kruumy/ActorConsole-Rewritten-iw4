@@ -1,4 +1,4 @@
-﻿namespace ActorConsole.Core
+﻿namespace ActorConsole.Core.Player
 {
     public class Precache
     {
@@ -32,7 +32,4 @@
             SP_Models = RawText_Lines;
         }
     }
-
-
-
 }

@@ -1,4 +1,4 @@
-﻿namespace ActorConsole.Core.Actor
+﻿namespace ActorConsole.Core.Actor.Attributes
 {
     public class Anims
     {

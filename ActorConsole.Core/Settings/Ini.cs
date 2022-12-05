@@ -228,7 +228,7 @@ namespace ActorConsole.Core.Misc.Settings
         private readonly Dictionary<string, IniSection> sections;
         public IEqualityComparer<string> StringComparer;
 
-        public bool SaveEmptySections;
+        public bool SaveEmptySections = false;
 
         public IniFile()
             : this(DefaultComparer)

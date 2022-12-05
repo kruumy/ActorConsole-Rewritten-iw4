@@ -7,7 +7,7 @@ namespace ActorConsole.GUI.Views
 {
     /// <summary>
     /// Interaction logic for Actors.xaml
-    /// TODO: Data bind ItemSource to Core.ActorManager.Actors
+    /// TODO: Data bind ItemSource to Core.Manager.Actors
     /// </summary>
     public partial class Actors : UserControl
     {
@@ -17,11 +17,11 @@ namespace ActorConsole.GUI.Views
         }
         private void ActorsDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            ActorsDataGrid.ItemsSource = Core.ActorManager.Actors;
+            ActorsDataGrid.ItemsSource = Core.Actor.Manager.Actors;
         }
         private void AddActorButton_Click(object sender, RoutedEventArgs e)
         {
-            Core.ActorManager.Add();
+            Core.Actor.Manager.Add();
             ActorsDataGrid_Loaded(null, null);
         }
         private void RemoveActorButton_Click(object sender, RoutedEventArgs e)
@@ -29,14 +29,14 @@ namespace ActorConsole.GUI.Views
             int selectedIndex = ActorsDataGrid.SelectedIndex;
             if (selectedIndex > -1)
             {
-                Core.ActorManager.Delete(selectedIndex);
+                Core.Actor.Manager.Delete(selectedIndex);
                 ActorsDataGrid_Loaded(null, null);
             }
         }
         private void MoveActorButton_Click(object sender, RoutedEventArgs e)
         {
             if (ActorsDataGrid.SelectedIndex > -1)
-                Core.ActorManager.Actors[ActorsDataGrid.SelectedIndex].MoveToCurrentPostition();
+                Core.Actor.Manager.Actors[ActorsDataGrid.SelectedIndex].MoveToCurrentPostition();
         }
         private void SavePresetButton_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@ namespace ActorConsole.GUI.Views
             if (selectedIndex > -1)
             {
                 //TODO: Add filter to dialog
-                Actor actor = Core.ActorManager.Actors[selectedIndex];
+                Actor actor = Core.Actor.Manager.Actors[selectedIndex];
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Title = "Save Actor";
                 saveFileDialog.FileName = actor.Name;
@@ -55,7 +55,7 @@ namespace ActorConsole.GUI.Views
 
                 void SaveFileDialog_FileOk(object? sender, System.ComponentModel.CancelEventArgs e)
                 {
-                    Core.Presets.Save(actor, saveFileDialog.FileName);
+                    Presets.Save(actor, saveFileDialog.FileName);
                 }
             }
         }
@@ -73,7 +73,7 @@ namespace ActorConsole.GUI.Views
                 openFileDialog.ShowDialog();
                 void OpenFileDialog_FileOk(object? sender, System.ComponentModel.CancelEventArgs e)
                 {
-                    Core.Presets.Load(openFileDialog.FileName);
+                    Presets.Load(openFileDialog.FileName);
                 }
                 ActorsDataGrid_Loaded(null, null);
             }

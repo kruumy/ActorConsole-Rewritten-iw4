@@ -8,7 +8,7 @@ namespace ActorConsole.GUI.Views
     public partial class ActorBar : UserControl
     {
         public static int SelectedActorIndex { get; private set; } = -1;
-        public static Core.Actor.Actor SelectedActor => Core.ActorManager.Actors[SelectedActorIndex];
+        public static Core.Actor.Actor SelectedActor => Core.Actor.Manager.Actors[SelectedActorIndex];
 
         public ActorBar()
         {
@@ -16,7 +16,7 @@ namespace ActorConsole.GUI.Views
         }
         private void ActorSelectionComboBox_Loaded(object sender, RoutedEventArgs e)
         {
-            ActorSelectionComboBox.ItemsSource = Core.ActorManager.Actors;
+            ActorSelectionComboBox.ItemsSource = Core.Actor.Manager.Actors;
             ActorSelectionComboBox.SelectedIndex = SelectedActorIndex;
         }
         private void ActorSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -25,7 +25,7 @@ namespace ActorConsole.GUI.Views
         }
         private void CreateActorButton_Click(object sender, RoutedEventArgs e)
         {
-            Core.ActorManager.Add();
+            Core.Actor.Manager.Add();
             ActorSelectionComboBox.SelectedIndex = ActorSelectionComboBox.Items.Count;
             ActorSelectionComboBox_Loaded(null, null);
         }
@@ -34,7 +34,7 @@ namespace ActorConsole.GUI.Views
             if (ActorSelectionComboBox.SelectedIndex > -1)
             {
                 int selectedIndex = ActorSelectionComboBox.SelectedIndex;
-                Core.ActorManager.Delete(selectedIndex);
+                Core.Actor.Manager.Delete(selectedIndex);
                 if (selectedIndex > 0)
                     ActorSelectionComboBox.SelectedIndex = selectedIndex - 1;
                 else
@@ -45,7 +45,7 @@ namespace ActorConsole.GUI.Views
         private void MoveActorButton_Click(object sender, RoutedEventArgs e)
         {
             if (ActorSelectionComboBox.SelectedIndex > -1)
-                Core.ActorManager.Actors[ActorSelectionComboBox.SelectedIndex].MoveToCurrentPostition();
+                Core.Actor.Manager.Actors[ActorSelectionComboBox.SelectedIndex].MoveToCurrentPostition();
         }
         private void PrecacheButton_Loaded(object sender, RoutedEventArgs e)
         {

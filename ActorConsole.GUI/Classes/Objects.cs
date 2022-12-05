@@ -1,8 +1,10 @@
-﻿namespace ActorConsole.GUI.Classes
+﻿using ActorConsole.Core.Player;
+
+namespace ActorConsole.GUI.Classes
 {
     internal static class Objects
     {
-        public static Core.Precache? Precache => Settings.Precache;
+        public static Precache? Precache => Settings.Precache;
         public static Core.Misc.Settings.Settings? Settings;
     }
 }

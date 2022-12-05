@@ -1,6 +1,6 @@
 ﻿using AnotherExternalMemoryLibrary.Extensions;
 
-namespace ActorConsole.Core.Other
+namespace ActorConsole.Core.World
 {
     public static class Sun
     {
@@ -32,7 +32,7 @@ namespace ActorConsole.Core.Other
         public static float Z
         {
             get => Memory.IW4.Game.Read<float>(Memory.Addresses.Sun.Z);
-            set => Memory.IW4.Game.Write<float>(Memory.Addresses.Sun.Z, value);
+            set => Memory.IW4.Game.Write(Memory.Addresses.Sun.Z, value);
         }
     }
 

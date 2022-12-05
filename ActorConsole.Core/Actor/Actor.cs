@@ -1,4 +1,7 @@
-﻿namespace ActorConsole.Core.Actor
+﻿using ActorConsole.Core.Actor.Attributes;
+using ActorConsole.Core.Actor.Attributes.Movement;
+
+namespace ActorConsole.Core.Actor
 {
     public class Actor
     {
@@ -24,16 +27,16 @@
         public Weapons Weapons { get; private set; }
         public bool IsMovement_Walking => Movement_Walking.Key != '\u0000';
         public bool IsMovement_Pathing => Movement_Pathing.NodeCount > 0;
-        public Movement.Walking Movement_Walking { get; private set; }
-        public Movement.Pathing Movement_Pathing { get; private set; }
+        public Walking Movement_Walking { get; private set; }
+        public Pathing Movement_Pathing { get; private set; }
         public Actor()
         {
             Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
             Anims = new Anims();
             Models = new Models();
             Weapons = new Weapons();
-            Movement_Pathing = new Movement.Pathing();
-            Movement_Walking = new Movement.Walking();
+            Movement_Pathing = new Pathing();
+            Movement_Walking = new Walking();
 
             Name = $"actor{Amount}";
 

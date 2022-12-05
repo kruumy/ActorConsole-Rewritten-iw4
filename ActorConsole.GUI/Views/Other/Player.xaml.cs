@@ -27,7 +27,7 @@ namespace ActorConsole.GUI.Views.Other
             else
                 team = "axis";
 
-            Core.Other.Player.SetModel((string)((ListViewItem)ModelsBox.SelectedValue).Content, team, PlayerNameBox.Text);
+            Core.Player.Model.SetModel((string)((ListViewItem)ModelsBox.SelectedValue).Content, team, PlayerNameBox.Text);
         }
     }
 }
