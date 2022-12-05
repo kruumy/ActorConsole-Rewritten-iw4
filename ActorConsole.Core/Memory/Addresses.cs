@@ -7,6 +7,7 @@ namespace ActorConsole.Core.Memory
         internal static PointerEx MapName => IW4.Game.MainModule.BaseAddress + 0x5EE27A0;
         internal static PointerEx IsInGame => 0x7F0F88;
         internal static PointerEx PlayerName => IW4.Game.MainModule.BaseAddress + 0x427464;
+        internal static PointerEx Cbuf_AddText => 0x404B20u;
         internal struct RGBXYZ_POINTER
         {
             public PointerEx Red;

@@ -19,7 +19,7 @@ namespace ActorConsole.Core.Memory
             while (Queue.Count > 0)
             {
                 string dvar = Queue.First();
-                IW4.Game.Call(0x404B20u, 0, dvar);
+                IW4.Game.Call(Addresses.Cbuf_AddText, 0, dvar);
                 Queue.Remove(dvar);
                 Thread.Sleep(WaitTime);
             }
