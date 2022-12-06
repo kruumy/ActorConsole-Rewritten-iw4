@@ -1,8 +1,7 @@
 ﻿namespace ActorConsole.Core.Actor.Attributes
 {
-    public class Weapons
+    public class Weapons : Attribute
     {
-        internal string ActorName { get; set; }
         private void ApplyGunToBone(string boneName, string gunName)
         {
             if (gunName == null)
@@ -17,7 +16,7 @@
             {
                 _j_gun = value;
                 ApplyGunToBone("j_gun", value);
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private string _tag_stowed_back = null;
@@ -28,7 +27,7 @@
             {
                 _tag_stowed_back = value;
                 ApplyGunToBone("tag_stowed_back", value);
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private string _tag_inhand = null;
@@ -39,7 +38,7 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_inhand", value);
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private string _tag_weapon_right = null;
@@ -50,7 +49,7 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_weapon_right", value);
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private string _tag_weapon_left = null;
@@ -61,7 +60,7 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_weapon_left", value);
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private string _tag_weapon_chest = null;
@@ -72,7 +71,7 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_weapon_chest", value);
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private string _tag_stowed_hip_rear = null;
@@ -83,7 +82,7 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_stowed_hip_rear", value);
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
     }

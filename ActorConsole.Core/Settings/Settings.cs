@@ -28,8 +28,6 @@ namespace ActorConsole.Core.Misc.Settings
             }
         }
         public bool IsPrecacheSelected => !string.IsNullOrEmpty(Path_To_Precache);
-
-
         /// <summary>
         /// Loads from settings.ini file or creates one if not.
         /// </summary>
@@ -39,8 +37,6 @@ namespace ActorConsole.Core.Misc.Settings
                 CreateDefault();
             Load();
         }
-
-
         private void Load()
         {
             ini.Load(FileName);

@@ -8,9 +8,9 @@ namespace ActorConsole.Core.Actor
         private static readonly List<Actor> ActorsList = new List<Actor>();
         public static Actor[] Actors => ActorsList.ToArray();
 
-        public delegate void ActorPropertyChanged(object sender, string actorName);
+        public delegate void ActorPropertyChanged(object sender);
         public static event ActorPropertyChanged OnActorPropertyChanged;
-        internal static void RaiseActorPropertyChanged(object sender, string actorName) => OnActorPropertyChanged?.Invoke(sender, actorName);
+        internal static void RaiseActorPropertyChanged(object sender) => OnActorPropertyChanged?.Invoke(sender);
 
         public static void Add()
         {

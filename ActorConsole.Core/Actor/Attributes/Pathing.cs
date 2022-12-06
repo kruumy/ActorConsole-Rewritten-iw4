@@ -1,8 +1,7 @@
 ﻿namespace ActorConsole.Core.Actor.Attributes
 {
-    public class Pathing
+    public class Pathing : Attribute
     {
-        internal string ActorName { get; set; }
         public bool IsEnabled => NodeCount > 0;
         private int _Speed;
         public int Speed
@@ -11,7 +10,7 @@
             set
             {
                 _Speed = value;
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private int NextNode = 1;

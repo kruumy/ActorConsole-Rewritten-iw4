@@ -19,7 +19,7 @@ namespace ActorConsole.Core.Actor
                 this.Weapons.ActorName = value;
                 this.Walking.ActorName = value;
                 this.Pathing.ActorName = value;
-                Manager.RaiseActorPropertyChanged(this, value);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         public Anims Anims { get; private set; }

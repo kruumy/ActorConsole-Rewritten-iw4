@@ -1,9 +1,8 @@
 ﻿namespace ActorConsole.Core.Actor.Attributes
 {
 
-    public class Walking
+    public class Walking : Attribute
     {
-        internal string ActorName { get; set; }
         public bool IsEnabled => Key != '\u0000';
         private int _Speed;
         public int Speed
@@ -13,7 +12,7 @@
             {
                 _Speed = value;
                 CreateBind();
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private char _Key;
@@ -24,7 +23,7 @@
             {
                 _Key = value;
                 CreateBind();
-                Manager.RaiseActorPropertyChanged(this, ActorName);
+                Manager.RaiseActorPropertyChanged(this);
             }
         }
         private string Command => $"mvm_actor_walk {ActorName} {Speed}";
