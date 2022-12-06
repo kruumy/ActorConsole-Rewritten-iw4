@@ -2,8 +2,10 @@
 
 namespace ActorConsole.Core.Actor.Attributes
 {
-    public class Anims : Attribute
+    public sealed class Anims : Attribute
     {
+        public Anims(Actor _ParentActor) : base(_ParentActor) { }
+
         public const string Idle_Default = "pb_stand_alert";
         public const string Death_Default = "pb_stand_death_leg_kickup";
 
@@ -14,7 +16,7 @@ namespace ActorConsole.Core.Actor.Attributes
             set
             {
                 _Idle = value;
-                Memory.IW4.SendDvar($"mvm_actor_anim {ActorName} {Idle}");
+                Memory.IW4.SendDvar($"mvm_actor_anim {ParentActor.Name} {Idle}");
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
@@ -25,7 +27,7 @@ namespace ActorConsole.Core.Actor.Attributes
             set
             {
                 _Death = value;
-                Memory.IW4.SendDvar($"mvm_actor_death {ActorName} {Death}");
+                Memory.IW4.SendDvar($"mvm_actor_death {ParentActor.Name} {Death}");
                 Manager.RaiseActorPropertyChanged(this);
             }
         }

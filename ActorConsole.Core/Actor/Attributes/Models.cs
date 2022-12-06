@@ -1,7 +1,9 @@
 ﻿namespace ActorConsole.Core.Actor.Attributes
 {
-    public class Models : Attribute
+    public sealed class Models : Attribute
     {
+        public Models(Actor _ParentActor) : base(_ParentActor) { }
+
         public const string Head_Default = "defaultactor";
         public const string Body_Default = "defaultactor";
 
@@ -12,7 +14,7 @@
             set
             {
                 _Head = value;
-                Memory.IW4.SendDvar($"mvm_actor_model {ActorName} {Body} {Head}");
+                Memory.IW4.SendDvar($"mvm_actor_model {ParentActor.Name} {Body} {Head}");
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
@@ -23,7 +25,7 @@
             set
             {
                 _Body = value;
-                Memory.IW4.SendDvar($"mvm_actor_model {ActorName} {Body} {Head}");
+                Memory.IW4.SendDvar($"mvm_actor_model {ParentActor.Name} {Body} {Head}");
                 Manager.RaiseActorPropertyChanged(this);
             }
         }

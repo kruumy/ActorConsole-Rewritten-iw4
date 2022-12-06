@@ -1,8 +1,9 @@
 ﻿namespace ActorConsole.Core.Actor.Attributes
 {
 
-    public class Walking : Attribute
+    public sealed class Walking : Attribute
     {
+        public Walking(Actor _ParentActor) : base(_ParentActor) { }
         public bool IsEnabled => Key != '\u0000';
         private int _Speed;
         public int Speed
@@ -26,7 +27,7 @@
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
-        private string Command => $"mvm_actor_walk {ActorName} {Speed}";
+        private string Command => $"mvm_actor_walk {ParentActor.Name} {Speed}";
         public void Play()
         {
             Memory.IW4.SendDvar(Command);

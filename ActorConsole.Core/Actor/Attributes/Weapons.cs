@@ -1,12 +1,13 @@
 ﻿namespace ActorConsole.Core.Actor.Attributes
 {
-    public class Weapons : Attribute
+    public sealed class Weapons : Attribute
     {
+        public Weapons(Actor _ParentActor) : base(_ParentActor){}
         private void ApplyGunToBone(string boneName, string gunName)
         {
             if (gunName == null)
                 gunName = "";
-            Memory.IW4.SendDvar($"mvm_actor_weapon {ActorName} {boneName} {gunName}");
+            Memory.IW4.SendDvar($"mvm_actor_weapon {ParentActor.Name} {boneName} {gunName}");
         }
         private string _j_gun = null;
         public string j_gun

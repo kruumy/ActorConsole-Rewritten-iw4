@@ -1,8 +1,9 @@
 ﻿using ActorConsole.Core.Actor.Attributes;
+using System;
 
 namespace ActorConsole.Core.Actor
 {
-    public class Actor
+    public sealed class Actor : IDisposable
     {
         internal static int Amount = 1;
         private string _Name;
@@ -14,11 +15,6 @@ namespace ActorConsole.Core.Actor
                 if (_Name != null)
                     Memory.IW4.SendDvar($"mvm_actor_rename {_Name} {value}");
                 _Name = value;
-                this.Anims.ActorName = value;
-                this.Models.ActorName = value;
-                this.Weapons.ActorName = value;
-                this.Walking.ActorName = value;
-                this.Pathing.ActorName = value;
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
@@ -30,11 +26,11 @@ namespace ActorConsole.Core.Actor
         public Actor()
         {
             Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
-            Anims = new Anims();
-            Models = new Models();
-            Weapons = new Weapons();
-            Pathing = new Pathing();
-            Walking = new Walking();
+            Anims = new Anims(this);
+            Models = new Models(this);
+            Weapons = new Weapons(this);
+            Pathing = new Pathing(this);
+            Walking = new Walking(this);
 
             Name = $"actor{Amount}";
 
@@ -44,7 +40,7 @@ namespace ActorConsole.Core.Actor
         {
             Memory.IW4.SendDvar($"mvm_actor_move {Name}");
         }
-        public void Delete()
+        public void Dispose()
         {
             this.Weapons.j_gun = null;
             this.Weapons.tag_inhand = null;

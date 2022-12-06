@@ -23,7 +23,7 @@ namespace ActorConsole.Core.Actor
         {
             if (Memory.IW4.IsInGame)
             {
-                ActorsList[index].Delete();
+                ActorsList[index].Dispose();
                 ActorsList.RemoveAt(index);
             }
         }
