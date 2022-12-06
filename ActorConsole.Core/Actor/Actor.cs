@@ -1,5 +1,4 @@
 ﻿using ActorConsole.Core.Actor.Attributes;
-using ActorConsole.Core.Actor.Attributes.Movement;
 
 namespace ActorConsole.Core.Actor
 {

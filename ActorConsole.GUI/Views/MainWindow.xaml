@@ -7,7 +7,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:ActorConsole.GUI.Views"
         xmlns:viewsA="clr-namespace:ActorConsole.GUI.Views.ActorAttributes"
-        xmlns:viewsAM="clr-namespace:ActorConsole.GUI.Views.ActorAttributes.Movement"
         xmlns:viewsO="clr-namespace:ActorConsole.GUI.Views.Other"
         mc:Ignorable="d"
         Title="ActorConsole" 
@@ -94,10 +93,10 @@
                     </Grid.RowDefinitions>
                     <TabControl Grid.Column="1"  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">
                         <TabItem Header="Walking">
-                            <viewsAM:Walking></viewsAM:Walking>
+                            <viewsA:Walking></viewsA:Walking>
                         </TabItem>
                         <TabItem Header="Pathing">
-                            <viewsAM:Pathing></viewsAM:Pathing>
+                            <viewsA:Pathing></viewsA:Pathing>
                         </TabItem>
                     </TabControl>
                     <views:ActorBar Grid.Column="0"></views:ActorBar>

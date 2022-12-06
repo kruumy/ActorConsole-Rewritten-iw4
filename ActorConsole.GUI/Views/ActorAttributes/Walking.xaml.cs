@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ActorConsole.GUI.Views.ActorAttributes.Movement
+namespace ActorConsole.GUI.Views.ActorAttributes
 {
     /// <summary>
     /// Interaction logic for Walking.xaml
