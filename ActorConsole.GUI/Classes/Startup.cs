@@ -7,7 +7,6 @@
         /// </summary>
         public static void Execute()
         {
-            Objects.Settings = new Core.Misc.Settings.Settings();
             // TODO: Check for guns.json and models.json
         }
         /// <summary>
@@ -19,7 +18,6 @@
             {
                 Core.Actor.Manager.ResetActorManager();
             }
-
         }
     }
 }
