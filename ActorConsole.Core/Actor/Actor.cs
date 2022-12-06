@@ -15,7 +15,6 @@ namespace ActorConsole.Core.Actor
                 if (_Name != null)
                     Memory.IW4.SendDvar($"mvm_actor_rename {_Name} {value}");
                 _Name = value;
-                Manager.RaiseActorPropertyChanged(this);
             }
         }
         public Anims Anims { get; private set; }

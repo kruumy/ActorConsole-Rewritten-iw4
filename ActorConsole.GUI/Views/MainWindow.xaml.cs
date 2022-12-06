@@ -13,7 +13,6 @@ namespace ActorConsole.GUI
         public MainWindow()
         {
             InitializeComponent();
-
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {

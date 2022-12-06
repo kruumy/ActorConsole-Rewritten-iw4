@@ -2,10 +2,10 @@
 {
     public sealed class Models : Attribute
     {
-        public Models(Actor _ParentActor) : base(_ParentActor) { }
+        internal Models(Actor _ParentActor) : base(_ParentActor) { }
 
-        public const string Head_Default = "defaultactor";
-        public const string Body_Default = "defaultactor";
+        internal const string Head_Default = "defaultactor";
+        internal const string Body_Default = "defaultactor";
 
         private string _Head = Head_Default;
         public string Head

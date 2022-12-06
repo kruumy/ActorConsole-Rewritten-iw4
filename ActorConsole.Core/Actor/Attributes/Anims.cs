@@ -4,10 +4,10 @@ namespace ActorConsole.Core.Actor.Attributes
 {
     public sealed class Anims : Attribute
     {
-        public Anims(Actor _ParentActor) : base(_ParentActor) { }
+        internal Anims(Actor _ParentActor) : base(_ParentActor) { }
 
-        public const string Idle_Default = "pb_stand_alert";
-        public const string Death_Default = "pb_stand_death_leg_kickup";
+        internal const string Idle_Default = "pb_stand_alert";
+        internal const string Death_Default = "pb_stand_death_leg_kickup";
 
         private string _Idle = Idle_Default;
         public string Idle

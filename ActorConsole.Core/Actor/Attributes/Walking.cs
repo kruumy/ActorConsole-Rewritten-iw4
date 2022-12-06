@@ -3,7 +3,7 @@
 
     public sealed class Walking : Attribute
     {
-        public Walking(Actor _ParentActor) : base(_ParentActor) { }
+        internal Walking(Actor _ParentActor) : base(_ParentActor) { }
         public bool IsEnabled => Key != '\u0000';
         private int _Speed;
         public int Speed

@@ -10,8 +10,7 @@ namespace ActorConsole.Core.Actor
 
         public delegate void ActorPropertyChanged(object sender);
         public static event ActorPropertyChanged OnActorPropertyChanged;
-        internal static void RaiseActorPropertyChanged(object sender) => OnActorPropertyChanged?.Invoke(sender);
-
+        internal static void RaiseActorPropertyChanged(Attributes.Attribute sender) => OnActorPropertyChanged?.Invoke(sender);
         public static void Add()
         {
             if (Memory.IW4.IsInGame)
@@ -31,12 +30,10 @@ namespace ActorConsole.Core.Actor
         {
             Delete(Search(name));
         }
-
         public static void ActorBack()
         {
             Memory.IW4.SendDvar("actorback");
         }
-
         public static int Search(string name)
         {
             for (int i = 0; i < ActorsList.Count; i++)

@@ -2,7 +2,7 @@
 {
     public sealed class Pathing : Attribute
     {
-        public Pathing(Actor _ParentActor) : base(_ParentActor) { }
+        internal Pathing(Actor _ParentActor) : base(_ParentActor) { }
         public bool IsEnabled => NodeCount > 0;
         private int _Speed;
         public int Speed
