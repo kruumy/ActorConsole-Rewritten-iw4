@@ -17,11 +17,11 @@ namespace ActorConsole.Core.Actor
                 _Name = value;
             }
         }
-        public Anims Anims { get; private set; }
-        public Models Models { get; private set; }
-        public Weapons Weapons { get; private set; }
-        public Walking Walking { get; private set; }
-        public Pathing Pathing { get; private set; }
+        public Anims Anims { get; }
+        public Models Models { get; }
+        public Weapons Weapons { get; }
+        public Walking Walking { get; }
+        public Pathing Pathing { get; }
         public Actor()
         {
             Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
