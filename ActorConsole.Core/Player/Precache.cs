@@ -8,7 +8,6 @@ namespace ActorConsole.Core.Player
         public string Path { get; set; }
         public string RawText { get; private set; }
         public string[] RawText_Lines { get; private set; }
-        public string[] Anims { get; private set; }
         public string[] MP_Anims { get; private set; }
         public string[] MP_Anims_Idle { get; private set; }
         public string[] MP_Anims_Death { get; private set; }
@@ -17,11 +16,11 @@ namespace ActorConsole.Core.Player
 
         public Precache(string path_to_precache)
         {
+            // TODO: optimize using spans instead of arrays
             Path = path_to_precache;
             RawText = File.ReadAllText(path_to_precache);
             RawText_Lines = RawText.Split('\n').Where(x => !x.Contains("//")).ToArray();
-
-            Anims = RawText_Lines.Where(x => x.Contains("PrecacheMPAnim(")).ToArray();
+            string[] Anims = RawText_Lines.Where(x => x.Contains("PrecacheMPAnim(")).ToArray();
             for (int i = 0; i < Anims.Length; i++)
             {
                 int startOfAnim = Anims[i].IndexOf("PrecacheMPAnim(") + 16;
@@ -32,7 +31,12 @@ namespace ActorConsole.Core.Player
             MP_Anims_Death = MP_Anims.Where(x => x.Contains("death")).ToArray();
             SP_Anims = Anims.Where(x => !x.Contains("pb")).ToArray();
 
-            SP_Models = RawText_Lines;
+            SP_Models = RawText_Lines.Where(x => x.Contains("PrecacheModel(")).ToArray();
+            for (int i = 0; i < SP_Models.Length; i++)
+            {
+                int startOfModel = SP_Models[i].IndexOf("PrecacheModel(") + 15;
+                SP_Models[i] = SP_Models[i].Substring(startOfModel, SP_Models[i].LastIndexOf('"') - startOfModel).Trim();
+            }
         }
     }
 }
