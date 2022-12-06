@@ -6,7 +6,8 @@
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:local="clr-namespace:ActorConsole.GUI.Views.ActorAttributes"
              mc:Ignorable="d" 
-             d:DesignHeight="384" d:DesignWidth="768">
+             d:DesignHeight="384" d:DesignWidth="768"
+             Initialized="UserControl_Initialized">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -27,11 +28,11 @@
                                         Width="75"
                                         IsReadOnly="True"/>
                 <DataGridTextColumn Header="Speed"
-                                        Binding="{Binding Movement_Walking.Speed}"
+                                        Binding="{Binding Walking.Speed}"
                                         Width="75"
                                         IsReadOnly="True"/>
                 <DataGridTextColumn Header="Key"
-                                        Binding="{Binding Movement_Walking.Key}"
+                                        Binding="{Binding Walking.Key}"
                                         Width="75"
                                         IsReadOnly="True"/>
             </DataGrid.Columns>
@@ -71,7 +72,8 @@
                 <mah:NumericUpDown 
                     x:Name="SpeedBox"
                     Grid.Column="1"
-                    Margin="3">
+                    Margin="3"
+                    Value="0">
                 </mah:NumericUpDown>
                 <TextBox
                     x:Name="KeyBox"

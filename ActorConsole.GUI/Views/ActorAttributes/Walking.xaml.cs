@@ -11,6 +11,20 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             InitializeComponent();
         }
+        private void UserControl_Initialized(object sender, System.EventArgs e)
+        {
+            ActorBar.OnSelectedActorChanged += ActorBar_OnSelectedActorChanged;
+        }
+
+        private void ActorBar_OnSelectedActorChanged(object sender, int index, Core.Actor.Actor actor)
+        {
+            if (actor.Walking.IsEnabled)
+            {
+                SpeedBox.Value = actor.Walking.Speed;
+                KeyBox.Text = new string(new char[] { actor.Walking.Key });
+            }
+        }
+
         private void BindsDataGrid_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             BindsDataGrid.Items.Clear();

@@ -7,7 +7,7 @@
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ActorConsole.GUI.Views.ActorAttributes.Models"
              mc:Ignorable="d" 
              d:DesignHeight="384" d:DesignWidth="768"
-    Initialized="UserControl_Initialized">
+             Initialized="UserControl_Initialized">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -24,7 +24,6 @@
 
                 <ListView
                     x:Name="HeadModelsBox"
-                    d:ItemsSource="{d:SampleData ItemCount=5}"
                     Loaded="HeadModelsBox_Loaded" 
                     MouseDoubleClick="HeadModelsBox_MouseDoubleClick"
                     >
@@ -35,7 +34,6 @@
 
                 <ListView
                     x:Name="BodyModelsBox"
-                    d:ItemsSource="{d:SampleData ItemCount=5}" 
                     Loaded="BodyModelsBox_Loaded" 
                     MouseDoubleClick="BodyModelsBox_MouseDoubleClick"
                     >
@@ -45,7 +43,6 @@
             <TabItem Header="SinglePlayer">
                 <ListView
                     x:Name="SPModelsBox"
-                    d:ItemsSource="{d:SampleData ItemCount=5}"
                     Loaded="SPModelsBox_Loaded"
                     MouseDoubleClick="SPModelsBox_MouseDoubleClick" 
                     >
@@ -71,14 +68,12 @@
                 x:Name="HeadModelTextBox"
                 Grid.Row="1"
                 Grid.Column="0"
-                Loaded="HeadModelTextBox_Loaded"
                 Margin="3">
             </TextBox>
             <TextBox
                 x:Name="BodyModelTextBox"
                 Grid.Row="2"
                 Grid.Column="0"
-                Loaded="BodyModelTextBox_Loaded"
                 Margin="3">
             </TextBox>
             <Button

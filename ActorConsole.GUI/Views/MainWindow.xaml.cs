@@ -37,7 +37,7 @@ namespace ActorConsole.GUI
                             {
 
                                 DvarQueueLabel.Content = $"Dvar Queue = {Core.Memory.SendDvarQueue.Count}";
-                                if (map != null)
+                                if (!string.IsNullOrEmpty(map))
                                     MapLabel.Content = $"Map = {map}";
                                 else
                                     MapLabel.Content = $"Map = null";
@@ -63,7 +63,7 @@ namespace ActorConsole.GUI
         {
             if (Core.Memory.IW4.IsRunning)
             {
-                MessageBoxResult result = MessageBox.Show("", "", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No);
+                MessageBoxResult result = MessageBox.Show("Are you sure?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No);
                 if (result == MessageBoxResult.No)
                 {
                     e.Cancel = true;
