@@ -36,7 +36,8 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         }
         private void SPModelsBox_Loaded(object sender, RoutedEventArgs e)
         {
-            SPModelsBox.ItemsSource = Classes.Objects.Precache.SP_Models;
+            if (Classes.Objects.Settings.IsPrecacheSelected)
+                SPModelsBox.ItemsSource = Classes.Objects.Precache.SP_Models;
         }
 
         private void BodyModelsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)

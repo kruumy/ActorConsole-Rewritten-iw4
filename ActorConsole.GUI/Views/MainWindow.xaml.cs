@@ -16,7 +16,9 @@ namespace ActorConsole.GUI
         }
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            ThemeManager.Current.ChangeTheme(this, $"Dark.{Classes.MetroColorTheme.GetRandomColorTheme()}");
+            string Theme = "Dark";
+            if (!Classes.Objects.Settings.DarkMode) Theme = "Light";
+            ThemeManager.Current.ChangeTheme(this, $"{Theme}.{Classes.MetroColorTheme.GetRandomColorTheme()}");
 
             Classes.Startup.Execute();
             StatusBarUpdatingLoop();

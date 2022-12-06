@@ -26,11 +26,13 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void IdleAnimsBox_Loaded(object sender, RoutedEventArgs e)
         {
-            IdleAnimsBox.ItemsSource = Classes.Objects.Precache.MP_Anims_Idle;
+            if (Classes.Objects.Settings.IsPrecacheSelected)
+                IdleAnimsBox.ItemsSource = Classes.Objects.Precache.MP_Anims_Idle;
         }
         private void DeathAnimsBox_Loaded(object sender, RoutedEventArgs e)
         {
-            DeathAnimsBox.ItemsSource = Classes.Objects.Precache.MP_Anims_Death;
+            if (Classes.Objects.Settings.IsPrecacheSelected)
+                DeathAnimsBox.ItemsSource = Classes.Objects.Precache.MP_Anims_Death;
         }
 
         private void IdleAnimsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -46,7 +48,8 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         }
         private void SinglePlayer_Loaded(object sender, RoutedEventArgs e)
         {
-            SinglePlayerAnimsBox.ItemsSource = Classes.Objects.Precache.SP_Anims;
+            if (Classes.Objects.Settings.IsPrecacheSelected)
+                SinglePlayerAnimsBox.ItemsSource = Classes.Objects.Precache.SP_Anims;
         }
 
         private void SinglePlayer_MouseDoubleClick(object sender, MouseButtonEventArgs e)

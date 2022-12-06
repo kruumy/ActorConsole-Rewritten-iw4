@@ -54,10 +54,10 @@ namespace ActorConsole.GUI.Views
         }
         private void PrecacheButton_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Objects.Settings.Path_To_Precache != null)
+            if (Objects.Settings.PathToPrecache != null)
             {
                 PrecacheButton.Content = "Change Precache";
-                PrecacheButton.ToolTip = Objects.Settings.Path_To_Precache;
+                PrecacheButton.ToolTip = Objects.Settings.PathToPrecache;
             }
         }
         private void PrecacheButton_Click(object sender, RoutedEventArgs e)
@@ -72,9 +72,9 @@ namespace ActorConsole.GUI.Views
             openFileDialog.ShowDialog();
             void OpenFileDialog_FileOk(object sender2, System.ComponentModel.CancelEventArgs e2)
             {
-                Objects.Settings.Path_To_Precache = openFileDialog.FileName;
+                Objects.Settings.PathToPrecache = openFileDialog.FileName;
                 PrecacheButton.Content = "Change Precache";
-                PrecacheButton.ToolTip = Objects.Settings.Path_To_Precache;
+                PrecacheButton.ToolTip = Objects.Settings.PathToPrecache;
             }
         }
     }
