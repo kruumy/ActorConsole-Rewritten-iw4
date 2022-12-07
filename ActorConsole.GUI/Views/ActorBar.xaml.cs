@@ -31,7 +31,8 @@ namespace ActorConsole.GUI.Views
         private void ActorSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedActorIndex = ActorSelectionComboBox.SelectedIndex;
-            OnSelectedActorChanged?.Invoke(this, SelectedActorIndex, SelectedActor);
+            if (SelectedActorIndex > -1)
+                OnSelectedActorChanged?.Invoke(this, SelectedActorIndex, SelectedActor);
         }
 
         private void CreateActorButton_Click(object sender, RoutedEventArgs e)
