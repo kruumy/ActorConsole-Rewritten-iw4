@@ -27,7 +27,7 @@ namespace ActorConsole.GUI
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (Core.Memory.IW4.IsRunning)
+            if (Core.Memory.IW4.IsInGame)
             {
                 MessageBoxResult result = MessageBox.Show("Are you sure?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No);
                 if (result == MessageBoxResult.No)

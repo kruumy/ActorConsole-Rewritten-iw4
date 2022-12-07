@@ -10,13 +10,14 @@ namespace ActorConsole.Core.Actor
 
         internal static void RaiseActorPropertyChanged(Attributes.Attribute sender) => OnActorPropertyChanged?.Invoke(sender);
 
-        public static readonly List<Actor> Actors = new List<Actor>();
+        private static readonly List<Actor> ActorsList = new List<Actor>();
+        public static Actor[] Actors => ActorsList.ToArray();
 
         public static void Add()
         {
             if (Memory.IW4.IsInGame)
             {
-                Actors.Add(new Actor());
+                ActorsList.Add(new Actor());
             }
         }
 
@@ -25,7 +26,7 @@ namespace ActorConsole.Core.Actor
             if (Memory.IW4.IsInGame)
             {
                 Actors[index].Dispose();
-                Actors.RemoveAt(index);
+                ActorsList.RemoveAt(index);
             }
         }
 
@@ -41,7 +42,7 @@ namespace ActorConsole.Core.Actor
 
         public static int Search(string name)
         {
-            for (int i = 0; i < Actors.Count; i++)
+            for (int i = 0; i < ActorsList.Count; i++)
                 if (Actors[i].Name == name)
                     return i;
             return -1;
@@ -49,7 +50,7 @@ namespace ActorConsole.Core.Actor
 
         public static void ResetActorManager()
         {
-            Actors.Clear();
+            ActorsList.Clear();
             Actor.Amount = 1;
         }
     }

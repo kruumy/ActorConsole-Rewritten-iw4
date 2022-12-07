@@ -63,11 +63,13 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string map = Game.Read<byte>(Addresses.MapName, 15).GetString(true);
-                    if (map != string.Empty)
-                        return map;
-                    else
-                        return null;
+                    if (IsInGame)
+                    {
+                        string map = Game.Read<byte>(Addresses.MapName, 15).GetString(true);
+                        if (map != string.Empty)
+                            return map;
+                    }
+                    return null;
                 }
                 catch { return null; }
             }
