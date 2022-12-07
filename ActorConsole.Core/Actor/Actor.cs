@@ -22,7 +22,7 @@ namespace ActorConsole.Core.Actor
         public Weapons Weapons { get; }
         public Walking Walking { get; }
         public Pathing Pathing { get; }
-        public Actor()
+        internal Actor()
         {
             Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
             Anims = new Anims(this);
