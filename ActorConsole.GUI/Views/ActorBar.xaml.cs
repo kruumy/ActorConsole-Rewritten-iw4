@@ -18,7 +18,10 @@ namespace ActorConsole.GUI.Views
         {
             InitializeComponent();
         }
-
+        public static void Reset()
+        {
+            SelectedActorIndex = -1;
+        }
         private void ActorSelectionComboBox_Loaded(object sender, RoutedEventArgs e)
         {
             ActorSelectionComboBox.ItemsSource = Core.Actor.Manager.Actors;

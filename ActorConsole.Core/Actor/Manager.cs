@@ -48,7 +48,7 @@ namespace ActorConsole.Core.Actor
             return -1;
         }
 
-        public static void ResetActorManager()
+        public static void Reset()
         {
             ActorsList.Clear();
             Actor.Amount = 1;

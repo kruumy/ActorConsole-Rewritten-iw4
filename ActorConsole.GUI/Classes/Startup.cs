@@ -17,7 +17,8 @@
         {
             if (!Core.Memory.IW4.IsInGame)
             {
-                Core.Actor.Manager.ResetActorManager();
+                Core.Actor.Manager.Reset();
+                Views.ActorBar.Reset();
             }
         }
     }
