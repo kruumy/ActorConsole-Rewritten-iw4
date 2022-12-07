@@ -45,11 +45,14 @@ namespace ActorConsole.GUI.Views
             {
                 //TODO: Add filter to dialog
                 Actor actor = Core.Actor.Manager.Actors[selectedIndex];
-                SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Title = "Save Actor";
-                saveFileDialog.FileName = actor.Name;
-                saveFileDialog.DefaultExt = ".json";
-                saveFileDialog.AddExtension = true;
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    Title = "Save Actor",
+                    FileName = actor.Name,
+                    DefaultExt = ".json",
+                    AddExtension = true,
+                    Filter = "json files (*.json)|*.json|All files (*.*)|*.*"
+                };
                 saveFileDialog.FileOk += SaveFileDialog_FileOk;
                 saveFileDialog.ShowDialog();
 
@@ -64,18 +67,21 @@ namespace ActorConsole.GUI.Views
             if (Core.Memory.IW4.IsInGame)
             {
                 //TODO: Add filter to dialog
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.DefaultExt = ".json";
-                openFileDialog.Multiselect = false;
-                openFileDialog.RestoreDirectory = true;
-                openFileDialog.Title = "Select Actor";
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    DefaultExt = ".json",
+                    Multiselect = false,
+                    RestoreDirectory = true,
+                    Title = "Select Actor",
+                    Filter = "json files (*.json)|*.json|All files (*.*)|*.*"
+                };
                 openFileDialog.FileOk += OpenFileDialog_FileOk;
                 openFileDialog.ShowDialog();
                 void OpenFileDialog_FileOk(object sender2, System.ComponentModel.CancelEventArgs e2)
                 {
                     Presets.Load(openFileDialog.FileName);
+                    ActorsDataGrid_Loaded(null, null);
                 }
-                ActorsDataGrid_Loaded(null, null);
             }
 
         }

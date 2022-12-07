@@ -1,6 +1,5 @@
 ﻿using ActorConsole.GUI.Classes;
 using Microsoft.Win32;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -63,11 +62,14 @@ namespace ActorConsole.GUI.Views
         private void PrecacheButton_Click(object sender, RoutedEventArgs e)
         {
             //TODO: Add filter to dialog
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.DefaultExt = ".gsc";
-            openFileDialog.Multiselect = false;
-            openFileDialog.RestoreDirectory = true;
-            openFileDialog.Title = "Select Precache";
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                DefaultExt = ".gsc",
+                Multiselect = false,
+                RestoreDirectory = true,
+                Title = "Select Precache",
+                Filter = "gsc files (*.gsc)|*.gsc|All files (*.*)|*.*"
+            };
             openFileDialog.FileOk += OpenFileDialog_FileOk;
             openFileDialog.ShowDialog();
             void OpenFileDialog_FileOk(object sender2, System.ComponentModel.CancelEventArgs e2)
