@@ -2,64 +2,57 @@
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:ActorConsole.GUI.Views"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="384" d:DesignWidth="115">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="35"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <ComboBox
             Grid.Row="0"
             x:Name="ActorSelectionComboBox"
-            Margin="3" 
+            Margin="3"
             Loaded="ActorSelectionComboBox_Loaded"
             SelectionChanged="ActorSelectionComboBox_SelectionChanged"
             DisplayMemberPath="Name">
         </ComboBox>
 
-
-        <Button 
+        <Button
             Grid.Row="1"
             Margin="3"
             x:Name="CreateActorButton"
-            Content="Spawn Actor" 
-            Click="CreateActorButton_Click"
-            />
-        <Button 
+            Content="Spawn Actor"
+            Click="CreateActorButton_Click" />
+        <Button
             Grid.Row="2"
             Margin="3"
             x:Name="DeleteActorButton"
-            Content="Delete Actor" 
-            Click="DeleteActorButton_Click"
-            />
-        <Button 
+            Content="Delete Actor"
+            Click="DeleteActorButton_Click" />
+        <Button
             Grid.Row="3"
             Margin="3"
             x:Name="MoveActorButton"
-            Content="Move Actor" 
-            Click="MoveActorButton_Click"
-            />
-        <Button 
+            Content="Move Actor"
+            Click="MoveActorButton_Click" />
+        <Button
             Grid.Row="4"
             Margin="3"
             x:Name="PrecacheButton"
             Click="PrecacheButton_Click"
             ToolTip="No Precache Selected"
             Loaded="PrecacheButton_Loaded"
-            Content="Select Precache"
-            />
-
+            Content="Select Precache" />
     </Grid>
 </UserControl>

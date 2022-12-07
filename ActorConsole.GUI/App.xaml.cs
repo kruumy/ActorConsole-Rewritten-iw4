@@ -7,6 +7,5 @@ namespace ActorConsole.GUI
     /// </summary>
     public partial class App : Application
     {
-
     }
 }

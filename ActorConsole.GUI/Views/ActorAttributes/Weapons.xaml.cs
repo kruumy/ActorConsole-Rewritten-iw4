@@ -56,10 +56,12 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             }
             catch { }
         }
+
         private void WeaponsExactBrowser_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             ApplyBtn_Click(null, null);
         }
+
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
             if (ActorBar.SelectedActorIndex > -1)

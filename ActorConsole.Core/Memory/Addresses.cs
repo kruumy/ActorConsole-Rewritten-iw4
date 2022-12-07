@@ -1,4 +1,5 @@
 ﻿using AnotherExternalMemoryLibrary;
+
 namespace ActorConsole.Core.Memory
 {
     internal static class Addresses
@@ -8,6 +9,7 @@ namespace ActorConsole.Core.Memory
         internal static PointerEx IsInGame => 0x7F0F88;
         internal static PointerEx PlayerName => IW4.Game.MainModule.BaseAddress + 0x427464;
         internal static PointerEx Cbuf_AddText => 0x404B20u;
+
         internal struct RGBXYZ_POINTER
         {
             public PointerEx Red;
@@ -16,6 +18,7 @@ namespace ActorConsole.Core.Memory
             public PointerEx X;
             public PointerEx Y;
             public PointerEx Z;
+
             public RGBXYZ_POINTER(PointerEx red, PointerEx green, PointerEx blue, PointerEx x, PointerEx y, PointerEx z)
             {
                 Red = red;

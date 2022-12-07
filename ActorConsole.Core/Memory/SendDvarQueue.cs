@@ -12,12 +12,14 @@ namespace ActorConsole.Core.Memory
         public static int Count => Queue.Count;
         internal static bool IsRunning { get; private set; }
         private static readonly int WaitTime = 1100;
+
         internal static void Add(string input)
         {
             Queue.Add(input);
             if (!IsRunning)
                 Task.Run(MainLoop);
         }
+
         private static void MainLoop()
         {
             IsRunning = true;

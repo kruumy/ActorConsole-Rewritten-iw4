@@ -1,32 +1,32 @@
 ﻿<UserControl x:Class="ActorConsole.GUI.Views.ActorAttributes.Weapons"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:local="clr-namespace:ActorConsole.GUI.Views.ActorAttributes"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="384" d:DesignWidth="768">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="35"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="35" />
         </Grid.RowDefinitions>
         <ListView x:Name="WeaponsClassBrowser"
                   Initialized="WeaponsClassBrowser_Initialized"
                   SelectionChanged="WeaponsClassBrowser_SelectionChanged"
                   Grid.Column="0">
         </ListView>
-        <ListView x:Name="WeaponsTypeBrowser" 
+        <ListView x:Name="WeaponsTypeBrowser"
                   SelectionChanged="WeaponsTypeBrowser_SelectionChanged"
                   Grid.Column="1">
         </ListView>
-        <ListView x:Name="WeaponsExactBrowser" 
+        <ListView x:Name="WeaponsExactBrowser"
                   SelectionChanged="WeaponsExactBrowser_SelectionChanged"
                   MouseDoubleClick="WeaponsExactBrowser_MouseDoubleClick"
                   Grid.Column="2">
@@ -36,8 +36,8 @@
                 Margin="3" Click="ApplyBtn_Click">
             Apply
         </Button>
-        <TextBox 
-            x:Name="SelectedWeaponBox" 
+        <TextBox
+            x:Name="SelectedWeaponBox"
             Grid.Row="1"
             Grid.Column="1"
             Margin="3">
@@ -47,13 +47,13 @@
             Grid.Column="0"
             Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <ComboBox 
+            <ComboBox
                 x:Name="CamoBox"
                 Grid.Column="1"
                 SelectedIndex="0"
@@ -69,7 +69,7 @@
                 <ComboBoxItem>fall</ComboBoxItem>
                 <ComboBoxItem>gold</ComboBoxItem>
             </ComboBox>
-            <ComboBox 
+            <ComboBox
                 x:Name="BoneBox"
                 Grid.Column="0"
                 Margin="3"
@@ -83,6 +83,5 @@
                 <ComboBoxItem>tag_stowed_hip_rear</ComboBoxItem>
             </ComboBox>
         </Grid>
-
     </Grid>
 </UserControl>

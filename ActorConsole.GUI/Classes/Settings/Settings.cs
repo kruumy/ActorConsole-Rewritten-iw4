@@ -8,6 +8,7 @@ namespace ActorConsole.Core.Misc.Settings
         private readonly IniFile ini = new IniFile();
         private readonly string FileName = "settings.ini";
         public Precache Precache = null;
+
         public string PathToPrecache
         {
             get
@@ -27,12 +28,15 @@ namespace ActorConsole.Core.Misc.Settings
                 }
             }
         }
+
         public bool IsPrecacheSelected => !string.IsNullOrEmpty(PathToPrecache);
+
         public bool DarkMode
         {
             get => ini["options"]["DarkMode"].ToBool();
             set => ini["options"]["DarkMode"] = value;
         }
+
         /// <summary>
         /// Loads from settings.ini file or creates one if not.
         /// </summary>
@@ -42,6 +46,7 @@ namespace ActorConsole.Core.Misc.Settings
                 CreateDefault();
             Load();
         }
+
         private void Load()
         {
             ini.Load(FileName);
@@ -49,6 +54,7 @@ namespace ActorConsole.Core.Misc.Settings
             if (File.Exists(precachePath))
                 PathToPrecache = precachePath;
         }
+
         private void CreateDefault()
         {
             ini["options"]["PathToPrecache"] = "";

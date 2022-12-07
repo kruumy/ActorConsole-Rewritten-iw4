@@ -7,6 +7,7 @@ namespace ActorConsole.Core.Actor
     {
         internal static int Amount = 1;
         private string _Name;
+
         public string Name
         {
             get => _Name;
@@ -17,11 +18,13 @@ namespace ActorConsole.Core.Actor
                 _Name = value;
             }
         }
+
         public Anims Anims { get; }
         public Models Models { get; }
         public Weapons Weapons { get; }
         public Walking Walking { get; }
         public Pathing Pathing { get; }
+
         internal Actor()
         {
             Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
@@ -35,10 +38,12 @@ namespace ActorConsole.Core.Actor
 
             Amount++;
         }
+
         public void MoveToCurrentPostition()
         {
             Memory.IW4.SendDvar($"mvm_actor_move {Name}");
         }
+
         public void Dispose()
         {
             this.Weapons.j_gun = null;

@@ -14,6 +14,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             InitializeComponent();
         }
+
         private void UserControl_Initialized(object sender, System.EventArgs e)
         {
             ActorBar.OnSelectedActorChanged += ActorBar_OnSelectedActorChanged;
@@ -34,6 +35,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             HeadModelsBox.ItemsSource = ModelsWrapper.GetByCurrentMap(ModelType.Head);
         }
+
         private void SPModelsBox_Loaded(object sender, RoutedEventArgs e)
         {
             if (Classes.Objects.Settings.IsPrecacheSelected)
@@ -65,6 +67,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
                 applybodybtn_Click(null, null);
             }
         }
+
         private void applybodybtn_Click(object sender, RoutedEventArgs e)
         {
             if (ActorBar.SelectedActorIndex > -1)

@@ -2,12 +2,15 @@
 {
     public sealed class Models : Attribute
     {
-        internal Models(Actor _ParentActor) : base(_ParentActor) { }
+        internal Models(Actor _ParentActor) : base(_ParentActor)
+        {
+        }
 
         internal const string Head_Default = "defaultactor";
         internal const string Body_Default = "defaultactor";
 
         private string _Head = Head_Default;
+
         public string Head
         {
             get => _Head;
@@ -18,7 +21,9 @@
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
+
         private string _Body = Body_Default;
+
         public string Body
         {
             get => _Body;

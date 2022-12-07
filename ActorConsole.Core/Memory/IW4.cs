@@ -1,6 +1,5 @@
 ﻿using AnotherExternalMemoryLibrary.Extensions;
 using System.Diagnostics;
-using System.Text;
 
 namespace ActorConsole.Core.Memory
 {
@@ -21,6 +20,7 @@ namespace ActorConsole.Core.Memory
                 return null;
             }
         }
+
         public static bool IsRunning
         {
             get
@@ -31,6 +31,7 @@ namespace ActorConsole.Core.Memory
                     return false;
             }
         }
+
         public static bool IsInGame
         {
             get
@@ -48,15 +49,14 @@ namespace ActorConsole.Core.Memory
                     {
                         return false;
                     }
-
                 }
                 else
                 {
                     return false;
                 }
-
             }
         }
+
         public static string Map
         {
             get
@@ -70,9 +70,9 @@ namespace ActorConsole.Core.Memory
                         return null;
                 }
                 catch { return null; }
-
             }
         }
+
         public static string PlayerName
         {
             get
@@ -86,9 +86,9 @@ namespace ActorConsole.Core.Memory
                         return null;
                 }
                 catch { return null; }
-
             }
         }
+
         public static void SendDvar(string text)
         {
             if (IsRunning)

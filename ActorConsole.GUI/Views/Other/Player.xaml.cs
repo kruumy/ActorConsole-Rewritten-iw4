@@ -12,6 +12,7 @@ namespace ActorConsole.GUI.Views.Other
         {
             InitializeComponent();
         }
+
         private void PlayerNameBox_Loaded(object sender, RoutedEventArgs e)
         {
             string name = Core.Memory.IW4.PlayerName;

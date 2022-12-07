@@ -11,6 +11,7 @@ using System.Text;
  *
  *
 */
+
 namespace ActorConsole.Core.Misc.Settings
 {
     internal struct IniValue
@@ -314,7 +315,6 @@ namespace ActorConsole.Core.Misc.Settings
                         }
                         else if (section != null && trimStart[0] != ';')
                         {
-
                             if (LoadValue(line, out string key, out IniValue val))
                             {
                                 section[key] = val;
@@ -472,7 +472,7 @@ namespace ActorConsole.Core.Misc.Settings
 
         public static IEqualityComparer<string> DefaultComparer = new CaseInsensitiveStringComparer();
 
-        class CaseInsensitiveStringComparer : IEqualityComparer<string>
+        private class CaseInsensitiveStringComparer : IEqualityComparer<string>
         {
             public bool Equals(string x, string y)
             {
@@ -509,6 +509,7 @@ namespace ActorConsole.Core.Misc.Settings
         private readonly Dictionary<string, IniValue> values;
 
         #region Ordered
+
         private List<string> orderedKeys;
 
         public int IndexOf(string key)
@@ -763,7 +764,8 @@ namespace ActorConsole.Core.Misc.Settings
                 }
             }
         }
-        #endregion
+
+        #endregion Ordered
 
         public IniSection()
             : this(IniFile.DefaultComparer)

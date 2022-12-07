@@ -15,15 +15,18 @@ namespace ActorConsole.GUI.Views
         {
             InitializeComponent();
         }
+
         private void ActorsDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
             ActorsDataGrid.ItemsSource = Core.Actor.Manager.Actors;
         }
+
         private void AddActorButton_Click(object sender, RoutedEventArgs e)
         {
             Core.Actor.Manager.Add();
             ActorsDataGrid_Loaded(null, null);
         }
+
         private void RemoveActorButton_Click(object sender, RoutedEventArgs e)
         {
             int selectedIndex = ActorsDataGrid.SelectedIndex;
@@ -33,11 +36,13 @@ namespace ActorConsole.GUI.Views
                 ActorsDataGrid_Loaded(null, null);
             }
         }
+
         private void MoveActorButton_Click(object sender, RoutedEventArgs e)
         {
             if (ActorsDataGrid.SelectedIndex > -1)
                 Core.Actor.Manager.Actors[ActorsDataGrid.SelectedIndex].MoveToCurrentPostition();
         }
+
         private void SavePresetButton_Click(object sender, RoutedEventArgs e)
         {
             int selectedIndex = ActorsDataGrid.SelectedIndex;
@@ -62,6 +67,7 @@ namespace ActorConsole.GUI.Views
                 }
             }
         }
+
         private void LoadPresetButton_Click(object sender, RoutedEventArgs e)
         {
             if (Core.Memory.IW4.IsInGame)
@@ -83,7 +89,6 @@ namespace ActorConsole.GUI.Views
                     ActorsDataGrid_Loaded(null, null);
                 }
             }
-
         }
     }
 }

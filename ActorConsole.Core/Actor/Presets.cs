@@ -17,6 +17,7 @@ namespace ActorConsole.Core.Actor
             string ActorJson = System.Text.Json.JsonSerializer.Serialize(actor, options);
             File.WriteAllText(path, ActorJson);
         }
+
         /// <summary>
         /// Loads path to json into the Manager class
         /// </summary>

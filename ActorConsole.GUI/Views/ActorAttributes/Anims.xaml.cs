@@ -13,6 +13,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             InitializeComponent();
         }
+
         private void UserControl_Initialized(object sender, System.EventArgs e)
         {
             ActorBar.OnSelectedActorChanged += ActorBar_OnSelectedActorChanged;
@@ -29,6 +30,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             if (Classes.Objects.Settings.IsPrecacheSelected)
                 IdleAnimsBox.ItemsSource = Classes.Objects.Precache.MP_Anims_Idle;
         }
+
         private void DeathAnimsBox_Loaded(object sender, RoutedEventArgs e)
         {
             if (Classes.Objects.Settings.IsPrecacheSelected)
@@ -46,6 +48,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             DeathAnimTextBox.Text = (string)DeathAnimsBox.SelectedItem;
             applydeathbtn_Click(null, null);
         }
+
         private void SinglePlayer_Loaded(object sender, RoutedEventArgs e)
         {
             if (Classes.Objects.Settings.IsPrecacheSelected)
@@ -65,6 +68,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
                 applydeathbtn_Click(null, null);
             }
         }
+
         private void applydeathbtn_Click(object sender, RoutedEventArgs e)
         {
             if (ActorBar.SelectedActorIndex > -1)

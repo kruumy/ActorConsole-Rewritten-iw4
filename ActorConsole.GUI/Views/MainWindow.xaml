@@ -1,4 +1,4 @@
-﻿<mah:MetroWindow 
+﻿<mah:MetroWindow
         x:Class="ActorConsole.GUI.MainWindow"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -9,18 +9,18 @@
         xmlns:viewsA="clr-namespace:ActorConsole.GUI.Views.ActorAttributes"
         xmlns:viewsO="clr-namespace:ActorConsole.GUI.Views.Other"
         mc:Ignorable="d"
-        Title="ActorConsole" 
-    Height="300" 
-    Width="700" 
-    MinHeight="250" 
-    MinWidth="400" 
+        Title="ActorConsole"
+    Height="300"
+    Width="700"
+    MinHeight="250"
+    MinWidth="400"
     Loaded="MetroWindow_Loaded"
     Closing="MetroWindow_Closing">
 
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
-            <Button x:Name="LaunchGithubSiteButton" 
-                    ToolTip="Open up the GitHub site" 
+            <Button x:Name="LaunchGithubSiteButton"
+                    ToolTip="Open up the GitHub site"
                     Click="LaunchGithubSiteButton_Click">
                 GITHUB
             </Button>
@@ -35,8 +35,8 @@
     </mah:MetroWindow.RightWindowCommands>
 
     <Grid>
-        <TabControl TabStripPlacement="Top"  
-                    mah:TabControlHelper.Underlined="SelectedTabItem" 
+        <TabControl TabStripPlacement="Top"
+                    mah:TabControlHelper.Underlined="SelectedTabItem"
                     mah:HeaderedControlHelper.HeaderFontSize="15"
                     mah:HeaderedControlHelper.HeaderFontFamily="B612 Mono">
             <TabItem Header="Actors">
@@ -45,25 +45,24 @@
             <TabItem Header="Anims">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="115"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="115" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <viewsA:Anims Grid.Column="1"></viewsA:Anims>
                     <views:ActorBar Grid.Column="0"></views:ActorBar>
                 </Grid>
-
             </TabItem>
             <TabItem Header="Models">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="115"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="115" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <viewsA:Models Grid.Column="1"></viewsA:Models>
                     <views:ActorBar Grid.Column="0"></views:ActorBar>
@@ -72,11 +71,11 @@
             <TabItem Header="Weapons">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="115"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="115" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <viewsA:Weapons Grid.Column="1"></viewsA:Weapons>
                     <views:ActorBar Grid.Column="0"></views:ActorBar>
@@ -85,11 +84,11 @@
             <TabItem Header="Movement">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="115"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="115" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <TabControl Grid.Column="1"  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">
                         <TabItem Header="Walking">
@@ -101,7 +100,6 @@
                     </TabControl>
                     <views:ActorBar Grid.Column="0"></views:ActorBar>
                 </Grid>
-                
             </TabItem>
             <TabItem Header="Other">
                 <TabControl  mah:TabControlHelper.Underlined="SelectedTabItem"  mah:HeaderedControlHelper.HeaderFontSize="15">

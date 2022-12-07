@@ -2,14 +2,19 @@
 {
     public sealed class Weapons : Attribute
     {
-        internal Weapons(Actor _ParentActor) : base(_ParentActor){}
+        internal Weapons(Actor _ParentActor) : base(_ParentActor)
+        {
+        }
+
         private void ApplyGunToBone(string boneName, string gunName)
         {
             if (gunName == null)
                 gunName = "";
             Memory.IW4.SendDvar($"mvm_actor_weapon {ParentActor.Name} {boneName} {gunName}");
         }
+
         private string _j_gun = null;
+
         public string j_gun
         {
             get => _j_gun;
@@ -20,7 +25,9 @@
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
+
         private string _tag_stowed_back = null;
+
         public string tag_stowed_back
         {
             get => _tag_stowed_back;
@@ -31,7 +38,9 @@
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
+
         private string _tag_inhand = null;
+
         public string tag_inhand
         {
             get => _tag_inhand;
@@ -42,7 +51,9 @@
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
+
         private string _tag_weapon_right = null;
+
         public string tag_weapon_right
         {
             get => _tag_weapon_right;
@@ -53,7 +64,9 @@
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
+
         private string _tag_weapon_left = null;
+
         public string tag_weapon_left
         {
             get => _tag_weapon_left;
@@ -64,7 +77,9 @@
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
+
         private string _tag_weapon_chest = null;
+
         public string tag_weapon_chest
         {
             get => _tag_weapon_chest;
@@ -75,7 +90,9 @@
                 Manager.RaiseActorPropertyChanged(this);
             }
         }
+
         private string _tag_stowed_hip_rear = null;
+
         public string tag_stowed_hip_rear
         {
             get => _tag_stowed_hip_rear;

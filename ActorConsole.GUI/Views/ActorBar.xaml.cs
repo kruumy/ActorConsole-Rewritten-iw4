@@ -7,9 +7,10 @@ namespace ActorConsole.GUI.Views
 {
     public partial class ActorBar : UserControl
     {
-
         public delegate void SelectedActorChanged(object sender, int index, Core.Actor.Actor actor);
+
         public static event SelectedActorChanged OnSelectedActorChanged;
+
         public static int SelectedActorIndex { get; private set; } = -1;
         public static Core.Actor.Actor SelectedActor => Core.Actor.Manager.Actors[SelectedActorIndex];
 
@@ -17,22 +18,26 @@ namespace ActorConsole.GUI.Views
         {
             InitializeComponent();
         }
+
         private void ActorSelectionComboBox_Loaded(object sender, RoutedEventArgs e)
         {
             ActorSelectionComboBox.ItemsSource = Core.Actor.Manager.Actors;
             ActorSelectionComboBox.SelectedIndex = SelectedActorIndex;
         }
+
         private void ActorSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedActorIndex = ActorSelectionComboBox.SelectedIndex;
             OnSelectedActorChanged?.Invoke(this, SelectedActorIndex, SelectedActor);
         }
+
         private void CreateActorButton_Click(object sender, RoutedEventArgs e)
         {
             Core.Actor.Manager.Add();
             ActorSelectionComboBox.SelectedIndex = ActorSelectionComboBox.Items.Count;
             ActorSelectionComboBox_Loaded(null, null);
         }
+
         private void DeleteActorButton_Click(object sender, RoutedEventArgs e)
         {
             if (ActorSelectionComboBox.SelectedIndex > -1)
@@ -46,11 +51,13 @@ namespace ActorConsole.GUI.Views
             }
             ActorSelectionComboBox_Loaded(null, null);
         }
+
         private void MoveActorButton_Click(object sender, RoutedEventArgs e)
         {
             if (ActorSelectionComboBox.SelectedIndex > -1)
                 Core.Actor.Manager.Actors[ActorSelectionComboBox.SelectedIndex].MoveToCurrentPostition();
         }
+
         private void PrecacheButton_Loaded(object sender, RoutedEventArgs e)
         {
             if (Objects.Settings.PathToPrecache != null)
@@ -59,6 +66,7 @@ namespace ActorConsole.GUI.Views
                 PrecacheButton.ToolTip = Objects.Settings.PathToPrecache;
             }
         }
+
         private void PrecacheButton_Click(object sender, RoutedEventArgs e)
         {
             //TODO: Add filter to dialog

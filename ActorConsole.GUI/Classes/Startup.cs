@@ -9,6 +9,7 @@
         {
             // TODO: Check for guns.json and models.json
         }
+
         /// <summary>
         /// Called every second when statusbar mainwindow is updated
         /// </summary>

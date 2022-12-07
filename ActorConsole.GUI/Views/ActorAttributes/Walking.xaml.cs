@@ -11,6 +11,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             InitializeComponent();
         }
+
         private void UserControl_Initialized(object sender, System.EventArgs e)
         {
             ActorBar.OnSelectedActorChanged += ActorBar_OnSelectedActorChanged;
@@ -36,6 +37,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
                 }
             }
         }
+
         private void AddBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (ActorBar.SelectedActorIndex > -1)
