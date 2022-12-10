@@ -17,8 +17,13 @@
         </Grid.RowDefinitions>
 
         <mah:ColorCanvas
+            x:Name="SunColorController"
             Grid.Column="0"
-            Grid.Row="0">
+            Grid.Row="0" 
+            Loaded="SunColorController_Loaded" 
+            SelectedColorChanged="SunColorController_SelectedColorChanged" 
+            
+            >
         </mah:ColorCanvas>
 
         <Grid Grid.Column="1" Grid.Row="0">

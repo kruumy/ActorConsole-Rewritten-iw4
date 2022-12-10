@@ -1,7 +1,7 @@
 ﻿using ActorConsole.Core.Player;
 using System.IO;
 
-namespace ActorConsole.Core.Misc.Settings
+namespace ActorConsole.GUI.Classes.Settings
 {
     public class Settings
     {

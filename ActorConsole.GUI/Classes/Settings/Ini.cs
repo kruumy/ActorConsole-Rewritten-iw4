@@ -12,7 +12,7 @@ using System.Text;
  *
 */
 
-namespace ActorConsole.Core.Misc.Settings
+namespace ActorConsole.GUI.Classes.Settings
 {
     internal struct IniValue
     {
