@@ -15,9 +15,12 @@ namespace ActorConsole.GUI.Views.Other
 
         private void PlayerNameBox_Loaded(object sender, RoutedEventArgs e)
         {
-            string name = Core.Memory.IW4.PlayerName;
-            if (name != null)
-                PlayerNameBox.Text = name;
+            if (Core.Memory.IW4.IsRunning)
+            {
+                string name = Core.Memory.IW4.PlayerName;
+                if (name != null)
+                    PlayerNameBox.Text = name;
+            }
         }
 
         private void ApplyModelsButton_Click(object sender, RoutedEventArgs e)

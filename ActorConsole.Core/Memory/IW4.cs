@@ -21,16 +21,7 @@ namespace ActorConsole.Core.Memory
             }
         }
 
-        public static bool IsRunning
-        {
-            get
-            {
-                if (Game != null)
-                    return true;
-                else
-                    return false;
-            }
-        }
+        public static bool IsRunning => Game != null;
 
         public static bool IsInGame
         {
@@ -40,10 +31,7 @@ namespace ActorConsole.Core.Memory
                 {
                     try
                     {
-                        if (Game.Read<int>(Addresses.IsInGame) == 0)
-                            return false;
-                        else
-                            return true;
+                        return Game.Read<int>(Addresses.IsInGame) != 0;
                     }
                     catch
                     {
@@ -81,11 +69,14 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    string name = Game.Read<byte>(Addresses.PlayerName, 20).GetString(true);
-                    if (name != string.Empty)
-                        return name;
-                    else
-                        return null;
+                    if (IsRunning)
+                    {
+                        string name = Game.Read<byte>(Addresses.PlayerName, 20).GetString(true);
+                        if (name != string.Empty)
+                            return name;
+                    }
+                    return null;
+
                 }
                 catch { return null; }
             }
