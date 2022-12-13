@@ -14,6 +14,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
         <mah:ColorCanvas
@@ -31,12 +32,92 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="50" />
             </Grid.RowDefinitions>
+            <Label
+                Grid.Row="1"
+                Content="X Axis" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Bottom">
+            </Label>
+            <Slider
+                x:Name="Xpos"
+                Grid.Row="2"
+                Maximum="2" 
+                Minimum="-2"
+                Loaded="Xpos_Loaded"
+                ValueChanged="Xpos_ValueChanged" 
+                AutoToolTipPlacement="TopLeft" 
+                LargeChange="0.1" 
+                TickFrequency="0.1" 
+                TickPlacement="Both" 
+                />
+            <Label
+                Grid.Row="3"
+                Content="Y Axis"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Bottom">
+            </Label>
+            <Slider
+                x:Name="Ypos"
+                Grid.Row="4"
+                Maximum="2" 
+                Minimum="-2"
+                Loaded="Ypos_Loaded"
+                ValueChanged="Ypos_ValueChanged" 
+                AutoToolTipPlacement="TopLeft" 
+                LargeChange="0.1" 
+                TickFrequency="0.1" 
+                TickPlacement="Both" 
+                />
+            <Label
+                Grid.Row="5"
+                Content="Z Axis"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Bottom">
+            </Label>
+            <Slider
+                x:Name="Zpos"
+                Grid.Row="6"
+                Maximum="2" 
+                Minimum="-2"
+                Loaded="Zpos_Loaded"
+                ValueChanged="Zpos_ValueChanged" 
+                AutoToolTipPlacement="TopLeft" 
+                LargeChange="0.1" 
+                TickFrequency="0.1" 
+                TickPlacement="Both" 
+                />
+        </Grid>
+
+        <Grid 
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Button
+                Grid.Column="0"
+                Margin="3"
+                Content="Save Preset">
+            </Button>
+            <Button
+                Grid.Column="1"
+                Margin="3"
+                Content="Load Preset">
+            </Button>
+
         </Grid>
     </Grid>
 </UserControl>

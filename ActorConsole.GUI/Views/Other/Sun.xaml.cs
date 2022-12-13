@@ -45,5 +45,53 @@ namespace ActorConsole.GUI.Views.Other
                 });
             }
         }
+
+        private void Xpos_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (Core.Memory.IW4.IsInGame)
+            {
+                Xpos.Value = Core.World.Sun.X;
+            }
+        }
+
+        private void Xpos_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (Core.Memory.IW4.IsInGame)
+            {
+                Core.World.Sun.X = (float)Xpos.Value;
+            }
+        }
+
+        private void Zpos_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (Core.Memory.IW4.IsInGame)
+            {
+                Zpos.Value = Core.World.Sun.Z;
+            }
+        }
+
+        private void Zpos_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (Core.Memory.IW4.IsInGame)
+            {
+                Core.World.Sun.Z = (float)Zpos.Value;
+            }
+        }
+
+        private void Ypos_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (Core.Memory.IW4.IsInGame)
+            {
+                Core.World.Sun.Y = (float)Ypos.Value;
+            }
+        }
+
+        private void Ypos_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (Core.Memory.IW4.IsInGame)
+            {
+                Ypos.Value = Core.World.Sun.Y;
+            }
+        }
     }
 }
