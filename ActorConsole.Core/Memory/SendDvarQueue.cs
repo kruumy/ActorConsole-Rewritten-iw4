@@ -17,10 +17,10 @@ namespace ActorConsole.Core.Memory
         {
             Queue.Add(input);
             if (!IsRunning)
-                Task.Run(MainLoop);
+                Task.Run(MainWork);
         }
 
-        private static void MainLoop()
+        private static void MainWork()
         {
             IsRunning = true;
             while (Queue.Count > 0)

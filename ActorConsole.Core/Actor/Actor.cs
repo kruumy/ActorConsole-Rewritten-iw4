@@ -54,6 +54,7 @@ namespace ActorConsole.Core.Actor
             this.Weapons.tag_weapon_left = null;
             this.Weapons.tag_weapon_right = null;
             Memory.IW4.SendDvar($"mvm_actor_delete {Name}");
+            GC.SuppressFinalize(this);
         }
     }
 }

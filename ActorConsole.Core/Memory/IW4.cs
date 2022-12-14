@@ -23,7 +23,7 @@ namespace ActorConsole.Core.Memory
 
         public static bool IsRunning => Game != null;
 
-        public static bool IsInGame
+        public static bool IsInMatch
         {
             get
             {
@@ -31,7 +31,7 @@ namespace ActorConsole.Core.Memory
                 {
                     try
                     {
-                        return Game.Read<int>(Addresses.IsInGame) != 0;
+                        return Game.Read<int>(Addresses.IsInMatch) != 0;
                     }
                     catch
                     {
@@ -51,7 +51,7 @@ namespace ActorConsole.Core.Memory
             {
                 try
                 {
-                    if (IsInGame)
+                    if (IsInMatch)
                     {
                         string map = Game.Read<byte>(Addresses.MapName, 15).GetString(true);
                         if (map != string.Empty)

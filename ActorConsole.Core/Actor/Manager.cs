@@ -15,7 +15,7 @@ namespace ActorConsole.Core.Actor
 
         public static void Add()
         {
-            if (Memory.IW4.IsInGame)
+            if (Memory.IW4.IsInMatch)
             {
                 ActorsList.Add(new Actor());
             }
@@ -23,7 +23,7 @@ namespace ActorConsole.Core.Actor
 
         public static void Delete(int index)
         {
-            if (Memory.IW4.IsInGame)
+            if (Memory.IW4.IsInMatch)
             {
                 Actors[index].Dispose();
                 ActorsList.RemoveAt(index);

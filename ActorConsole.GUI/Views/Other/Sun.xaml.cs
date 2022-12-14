@@ -19,7 +19,7 @@ namespace ActorConsole.GUI.Views.Other
         private const float MagicNumber = 127.5f;
         private void SunColorController_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 SunColorController.R = (byte)(Core.World.Sun.Red * MagicNumber);
                 SunColorController.G = (byte)(Core.World.Sun.Green * MagicNumber);
@@ -35,7 +35,7 @@ namespace ActorConsole.GUI.Views.Other
                 SelectedColorChangedTask?.Dispose();
                 SelectedColorChangedTask = Task.Run(() =>
                 {
-                    if (Core.Memory.IW4.IsInGame)
+                    if (Core.Memory.IW4.IsInMatch)
                     {
                         Dispatcher.InvokeAsync(() =>
                         {
@@ -50,7 +50,7 @@ namespace ActorConsole.GUI.Views.Other
 
         private void Xpos_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 Xpos.Value = Core.World.Sun.X;
             }
@@ -58,7 +58,7 @@ namespace ActorConsole.GUI.Views.Other
 
         private void Xpos_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 Core.World.Sun.X = (float)Xpos.Value;
             }
@@ -66,7 +66,7 @@ namespace ActorConsole.GUI.Views.Other
 
         private void Zpos_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 Zpos.Value = Core.World.Sun.Z;
             }
@@ -74,7 +74,7 @@ namespace ActorConsole.GUI.Views.Other
 
         private void Zpos_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 Core.World.Sun.Z = (float)Zpos.Value;
             }
@@ -82,7 +82,7 @@ namespace ActorConsole.GUI.Views.Other
 
         private void Ypos_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 Core.World.Sun.Y = (float)Ypos.Value;
             }
@@ -90,7 +90,7 @@ namespace ActorConsole.GUI.Views.Other
 
         private void Ypos_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 Ypos.Value = Core.World.Sun.Y;
             }
@@ -98,7 +98,7 @@ namespace ActorConsole.GUI.Views.Other
 
         private void SavePresetBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 SaveFileDialog saveFileDialog = new SaveFileDialog
                 {
@@ -118,7 +118,7 @@ namespace ActorConsole.GUI.Views.Other
 
         private void LoadPresetBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog
                 {

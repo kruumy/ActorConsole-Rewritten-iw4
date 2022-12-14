@@ -15,7 +15,7 @@
         /// </summary>
         public static void StatusBar_Update()
         {
-            if (!Core.Memory.IW4.IsInGame)
+            if (!Core.Memory.IW4.IsInMatch)
             {
                 Core.Actor.Manager.Reset();
                 Views.ActorBar.Reset();

@@ -69,7 +69,7 @@ namespace ActorConsole.GUI.Views
 
         private void LoadPresetButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Core.Memory.IW4.IsInGame)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog
                 {
