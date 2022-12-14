@@ -110,14 +110,18 @@
             </Grid.ColumnDefinitions>
             
             <Button
+                x:Name="SavePresetBtn"
                 Grid.Column="0"
                 Margin="3"
-                Content="Save Preset">
+                Content="Save Preset"
+                Click="SavePresetBtn_Click">
             </Button>
             <Button
+                x:Name="LoadPresetBtn"
                 Grid.Column="1"
                 Margin="3"
-                Content="Load Preset">
+                Content="Load Preset"
+                Click="LoadPresetBtn_Click">
             </Button>
 
         </Grid>

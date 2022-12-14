@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.Win32;
+using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
@@ -14,7 +16,7 @@ namespace ActorConsole.GUI.Views.Other
             InitializeComponent();
         }
         // Core.World.Sun ranges from 0...2, SunColorController is 0...255
-        private float MagicNumber = 127.5f;
+        private const float MagicNumber = 127.5f;
         private void SunColorController_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             if (Core.Memory.IW4.IsInGame)
@@ -91,6 +93,51 @@ namespace ActorConsole.GUI.Views.Other
             if (Core.Memory.IW4.IsInGame)
             {
                 Ypos.Value = Core.World.Sun.Y;
+            }
+        }
+
+        private void SavePresetBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (Core.Memory.IW4.IsInGame)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog
+                {
+                    DefaultExt = ".json",
+                    RestoreDirectory = true,
+                    Title = "Save Sun",
+                    Filter = "json files (*.json)|*.json|All files (*.*)|*.*"
+                };
+                saveFileDialog.FileOk += SaveFileDialog_FileOk;
+                saveFileDialog.ShowDialog();
+                void SaveFileDialog_FileOk(object sender2, System.ComponentModel.CancelEventArgs e2)
+                {
+                    File.WriteAllText(saveFileDialog.FileName, Core.World.Sun.ToString());
+                }
+            }
+        }
+
+        private void LoadPresetBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (Core.Memory.IW4.IsInGame)
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog
+                {
+                    DefaultExt = ".json",
+                    Multiselect = false,
+                    RestoreDirectory = true,
+                    Title = "Select Sun",
+                    Filter = "json files (*.json)|*.json|All files (*.*)|*.*"
+                };
+                openFileDialog.FileOk += OpenFileDialog_FileOk;
+                openFileDialog.ShowDialog();
+                async void OpenFileDialog_FileOk(object sender2, System.ComponentModel.CancelEventArgs e2)
+                {
+                    await Task.Run(() => Core.World.Sun.LoadJson(File.ReadAllText(openFileDialog.FileName)));
+                    SunColorController_Loaded(null, null);
+                    Xpos_Loaded(null, null);
+                    Ypos_Loaded(null, null);
+                    Zpos_Loaded(null, null);
+                }
             }
         }
     }

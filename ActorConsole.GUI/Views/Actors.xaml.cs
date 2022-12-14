@@ -48,7 +48,6 @@ namespace ActorConsole.GUI.Views
             int selectedIndex = ActorsDataGrid.SelectedIndex;
             if (selectedIndex > -1)
             {
-                //TODO: Add filter to dialog
                 Actor actor = Core.Actor.Manager.Actors[selectedIndex];
                 SaveFileDialog saveFileDialog = new SaveFileDialog
                 {
@@ -72,7 +71,6 @@ namespace ActorConsole.GUI.Views
         {
             if (Core.Memory.IW4.IsInGame)
             {
-                //TODO: Add filter to dialog
                 OpenFileDialog openFileDialog = new OpenFileDialog
                 {
                     DefaultExt = ".json",
