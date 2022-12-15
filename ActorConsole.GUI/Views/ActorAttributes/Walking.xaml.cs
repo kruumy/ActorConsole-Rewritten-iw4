@@ -40,7 +40,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void AddBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.IsActorSelected)
             {
                 ActorBar.SelectedActor.Walking.Key = KeyBox.Text[0];
                 if (SpeedBox.Value != null)
@@ -51,7 +51,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void RemoveBindBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.IsActorSelected)
             {
                 ActorBar.SelectedActor.Walking.RemoveBind();
                 BindsDataGrid_Loaded(null, null);

@@ -6,6 +6,4 @@ ActorConsole-Rewritten-iw4
 │   ├── Core Functionality.
 ├── ActorConsole.GUI
 │   ├── WPF Front-end.
-├── ActorConsole.CLI
-│   ├── For Testing.
 ```

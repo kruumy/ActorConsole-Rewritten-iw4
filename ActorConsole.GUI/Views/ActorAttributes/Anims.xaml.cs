@@ -71,13 +71,13 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void applydeathbtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.IsActorSelected)
                 ActorBar.SelectedActor.Anims.Death = DeathAnimTextBox.Text;
         }
 
         private void applyidlebtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.IsActorSelected)
                 ActorBar.SelectedActor.Anims.Idle = IdleAnimTextBox.Text;
         }
     }

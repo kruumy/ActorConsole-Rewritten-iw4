@@ -64,7 +64,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.SelectedActorIndex > -1)
+            if (ActorBar.IsActorSelected)
             {
                 string Camo = "";
                 string Weapon = "";

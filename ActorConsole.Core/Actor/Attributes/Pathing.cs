@@ -7,9 +7,9 @@
         }
 
         public bool IsEnabled => NodeCount > 0;
-        private int _Speed;
+        private uint _Speed = 0;
 
-        public int Speed
+        public uint Speed
         {
             get => _Speed;
             set
