@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32519.111
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActorConsole.Core", "ActorConsole.Core\ActorConsole.Core.csproj", "{58228458-C1A9-4052-BA3D-05A357F3C417}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActorConsole.CLI", "ActorConsole.CLI\ActorConsole.CLI.csproj", "{280F1D33-D326-44ED-BA6A-EF71A5F4616D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActorConsole.GUI", "ActorConsole.GUI\ActorConsole.GUI.csproj", "{E9B808C2-E628-4CCB-93D3-E580CFE81C25}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{58228458-C1A9-4052-BA3D-05A357F3C417}.Debug|x86.Build.0 = Debug|x86
 		{58228458-C1A9-4052-BA3D-05A357F3C417}.Release|x86.ActiveCfg = Release|x86
 		{58228458-C1A9-4052-BA3D-05A357F3C417}.Release|x86.Build.0 = Release|x86
-		{280F1D33-D326-44ED-BA6A-EF71A5F4616D}.Debug|x86.ActiveCfg = Debug|x86
-		{280F1D33-D326-44ED-BA6A-EF71A5F4616D}.Debug|x86.Build.0 = Debug|x86
-		{280F1D33-D326-44ED-BA6A-EF71A5F4616D}.Release|x86.ActiveCfg = Release|x86
-		{280F1D33-D326-44ED-BA6A-EF71A5F4616D}.Release|x86.Build.0 = Release|x86
 		{E9B808C2-E628-4CCB-93D3-E580CFE81C25}.Debug|x86.ActiveCfg = Debug|x86
 		{E9B808C2-E628-4CCB-93D3-E580CFE81C25}.Debug|x86.Build.0 = Debug|x86
 		{E9B808C2-E628-4CCB-93D3-E580CFE81C25}.Release|x86.ActiveCfg = Release|x86

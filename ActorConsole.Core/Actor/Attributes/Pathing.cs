@@ -19,34 +19,43 @@
             }
         }
 
-        private int NextNode = 1;
+        private uint NextNode = 1;
 
-        public int NodeCount => NextNode - 1;
+        public uint NodeCount => NextNode - 1;
 
-        public int CreateNode()
+        public uint CreateNode()
         {
             if (NextNode <= 13)
             {
                 Memory.IW4.SendDvar($"mvm_actor_path_save {ParentActor.Name} {NextNode}");
-                int result = NextNode;
+                uint result = NextNode;
                 NextNode++;
                 return result;
             }
             else
-                return -1;
+                return 0;
         }
 
-        public int DeleteLastNode()
+        public uint DeleteLastNode()
         {
-            Memory.IW4.SendDvar($"mvm_actor_path_del {ParentActor.Name} {NextNode}");
-            int result = NextNode;
-            NextNode--;
-            return result;
+            if (IsEnabled)
+            {
+                Memory.IW4.SendDvar($"mvm_actor_path_del {ParentActor.Name} {NextNode}");
+                uint result = NextNode;
+                NextNode--;
+                return result;
+            }
+            else
+                return 0;
         }
 
         public void Play()
         {
             Memory.IW4.SendDvar($"mvm_actor_path_walk {ParentActor.Name} {Speed}");
+        }
+        public void Play(int speed)
+        {
+            Memory.IW4.SendDvar($"mvm_actor_path_walk {ParentActor.Name} {speed}");
         }
     }
 }
