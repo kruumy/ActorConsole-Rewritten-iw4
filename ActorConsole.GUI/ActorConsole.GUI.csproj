@@ -7,6 +7,20 @@
 		<UseWPF>true</UseWPF>
 		<Platforms>x86</Platforms>
 		<StartupObject>ActorConsole.GUI.App</StartupObject>
+		<ErrorReport>none</ErrorReport>
+		<Title>ActorConsole.GUI</Title>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+		<NeutralLanguage>en</NeutralLanguage>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+	  <WarningLevel>9999</WarningLevel>
+	  <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+	  <WarningLevel>9999</WarningLevel>
+	  <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
 	</PropertyGroup>
 
 	<ItemGroup>
