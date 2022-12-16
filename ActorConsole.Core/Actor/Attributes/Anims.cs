@@ -7,7 +7,7 @@
         }
 
         internal const string Idle_Default = "pb_stand_alert";
-        internal const string Death_Default = "pb_stand_death_leg_kickup";
+        internal const string Death_Default = "pb_stand_death_chest_blowback";
 
         private string _Idle = Idle_Default;
 
