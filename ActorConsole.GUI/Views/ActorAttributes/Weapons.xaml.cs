@@ -64,13 +64,12 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void ApplyBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.IsActorSelected)
+            if (ActorBar.SelectedActor != null)
             {
                 string Camo = "";
-                string Weapon = "";
                 if (CamoBox.Text != "None")
                     Camo = CamoBox.Text;
-                Weapon = SelectedWeaponBox.Text;
+                string Weapon = SelectedWeaponBox.Text;
                 switch (BoneBox.Text)
                 {
                     case "j_gun":

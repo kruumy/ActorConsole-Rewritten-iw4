@@ -12,8 +12,24 @@ namespace ActorConsole.GUI.Views
         public static event SelectedActorChanged OnSelectedActorChanged;
 
         public static int SelectedActorIndex { get; private set; } = -1;
-        public static bool IsActorSelected => SelectedActorIndex != -1;
-        public static Core.Actor.Actor SelectedActor => Core.Actor.Manager.Actors[SelectedActorIndex];
+        public static Core.Actor.Actor SelectedActor
+        {
+            get
+            {
+                try
+                {
+                    return Core.Actor.Manager.Actors[SelectedActorIndex];
+                }
+                catch (System.IndexOutOfRangeException)
+                {
+                    return null;
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
 
         public ActorBar()
         {
@@ -32,7 +48,7 @@ namespace ActorConsole.GUI.Views
         private void ActorSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SelectedActorIndex = ActorSelectionComboBox.SelectedIndex;
-            if (IsActorSelected)
+            if (SelectedActor != null)
                 OnSelectedActorChanged?.Invoke(this, SelectedActorIndex, SelectedActor);
         }
 
@@ -45,7 +61,7 @@ namespace ActorConsole.GUI.Views
 
         private void DeleteActorButton_Click(object sender, RoutedEventArgs e)
         {
-            if (IsActorSelected)
+            if (SelectedActor != null)
             {
                 int selectedIndex = ActorSelectionComboBox.SelectedIndex;
                 Core.Actor.Manager.Delete(selectedIndex);

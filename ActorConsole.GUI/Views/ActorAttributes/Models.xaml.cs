@@ -70,13 +70,13 @@ namespace ActorConsole.GUI.Views.ActorAttributes
 
         private void applybodybtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.IsActorSelected)
+            if (ActorBar.SelectedActor != null)
                 ActorBar.SelectedActor.Models.Body = BodyModelTextBox.Text;
         }
 
         private void applyheadbtn_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorBar.IsActorSelected)
+            if (ActorBar.SelectedActor != null)
                 ActorBar.SelectedActor.Models.Head = HeadModelTextBox.Text;
         }
     }

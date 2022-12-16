@@ -31,24 +31,30 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         }
         private void AddPointBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ActorBar.SelectedActor.Pathing.CreateNode();
-            ActorBar_OnSelectedActorChanged(this, ActorBar.SelectedActorIndex, ActorBar.SelectedActor);
+            if (ActorBar.SelectedActor != null)
+            {
+                ActorBar.SelectedActor.Pathing.CreateNode();
+                ActorBar_OnSelectedActorChanged(this, ActorBar.SelectedActorIndex, ActorBar.SelectedActor);
+            }
         }
 
         private void RemovePointBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ActorBar.SelectedActor.Pathing.DeleteLastNode();
-            ActorBar_OnSelectedActorChanged(this, ActorBar.SelectedActorIndex, ActorBar.SelectedActor);
+            if (ActorBar.SelectedActor != null)
+            {
+                ActorBar.SelectedActor.Pathing.DeleteLastNode();
+                ActorBar_OnSelectedActorChanged(this, ActorBar.SelectedActorIndex, ActorBar.SelectedActor);
+            }
         }
 
         private void PlayBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ActorBar.SelectedActor.Pathing.Play();
+            ActorBar.SelectedActor?.Pathing.Play();
         }
 
         private void SpeedBox_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double?> e)
         {
-            if (SpeedBox.Value > -1 && ActorBar.IsActorSelected)
+            if (SpeedBox.Value > -1 && ActorBar.SelectedActor != null)
             {
                 ActorBar.SelectedActor.Pathing.Speed = (uint)SpeedBox.Value;
             }
