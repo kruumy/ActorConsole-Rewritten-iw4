@@ -31,7 +31,7 @@ namespace ActorConsole.GUI.Views.Other
             else
                 team = "axis";
 
-            if(ModelsBox.SelectedIndex > -1 && !string.IsNullOrEmpty(PlayerNameBox.Text))
+            if (ModelsBox.SelectedIndex > -1 && !string.IsNullOrEmpty(PlayerNameBox.Text))
                 Core.Player.Model.SetModel((string)((ListViewItem)ModelsBox.SelectedValue).Content, team, PlayerNameBox.Text);
         }
     }

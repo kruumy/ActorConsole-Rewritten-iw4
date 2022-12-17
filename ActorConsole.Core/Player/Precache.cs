@@ -35,7 +35,7 @@ namespace ActorConsole.Core.Player
         /// <summary>
         /// Only the singleplayer animations.
         /// </summary>
-        public string[] SP_Anims { get;  }
+        public string[] SP_Anims { get; }
         /// <summary>
         /// All the singleplayer models.
         /// </summary>

@@ -6,7 +6,7 @@
     /// </summary>
     public sealed class Weapons : Attribute
     {
-        internal Weapons(Actor _ParentActor) : base(_ParentActor){}
+        internal Weapons(Actor _ParentActor) : base(_ParentActor) { }
         private void ApplyGunToBone(string boneName, string gunName)
         {
             if (gunName == null)

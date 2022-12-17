@@ -13,7 +13,7 @@ namespace ActorConsole.Core.Actor
         /// </summary>
         public static event EventHandler OnActorAttributeModified;
 
-        internal static void RaiseOnActorAttributeModified(Attributes.Attribute sender) => OnActorAttributeModified?.Invoke(sender,EventArgs.Empty);
+        internal static void RaiseOnActorAttributeModified(Attributes.Attribute sender) => OnActorAttributeModified?.Invoke(sender, EventArgs.Empty);
 
         private static readonly List<Actor> ActorsList = new List<Actor>();
         /// <summary>
@@ -33,8 +33,8 @@ namespace ActorConsole.Core.Actor
         /// <param name="index">Index of actor in list.</param>
         public static void Delete(int index)
         {
-                Actors[index].Dispose();
-                ActorsList.RemoveAt(index);
+            Actors[index].Dispose();
+            ActorsList.RemoveAt(index);
         }
         /// <summary>
         /// Deletes an actor from the current scene.
@@ -49,7 +49,7 @@ namespace ActorConsole.Core.Actor
         /// </summary>
         public static void ActorBack()
         {
-                Memory.IW4.SendDvar("actorback");
+            Memory.IW4.SendDvar("actorback");
         }
         /// <summary>
         /// Searches for an actor in the main list.

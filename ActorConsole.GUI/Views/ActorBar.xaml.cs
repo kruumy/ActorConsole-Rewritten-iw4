@@ -54,7 +54,7 @@ namespace ActorConsole.GUI.Views
 
         private void CreateActorButton_Click(object sender, RoutedEventArgs e)
         {
-            if(Core.Memory.IW4.IsInMatch)
+            if (Core.Memory.IW4.IsInMatch)
             {
                 Core.Actor.Manager.Add();
                 ActorSelectionComboBox.SelectedIndex = ActorSelectionComboBox.Items.Count;
