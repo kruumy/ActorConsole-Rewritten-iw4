@@ -11,7 +11,7 @@ namespace ActorConsole.GUI.Views
 
         public static event SelectedActorChanged OnSelectedActorChanged;
 
-        public static int SelectedActorIndex { get; private set; } = -1;
+        public static int SelectedActorIndex { get; set; } = -1;
         public static Core.Actor.Actor SelectedActor
         {
             get
@@ -57,7 +57,7 @@ namespace ActorConsole.GUI.Views
             if (Core.Memory.IW4.IsInMatch)
             {
                 Core.Actor.Manager.Add();
-                ActorSelectionComboBox.SelectedIndex = ActorSelectionComboBox.Items.Count;
+                ActorSelectionComboBox.SelectedIndex = Core.Actor.Manager.Actors.Length - 1;
                 ActorSelectionComboBox_Loaded(null, null);
             }
         }
@@ -93,7 +93,6 @@ namespace ActorConsole.GUI.Views
 
         private void PrecacheButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: Add filter to dialog
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 DefaultExt = ".gsc",

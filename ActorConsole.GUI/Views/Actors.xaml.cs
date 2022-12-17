@@ -26,6 +26,7 @@ namespace ActorConsole.GUI.Views
             if (Core.Memory.IW4.IsInMatch)
             {
                 Core.Actor.Manager.Add();
+                ActorBar.SelectedActorIndex = Core.Actor.Manager.Actors.Length - 1;
                 ActorsDataGrid_Loaded(null, null);
             }
         }
