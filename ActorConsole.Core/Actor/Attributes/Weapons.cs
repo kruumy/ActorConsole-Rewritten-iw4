@@ -1,20 +1,22 @@
 ﻿namespace ActorConsole.Core.Actor.Attributes
 {
+    /// <summary>
+    /// Attribute class to hold all the information about the parant actors weapons.
+    /// Is equilivant to /mvm_actor_weapon
+    /// </summary>
     public sealed class Weapons : Attribute
     {
-        internal Weapons(Actor _ParentActor) : base(_ParentActor)
-        {
-        }
-
+        internal Weapons(Actor _ParentActor) : base(_ParentActor){}
         private void ApplyGunToBone(string boneName, string gunName)
         {
             if (gunName == null)
                 gunName = "";
             Memory.IW4.SendDvar($"mvm_actor_weapon {ParentActor.Name} {boneName} {gunName}");
         }
-
         private string _j_gun = null;
-
+        /// <summary>
+        /// Bone primarily used as the right hand for a gun.
+        /// </summary>
         public string j_gun
         {
             get => _j_gun;
@@ -22,12 +24,13 @@
             {
                 _j_gun = value;
                 ApplyGunToBone("j_gun", value);
-                Manager.RaiseActorPropertyChanged(this);
+                Manager.RaiseOnActorAttributeModified(this);
             }
         }
-
         private string _tag_stowed_back = null;
-
+        /// <summary>
+        /// Bone primarily used to store weapons on the back of the acotr. Like it is a secondary weapon.
+        /// </summary>
         public string tag_stowed_back
         {
             get => _tag_stowed_back;
@@ -35,12 +38,13 @@
             {
                 _tag_stowed_back = value;
                 ApplyGunToBone("tag_stowed_back", value);
-                Manager.RaiseActorPropertyChanged(this);
+                Manager.RaiseOnActorAttributeModified(this);
             }
         }
-
         private string _tag_inhand = null;
-
+        /// <summary>
+        /// Bone primarily used for C4 walking animation.
+        /// </summary>
         public string tag_inhand
         {
             get => _tag_inhand;
@@ -48,12 +52,13 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_inhand", value);
-                Manager.RaiseActorPropertyChanged(this);
+                Manager.RaiseOnActorAttributeModified(this);
             }
         }
-
         private string _tag_weapon_right = null;
-
+        /// <summary>
+        /// Bone primarily used for when j_gun does not work.
+        /// </summary>
         public string tag_weapon_right
         {
             get => _tag_weapon_right;
@@ -61,12 +66,13 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_weapon_right", value);
-                Manager.RaiseActorPropertyChanged(this);
+                Manager.RaiseOnActorAttributeModified(this);
             }
         }
-
         private string _tag_weapon_left = null;
-
+        /// <summary>
+        /// Bone primarily used for the left hand. Useful for faking akimbo.
+        /// </summary>
         public string tag_weapon_left
         {
             get => _tag_weapon_left;
@@ -74,12 +80,13 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_weapon_left", value);
-                Manager.RaiseActorPropertyChanged(this);
+                Manager.RaiseOnActorAttributeModified(this);
             }
         }
-
         private string _tag_weapon_chest = null;
-
+        /// <summary>
+        /// Bone for something, I forgot
+        /// </summary>
         public string tag_weapon_chest
         {
             get => _tag_weapon_chest;
@@ -87,12 +94,13 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_weapon_chest", value);
-                Manager.RaiseActorPropertyChanged(this);
+                Manager.RaiseOnActorAttributeModified(this);
             }
         }
-
         private string _tag_stowed_hip_rear = null;
-
+        /// <summary>
+        /// Bone primarily used to grenades or claymores.
+        /// </summary>
         public string tag_stowed_hip_rear
         {
             get => _tag_stowed_hip_rear;
@@ -100,7 +108,7 @@
             {
                 _tag_inhand = value;
                 ApplyGunToBone("tag_stowed_hip_rear", value);
-                Manager.RaiseActorPropertyChanged(this);
+                Manager.RaiseOnActorAttributeModified(this);
             }
         }
     }

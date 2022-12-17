@@ -3,17 +3,47 @@ using System.Linq;
 
 namespace ActorConsole.Core.Player
 {
+    /// <summary>
+    /// A class to parse the _precache.gsc files contents into its different types.
+    /// </summary>
     public class Precache
     {
-        public string Path { get; set; }
-        public string RawText { get; private set; }
-        public string[] RawText_Lines { get; private set; }
-        public string[] MP_Anims { get; private set; }
-        public string[] MP_Anims_Idle { get; private set; }
-        public string[] MP_Anims_Death { get; private set; }
-        public string[] SP_Anims { get; private set; }
-        public string[] SP_Models { get; private set; }
-
+        /// <summary>
+        /// The path giving in the contructor.
+        /// </summary>
+        public string Path { get; }
+        /// <summary>
+        /// The raw text from the file.
+        /// </summary>
+        public string RawText { get; }
+        /// <summary>
+        /// The raw text split by lines.
+        /// </summary>
+        public string[] RawText_Lines { get; }
+        /// <summary>   
+        /// All the multiplayer animations.
+        /// </summary>
+        public string[] MP_Anims { get; }
+        /// <summary>
+        /// Only the idle multiplayer animations.
+        /// </summary>
+        public string[] MP_Anims_Idle { get; }
+        /// <summary>
+        /// Only the death multiplayer animations.
+        /// </summary>
+        public string[] MP_Anims_Death { get; }
+        /// <summary>
+        /// Only the singleplayer animations.
+        /// </summary>
+        public string[] SP_Anims { get;  }
+        /// <summary>
+        /// All the singleplayer models.
+        /// </summary>
+        public string[] SP_Models { get; }
+        /// <summary>
+        /// Sets all propertys of the class with the parsed information.
+        /// </summary>
+        /// <param name="path_to_precache">path to the _precache.gsc file.</param>
         public Precache(string path_to_precache)
         {
             // TODO: optimize using spans instead of arrays

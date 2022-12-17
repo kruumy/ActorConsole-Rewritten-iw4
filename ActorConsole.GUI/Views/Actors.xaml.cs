@@ -23,14 +23,17 @@ namespace ActorConsole.GUI.Views
 
         private void AddActorButton_Click(object sender, RoutedEventArgs e)
         {
-            Core.Actor.Manager.Add();
-            ActorsDataGrid_Loaded(null, null);
+            if (Core.Memory.IW4.IsInMatch)
+            {
+                Core.Actor.Manager.Add();
+                ActorsDataGrid_Loaded(null, null);
+            }
         }
 
         private void RemoveActorButton_Click(object sender, RoutedEventArgs e)
         {
             int selectedIndex = ActorsDataGrid.SelectedIndex;
-            if (selectedIndex > -1)
+            if (selectedIndex > -1 && Core.Memory.IW4.IsInMatch)
             {
                 Core.Actor.Manager.Delete(selectedIndex);
                 ActorsDataGrid_Loaded(null, null);
@@ -39,14 +42,15 @@ namespace ActorConsole.GUI.Views
 
         private void MoveActorButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ActorsDataGrid.SelectedIndex > -1)
-                Core.Actor.Manager.Actors[ActorsDataGrid.SelectedIndex].MoveToCurrentPostition();
+            int selectedIndex = ActorsDataGrid.SelectedIndex;
+            if (selectedIndex > -1 && Core.Memory.IW4.IsInMatch)
+                Core.Actor.Manager.Actors[selectedIndex].MoveToCurrentPostition();
         }
 
         private void SavePresetButton_Click(object sender, RoutedEventArgs e)
         {
             int selectedIndex = ActorsDataGrid.SelectedIndex;
-            if (selectedIndex > -1)
+            if (selectedIndex > -1 && Core.Memory.IW4.IsInMatch)
             {
                 Actor actor = Core.Actor.Manager.Actors[selectedIndex];
                 SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -86,6 +90,14 @@ namespace ActorConsole.GUI.Views
                     Presets.Load(openFileDialog.FileName);
                     ActorsDataGrid_Loaded(null, null);
                 }
+            }
+        }
+
+        private void ResetSceneButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Core.Memory.IW4.IsInMatch)
+            {
+                Core.Memory.IW4.SendDvar("actorback");
             }
         }
     }

@@ -3,11 +3,16 @@ using System;
 
 namespace ActorConsole.Core.Actor
 {
+    /// <summary>
+    /// Main controller class that holds all the attibutes of an actor.
+    /// </summary>
     public sealed class Actor : IDisposable
     {
         internal static int Amount = 1;
         private string _Name;
-
+        /// <summary>
+        /// Name of the actor in game.
+        /// </summary>
         public string Name
         {
             get => _Name;
@@ -18,13 +23,30 @@ namespace ActorConsole.Core.Actor
                 _Name = value;
             }
         }
-
+        /// <summary>
+        /// Anims Attribute
+        /// </summary>
         public Anims Anims { get; }
+        /// <summary>
+        /// Models Attribute
+        /// </summary>
         public Models Models { get; }
+        /// <summary>
+        /// Weapons Attribute
+        /// </summary>
         public Weapons Weapons { get; }
+        /// <summary>
+        /// Walking Attribute
+        /// </summary>
         public Walking Walking { get; }
+        /// <summary>
+        /// Pathing Attribute
+        /// </summary>
         public Pathing Pathing { get; }
 
+        /// <summary>
+        /// Constructor, is marked internal because actors should be created through the static Manager class.
+        /// </summary>
         internal Actor()
         {
             Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
@@ -38,12 +60,17 @@ namespace ActorConsole.Core.Actor
 
             Amount++;
         }
-
+        /// <summary>
+        /// Moves the actor to the current position of the player in game.
+        /// </summary>
         public void MoveToCurrentPostition()
         {
             Memory.IW4.SendDvar($"mvm_actor_move {Name}");
         }
-
+        /// <summary>
+        /// Removes actor from the game.
+        /// Should use Manager.Delete() instead.
+        /// </summary>
         public void Dispose()
         {
             this.Weapons.j_gun = null;

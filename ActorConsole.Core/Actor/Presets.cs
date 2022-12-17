@@ -3,6 +3,9 @@ using System.Linq;
 
 namespace ActorConsole.Core.Actor
 {
+    /// <summary>
+    /// Class containing functions to save actors as json and load them into the manager.
+    /// </summary>
     public static class Presets
     {
         /// <summary>
