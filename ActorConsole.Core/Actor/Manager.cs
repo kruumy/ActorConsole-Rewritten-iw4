@@ -13,7 +13,7 @@ namespace ActorConsole.Core.Actor
         /// </summary>
         public static event EventHandler OnActorAttributeModified;
 
-        internal static void RaiseOnActorAttributeModified(Attributes.Attribute sender) => OnActorAttributeModified?.Invoke(sender, EventArgs.Empty);
+        internal static void RaiseOnActorAttributeModified(object sender) => OnActorAttributeModified?.Invoke(sender, EventArgs.Empty);
 
         private static readonly List<Actor> ActorsList = new List<Actor>();
         /// <summary>

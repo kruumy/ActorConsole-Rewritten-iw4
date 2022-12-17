@@ -8,7 +8,7 @@
         /// <summary>
         /// The parent actor that the attribute is assigned to.
         /// </summary>
-        public Actor ParentActor { get; }
+        internal Actor ParentActor { get; }
 
         internal Attribute(Actor _ParentActor)
         {
