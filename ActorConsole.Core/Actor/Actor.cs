@@ -26,23 +26,23 @@ namespace ActorConsole.Core.Actor
         /// <summary>
         /// Anims Attribute
         /// </summary>
-        public Anims Anims { get; }
+        public Anims Anims { get; private set; }
         /// <summary>
         /// Models Attribute
         /// </summary>
-        public Models Models { get; }
+        public Models Models { get; private set; }
         /// <summary>
         /// Weapons Attribute
         /// </summary>
-        public Weapons Weapons { get; }
+        public Weapons Weapons { get; private set; }
         /// <summary>
         /// Walking Attribute
         /// </summary>
-        public Walking Walking { get; }
+        public Walking Walking { get; private set; }
         /// <summary>
         /// Pathing Attribute
         /// </summary>
-        public Pathing Pathing { get; }
+        public Pathing Pathing { get; private set; }
 
         /// <summary>
         /// Constructor, is marked internal because actors should be created through the static Manager class.
@@ -61,7 +61,7 @@ namespace ActorConsole.Core.Actor
             Amount++;
         }
         /// <summary>
-        /// Removes actor from the game.
+        /// Removes actor from the game and unlinks attributes from actor class.
         /// </summary>
         internal void Delete()
         {
@@ -72,6 +72,11 @@ namespace ActorConsole.Core.Actor
             this.Weapons.tag_weapon_chest = null;
             this.Weapons.tag_weapon_left = null;
             this.Weapons.tag_weapon_right = null;
+            Anims = null;
+            Models = null;
+            Weapons = null;
+            Walking = null;
+            Pathing = null;
             Memory.IW4.SendDvar($"mvm_actor_delete {Name}");
             GC.SuppressFinalize(this);
         }
