@@ -13,7 +13,7 @@
 <h4 align="center">Manage IW4 Actors Easily!</h4>
 
 <div align="center">
-  <a href="https://github.com/kruumy/ActorConsole-Rewritten-iw4/blob/main/preview.png">
+  <a href="https://github.com/kruumy/ActorConsole-Rewritten-iw4/blob/master/preview.png">
     <img src="preview.png" alt="Preivew" Width="auto" Height="auto">
   </a>
 </div>
