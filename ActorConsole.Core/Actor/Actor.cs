@@ -6,7 +6,7 @@ namespace ActorConsole.Core.Actor
     /// <summary>
     /// Main controller class that holds all the attibutes of an actor.
     /// </summary>
-    public sealed class Actor : IDisposable
+    public sealed class Actor
     {
         internal static int Amount = 1;
         private string _Name;
@@ -61,17 +61,9 @@ namespace ActorConsole.Core.Actor
             Amount++;
         }
         /// <summary>
-        /// Moves the actor to the current position of the player in game.
-        /// </summary>
-        public void MoveToCurrentPostition()
-        {
-            Memory.IW4.SendDvar($"mvm_actor_move {Name}");
-        }
-        /// <summary>
         /// Removes actor from the game.
-        /// Should use Manager.Delete() instead.
         /// </summary>
-        public void Dispose()
+        internal void Delete()
         {
             this.Weapons.j_gun = null;
             this.Weapons.tag_inhand = null;
@@ -82,6 +74,13 @@ namespace ActorConsole.Core.Actor
             this.Weapons.tag_weapon_right = null;
             Memory.IW4.SendDvar($"mvm_actor_delete {Name}");
             GC.SuppressFinalize(this);
+        }
+        /// <summary>
+        /// Moves the actor to the current position of the player in game.
+        /// </summary>
+        public void MoveToCurrentPostition()
+        {
+            Memory.IW4.SendDvar($"mvm_actor_move {Name}");
         }
     }
 }

@@ -33,7 +33,7 @@ namespace ActorConsole.Core.Actor
         /// <param name="index">Index of actor in list.</param>
         public static void Delete(int index)
         {
-            Actors[index].Dispose();
+            Actors[index].Delete();
             ActorsList.RemoveAt(index);
         }
         /// <summary>
