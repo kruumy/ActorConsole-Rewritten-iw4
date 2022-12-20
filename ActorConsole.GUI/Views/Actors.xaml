@@ -76,6 +76,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -83,46 +89,41 @@
             <Button
                 x:Name="AddActorButton"
                 Grid.Column="0"
+                Grid.ColumnSpan="3"
                 Margin="2"
                 Click="AddActorButton_Click">
                 Spawn Actor
             </Button>
-
-            <Grid Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Button
-                Grid.Column="0"
+            <Button
+                Grid.Column="3"
                 x:Name="RemoveActorButton"
                 Margin="2" Click="RemoveActorButton_Click">
-                    Delete Actor
-                </Button>
-                <Button
-                Grid.Column="1"
+                Delete Actor
+            </Button>
+            <Button
+                Grid.Column="4"
+                x:Name="ResetScenButton"
+                Margin="2" Click="ResetSceneButton_Click">
+                Reset Scene
+            </Button>
+            <Button
+                Grid.Column="5"
                 x:Name="MoveActorButton"
                 Margin="2" Click="MoveActorButton_Click">
-                    Move Actor
-                </Button>
-                <Button
-                Grid.Column="2"
+                Move Actor
+            </Button>
+            <Button
+                Grid.Column="6"
                 x:Name="SavePresetButton"
                 Margin="2" Click="SavePresetButton_Click">
-                    Save Preset
-                </Button>
-                <Button
-                Grid.Column="3"
+                Save Preset
+            </Button>
+            <Button
+                Grid.Column="7"
                 x:Name="LoadPresetButton"
                 Margin="2" Click="LoadPresetButton_Click">
-                    Load Preset
-                </Button>
-            </Grid>
+                Load Preset
+            </Button>
         </Grid>
     </Grid>
 </UserControl>
