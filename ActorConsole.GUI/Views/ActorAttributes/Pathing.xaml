@@ -73,7 +73,7 @@
                 Grid.Column="2"
                 Margin="3"
                 Click="RemovePointBtn_Click">
-                Remove Point
+                Remove Last Point
             </Button>
         </Grid>
     </Grid>
