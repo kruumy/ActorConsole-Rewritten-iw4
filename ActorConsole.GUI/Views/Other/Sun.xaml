@@ -20,12 +20,11 @@
         <mah:ColorCanvas
             x:Name="SunColorController"
             Grid.Column="0"
-            Grid.Row="0" 
-            Loaded="SunColorController_Loaded" 
-            SelectedColorChanged="SunColorController_SelectedColorChanged" 
-            >
+            Grid.Row="0"
+            Loaded="SunColorController_Loaded"
+            SelectedColorChanged="SunColorController_SelectedColorChanged">
             <mah:ColorCanvas.Effect>
-                <DropShadowEffect Opacity="0.75"/>
+                <DropShadowEffect Opacity="0.75" />
             </mah:ColorCanvas.Effect>
         </mah:ColorCanvas>
 
@@ -45,61 +44,58 @@
             </Grid.RowDefinitions>
             <Label
                 Grid.Row="1"
-                Content="X Axis" 
-                HorizontalAlignment="Center" 
+                Content="X Axis"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Bottom">
             </Label>
             <Slider
                 x:Name="Xpos"
                 Grid.Row="2"
-                Maximum="2" 
+                Maximum="2"
                 Minimum="-2"
                 Loaded="Xpos_Loaded"
-                ValueChanged="Xpos_ValueChanged" 
-                AutoToolTipPlacement="TopLeft" 
-                LargeChange="0.1" 
-                TickFrequency="0.1" 
-                TickPlacement="Both" 
-                />
+                ValueChanged="Xpos_ValueChanged"
+                AutoToolTipPlacement="TopLeft"
+                LargeChange="0.1"
+                TickFrequency="0.1"
+                TickPlacement="Both" />
             <Label
                 Grid.Row="3"
                 Content="Y Axis"
-                HorizontalAlignment="Center" 
+                HorizontalAlignment="Center"
                 VerticalAlignment="Bottom">
             </Label>
             <Slider
                 x:Name="Ypos"
                 Grid.Row="4"
-                Maximum="2" 
+                Maximum="2"
                 Minimum="-2"
                 Loaded="Ypos_Loaded"
-                ValueChanged="Ypos_ValueChanged" 
-                AutoToolTipPlacement="TopLeft" 
-                LargeChange="0.1" 
-                TickFrequency="0.1" 
-                TickPlacement="Both" 
-                />
+                ValueChanged="Ypos_ValueChanged"
+                AutoToolTipPlacement="TopLeft"
+                LargeChange="0.1"
+                TickFrequency="0.1"
+                TickPlacement="Both" />
             <Label
                 Grid.Row="5"
                 Content="Z Axis"
-                HorizontalAlignment="Center" 
+                HorizontalAlignment="Center"
                 VerticalAlignment="Bottom">
             </Label>
             <Slider
                 x:Name="Zpos"
                 Grid.Row="6"
-                Maximum="2" 
+                Maximum="2"
                 Minimum="-2"
                 Loaded="Zpos_Loaded"
-                ValueChanged="Zpos_ValueChanged" 
-                AutoToolTipPlacement="TopLeft" 
-                LargeChange="0.1" 
-                TickFrequency="0.1" 
-                TickPlacement="Both" 
-                />
+                ValueChanged="Zpos_ValueChanged"
+                AutoToolTipPlacement="TopLeft"
+                LargeChange="0.1"
+                TickFrequency="0.1"
+                TickPlacement="Both" />
         </Grid>
 
-        <Grid 
+        <Grid
             Grid.Column="0"
             Grid.ColumnSpan="2"
             Grid.Row="1">
@@ -108,7 +104,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
+
             <Button
                 x:Name="SavePresetBtn"
                 Grid.Column="0"
@@ -123,7 +119,6 @@
                 Content="Load Preset"
                 Click="LoadPresetBtn_Click">
             </Button>
-
         </Grid>
     </Grid>
 </UserControl>

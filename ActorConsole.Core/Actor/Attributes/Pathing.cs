@@ -9,12 +9,15 @@
         internal Pathing(Actor _ParentActor) : base(_ParentActor)
         {
         }
+
         /// <summary>
         /// Determines if the pathing attribute is enabled.
         /// Checks if NodeCount > 0.
         /// </summary>
         public bool IsEnabled => NodeCount > 0;
+
         private uint _Speed = 0;
+
         /// <summary>
         /// The speed for the pathing to be played back at.
         /// Higher = faster.
@@ -30,10 +33,12 @@
         }
 
         private uint NextNode = 1;
+
         /// <summary>
         /// The total number of nodes attached to the actor.
         /// </summary>
         public uint NodeCount => NextNode - 1;
+
         /// <summary>
         /// Creates a node at the players current position.
         /// </summary>
@@ -50,6 +55,7 @@
             else
                 return 0;
         }
+
         /// <summary>
         /// Deleted the last node placed.
         /// </summary>
@@ -66,6 +72,7 @@
             else
                 return 0;
         }
+
         /// <summary>
         /// Plays the path of all the nodes.
         /// </summary>
@@ -73,6 +80,7 @@
         {
             Memory.IW4.SendDvar($"mvm_actor_path_walk {ParentActor.Name} {Speed}");
         }
+
         /// <summary>
         /// Plays the path of all the nodes.
         /// </summary>

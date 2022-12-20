@@ -10,6 +10,7 @@ namespace ActorConsole.Core.Json
     public static class ModelsWrapper
     {
         private static readonly JsonElement RootElement = JsonDocument.Parse(File.ReadAllText("Json/models.json")).RootElement;
+
         /// <summary>
         /// Get all the models in the json.
         /// </summary>
@@ -30,6 +31,7 @@ namespace ActorConsole.Core.Json
                     throw new Exception("Invalid Property in ModelsJsonWrapper");
             }
         }
+
         /// <summary>
         /// Get all the models in the json by the players current map in game.
         /// </summary>
@@ -46,6 +48,7 @@ namespace ActorConsole.Core.Json
             return Get(map, modelType);
         }
     }
+
     /// <summary>
     /// Enum to easily declare the model type.
     /// </summary>
@@ -55,6 +58,7 @@ namespace ActorConsole.Core.Json
         /// The head model.
         /// </summary>
         Head,
+
         /// <summary>
         /// The body model.
         /// </summary>

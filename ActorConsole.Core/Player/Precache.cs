@@ -12,34 +12,42 @@ namespace ActorConsole.Core.Player
         /// The path giving in the contructor.
         /// </summary>
         public string Path { get; }
+
         /// <summary>
         /// The raw text from the file.
         /// </summary>
         public string RawText { get; }
+
         /// <summary>
         /// The raw text split by lines.
         /// </summary>
         public string[] RawText_Lines { get; }
-        /// <summary>   
+
+        /// <summary>
         /// All the multiplayer animations.
         /// </summary>
         public string[] MP_Anims { get; }
+
         /// <summary>
         /// Only the idle multiplayer animations.
         /// </summary>
         public string[] MP_Anims_Idle { get; }
+
         /// <summary>
         /// Only the death multiplayer animations.
         /// </summary>
         public string[] MP_Anims_Death { get; }
+
         /// <summary>
         /// Only the singleplayer animations.
         /// </summary>
         public string[] SP_Anims { get; }
+
         /// <summary>
         /// All the singleplayer models.
         /// </summary>
         public string[] SP_Models { get; }
+
         /// <summary>
         /// Sets all propertys of the class with the parsed information.
         /// </summary>

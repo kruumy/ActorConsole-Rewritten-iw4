@@ -17,6 +17,7 @@ namespace ActorConsole.Core.World
             get => Memory.IW4.Game.Read<float>(Memory.Addresses.Sun.Red);
             set => Memory.IW4.Game.Write(Memory.Addresses.Sun.Red, value);
         }
+
         /// <summary>
         /// Ranges from 0 ... 2 typically.
         /// The blue channel.
@@ -26,6 +27,7 @@ namespace ActorConsole.Core.World
             get => Memory.IW4.Game.Read<float>(Memory.Addresses.Sun.Green);
             set => Memory.IW4.Game.Write(Memory.Addresses.Sun.Green, value);
         }
+
         /// <summary>
         /// Ranges from 0 ... 2 typically.
         /// The green channel.
@@ -35,6 +37,7 @@ namespace ActorConsole.Core.World
             get => Memory.IW4.Game.Read<float>(Memory.Addresses.Sun.Blue);
             set => Memory.IW4.Game.Write(Memory.Addresses.Sun.Blue, value);
         }
+
         /// <summary>
         /// Ranges from 0 ... 2 typically.
         /// The x position.
@@ -44,6 +47,7 @@ namespace ActorConsole.Core.World
             get => Memory.IW4.Game.Read<float>(Memory.Addresses.Sun.X);
             set => Memory.IW4.Game.Write(Memory.Addresses.Sun.X, value);
         }
+
         /// <summary>
         /// Ranges from 0 ... 2 typically.
         /// The y position.
@@ -53,6 +57,7 @@ namespace ActorConsole.Core.World
             get => Memory.IW4.Game.Read<float>(Memory.Addresses.Sun.Y);
             set => Memory.IW4.Game.Write(Memory.Addresses.Sun.Y, value);
         }
+
         /// <summary>
         /// Ranges from 0 ... 2 typically.
         /// The z position.
@@ -62,6 +67,7 @@ namespace ActorConsole.Core.World
             get => Memory.IW4.Game.Read<float>(Memory.Addresses.Sun.Z);
             set => Memory.IW4.Game.Write(Memory.Addresses.Sun.Z, value);
         }
+
         /// <summary>
         /// Deserializes all the properties into a json.
         /// </summary>
@@ -73,6 +79,7 @@ namespace ActorConsole.Core.World
                 WriteIndented = true
             });
         }
+
         /// <summary>
         /// Reads all properties of the a sun json and set them to each property in this class.
         /// </summary>

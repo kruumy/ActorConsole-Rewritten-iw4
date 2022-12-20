@@ -6,14 +6,19 @@
     /// </summary>
     public sealed class Weapons : Attribute
     {
-        internal Weapons(Actor _ParentActor) : base(_ParentActor) { }
+        internal Weapons(Actor _ParentActor) : base(_ParentActor)
+        {
+        }
+
         private void ApplyGunToBone(string boneName, string gunName)
         {
             if (gunName == null)
                 gunName = "";
             Memory.IW4.SendDvar($"mvm_actor_weapon {ParentActor.Name} {boneName} {gunName}");
         }
+
         private string _j_gun = null;
+
         /// <summary>
         /// Bone primarily used as the right hand for a gun.
         /// </summary>
@@ -27,7 +32,9 @@
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
+
         private string _tag_stowed_back = null;
+
         /// <summary>
         /// Bone primarily used to store weapons on the back of the acotr. Like it is a secondary weapon.
         /// </summary>
@@ -41,7 +48,9 @@
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
+
         private string _tag_inhand = null;
+
         /// <summary>
         /// Bone primarily used for C4 walking animation.
         /// </summary>
@@ -55,7 +64,9 @@
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
+
         private string _tag_weapon_right = null;
+
         /// <summary>
         /// Bone primarily used for when j_gun does not work.
         /// </summary>
@@ -69,7 +80,9 @@
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
+
         private string _tag_weapon_left = null;
+
         /// <summary>
         /// Bone primarily used for the left hand. Useful for faking akimbo.
         /// </summary>
@@ -83,7 +96,9 @@
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
+
         private string _tag_weapon_chest = null;
+
         /// <summary>
         /// Bone for something, I forgot
         /// </summary>
@@ -97,7 +112,9 @@
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
+
         private string _tag_stowed_hip_rear = null;
+
         /// <summary>
         /// Bone primarily used to grenades or claymores.
         /// </summary>

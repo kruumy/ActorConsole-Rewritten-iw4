@@ -15,8 +15,10 @@ namespace ActorConsole.GUI.Views.Other
         {
             InitializeComponent();
         }
+
         // Core.World.Sun ranges from 0...2, SunColorController is 0...255
         private const float MagicNumber = 127.5f;
+
         private void SunColorController_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             if (Core.Memory.IW4.IsInMatch)
@@ -26,7 +28,9 @@ namespace ActorConsole.GUI.Views.Other
                 SunColorController.B = (byte)(Core.World.Sun.Blue * MagicNumber);
             }
         }
+
         private Task SelectedColorChangedTask = null;
+
         private void SunColorController_SelectedColorChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<System.Windows.Media.Color?> e)
         {
             // all this is needed so SunColorController does not lag terribly, i assume it is because SelectedColorChanged is invoked a lot.

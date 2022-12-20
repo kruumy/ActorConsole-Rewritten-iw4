@@ -26,10 +26,12 @@ namespace ActorConsole.Core.Memory
                 return null;
             }
         }
+
         /// <summary>
         /// Determines if the game if running or not.
         /// </summary>
         public static bool IsRunning => Game != null;
+
         /// <summary>
         /// Determines if the player is in a match or demo.
         /// </summary>
@@ -54,6 +56,7 @@ namespace ActorConsole.Core.Memory
                 }
             }
         }
+
         /// <summary>
         /// Gets the current map the player is in. Returns null if not in a map or failed.
         /// </summary>
@@ -74,6 +77,7 @@ namespace ActorConsole.Core.Memory
                 catch { return null; }
             }
         }
+
         /// <summary>
         /// Gets the players name. Returns null if failed.
         /// </summary>
@@ -90,11 +94,11 @@ namespace ActorConsole.Core.Memory
                             return name;
                     }
                     return null;
-
                 }
                 catch { return null; }
             }
         }
+
         /// <summary>
         /// Adds a dvar into the SendDvarQueue class.
         /// </summary>

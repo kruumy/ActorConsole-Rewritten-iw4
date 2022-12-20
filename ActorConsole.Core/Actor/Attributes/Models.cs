@@ -6,12 +6,15 @@
     /// </summary>
     public sealed class Models : Attribute
     {
-        internal Models(Actor _ParentActor) : base(_ParentActor) { }
+        internal Models(Actor _ParentActor) : base(_ParentActor)
+        {
+        }
 
         internal const string Head_Default = "defaultactor";
         internal const string Body_Default = "defaultactor";
 
         private string _Head = Head_Default;
+
         /// <summary>
         /// The head model of the actor.
         /// </summary>
@@ -25,7 +28,9 @@
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
+
         private string _Body = Body_Default;
+
         /// <summary>
         /// The body model of the actor.
         /// </summary>

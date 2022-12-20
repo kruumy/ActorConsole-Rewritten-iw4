@@ -14,13 +14,16 @@ namespace ActorConsole.Core.Memory
     public static class SendDvarQueue
     {
         private static readonly List<string> Queue = new List<string>();
+
         /// <summary>
         /// The number of dvars in the queue.
         /// </summary>
         public static int Count => Queue.Count;
+
         internal static bool IsRunning { get; private set; }
+
         /// <summary>
-        /// The amount of time to wait before sending another 
+        /// The amount of time to wait before sending another
         /// </summary>
         public static int WaitTime = 1100;
 

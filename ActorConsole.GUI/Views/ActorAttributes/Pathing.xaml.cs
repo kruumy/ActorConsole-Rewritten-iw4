@@ -11,6 +11,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
         {
             InitializeComponent();
         }
+
         private void UserControl_Initialized(object sender, System.EventArgs e)
         {
             ActorBar.OnSelectedActorChanged += ActorBar_OnSelectedActorChanged;
@@ -29,6 +30,7 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             }
             SpeedBox.Value = actor.Pathing.Speed;
         }
+
         private void AddPointBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             if (ActorBar.SelectedActor != null)

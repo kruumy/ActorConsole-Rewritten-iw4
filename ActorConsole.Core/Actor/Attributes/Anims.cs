@@ -14,6 +14,7 @@
         internal const string Death_Default = "pb_stand_death_chest_blowback";
 
         private string _Idle = Idle_Default;
+
         /// <summary>
         /// The idle animation of the actor.
         /// Is played on actor reset.
@@ -30,6 +31,7 @@
         }
 
         private string _Death = Death_Default;
+
         /// <summary>
         /// The death animation of the actor.
         /// Is played on actor dying.
