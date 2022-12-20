@@ -7,8 +7,9 @@ using System.Text;
  *
  *https://github.com/Enichan/Ini
  *
- *from master commit = Oct 20, 2018
+ * from master commit = Oct 20, 2018
  *
+ * i converted it to .net framework
  *
 */
 

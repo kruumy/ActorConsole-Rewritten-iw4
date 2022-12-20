@@ -9,32 +9,28 @@ namespace ActorConsole.GUI.Classes.Settings
         private readonly string FileName = "settings.ini";
         public Precache Precache { get; private set; } = null;
 
-        public string PathToPrecache
+        public string PrecachePath
         {
-            get
-            {
-                if (Precache != null)
-                    return Precache.Path;
-                else
-                    return null;
-            }
+            get => Precache?.Path;
             set
             {
-                if (value != null)
+                if (File.Exists(value))
                 {
                     Precache = new Core.Player.Precache(value);
-                    ini["options"]["PathToPrecache"] = value;
+                    ini["options"]["PrecachePath"] = value;
                     ini.Save(FileName);
                 }
             }
         }
 
-        public bool IsPrecacheSelected => !string.IsNullOrEmpty(PathToPrecache);
-
         public bool DarkMode
         {
             get => ini["options"]["DarkMode"].ToBool();
-            set => ini["options"]["DarkMode"] = value;
+            set
+            {
+                ini["options"]["DarkMode"] = value;
+                ini.Save(FileName);
+            }
         }
 
         /// <summary>
@@ -50,14 +46,14 @@ namespace ActorConsole.GUI.Classes.Settings
         private void Load()
         {
             ini.Load(FileName);
-            string precachePath = ini["options"]["PathToPrecache"].GetString();
+            string precachePath = ini["options"]["PrecachePath"].GetString();
             if (File.Exists(precachePath))
-                PathToPrecache = precachePath;
+                PrecachePath = precachePath;
         }
 
         private void CreateDefault()
         {
-            ini["options"]["PathToPrecache"] = "";
+            ini["options"]["PrecachePath"] = "";
             ini["options"]["DarkMode"] = true;
             ini.Save(FileName);
         }
