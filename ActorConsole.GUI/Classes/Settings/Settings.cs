@@ -7,7 +7,7 @@ namespace ActorConsole.GUI.Classes.Settings
     {
         private readonly IniFile ini = new IniFile();
         private readonly string FileName = "settings.ini";
-        public Precache Precache = null;
+        public Precache Precache { get; private set; } = null;
 
         public string PathToPrecache
         {
