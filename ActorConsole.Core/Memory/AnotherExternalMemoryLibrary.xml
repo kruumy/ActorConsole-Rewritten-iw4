@@ -11,7 +11,7 @@
             <param name="process">Target process</param>
             <returns>enum</returns>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Read``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx)">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Read``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx)">
             <summary>
             Read from the process memory.
             </summary>
@@ -20,7 +20,7 @@
             <param name="address">Address to read from</param>
             <returns>value</returns>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Read``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx,System.Int32)">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Read``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Int32)">
             <summary>
             Read an array from the process memory.
             </summary>
@@ -30,7 +30,7 @@
             <param name="NumOfItems">Number of items to read</param>
             <returns>values</returns>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx,``0)">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,``0)">
             <summary>
             Write a value to the process memory.
             </summary>
@@ -39,7 +39,7 @@
             <param name="address">Address to write to</param>
             <param name="value">What to write</param>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx,``0[])">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,``0[])">
             <summary>
             Write an array to the process memory.
             </summary>
@@ -48,7 +48,7 @@
             <param name="address">Address to write to</param>
             <param name="values">What to write</param>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Scan(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx,System.Byte[])">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Scan(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,AnotherExternalMemoryLibrary.IntPtrEx,System.Byte[])">
             <summary>
             Scan the process memory.
             </summary>
@@ -58,7 +58,7 @@
             <param name="pattern">Pattern to search for</param>
             <returns>All matches</returns>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Call(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx,System.Object[])">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Call(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Object[])">
             <summary>
             Create a thread to call a function in the process memory.
             </summary>
@@ -66,7 +66,7 @@
             <param name="address">Address of function</param>
             <param name="parameters">All parameters to pass to the function if any</param>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.UserCall(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.UserCall(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
             <summary>
             Create a thread to call a function in the process memory.
             </summary>
@@ -95,7 +95,7 @@
             <param name="process">Target process</param>
             <returns>WindowController object</returns>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.CalculatePointer(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx[])">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.CalculatePointer(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,AnotherExternalMemoryLibrary.IntPtrEx[])">
             <summary>
             Calculates a pointer to an address in the process memory.
             </summary>
@@ -104,7 +104,7 @@
             <param name="Offsets">Offsets to read from that point to the absolute address</param>
             <returns>Absolute address</returns>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.CalculatePointer(System.Diagnostics.Process,AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx[])">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.CalculatePointer(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,AnotherExternalMemoryLibrary.IntPtrEx,AnotherExternalMemoryLibrary.IntPtrEx[])">
             <summary>
             Calculates a pointer to an address in the process memory.
             </summary>
@@ -114,7 +114,7 @@
             <param name="Offsets">Offsets to read from that point to the absolute address</param>
             <returns>Absolute address</returns>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.CalculatePointer(System.Diagnostics.Process,System.String,AnotherExternalMemoryLibrary.PointerEx,AnotherExternalMemoryLibrary.PointerEx[])">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.CalculatePointer(System.Diagnostics.Process,System.String,AnotherExternalMemoryLibrary.IntPtrEx,AnotherExternalMemoryLibrary.IntPtrEx[])">
             <summary>
             Calculates a pointer to an address in the process memory.
             </summary>

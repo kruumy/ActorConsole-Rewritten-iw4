@@ -14,19 +14,19 @@ namespace ActorConsole.Core.Memory
             Z = 0x0085B88C
         };
 
-        internal static PointerEx MapName => IW4.Game.MainModule.BaseAddress + 0x5EE27A0;
-        internal static PointerEx IsInMatch => 0x7F0F88;
-        internal static PointerEx PlayerName => IW4.Game.MainModule.BaseAddress + 0x427464;
-        internal static PointerEx Cbuf_AddText => 0x404B20u;
+        internal static IntPtrEx MapName => IW4.Game.MainModule.BaseAddress + 0x5EE27A0;
+        internal static IntPtrEx IsInMatch => 0x7F0F88;
+        internal static IntPtrEx PlayerName => IW4.Game.MainModule.BaseAddress + 0x427464;
+        internal static IntPtrEx Cbuf_AddText => 0x404B20u;
 
         internal struct RGBXYZ_POINTER
         {
-            public PointerEx Red;
-            public PointerEx Green;
-            public PointerEx Blue;
-            public PointerEx X;
-            public PointerEx Y;
-            public PointerEx Z;
+            public IntPtrEx Red;
+            public IntPtrEx Green;
+            public IntPtrEx Blue;
+            public IntPtrEx X;
+            public IntPtrEx Y;
+            public IntPtrEx Z;
         }
     }
 }
