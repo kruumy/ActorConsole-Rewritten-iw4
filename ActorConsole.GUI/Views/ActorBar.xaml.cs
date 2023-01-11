@@ -25,10 +25,6 @@ namespace ActorConsole.GUI.Views
                 {
                     return null;
                 }
-                catch
-                {
-                    throw;
-                }
             }
         }
 
