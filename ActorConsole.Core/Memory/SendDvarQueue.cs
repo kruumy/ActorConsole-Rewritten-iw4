@@ -20,31 +20,35 @@ namespace ActorConsole.Core.Memory
         /// </summary>
         public static int Count => Queue.Count;
 
-        internal static bool IsRunning { get; private set; }
+        /// <summary>
+        /// If <see cref="SendDvarQueue"/> is currently running (<see cref="Count"/> > 0)
+        /// </summary>
 
         /// <summary>
         /// The amount of time to wait before sending another
         /// </summary>
         public static int WaitTime = 1100;
 
+        private static Task LastTask;
+
         internal static void Add(string input)
         {
             Queue.Add(input);
-            if (!IsRunning)
-                Task.Run(MainWork);
+            if (LastTask == null || LastTask.IsCompleted)
+            {
+                LastTask = Task.Run(MainWork);
+            }
         }
 
         private static void MainWork()
         {
-            IsRunning = true;
-            while (Queue.Count > 0)
+            while (Count > 0)
             {
                 string dvar = Queue.First();
                 IW4.Game.Call(Addresses.Cbuf_AddText, 0, dvar);
                 Queue.Remove(dvar);
                 Thread.Sleep(WaitTime);
             }
-            IsRunning = false;
         }
     }
 }

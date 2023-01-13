@@ -11,7 +11,7 @@
         /// <param name="model">The class model type.</param>
         /// <param name="team">The team. AXIS or ALLIES.</param>
         /// <param name="name">The players name in game. Probably want to use IW4.PlayerName</param>
-        public static void SetModel(string model, string team, string name)
+        public static void Set(string model, string team, string name)
         {
             Memory.IW4.SendDvar($"mvm_bot_model {name} {model} {team}");
         }

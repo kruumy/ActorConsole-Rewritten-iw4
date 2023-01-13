@@ -7,19 +7,15 @@ namespace ActorConsole.GUI.Classes.Settings
     {
         private readonly IniFile ini = new IniFile();
         private readonly string FileName = "settings.ini";
-        public Precache Precache { get; private set; } = null;
+        public Precache Precache { get; private set; }
 
-        public string PrecachePath
+        public void ChangePrecache(string precachePath)
         {
-            get => Precache?.Path;
-            set
+            if (File.Exists(precachePath))
             {
-                if (File.Exists(value))
-                {
-                    Precache = new Core.Player.Precache(value);
-                    ini["options"]["PrecachePath"] = value;
-                    ini.Save(FileName);
-                }
+                Precache = new Core.Player.Precache(precachePath);
+                ini["options"]["PrecachePath"] = precachePath;
+                ini.Save(FileName);
             }
         }
 
@@ -39,7 +35,9 @@ namespace ActorConsole.GUI.Classes.Settings
         public Settings()
         {
             if (!File.Exists(FileName))
+            {
                 CreateDefault();
+            }
             Load();
         }
 
@@ -48,7 +46,9 @@ namespace ActorConsole.GUI.Classes.Settings
             ini.Load(FileName);
             string precachePath = ini["options"]["PrecachePath"].GetString();
             if (File.Exists(precachePath))
-                PrecachePath = precachePath;
+            {
+                ChangePrecache(precachePath);
+            }
         }
 
         private void CreateDefault()

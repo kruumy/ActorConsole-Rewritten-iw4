@@ -6,47 +6,47 @@ namespace ActorConsole.Core.Player
     /// <summary>
     /// A class to parse the _precache.gsc files contents into its different types.
     /// </summary>
-    public class Precache
+    public readonly struct Precache
     {
         /// <summary>
         /// The path giving in the contructor.
         /// </summary>
-        public string Path { get; }
+        public readonly string Path;
 
         /// <summary>
         /// The raw text from the file.
         /// </summary>
-        public string RawText { get; }
+        public readonly string RawText;
 
         /// <summary>
         /// The raw text split by lines.
         /// </summary>
-        public string[] RawText_Lines { get; }
+        public readonly string[] RawText_Lines;
 
         /// <summary>
         /// All the multiplayer animations.
         /// </summary>
-        public string[] MP_Anims { get; }
+        public readonly string[] MP_Anims;
 
         /// <summary>
         /// Only the idle multiplayer animations.
         /// </summary>
-        public string[] MP_Anims_Idle { get; }
+        public readonly string[] MP_Anims_Idle;
 
         /// <summary>
         /// Only the death multiplayer animations.
         /// </summary>
-        public string[] MP_Anims_Death { get; }
+        public readonly string[] MP_Anims_Death;
 
         /// <summary>
         /// Only the singleplayer animations.
         /// </summary>
-        public string[] SP_Anims { get; }
+        public readonly string[] SP_Anims;
 
         /// <summary>
         /// All the singleplayer models.
         /// </summary>
-        public string[] SP_Models { get; }
+        public readonly string[] SP_Models;
 
         /// <summary>
         /// Sets all propertys of the class with the parsed information.
@@ -54,10 +54,8 @@ namespace ActorConsole.Core.Player
         /// <param name="path_to_precache">path to the _precache.gsc file.</param>
         public Precache(string path_to_precache)
         {
-            // TODO: optimize using spans instead of arrays
-
-            // reading from file
             Path = path_to_precache;
+            // reading from file
             RawText = File.ReadAllText(path_to_precache);
             RawText_Lines = RawText.Split('\n').Where(x => !x.Contains("//")).ToArray();
 
