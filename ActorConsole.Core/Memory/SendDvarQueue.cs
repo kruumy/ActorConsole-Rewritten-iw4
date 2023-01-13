@@ -34,7 +34,7 @@ namespace ActorConsole.Core.Memory
         internal static void Add(string input)
         {
             Queue.Add(input);
-            if (LastTask == null || LastTask.IsCompleted)
+            if (LastTask == null || LastTask.Status != TaskStatus.Running)
             {
                 LastTask = Task.Run(MainWork);
             }
