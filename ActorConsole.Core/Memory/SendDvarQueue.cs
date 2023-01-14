@@ -13,23 +13,22 @@ namespace ActorConsole.Core.Memory
     /// </summary>
     public static class SendDvarQueue
     {
+        /// <summary>
+        /// The amount of time to wait before sending another
+        /// </summary>
+        public static readonly int WaitTime = 500;
+
         private static readonly List<string> Queue = new List<string>();
+
+        /// <summary>
+        /// If <see cref="SendDvarQueue"/> is currently running (<see cref="Count"/> > 0)
+        /// </summary>
+        private static Task LastTask;
 
         /// <summary>
         /// The number of dvars in the queue.
         /// </summary>
         public static int Count => Queue.Count;
-
-        /// <summary>
-        /// If <see cref="SendDvarQueue"/> is currently running (<see cref="Count"/> > 0)
-        /// </summary>
-
-        /// <summary>
-        /// The amount of time to wait before sending another
-        /// </summary>
-        public static int WaitTime = 1100;
-
-        private static Task LastTask;
 
         internal static void Add(string input)
         {

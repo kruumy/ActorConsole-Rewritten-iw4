@@ -4,6 +4,197 @@
         <name>AnotherExternalMemoryLibrary</name>
     </assembly>
     <members>
+        <member name="T:AnotherExternalMemoryLibrary.Assemblerx86">
+            <summary>
+            WIP, not all instructions complete.
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.ADD(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
+            <summary>
+            add <paramref name="reg"/>,<paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.ADD(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            add <paramref name="reg1"/>,<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.AND(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
+            <summary>
+            and <paramref name="reg"/>,<paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.AND(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            and <paramref name="reg1"/>,<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.CALL(System.Int32)">
+            <summary>
+            call <paramref name="offset"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.CALL(AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            call <paramref name="reg"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.CMP(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
+            <summary>
+            CMP <paramref name="reg"/>,<paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.CMP(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            CMP <paramref name="reg1"/>,<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.HLT">
+            <summary>
+            hlt
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.JMP(System.Int32)">
+            <summary>
+            jmp <paramref name="offset"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            mov <paramref name="reg1"/>,<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
+            <summary>
+            mov <paramref name="reg1"/>,[<paramref name="reg2"/>+/-<paramref name="reg2PtrOffset"/>]
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            mov [<paramref name="reg1"/>+/-<paramref name="reg1PtrOffset"/>],<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32,System.Int32)">
+            <summary>
+            mov [<paramref name="reg1"/>+/-<paramref name="reg1PtrOffset"/>],<paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
+            <summary>
+            mov <paramref name="reg"/>,<paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(System.Int32)">
+            <summary>
+            mov <paramref name="ds"/>,eax
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.NOP">
+            <summary>
+            nop
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.OR(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
+            <summary>
+            or <paramref name="reg"/>,<paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.OR(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            or <paramref name="reg1"/>,<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.POP(AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            pop <paramref name="reg"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.PUSH(AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            push <paramref name="reg"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.PUSH(System.Int32)">
+            <summary>
+            push <paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.DEC(AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            dec <paramref name="reg"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.RET">
+            <summary>
+            ret
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.SUB(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
+            <summary>
+            sub <paramref name="reg"/>,<paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.SUB(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            sub <paramref name="reg1"/>,<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.TEST(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            test <paramref name="reg1"/>,<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.XOR(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
+            <summary>
+            xor <paramref name="reg"/>,<paramref name="val"/>
+            </summary>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.XOR(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
+            <summary>
+            xor <paramref name="reg1"/>,<paramref name="reg2"/>
+            </summary>
+        </member>
+        <member name="F:AnotherExternalMemoryLibrary.CallProcessFunction.CallEpilogue64">
+            <summary>
+            dec    eax
+            add    esp,0x8
+            dec    eax
+            mov    6..9,eax
+            ??
+            ??
+            dec    eax
+            mov    esp,ebp
+            pop    ebp
+            ret
+            </summary>
+        </member>
+        <member name="F:AnotherExternalMemoryLibrary.CallProcessFunction.CallPrologue64">
+            <summary>
+            push   ebp
+            dec    eax
+            mov    ebp,esp
+            dec    eax
+            sub    esp,0x8 
+            </summary>
+        </member>
+        <member name="F:AnotherExternalMemoryLibrary.CallProcessFunction.CallPrologue86">
+            <summary>
+            push   ebp
+            mov    ebp,esp
+            sub    esp,0x8
+            </summary>
+        </member>
+        <member name="F:AnotherExternalMemoryLibrary.CallProcessFunction.UserCallEpilogue86">
+            <summary>
+            mov    DWORD PTR [ebp-0x4], 3..6
+            call   DWORD PTR [ebp-0x4]
+            mov    11..14,eax
+            add    esp,0x8
+            mov    esp,ebp
+            pop    ebp
+            ret
+            </summary>
+        </member>
         <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.GetArchitecture(System.Diagnostics.Process)">
             <summary>
             Determine if the process is x64 or x86.
@@ -66,20 +257,13 @@
             <param name="address">Address of function</param>
             <param name="parameters">All parameters to pass to the function if any</param>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.UserCall(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object,System.Object)">
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.UserCall(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Object[])">
             <summary>
             Create a thread to call a function in the process memory.
             </summary>
             <param name="process">Target process</param>
             <param name="address">Address of function</param>
-            <param name="eax">registry</param>
-            <param name="ecx">registry</param>
-            <param name="edx">registry</param>
-            <param name="ebx">registry</param>
-            <param name="esp">registry</param>
-            <param name="ebp">registry</param>
-            <param name="esi">registry</param>
-            <param name="edi">registry</param>
+            <param name="parameters">All parameters to pass to the function if any</param>
         </member>
         <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.LoadLibraryA(System.Diagnostics.Process,System.String)">
             <summary>
