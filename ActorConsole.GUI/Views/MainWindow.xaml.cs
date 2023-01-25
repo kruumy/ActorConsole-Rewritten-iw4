@@ -1,7 +1,7 @@
 ﻿using ControlzEx.Theming;
 using MahApps.Metro.Controls;
 using System.Diagnostics;
-using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 
 namespace ActorConsole.GUI
@@ -11,6 +11,8 @@ namespace ActorConsole.GUI
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        private Timer StatusBarTimer;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -18,63 +20,49 @@ namespace ActorConsole.GUI
 
         private void LaunchGithubSiteButton_Click(object sender, RoutedEventArgs e)
         {
-            string uri = "https://github.com/kruumy/ActorConsole-Rewritten-iw4";
-            ProcessStartInfo p = new ProcessStartInfo();
-            p.UseShellExecute = true;
-            p.FileName = uri;
-            Process.Start(p);
+            Process.Start(new ProcessStartInfo
+            {
+                UseShellExecute = true,
+                FileName = "https://github.com/kruumy/ActorConsole-Rewritten-iw4"
+            });
         }
 
         private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (Core.Memory.IW4.IsInMatch)
             {
-                MessageBoxResult result = MessageBox.Show("Are you sure?", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No);
-                if (result == MessageBoxResult.No)
+                if (MessageBoxResult.No == MessageBox.Show("Are you want to close sure?\nAll current actor data will be lost.", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No))
                 {
                     e.Cancel = true;
                 }
             }
+            StatusBarTimer?.Dispose();
         }
 
         private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            string Theme = "Dark";
-            if (!Classes.Objects.Settings.DarkMode) Theme = "Light";
-            ThemeManager.Current.ChangeTheme(this, $"{Theme}.{Classes.MetroColorTheme.GetRandomColorTheme()}");
+            string theme = Classes.Objects.Settings.DarkMode ? "Dark" : "Light";
+            ThemeManager.Current.ChangeTheme(this, $"{theme}.{Classes.MetroColorTheme.GetRandomColorTheme()}");
 
-            Classes.Startup.Execute();
-            StatusBarUpdatingLoop();
-        }
-
-        private Task StatusBarUpdatingLoop()
-        {
-            Task task = new Task(() =>
+            StatusBarTimer = new Timer(1000);
+            StatusBarTimer.Elapsed += (object timerSender, ElapsedEventArgs timerEventArgs) =>
             {
-                while (true)
+                if (Core.Memory.IW4.IsRunning)
                 {
-                    try
+                    string map = Core.Memory.IW4.Map;
+                    map = !string.IsNullOrEmpty(map) ? $"Map = {map}" : $"Map = null";
+                    Dispatcher.Invoke(() =>
                     {
-                        if (Core.Memory.IW4.IsRunning)
-                        {
-                            string map = Core.Memory.IW4.Map;
-                            Dispatcher.Invoke(() =>
-                            {
-                                DvarQueueLabel.Content = $"Dvar Queue = {Core.Memory.SendDvarQueue.Count}";
-                                if (!string.IsNullOrEmpty(map))
-                                    MapLabel.Content = $"Map = {map}";
-                                else
-                                    MapLabel.Content = $"Map = null";
-                            });
-                        }
-                        Classes.Startup.StatusBar_Update();
+                        MapLabel.Content = map;
+                    });
+                    if (!Core.Memory.IW4.IsInMatch)
+                    {
+                        Core.Actor.Manager.Reset();
+                        Views.ActorBar.Reset();
                     }
-                    catch { }
-                    System.Threading.Thread.Sleep(1000);
                 }
-            }, TaskCreationOptions.LongRunning);
-            task.Start();
-            return task;
+            };
+            StatusBarTimer.Start();
         }
     }
 }

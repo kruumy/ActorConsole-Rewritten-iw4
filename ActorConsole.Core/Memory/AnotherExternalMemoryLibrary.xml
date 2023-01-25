@@ -4,281 +4,6 @@
         <name>AnotherExternalMemoryLibrary</name>
     </assembly>
     <members>
-        <member name="T:AnotherExternalMemoryLibrary.Assemblerx86">
-            <summary>
-            WIP, not all instructions complete.
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.ADD(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
-            <summary>
-            add <paramref name="reg"/>,<paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.ADD(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            add <paramref name="reg1"/>,<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.AND(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
-            <summary>
-            and <paramref name="reg"/>,<paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.AND(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            and <paramref name="reg1"/>,<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.CALL(System.Int32)">
-            <summary>
-            call <paramref name="offset"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.CALL(AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            call <paramref name="reg"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.CMP(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
-            <summary>
-            CMP <paramref name="reg"/>,<paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.CMP(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            CMP <paramref name="reg1"/>,<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.HLT">
-            <summary>
-            hlt
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.JMP(System.Int32)">
-            <summary>
-            jmp <paramref name="offset"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            mov <paramref name="reg1"/>,<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
-            <summary>
-            mov <paramref name="reg1"/>,[<paramref name="reg2"/>+/-<paramref name="reg2PtrOffset"/>]
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            mov [<paramref name="reg1"/>+/-<paramref name="reg1PtrOffset"/>],<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32,System.Int32)">
-            <summary>
-            mov [<paramref name="reg1"/>+/-<paramref name="reg1PtrOffset"/>],<paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
-            <summary>
-            mov <paramref name="reg"/>,<paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.MOV(System.Int32)">
-            <summary>
-            mov <paramref name="ds"/>,eax
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.NOP">
-            <summary>
-            nop
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.OR(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
-            <summary>
-            or <paramref name="reg"/>,<paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.OR(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            or <paramref name="reg1"/>,<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.POP(AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            pop <paramref name="reg"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.PUSH(AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            push <paramref name="reg"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.PUSH(System.Int32)">
-            <summary>
-            push <paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.DEC(AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            dec <paramref name="reg"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.RET">
-            <summary>
-            ret
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.SUB(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
-            <summary>
-            sub <paramref name="reg"/>,<paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.SUB(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            sub <paramref name="reg1"/>,<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.TEST(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            test <paramref name="reg1"/>,<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.XOR(AnotherExternalMemoryLibrary.Assemblerx86.Register,System.Int32)">
-            <summary>
-            xor <paramref name="reg"/>,<paramref name="val"/>
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Assemblerx86.XOR(AnotherExternalMemoryLibrary.Assemblerx86.Register,AnotherExternalMemoryLibrary.Assemblerx86.Register)">
-            <summary>
-            xor <paramref name="reg1"/>,<paramref name="reg2"/>
-            </summary>
-        </member>
-        <member name="F:AnotherExternalMemoryLibrary.CallProcessFunction.CallEpilogue64">
-            <summary>
-            dec    eax
-            add    esp,0x8
-            dec    eax
-            mov    6..9,eax
-            ??
-            ??
-            dec    eax
-            mov    esp,ebp
-            pop    ebp
-            ret
-            </summary>
-        </member>
-        <member name="F:AnotherExternalMemoryLibrary.CallProcessFunction.CallPrologue64">
-            <summary>
-            push   ebp
-            dec    eax
-            mov    ebp,esp
-            dec    eax
-            sub    esp,0x8 
-            </summary>
-        </member>
-        <member name="F:AnotherExternalMemoryLibrary.CallProcessFunction.CallPrologue86">
-            <summary>
-            push   ebp
-            mov    ebp,esp
-            sub    esp,0x8
-            </summary>
-        </member>
-        <member name="F:AnotherExternalMemoryLibrary.CallProcessFunction.UserCallEpilogue86">
-            <summary>
-            mov    DWORD PTR [ebp-0x4], 3..6
-            call   DWORD PTR [ebp-0x4]
-            mov    11..14,eax
-            add    esp,0x8
-            mov    esp,ebp
-            pop    ebp
-            ret
-            </summary>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.GetArchitecture(System.Diagnostics.Process)">
-            <summary>
-            Determine if the process is x64 or x86.
-            </summary>
-            <param name="process">Target process</param>
-            <returns>enum</returns>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Read``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx)">
-            <summary>
-            Read from the process memory.
-            </summary>
-            <typeparam name="T">Type of value to read</typeparam>
-            <param name="process">Target process</param>
-            <param name="address">Address to read from</param>
-            <returns>value</returns>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Read``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Int32)">
-            <summary>
-            Read an array from the process memory.
-            </summary>
-            <typeparam name="T">Type of value to read</typeparam>
-            <param name="process">Target process</param>
-            <param name="address">Address to read from</param>
-            <param name="NumOfItems">Number of items to read</param>
-            <returns>values</returns>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,``0)">
-            <summary>
-            Write a value to the process memory.
-            </summary>
-            <typeparam name="T">Type of value to write</typeparam>
-            <param name="process">Target process</param>
-            <param name="address">Address to write to</param>
-            <param name="value">What to write</param>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,``0[])">
-            <summary>
-            Write an array to the process memory.
-            </summary>
-            <typeparam name="T">Type of value to write</typeparam>
-            <param name="process">Target process</param>
-            <param name="address">Address to write to</param>
-            <param name="values">What to write</param>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Scan(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,AnotherExternalMemoryLibrary.IntPtrEx,System.Byte[])">
-            <summary>
-            Scan the process memory.
-            </summary>
-            <param name="process">Target process</param>
-            <param name="start">Starting point</param>
-            <param name="end">Ending point</param>
-            <param name="pattern">Pattern to search for</param>
-            <returns>All matches</returns>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Call(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Object[])">
-            <summary>
-            Create a thread to call a function in the process memory.
-            </summary>
-            <param name="process">Target process</param>
-            <param name="address">Address of function</param>
-            <param name="parameters">All parameters to pass to the function if any</param>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.UserCall(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Object[])">
-            <summary>
-            Create a thread to call a function in the process memory.
-            </summary>
-            <param name="process">Target process</param>
-            <param name="address">Address of function</param>
-            <param name="parameters">All parameters to pass to the function if any</param>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.LoadLibraryA(System.Diagnostics.Process,System.String)">
-            <summary>
-            Load a dll into the process.
-            </summary>
-            <param name="process">Target process</param>
-            <param name="dllPath">Path of dll</param>
-        </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.GetMainWindow(System.Diagnostics.Process)">
-            <summary>
-            Get a WindowController object to control the main window of the process.
-            </summary>
-            <param name="process">Target process</param>
-            <returns>WindowController object</returns>
-        </member>
         <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.CalculatePointer(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,AnotherExternalMemoryLibrary.IntPtrEx[])">
             <summary>
             Calculates a pointer to an address in the process memory.
@@ -307,6 +32,85 @@
             <param name="ModuleOffset">Offset of the module</param>
             <param name="Offsets">Offsets to read from that point to the absolute address</param>
             <returns>Absolute address</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.GetArchitecture(System.Diagnostics.Process)">
+            <summary>
+            Determine if the process is x64 or x86.
+            </summary>
+            <param name="process">Target process</param>
+            <returns>enum</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.GetMainWindow(System.Diagnostics.Process)">
+            <summary>
+            Get a WindowController object to control the main window of the process.
+            </summary>
+            <param name="process">Target process</param>
+            <returns>WindowController object</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.LoadLibraryA(System.Diagnostics.Process,System.String)">
+            <summary>
+            Load a dll into the process.
+            </summary>
+            <param name="process">Target process</param>
+            <param name="dllPath">Path of dll</param>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Read``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx)">
+            <summary>
+            Read from the process memory.
+            </summary>
+            <typeparam name="T">Type of value to read</typeparam>
+            <param name="process">Target process</param>
+            <param name="address">Address to read from</param>
+            <returns>value</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Read``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Int32)">
+            <summary>
+            Read an array from the process memory.
+            </summary>
+            <typeparam name="T">Type of value to read</typeparam>
+            <param name="process">Target process</param>
+            <param name="address">Address to read from</param>
+            <param name="NumOfItems">Number of items to read</param>
+            <returns>values</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.ReadString(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,System.Int32,System.Int32)">
+            <summary>
+            Reads characters until hitting a '\0'
+            </summary>
+            <param name="process">Target process</param>
+            <param name="address">Address to write to</param>
+            <param name="maxLength">Max length to read</param>
+            <param name="buffSize">Amount of characters to read each loop</param>
+            <returns>A managed string of characters. Does not contain the null terminate character.</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Scan(System.Diagnostics.Process,AnotherExternalMemoryLibrary.UIntPtrEx,AnotherExternalMemoryLibrary.UIntPtrEx,System.Boolean,System.Byte[])">
+            <summary>
+            Scan the process memory.
+            </summary>
+            <param name="process">Target process</param>
+            <param name="start">Starting point</param>
+            <param name="end">Ending point</param>
+            <param name="nullAsWildCard">If 0x00 should be treated as an unknown value in the scan</param>
+            <param name="pattern">Pattern to search for</param>
+            <returns>All matches</returns>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,``0)">
+            <summary>
+            Write a value to the process memory.
+            </summary>
+            <typeparam name="T">Type of value to write</typeparam>
+            <param name="process">Target process</param>
+            <param name="address">Address to write to</param>
+            <param name="value">What to write</param>
+        </member>
+        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,``0[])">
+            <summary>
+            Write an array to the process memory.
+            </summary>
+            <typeparam name="T">Type of value to write</typeparam>
+            <param name="process">Target process</param>
+            <param name="address">Address to write to</param>
+            <param name="values">What to write</param>
         </member>
     </members>
 </doc>

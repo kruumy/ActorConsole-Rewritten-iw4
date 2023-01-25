@@ -20,9 +20,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Reference Include="AnotherExternalMemoryLibrary">
-			<HintPath>Memory\AnotherExternalMemoryLibrary.dll</HintPath>
-		</Reference>
+	  <Reference Include="AnotherExternalMemoryLibrary">
+	    <HintPath>Memory\AnotherExternalMemoryLibrary.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 	<ItemGroup>

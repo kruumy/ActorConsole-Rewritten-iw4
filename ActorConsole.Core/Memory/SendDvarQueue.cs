@@ -1,5 +1,4 @@
-﻿using AnotherExternalMemoryLibrary.Extensions;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,16 +34,16 @@ namespace ActorConsole.Core.Memory
             Queue.Add(input);
             if (LastTask == null || LastTask.Status != TaskStatus.Running)
             {
-                LastTask = Task.Run(MainWork);
+                LastTask = Task.Run(Work);
             }
         }
 
-        private static void MainWork()
+        private static void Work()
         {
             while (Count > 0)
             {
                 string dvar = Queue.First();
-                IW4.Game.Call(Addresses.Cbuf_AddText, 0, dvar);
+                AnotherExternalMemoryLibrary.RemoteProcedureCall.Callx86(IW4.Game.Handle, Addresses.Cbuf_AddText, 0u, 0, dvar);
                 Queue.Remove(dvar);
                 Thread.Sleep(WaitTime);
             }

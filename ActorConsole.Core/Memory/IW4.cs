@@ -13,6 +13,7 @@ namespace ActorConsole.Core.Memory
         /// </summary>
         public static Process Game
         {
+            // TODO: implement _Game and check if null and not running to reset
             get
             {
                 Process[] ps = Process.GetProcesses();
@@ -68,7 +69,7 @@ namespace ActorConsole.Core.Memory
                 {
                     if (IsInMatch)
                     {
-                        string map = Game.Read<byte>(Addresses.MapName, 15).GetString(true);
+                        string map = Game.Read<byte>(Addresses.MapName, 15).GetString();
                         if (map != string.Empty)
                             return map;
                     }
@@ -89,7 +90,7 @@ namespace ActorConsole.Core.Memory
                 {
                     if (IsRunning)
                     {
-                        string name = Game.Read<byte>(Addresses.PlayerName, 20).GetString(true);
+                        string name = Game.Read<byte>(Addresses.PlayerName, 20).GetString();
                         if (name != string.Empty)
                             return name;
                     }
