@@ -49,7 +49,7 @@ namespace ActorConsole.GUI
 
         private Task StatusBarUpdatingLoop()
         {
-            return Task.Run(() =>
+            Task task = new Task(() =>
             {
                 while (true)
                 {
@@ -72,7 +72,9 @@ namespace ActorConsole.GUI
                     catch { }
                     System.Threading.Thread.Sleep(1000);
                 }
-            });
+            }, TaskCreationOptions.LongRunning);
+            task.Start();
+            return task;
         }
     }
 }
