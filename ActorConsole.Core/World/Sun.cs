@@ -1,5 +1,6 @@
 ﻿using ActorConsole.Core.Json.TinyJson;
 using AnotherExternalMemoryLibrary.Extensions;
+using System.Collections.Generic;
 
 namespace ActorConsole.Core.World
 {
@@ -74,37 +75,11 @@ namespace ActorConsole.Core.World
         /// <param name="rawJson">The raw json string.</param>
         public static void LoadJson(string rawJson)
         {
-            /*
-            if (json.TryGetProperty("Red", out JsonElement Rvalue))
+            foreach (KeyValuePair<string, float> field in rawJson.FromJson<Dictionary<string, float>>())
             {
-                Red = (float)Rvalue.GetDouble();
+                System.Reflection.PropertyInfo prop = typeof(Sun).GetProperty(field.Key, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
+                prop.SetValue(null, field.Value);
             }
-
-            if (json.TryGetProperty("Green", out JsonElement Gvalue))
-            {
-                Green = (float)Gvalue.GetDouble();
-            }
-
-            if (json.TryGetProperty("Blue", out JsonElement Bvalue))
-            {
-                Blue = (float)Bvalue.GetDouble();
-            }
-
-            if (json.TryGetProperty("X", out JsonElement Xvalue))
-            {
-                X = (float)Xvalue.GetDouble();
-            }
-
-            if (json.TryGetProperty("Y", out JsonElement Yvalue))
-            {
-                Y = (float)Yvalue.GetDouble();
-            }
-
-            if (json.TryGetProperty("Z", out JsonElement Zvalue))
-            {
-                Z = (float)Zvalue.GetDouble();
-            }
-            */
         }
 
         /// <summary>
