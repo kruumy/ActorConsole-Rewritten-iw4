@@ -16,17 +16,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="System.Text.Json" Version="7.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Reference Include="AnotherExternalMemoryLibrary">
 	    <HintPath>Memory\AnotherExternalMemoryLibrary.dll</HintPath>
 	  </Reference>
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Json\guns.json">
+		<None Update="Json\weapons.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Json\models.json">

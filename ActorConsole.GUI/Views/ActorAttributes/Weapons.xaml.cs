@@ -20,8 +20,10 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             WeaponsClassBrowser.Items.Clear();
             try
             {
-                foreach (System.Text.Json.JsonProperty item in GunsWrapper.RootElement.GetProperty("weapons").EnumerateObject())
-                    WeaponsClassBrowser.Items.Add(item.Name);
+                foreach (System.Collections.Generic.KeyValuePair<string, System.Collections.Generic.Dictionary<string, string[]>> item in WeaponsWrapper.RootElement["weapons"])
+                {
+                    WeaponsClassBrowser.Items.Add(item.Key);
+                }
             }
             catch { }
         }
@@ -31,8 +33,10 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             WeaponsTypeBrowser.Items.Clear();
             try
             {
-                foreach (System.Text.Json.JsonProperty item in GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).EnumerateObject())
-                    WeaponsTypeBrowser.Items.Add(item.Name);
+                foreach (System.Collections.Generic.KeyValuePair<string, string[]> item in WeaponsWrapper.RootElement["weapons"][WeaponsClassBrowser.SelectedItem.ToString()])
+                {
+                    WeaponsTypeBrowser.Items.Add(item.Key);
+                }
             }
             catch { }
         }
@@ -42,8 +46,10 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             WeaponsExactBrowser.Items.Clear();
             try
             {
-                foreach (System.Text.Json.JsonElement item in GunsWrapper.RootElement.GetProperty("weapons").GetProperty(WeaponsClassBrowser.SelectedItem.ToString()).GetProperty(WeaponsTypeBrowser.SelectedItem.ToString()).EnumerateArray())
-                    WeaponsExactBrowser.Items.Add(item.GetString());
+                foreach (string item in WeaponsWrapper.RootElement["weapons"][WeaponsClassBrowser.SelectedItem.ToString()][WeaponsTypeBrowser.SelectedItem.ToString()])
+                {
+                    WeaponsExactBrowser.Items.Add(item);
+                }
             }
             catch { }
         }

@@ -1,5 +1,5 @@
-﻿using AnotherExternalMemoryLibrary.Extensions;
-using System.Text.Json;
+﻿using ActorConsole.Core.Json.TinyJson;
+using AnotherExternalMemoryLibrary.Extensions;
 
 namespace ActorConsole.Core.World
 {
@@ -74,7 +74,7 @@ namespace ActorConsole.Core.World
         /// <param name="rawJson">The raw json string.</param>
         public static void LoadJson(string rawJson)
         {
-            JsonElement json = JsonDocument.Parse(rawJson).RootElement;
+            /*
             if (json.TryGetProperty("Red", out JsonElement Rvalue))
             {
                 Red = (float)Rvalue.GetDouble();
@@ -104,6 +104,7 @@ namespace ActorConsole.Core.World
             {
                 Z = (float)Zvalue.GetDouble();
             }
+            */
         }
 
         /// <summary>
@@ -112,10 +113,7 @@ namespace ActorConsole.Core.World
         /// <returns>The raw json string of all the properties.</returns>
         public static new string ToString()
         {
-            return JsonSerializer.Serialize(new { Red, Green, Blue, X, Y, Z }, new JsonSerializerOptions()
-            {
-                WriteIndented = true
-            });
+            return new { Red, Green, Blue, X, Y, Z }.ToJson();
         }
     }
 }

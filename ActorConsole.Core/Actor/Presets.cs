@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using ActorConsole.Core.Actor.Attributes;
+using ActorConsole.Core.Json.TinyJson;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace ActorConsole.Core.Actor
@@ -13,12 +16,7 @@ namespace ActorConsole.Core.Actor
         /// </summary>
         public static void Save(Actor actor, string path)
         {
-            System.Text.Json.JsonSerializerOptions options = new System.Text.Json.JsonSerializerOptions
-            {
-                WriteIndented = true
-            };
-            string ActorJson = System.Text.Json.JsonSerializer.Serialize(actor, options);
-            File.WriteAllText(path, ActorJson);
+            File.WriteAllText(path, actor.ToJson());
         }
 
         /// <summary>
@@ -27,22 +25,23 @@ namespace ActorConsole.Core.Actor
         public static void Load(string path)
         {
             // TODO: handle for incorrect file pass thru
-            string RawJson = File.ReadAllText(path);
-            System.Text.Json.JsonElement ActorJson = System.Text.Json.JsonDocument.Parse(RawJson).RootElement;
+            Dictionary<string, Dictionary<string, string>> ActorJson = File.ReadAllText(path).FromJson<Dictionary<string, Dictionary<string, string>>>();
 
+
+            // TODO: use reflection instead to set properties
             Manager.Add();
             Actor actor = Manager.Actors.Last();
-            actor.Anims.Idle = ActorJson.GetProperty("Anims").GetProperty("Idle").GetString();
-            actor.Anims.Death = ActorJson.GetProperty("Anims").GetProperty("Death").GetString();
-            actor.Models.Head = ActorJson.GetProperty("Models").GetProperty("Head").GetString();
-            actor.Models.Body = ActorJson.GetProperty("Models").GetProperty("Body").GetString();
-            actor.Weapons.j_gun = ActorJson.GetProperty("Weapons").GetProperty("j_gun").GetString();
-            actor.Weapons.tag_inhand = ActorJson.GetProperty("Weapons").GetProperty("tag_inhand").GetString();
-            actor.Weapons.tag_stowed_back = ActorJson.GetProperty("Weapons").GetProperty("tag_stowed_back").GetString();
-            actor.Weapons.tag_stowed_hip_rear = ActorJson.GetProperty("Weapons").GetProperty("tag_stowed_hip_rear").GetString();
-            actor.Weapons.tag_weapon_chest = ActorJson.GetProperty("Weapons").GetProperty("tag_weapon_chest").GetString();
-            actor.Weapons.tag_weapon_left = ActorJson.GetProperty("Weapons").GetProperty("tag_weapon_left").GetString();
-            actor.Weapons.tag_weapon_right = ActorJson.GetProperty("Weapons").GetProperty("tag_weapon_right").GetString();
+            actor.Anims.Idle = ActorJson[nameof(Anims)][nameof(Anims.Idle)];
+            actor.Anims.Death = ActorJson[nameof(Anims)][nameof(Anims.Death)];
+            actor.Models.Head = ActorJson[nameof(Models)][nameof(Models.Head)];
+            actor.Models.Body = ActorJson[nameof(Models)][nameof(Models.Body)];
+            actor.Weapons.j_gun = ActorJson[nameof(Weapons)][nameof(Weapons.j_gun)];
+            actor.Weapons.tag_inhand = ActorJson[nameof(Weapons)][nameof(Weapons.tag_inhand)];
+            actor.Weapons.tag_stowed_back = ActorJson[nameof(Weapons)][nameof(Weapons.tag_stowed_back)];
+            actor.Weapons.tag_stowed_hip_rear = ActorJson[nameof(Weapons)][nameof(Weapons.tag_stowed_hip_rear)];
+            actor.Weapons.tag_weapon_chest = ActorJson[nameof(Weapons)][nameof(Weapons.tag_weapon_chest)];
+            actor.Weapons.tag_weapon_left = ActorJson[nameof(Weapons)][nameof(Weapons.tag_weapon_left)];
+            actor.Weapons.tag_weapon_right = ActorJson[nameof(Weapons)][nameof(Weapons.tag_weapon_right)];
         }
     }
 }

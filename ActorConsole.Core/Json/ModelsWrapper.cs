@@ -1,6 +1,6 @@
-﻿using System;
+﻿using ActorConsole.Core.Json.TinyJson;
+using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
 
 namespace ActorConsole.Core.Json
 {
@@ -9,7 +9,6 @@ namespace ActorConsole.Core.Json
     /// </summary>
     public static class ModelsWrapper
     {
-        private static readonly JsonElement RootElement = JsonDocument.Parse(File.ReadAllText("Json/models.json")).RootElement;
 
         /// <summary>
         /// Get all the models in the json.
@@ -19,17 +18,8 @@ namespace ActorConsole.Core.Json
         /// <returns>A string array of all the models of the type an map.</returns>
         public static string[] Get(string Map, ModelType modelType)
         {
-            switch (modelType)
-            {
-                case ModelType.Head:
-                    return (string[])RootElement.GetProperty("maps").GetProperty(Map.ToLower()).GetProperty("head").Deserialize(Array.Empty<string>().GetType());
-
-                case ModelType.Body:
-                    return (string[])RootElement.GetProperty("maps").GetProperty(Map.ToLower()).GetProperty("body").Deserialize(Array.Empty<string>().GetType());
-
-                default:
-                    throw new Exception("Invalid Property in ModelsJsonWrapper");
-            }
+            Dictionary<string, Dictionary<string, Dictionary<string, string[]>>> RootElement = File.ReadAllText("Json/models.json").FromJson<Dictionary<string, Dictionary<string, Dictionary<string, string[]>>>>();
+            return RootElement["maps"][Map.ToLower()][modelType.ToString().ToLower()];
         }
 
         /// <summary>
@@ -40,11 +30,14 @@ namespace ActorConsole.Core.Json
         public static string[] GetByCurrentMap(ModelType modelType)
         {
             string map = Memory.IW4.Map;
-            if (map == null) return null;
-
-            if (map.StartsWith("mp_"))
+            if (map == null)
+            {
+                return null;
+            }
+            else if (map.StartsWith("mp_")) // TODO: make json include mp_ so this isnt nessesary
+            {
                 map = map.Replace("mp_", string.Empty);
-
+            }
             return Get(map, modelType);
         }
     }
