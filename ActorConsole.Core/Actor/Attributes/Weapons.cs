@@ -6,14 +6,18 @@
     /// </summary>
     public sealed class Weapons : Attribute
     {
+        private const string NO_WEAPON = "default_weapon";
         internal Weapons(Actor _ParentActor) : base(_ParentActor)
         {
         }
 
         private void ApplyGunToBone(string boneName, string gunName)
         {
-            if (gunName == null)
-                gunName = "";
+            gunName = gunName.Trim();
+            if (string.IsNullOrEmpty(gunName))
+            {
+                gunName = NO_WEAPON;
+            }
             Memory.IW4.SendDvar($"mvm_actor_weapon {ParentActor.Name} {boneName} {gunName}");
         }
 
@@ -28,7 +32,7 @@
             set
             {
                 _j_gun = value;
-                ApplyGunToBone("j_gun", value);
+                ApplyGunToBone(nameof(j_gun), value);
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
@@ -44,7 +48,7 @@
             set
             {
                 _tag_stowed_back = value;
-                ApplyGunToBone("tag_stowed_back", value);
+                ApplyGunToBone(nameof(tag_stowed_back), value);
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
@@ -60,7 +64,7 @@
             set
             {
                 _tag_inhand = value;
-                ApplyGunToBone("tag_inhand", value);
+                ApplyGunToBone(nameof(tag_inhand), value);
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
@@ -76,7 +80,7 @@
             set
             {
                 _tag_inhand = value;
-                ApplyGunToBone("tag_weapon_right", value);
+                ApplyGunToBone(nameof(tag_weapon_right), value);
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
@@ -92,7 +96,7 @@
             set
             {
                 _tag_inhand = value;
-                ApplyGunToBone("tag_weapon_left", value);
+                ApplyGunToBone(nameof(tag_weapon_left), value);
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
@@ -108,7 +112,7 @@
             set
             {
                 _tag_inhand = value;
-                ApplyGunToBone("tag_weapon_chest", value);
+                ApplyGunToBone(nameof(tag_weapon_chest), value);
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
@@ -124,18 +128,19 @@
             set
             {
                 _tag_inhand = value;
-                ApplyGunToBone("tag_stowed_hip_rear", value);
+                ApplyGunToBone(nameof(tag_stowed_hip_rear), value);
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
 
         internal void NullAllBones()
         {
+
             foreach (System.Reflection.PropertyInfo prop in typeof(Weapons).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance))
             {
                 if (!string.IsNullOrEmpty((string)prop.GetValue(this)))
                 {
-                    prop.SetValue(this, string.Empty);
+                    prop.SetValue(this, NO_WEAPON);
                 }
             }
         }

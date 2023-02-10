@@ -31,7 +31,12 @@
         <mah:WindowCommands>
             <Label x:Name="MapLabel"
                    mah:ControlsHelper.RecognizesAccessKey="False">
-                Map = null</Label>
+                Map = null
+            </Label>
+            <Label x:Name="DvarQueueLabel"
+                   mah:ControlsHelper.RecognizesAccessKey="False">
+                DvarQueue = 0
+            </Label>
         </mah:WindowCommands>
     </mah:MetroWindow.RightWindowCommands>
 

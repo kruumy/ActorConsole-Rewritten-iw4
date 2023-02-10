@@ -15,7 +15,7 @@ namespace ActorConsole.Core.Memory
         /// <summary>
         /// The amount of time to wait before sending another
         /// </summary>
-        public static readonly int WaitTime = 500;
+        public static readonly int WaitTime = 1000;
 
         private static readonly List<string> Queue = new List<string>();
 

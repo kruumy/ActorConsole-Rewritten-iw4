@@ -54,6 +54,7 @@ namespace ActorConsole.GUI
                     Dispatcher.Invoke(() =>
                     {
                         MapLabel.Content = map;
+                        DvarQueueLabel.Content = "DvarQueue = " + Core.Memory.SendDvarQueue.Count;
                     });
                     if (!Core.Memory.IW4.IsInMatch)
                     {

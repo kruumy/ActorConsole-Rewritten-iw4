@@ -74,7 +74,9 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             {
                 string Camo = "";
                 if (CamoBox.Text != "None")
+                {
                     Camo = CamoBox.Text;
+                }
                 string Weapon = SelectedWeaponBox.Text;
                 switch (BoneBox.Text)
                 {
