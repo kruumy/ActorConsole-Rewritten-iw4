@@ -1,5 +1,4 @@
 ﻿using ActorConsole.Core.Actor.Attributes;
-using System;
 
 namespace ActorConsole.Core.Actor
 {
@@ -73,20 +72,13 @@ namespace ActorConsole.Core.Actor
         /// </summary>
         internal void Delete()
         {
-            this.Weapons.j_gun = null;
-            this.Weapons.tag_inhand = null;
-            this.Weapons.tag_stowed_back = null;
-            this.Weapons.tag_stowed_hip_rear = null;
-            this.Weapons.tag_weapon_chest = null;
-            this.Weapons.tag_weapon_left = null;
-            this.Weapons.tag_weapon_right = null;
+            Weapons.NullAllBones();
             Anims = null;
             Models = null;
             Weapons = null;
             Walking = null;
             Pathing = null;
             Memory.IW4.SendDvar($"mvm_actor_delete {Name}");
-            GC.SuppressFinalize(this);
         }
 
         /// <summary>

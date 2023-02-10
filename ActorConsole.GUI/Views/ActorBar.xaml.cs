@@ -25,6 +25,10 @@ namespace ActorConsole.GUI.Views
                 {
                     return null;
                 }
+                catch (System.ArgumentOutOfRangeException)
+                {
+                    return null;
+                }
             }
         }
 
@@ -56,7 +60,7 @@ namespace ActorConsole.GUI.Views
             if (Core.Memory.IW4.IsInMatch)
             {
                 Core.Actor.Manager.Add();
-                ActorSelectionComboBox.SelectedIndex = Core.Actor.Manager.Actors.Length - 1;
+                ActorSelectionComboBox.SelectedIndex = Core.Actor.Manager.Actors.Count - 1;
                 ActorSelectionComboBox_Loaded(null, null);
             }
         }

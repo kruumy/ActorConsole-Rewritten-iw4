@@ -128,5 +128,16 @@
                 Manager.RaiseOnActorAttributeModified(this);
             }
         }
+
+        internal void NullAllBones()
+        {
+            foreach (System.Reflection.PropertyInfo prop in typeof(Weapons).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance))
+            {
+                if (!string.IsNullOrEmpty((string)prop.GetValue(this)))
+                {
+                    prop.SetValue(this, string.Empty);
+                }
+            }
+        }
     }
 }

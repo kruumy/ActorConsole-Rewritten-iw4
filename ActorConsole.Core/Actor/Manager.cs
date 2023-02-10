@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ActorConsole.Core.Actor
 {
@@ -20,7 +21,7 @@ namespace ActorConsole.Core.Actor
         /// <summary>
         /// A copy array of the current list of all actors in the scene.
         /// </summary>
-        public static Actor[] Actors => ActorsList.ToArray();
+        public static ReadOnlyCollection<Actor> Actors => ActorsList.AsReadOnly();
 
         /// <summary>
         /// Adds an actor to the current scene.
