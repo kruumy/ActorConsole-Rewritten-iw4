@@ -27,21 +27,20 @@ namespace ActorConsole.Core.Actor
             // TODO: handle for incorrect file pass thru
             Dictionary<string, Dictionary<string, string>> ActorJson = File.ReadAllText(path).FromJson<Dictionary<string, Dictionary<string, string>>>();
 
-
-            // TODO: use reflection instead to set properties
             Manager.Add();
             Actor actor = Manager.Actors.Last();
-            actor.Anims.Idle = ActorJson[nameof(Anims)][nameof(Anims.Idle)];
-            actor.Anims.Death = ActorJson[nameof(Anims)][nameof(Anims.Death)];
-            actor.Models.Head = ActorJson[nameof(Models)][nameof(Models.Head)];
-            actor.Models.Body = ActorJson[nameof(Models)][nameof(Models.Body)];
-            actor.Weapons.j_gun = ActorJson[nameof(Weapons)][nameof(Weapons.j_gun)];
-            actor.Weapons.tag_inhand = ActorJson[nameof(Weapons)][nameof(Weapons.tag_inhand)];
-            actor.Weapons.tag_stowed_back = ActorJson[nameof(Weapons)][nameof(Weapons.tag_stowed_back)];
-            actor.Weapons.tag_stowed_hip_rear = ActorJson[nameof(Weapons)][nameof(Weapons.tag_stowed_hip_rear)];
-            actor.Weapons.tag_weapon_chest = ActorJson[nameof(Weapons)][nameof(Weapons.tag_weapon_chest)];
-            actor.Weapons.tag_weapon_left = ActorJson[nameof(Weapons)][nameof(Weapons.tag_weapon_left)];
-            actor.Weapons.tag_weapon_right = ActorJson[nameof(Weapons)][nameof(Weapons.tag_weapon_right)];
+            ApplyProperties(actor.Anims, ActorJson[nameof(Anims)]);
+            ApplyProperties(actor.Models, ActorJson[nameof(Models)]);
+            ApplyProperties(actor.Weapons, ActorJson[nameof(Weapons)]);
+        }
+
+        private static void ApplyProperties<T>(T targetActorthing, Dictionary<string, string> propName_propValue) where T : Attribute
+        {
+            foreach (KeyValuePair<string, string> prop in propName_propValue)
+            {
+                System.Reflection.PropertyInfo p = typeof(T).GetProperty(prop.Key, System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+                p.SetValue(targetActorthing, prop.Value);
+            }
         }
     }
 }
