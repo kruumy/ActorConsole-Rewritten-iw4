@@ -24,7 +24,10 @@ namespace ActorConsole.Core.Actor
         /// </summary>
         public static void Load(string path)
         {
-            // TODO: handle for incorrect file pass thru
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException(path);
+            }
             Dictionary<string, Dictionary<string, string>> ActorJson = File.ReadAllText(path).FromJson<Dictionary<string, Dictionary<string, string>>>();
 
             Manager.Add();

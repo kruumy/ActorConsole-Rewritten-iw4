@@ -7,7 +7,6 @@ namespace ActorConsole.GUI.Views
 {
     /// <summary>
     /// Interaction logic for Actors.xaml
-    /// TODO: Data bind ItemSource to Core.Manager.Actors
     /// </summary>
     public partial class Actors : UserControl
     {

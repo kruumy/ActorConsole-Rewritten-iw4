@@ -30,15 +30,7 @@ namespace ActorConsole.Core.Json
         public static string[] GetByCurrentMap(ModelType modelType)
         {
             string map = Memory.IW4.Map;
-            if (map == null)
-            {
-                return null;
-            }
-            else if (map.StartsWith("mp_")) // TODO: make json include mp_ so this isnt nessesary
-            {
-                map = map.Replace("mp_", string.Empty);
-            }
-            return Get(map, modelType);
+            return map == null ? null : Get(map, modelType);
         }
     }
 
