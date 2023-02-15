@@ -55,7 +55,7 @@ namespace ActorConsole.Core.Actor
         /// </summary>
         internal Actor()
         {
-            Memory.IW4.SendDvar($"mvm_actor_spawn {Models.Body_Default} {Models.Head_Default}");
+            Memory.IW4.SendDvar($"mvm_actor_spawn {Models.BODY_DEFAULT} {Models.HEAD_DEFAULT}");
             Anims = new Anims(this);
             Models = new Models(this);
             Weapons = new Weapons(this);

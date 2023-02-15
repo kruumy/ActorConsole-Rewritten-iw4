@@ -10,10 +10,10 @@
         {
         }
 
-        internal const string Idle_Default = "pb_stand_alert";
-        internal const string Death_Default = "pb_stand_death_chest_blowback";
+        public static readonly string IDLE_DEFAULT = "pb_stand_alert";
+        public static readonly string DEATH_DEFAULT = "pb_stand_death_chest_blowback";
 
-        private string _Idle = Idle_Default;
+        private string _Idle = IDLE_DEFAULT;
 
         /// <summary>
         /// The idle animation of the actor.
@@ -30,7 +30,7 @@
             }
         }
 
-        private string _Death = Death_Default;
+        private string _Death = DEATH_DEFAULT;
 
         /// <summary>
         /// The death animation of the actor.

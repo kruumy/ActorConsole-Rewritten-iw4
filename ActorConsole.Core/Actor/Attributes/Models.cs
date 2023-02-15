@@ -10,10 +10,16 @@
         {
         }
 
-        internal const string Head_Default = "defaultactor";
-        internal const string Body_Default = "defaultactor";
+        /// <summary>
+        /// "defaultactor"
+        /// </summary>
+        public static readonly string HEAD_DEFAULT = "defaultactor";
+        /// <summary>
+        /// "defaultactor"
+        /// </summary>
+        public static readonly string BODY_DEFAULT = "defaultactor";
 
-        private string _Head = Head_Default;
+        private string _Head = HEAD_DEFAULT;
 
         /// <summary>
         /// The head model of the actor.
@@ -29,7 +35,7 @@
             }
         }
 
-        private string _Body = Body_Default;
+        private string _Body = BODY_DEFAULT;
 
         /// <summary>
         /// The body model of the actor.

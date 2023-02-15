@@ -6,7 +6,10 @@
     /// </summary>
     public sealed class Weapons : Attribute
     {
-        private const string NO_WEAPON = "default_weapon";
+        /// <summary>
+        /// "default_weapon"
+        /// </summary>
+        public static readonly string NO_WEAPON = "default_weapon";
         internal Weapons(Actor _ParentActor) : base(_ParentActor)
         {
         }
