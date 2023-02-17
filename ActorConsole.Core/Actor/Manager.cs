@@ -19,7 +19,7 @@ namespace ActorConsole.Core.Actor
         private static readonly List<Actor> ActorsList = new List<Actor>();
 
         /// <summary>
-        /// A copy array of the current list of all actors in the scene.
+        /// All the current actors in the scene.
         /// </summary>
         public static ReadOnlyCollection<Actor> Actors => ActorsList.AsReadOnly();
 
@@ -37,7 +37,7 @@ namespace ActorConsole.Core.Actor
         /// <param name="index">Index of actor in list.</param>
         public static void Delete(int index)
         {
-            Actors[index].Delete();
+            ActorsList[index].Delete();
             ActorsList.RemoveAt(index);
         }
 
@@ -66,8 +66,12 @@ namespace ActorConsole.Core.Actor
         public static int Search(string name)
         {
             for (int i = 0; i < ActorsList.Count; i++)
+            {
                 if (Actors[i].Name == name)
+                {
                     return i;
+                }
+            }
             return -1;
         }
 

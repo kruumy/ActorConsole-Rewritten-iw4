@@ -50,10 +50,13 @@
                 Memory.IW4.SendDvar($"mvm_actor_path_save {ParentActor.Name} {NextNode}");
                 uint result = NextNode;
                 NextNode++;
+                Manager.RaiseOnActorAttributeModified(this);
                 return result;
             }
             else
+            {
                 return 0;
+            }
         }
 
         /// <summary>
@@ -67,10 +70,13 @@
                 Memory.IW4.SendDvar($"mvm_actor_path_del {ParentActor.Name} {NextNode}");
                 uint result = NextNode;
                 NextNode--;
+                Manager.RaiseOnActorAttributeModified(this);
                 return result;
             }
             else
+            {
                 return 0;
+            }
         }
 
         /// <summary>

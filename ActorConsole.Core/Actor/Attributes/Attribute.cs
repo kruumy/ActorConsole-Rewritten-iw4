@@ -1,7 +1,7 @@
 ﻿namespace ActorConsole.Core.Actor.Attributes
 {
     /// <summary>
-    /// Base class of all the actor attibutes. Keeps track of the parant actor attribute is assigned to.
+    /// Base class of all the actor attibutes. Keeps track of the parent actor attribute is assigned to.
     /// </summary>
     public abstract class Attribute
     {

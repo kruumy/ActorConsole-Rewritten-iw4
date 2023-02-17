@@ -62,7 +62,9 @@
         private void CreateBind()
         {
             if (IsEnabled)
+            {
                 Memory.IW4.SendDvar($"bind {Key} \"{Command}\"");
+            }
         }
 
         /// <summary>
