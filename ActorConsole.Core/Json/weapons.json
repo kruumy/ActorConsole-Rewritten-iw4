@@ -1143,6 +1143,15 @@
         "tmp_reflex_silencer_mp",
         "tmp_reflex_xmags_mp",
         "tmp_silencer_xmags_mp"
+      ],
+      "ak74u_mp": [
+        "ak74u_mp",
+        "ak74u_acog_xmags_mp",
+        "ak74u_xmags_mp",
+        "ak74u_acog_mp"
+      ],
+      "peacekeeper_mp": [
+        "peacekeeper_mp"
       ]
     },
     "sniper": {
@@ -1237,6 +1246,12 @@
         "cheytac_silencer_thermal_mp",
         "cheytac_silencer_xmags_mp",
         "cheytac_thermal_xmags_mp"
+      ],
+      "m40a3_mp": [
+        "m40a3_mp"
+      ],
+      "dragunov_mp": [
+        "dragunov_mp"
       ]
     }
   }
