@@ -1,5 +1,6 @@
 ﻿using AnotherExternalMemoryLibrary.Extensions;
 using System.Diagnostics;
+using System.Text;
 
 namespace ActorConsole.Core.Memory
 {
@@ -103,20 +104,18 @@ namespace ActorConsole.Core.Memory
         /// <summary>
         /// Adds a dvar into the SendDvarQueue class.
         /// </summary>
-        /// <param name="text"></param>
-        public static void SendDvar(string text)
+        /// <param name="dvars"></param>
+        public static void SendDvar(params string[] dvars)
         {
             if (IsRunning)
             {
-                if (text.Contains("+"))
+                StringBuilder sb = new StringBuilder();
+                foreach (string dvar in dvars)
                 {
-                    text = text.Split('+')[0];
+                    sb.Append(dvar);
+                    sb.Append(';');
                 }
-                else if (text.Contains("-"))
-                {
-                    text = text.Split('-')[0];
-                }
-                SendDvarQueue.Add(text);
+                SendDvarQueue.Add(sb.ToString());
             }
         }
     }
