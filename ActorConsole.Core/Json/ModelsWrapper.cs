@@ -19,7 +19,14 @@ namespace ActorConsole.Core.Json
         public static string[] Get(string Map, ModelType modelType)
         {
             Dictionary<string, Dictionary<string, Dictionary<string, string[]>>> RootElement = File.ReadAllText("Json/models.json").FromJson<Dictionary<string, Dictionary<string, Dictionary<string, string[]>>>>();
-            return RootElement["maps"][Map.ToLower()][modelType.ToString().ToLower()];
+            if (RootElement["maps"].TryGetValue(Map.ToLower(), out Dictionary<string, string[]> map))
+            {
+                return map[modelType.ToString().ToLower()];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /// <summary>
