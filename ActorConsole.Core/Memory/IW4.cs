@@ -1,6 +1,5 @@
 ﻿using AnotherExternalMemoryLibrary.Extensions;
 using System.Diagnostics;
-using System.Text;
 
 namespace ActorConsole.Core.Memory
 {
@@ -109,13 +108,7 @@ namespace ActorConsole.Core.Memory
         {
             if (IsRunning)
             {
-                StringBuilder sb = new StringBuilder();
-                foreach (string dvar in dvars)
-                {
-                    sb.Append(dvar);
-                    sb.Append(';');
-                }
-                SendDvarQueue.Add(sb.ToString());
+                SendDvarQueue.Add(dvars);
             }
         }
     }
