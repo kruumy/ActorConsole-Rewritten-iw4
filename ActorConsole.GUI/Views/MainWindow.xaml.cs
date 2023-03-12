@@ -18,7 +18,7 @@ namespace ActorConsole.GUI
             InitializeComponent();
         }
 
-        private void LaunchGithubSiteButton_Click(object sender, RoutedEventArgs e)
+        private void LaunchGithubSiteButton_Click( object sender, RoutedEventArgs e )
         {
             Process.Start(new ProcessStartInfo
             {
@@ -27,11 +27,11 @@ namespace ActorConsole.GUI
             });
         }
 
-        private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void MetroWindow_Closing( object sender, System.ComponentModel.CancelEventArgs e )
         {
-            if (Core.Memory.IW4.IsInMatch)
+            if ( Core.Memory.IW4.IsInMatch )
             {
-                if (MessageBoxResult.No == MessageBox.Show("Are you want to close sure?\nAll current actor data will be lost.", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No))
+                if ( MessageBoxResult.No == MessageBox.Show("Are you want to close sure?\nAll current actor data will be lost.", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No) )
                 {
                     e.Cancel = true;
                 }
@@ -39,15 +39,15 @@ namespace ActorConsole.GUI
             StatusBarTimer?.Dispose();
         }
 
-        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        private void MetroWindow_Loaded( object sender, RoutedEventArgs e )
         {
-            string theme = Classes.Objects.Settings.DarkMode ? "Dark" : "Light";
+            string theme = Classes.Settings.DefaultInstance.DarkMode ? "Dark" : "Light";
             ThemeManager.Current.ChangeTheme(this, $"{theme}.{Classes.MetroColorTheme.GetRandomColorTheme()}");
 
             StatusBarTimer = new Timer(1000);
-            StatusBarTimer.Elapsed += (object timerSender, ElapsedEventArgs timerEventArgs) =>
+            StatusBarTimer.Elapsed += ( object timerSender, ElapsedEventArgs timerEventArgs ) =>
             {
-                if (Core.Memory.IW4.IsRunning)
+                if ( Core.Memory.IW4.IsRunning )
                 {
                     string map = Core.Memory.IW4.Map;
                     map = !string.IsNullOrEmpty(map) ? $"Map = {map}" : $"Map = null";
@@ -56,7 +56,7 @@ namespace ActorConsole.GUI
                         MapLabel.Content = map;
                         DvarQueueLabel.Content = "DvarQueue = " + Core.Memory.SendDvarQueue.Count;
                     });
-                    if (!Core.Memory.IW4.IsInMatch)
+                    if ( !Core.Memory.IW4.IsInMatch )
                     {
                         Core.Actor.Manager.Reset();
                         Views.ActorBar.Reset();

@@ -1,5 +1,4 @@
-﻿using ActorConsole.GUI.Classes;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -45,6 +44,8 @@ namespace ActorConsole.GUI.Views
         private void ActorSelectionComboBox_Loaded( object sender, RoutedEventArgs e )
         {
             ActorSelectionComboBox.ItemsSource = Core.Actor.Manager.Actors;
+            Actors.Instance?.ActorsDataGrid.Items.Refresh();
+            ActorSelectionComboBox.Items.Refresh();
             ActorSelectionComboBox.SelectedIndex = SelectedActorIndex;
         }
 
@@ -86,10 +87,10 @@ namespace ActorConsole.GUI.Views
 
         private void PrecacheButton_Loaded( object sender, RoutedEventArgs e )
         {
-            if ( !string.IsNullOrEmpty(Objects.Settings.Precache.Path) )
+            if ( !string.IsNullOrEmpty(Classes.Settings.DefaultInstance.Precache.Path) )
             {
                 PrecacheButton.Content = "Change Precache";
-                PrecacheButton.ToolTip = Objects.Settings.Precache.Path;
+                PrecacheButton.ToolTip = Classes.Settings.DefaultInstance.Precache.Path;
             }
         }
 
@@ -107,9 +108,9 @@ namespace ActorConsole.GUI.Views
             openFileDialog.ShowDialog();
             void OpenFileDialog_FileOk( object sender2, System.ComponentModel.CancelEventArgs e2 )
             {
-                Objects.Settings.ChangePrecache(openFileDialog.FileName);
+                Classes.Settings.DefaultInstance.ChangePrecache(openFileDialog.FileName);
                 PrecacheButton.Content = "Change Precache";
-                PrecacheButton.ToolTip = Objects.Settings.Precache.Path;
+                PrecacheButton.ToolTip = Classes.Settings.DefaultInstance.Precache.Path;
             }
         }
     }

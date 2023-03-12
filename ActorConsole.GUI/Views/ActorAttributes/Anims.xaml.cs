@@ -14,47 +14,47 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             InitializeComponent();
         }
 
-        private void UserControl_Initialized(object sender, System.EventArgs e)
+        private void UserControl_Initialized( object sender, System.EventArgs e )
         {
             ActorBar.OnSelectedActorChanged += ActorBar_OnSelectedActorChanged;
         }
 
-        private void ActorBar_OnSelectedActorChanged(object sender, int index, Core.Actor.Actor actor)
+        private void ActorBar_OnSelectedActorChanged( object sender, int index, Core.Actor.Actor actor )
         {
             IdleAnimTextBox.Text = actor.Anims.Idle;
             DeathAnimTextBox.Text = actor.Anims.Death;
         }
 
-        private void IdleAnimsBox_Loaded(object sender, RoutedEventArgs e)
+        private void IdleAnimsBox_Loaded( object sender, RoutedEventArgs e )
         {
-            IdleAnimsBox.ItemsSource = Classes.Objects.Settings.Precache.MP_Anims_Idle;
+            IdleAnimsBox.ItemsSource = Classes.Settings.DefaultInstance.Precache.MP_Anims_Idle;
         }
 
-        private void DeathAnimsBox_Loaded(object sender, RoutedEventArgs e)
+        private void DeathAnimsBox_Loaded( object sender, RoutedEventArgs e )
         {
-            DeathAnimsBox.ItemsSource = Classes.Objects.Settings.Precache.MP_Anims_Death;
+            DeathAnimsBox.ItemsSource = Classes.Settings.DefaultInstance.Precache.MP_Anims_Death;
         }
 
-        private void IdleAnimsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void IdleAnimsBox_MouseDoubleClick( object sender, MouseButtonEventArgs e )
         {
             IdleAnimTextBox.Text = (string)IdleAnimsBox.SelectedItem;
             applyidlebtn_Click(null, null);
         }
 
-        private void DeathAnimsBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DeathAnimsBox_MouseDoubleClick( object sender, MouseButtonEventArgs e )
         {
             DeathAnimTextBox.Text = (string)DeathAnimsBox.SelectedItem;
             applydeathbtn_Click(null, null);
         }
 
-        private void SinglePlayer_Loaded(object sender, RoutedEventArgs e)
+        private void SinglePlayer_Loaded( object sender, RoutedEventArgs e )
         {
-            SinglePlayerAnimsBox.ItemsSource = Classes.Objects.Settings.Precache.SP_Anims;
+            SinglePlayerAnimsBox.ItemsSource = Classes.Settings.DefaultInstance.Precache.SP_Anims;
         }
 
-        private void SinglePlayer_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void SinglePlayer_MouseDoubleClick( object sender, MouseButtonEventArgs e )
         {
-            if (SPAnimSwitch.IsOn)
+            if ( SPAnimSwitch.IsOn )
             {
                 IdleAnimTextBox.Text = (string)SinglePlayerAnimsBox.SelectedItem;
                 applyidlebtn_Click(null, null);
@@ -66,15 +66,15 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             }
         }
 
-        private void applydeathbtn_Click(object sender, RoutedEventArgs e)
+        private void applydeathbtn_Click( object sender, RoutedEventArgs e )
         {
-            if (ActorBar.SelectedActor != null)
+            if ( ActorBar.SelectedActor != null )
                 ActorBar.SelectedActor.Anims.Death = DeathAnimTextBox.Text;
         }
 
-        private void applyidlebtn_Click(object sender, RoutedEventArgs e)
+        private void applyidlebtn_Click( object sender, RoutedEventArgs e )
         {
-            if (ActorBar.SelectedActor != null)
+            if ( ActorBar.SelectedActor != null )
                 ActorBar.SelectedActor.Anims.Idle = IdleAnimTextBox.Text;
         }
     }

@@ -35,6 +35,10 @@
                                         Binding="{Binding Walking.Key}"
                                         Width="75"
                                         IsReadOnly="True" />
+                <DataGridTextColumn Header="Direction"
+                                        Binding="{Binding Walking.Direction}"
+                                        Width="100"
+                                        IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
 
@@ -65,16 +69,24 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <mah:NumericUpDown
                     x:Name="SpeedBox"
-                    Grid.Column="1"
+                    Grid.Column="2"
                     Margin="3"
                     Value="0">
                 </mah:NumericUpDown>
+                <ComboBox
+                    x:Name="DirectionBox"
+                    Grid.Column="1"
+                    Width="100"
+                    Margin="3"
+                    Loaded="DirectionBox_Loaded">
+                </ComboBox>
                 <TextBox
                     x:Name="KeyBox"
                     Grid.Column="0"

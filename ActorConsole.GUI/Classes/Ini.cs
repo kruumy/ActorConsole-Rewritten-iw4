@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-
-/*
+﻿/*
  *
  *https://github.com/Enichan/Ini
  *
@@ -13,16 +8,21 @@ using System.Text;
  *
 */
 
-namespace ActorConsole.GUI.Classes.Settings
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+namespace ActorConsole.GUI.Classes
 {
     internal struct IniValue
     {
-        private static bool TryParseInt(string text, out int value)
+        private static bool TryParseInt( string text, out int value )
         {
-            if (int.TryParse(text,
+            if ( int.TryParse(text,
                 System.Globalization.NumberStyles.Integer,
                 System.Globalization.CultureInfo.InvariantCulture,
-                out int res))
+                out int res) )
             {
                 value = res;
                 return true;
@@ -31,12 +31,12 @@ namespace ActorConsole.GUI.Classes.Settings
             return false;
         }
 
-        private static bool TryParseDouble(string text, out double value)
+        private static bool TryParseDouble( string text, out double value )
         {
-            if (double.TryParse(text,
+            if ( double.TryParse(text,
                 System.Globalization.NumberStyles.Float,
                 System.Globalization.CultureInfo.InvariantCulture,
-                out double res))
+                out double res) )
             {
                 value = res;
                 return true;
@@ -47,9 +47,9 @@ namespace ActorConsole.GUI.Classes.Settings
 
         public string Value;
 
-        public IniValue(object value)
+        public IniValue( object value )
         {
-            if (value is IFormattable formattable)
+            if ( value is IFormattable formattable )
             {
                 Value = formattable.ToString(null, System.Globalization.CultureInfo.InvariantCulture);
             }
@@ -59,34 +59,34 @@ namespace ActorConsole.GUI.Classes.Settings
             }
         }
 
-        public IniValue(string value)
+        public IniValue( string value )
         {
             Value = value;
         }
 
-        public bool ToBool(bool valueIfInvalid = false)
+        public bool ToBool( bool valueIfInvalid = false )
         {
-            if (TryConvertBool(out bool res))
+            if ( TryConvertBool(out bool res) )
             {
                 return res;
             }
             return valueIfInvalid;
         }
 
-        public bool TryConvertBool(out bool result)
+        public bool TryConvertBool( out bool result )
         {
-            if (Value == null)
+            if ( Value == null )
             {
                 result = default;
                 return false;
             }
             string boolStr = Value.Trim().ToLowerInvariant();
-            if (boolStr == "true")
+            if ( boolStr == "true" )
             {
                 result = true;
                 return true;
             }
-            else if (boolStr == "false")
+            else if ( boolStr == "false" )
             {
                 result = false;
                 return true;
@@ -95,46 +95,46 @@ namespace ActorConsole.GUI.Classes.Settings
             return false;
         }
 
-        public int ToInt(int valueIfInvalid = 0)
+        public int ToInt( int valueIfInvalid = 0 )
         {
-            if (TryConvertInt(out int res))
+            if ( TryConvertInt(out int res) )
             {
                 return res;
             }
             return valueIfInvalid;
         }
 
-        public bool TryConvertInt(out int result)
+        public bool TryConvertInt( out int result )
         {
-            if (Value == null)
+            if ( Value == null )
             {
                 result = default;
                 return false;
             }
-            if (TryParseInt(Value.Trim(), out result))
+            if ( TryParseInt(Value.Trim(), out result) )
             {
                 return true;
             }
             return false;
         }
 
-        public double ToDouble(double valueIfInvalid = 0)
+        public double ToDouble( double valueIfInvalid = 0 )
         {
-            if (TryConvertDouble(out double res))
+            if ( TryConvertDouble(out double res) )
             {
                 return res;
             }
             return valueIfInvalid;
         }
 
-        public bool TryConvertDouble(out double result)
+        public bool TryConvertDouble( out double result )
         {
-            if (Value == null)
+            if ( Value == null )
             {
                 result = default;
                 return false; ;
             }
-            if (TryParseDouble(Value.Trim(), out result))
+            if ( TryParseDouble(Value.Trim(), out result) )
             {
                 return true;
             }
@@ -146,19 +146,19 @@ namespace ActorConsole.GUI.Classes.Settings
             return GetString(true, false);
         }
 
-        public string GetString(bool preserveWhitespace)
+        public string GetString( bool preserveWhitespace )
         {
             return GetString(true, preserveWhitespace);
         }
 
-        public string GetString(bool allowOuterQuotes, bool preserveWhitespace)
+        public string GetString( bool allowOuterQuotes, bool preserveWhitespace )
         {
-            if (Value == null)
+            if ( Value == null )
             {
                 return "";
             }
             string trimmed = Value.Trim();
-            if (allowOuterQuotes && trimmed.Length >= 2 && trimmed[0] == '"' && trimmed[trimmed.Length - 1] == '"')
+            if ( allowOuterQuotes && trimmed.Length >= 2 && trimmed[ 0 ] == '"' && trimmed[ trimmed.Length - 1 ] == '"' )
             {
                 string inner = trimmed.Substring(1, trimmed.Length - 2);
                 return preserveWhitespace ? inner : inner.Trim();
@@ -174,52 +174,52 @@ namespace ActorConsole.GUI.Classes.Settings
             return Value;
         }
 
-        public static implicit operator IniValue(byte o)
+        public static implicit operator IniValue( byte o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(short o)
+        public static implicit operator IniValue( short o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(int o)
+        public static implicit operator IniValue( int o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(sbyte o)
+        public static implicit operator IniValue( sbyte o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(ushort o)
+        public static implicit operator IniValue( ushort o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(uint o)
+        public static implicit operator IniValue( uint o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(float o)
+        public static implicit operator IniValue( float o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(double o)
+        public static implicit operator IniValue( double o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(bool o)
+        public static implicit operator IniValue( bool o )
         {
             return new IniValue(o);
         }
 
-        public static implicit operator IniValue(string o)
+        public static implicit operator IniValue( string o )
         {
             return new IniValue(o);
         }
@@ -240,34 +240,34 @@ namespace ActorConsole.GUI.Classes.Settings
         {
         }
 
-        public IniFile(IEqualityComparer<string> stringComparer)
+        public IniFile( IEqualityComparer<string> stringComparer )
         {
             StringComparer = stringComparer;
             sections = new Dictionary<string, IniSection>(StringComparer);
         }
 
-        public void Save(string path, FileMode mode = FileMode.Create)
+        public void Save( string path, FileMode mode = FileMode.Create )
         {
             FileStream stream = new FileStream(path, mode, FileAccess.Write);
             Save(stream);
             stream.Dispose();
         }
 
-        public void Save(Stream stream)
+        public void Save( Stream stream )
         {
             StreamWriter writer = new StreamWriter(stream);
             Save(writer);
             writer.Dispose();
         }
 
-        public void Save(StreamWriter writer)
+        public void Save( StreamWriter writer )
         {
-            foreach (KeyValuePair<string, IniSection> section in sections)
+            foreach ( KeyValuePair<string, IniSection> section in sections )
             {
-                if (section.Value.Count > 0 || SaveEmptySections)
+                if ( section.Value.Count > 0 || SaveEmptySections )
                 {
                     writer.WriteLine(string.Format("[{0}]", section.Key.Trim()));
-                    foreach (KeyValuePair<string, IniValue> kvp in section.Value)
+                    foreach ( KeyValuePair<string, IniValue> kvp in section.Value )
                     {
                         writer.WriteLine(string.Format("{0}={1}", kvp.Key, kvp.Value));
                     }
@@ -276,49 +276,49 @@ namespace ActorConsole.GUI.Classes.Settings
             }
         }
 
-        public void Load(string path, bool ordered = false)
+        public void Load( string path, bool ordered = false )
         {
             FileStream stream = new FileStream(path, FileMode.Open, FileAccess.Read);
             Load(stream, ordered);
             stream.Dispose();
         }
 
-        public void Load(Stream stream, bool ordered = false)
+        public void Load( Stream stream, bool ordered = false )
         {
             StreamReader reader = new StreamReader(stream);
             Load(reader, ordered);
             reader.Dispose();
         }
 
-        public void Load(StreamReader reader, bool ordered = false)
+        public void Load( StreamReader reader, bool ordered = false )
         {
             IniSection section = null;
 
-            while (!reader.EndOfStream)
+            while ( !reader.EndOfStream )
             {
                 string line = reader.ReadLine();
 
-                if (line != null)
+                if ( line != null )
                 {
                     string trimStart = line.TrimStart();
 
-                    if (trimStart.Length > 0)
+                    if ( trimStart.Length > 0 )
                     {
-                        if (trimStart[0] == '[')
+                        if ( trimStart[ 0 ] == '[' )
                         {
                             int sectionEnd = trimStart.IndexOf(']');
-                            if (sectionEnd > 0)
+                            if ( sectionEnd > 0 )
                             {
                                 string sectionName = trimStart.Substring(1, sectionEnd - 1).Trim();
                                 section = new IniSection(StringComparer) { Ordered = ordered };
-                                sections[sectionName] = section;
+                                sections[ sectionName ] = section;
                             }
                         }
-                        else if (section != null && trimStart[0] != ';')
+                        else if ( section != null && trimStart[ 0 ] != ';' )
                         {
-                            if (LoadValue(line, out string key, out IniValue val))
+                            if ( LoadValue(line, out string key, out IniValue val) )
                             {
-                                section[key] = val;
+                                section[ key ] = val;
                             }
                         }
                     }
@@ -326,10 +326,10 @@ namespace ActorConsole.GUI.Classes.Settings
             }
         }
 
-        private bool LoadValue(string line, out string key, out IniValue val)
+        private bool LoadValue( string line, out string key, out IniValue val )
         {
             int assignIndex = line.IndexOf('=');
-            if (assignIndex <= 0)
+            if ( assignIndex <= 0 )
             {
                 key = null;
                 val = null;
@@ -343,34 +343,34 @@ namespace ActorConsole.GUI.Classes.Settings
             return true;
         }
 
-        public bool ContainsSection(string section)
+        public bool ContainsSection( string section )
         {
             return sections.ContainsKey(section);
         }
 
-        public bool TryGetSection(string section, out IniSection result)
+        public bool TryGetSection( string section, out IniSection result )
         {
             return sections.TryGetValue(section, out result);
         }
 
-        bool IDictionary<string, IniSection>.TryGetValue(string key, out IniSection value)
+        bool IDictionary<string, IniSection>.TryGetValue( string key, out IniSection value )
         {
             return TryGetSection(key, out value);
         }
 
-        public bool Remove(string section)
+        public bool Remove( string section )
         {
             return sections.Remove(section);
         }
 
-        public IniSection Add(string section, Dictionary<string, IniValue> values, bool ordered = false)
+        public IniSection Add( string section, Dictionary<string, IniValue> values, bool ordered = false )
         {
             return Add(section, new IniSection(values, StringComparer) { Ordered = ordered });
         }
 
-        public IniSection Add(string section, IniSection value)
+        public IniSection Add( string section, IniSection value )
         {
-            if (value.Comparer != StringComparer)
+            if ( value.Comparer != StringComparer )
             {
                 value = new IniSection(value, StringComparer);
             }
@@ -378,19 +378,19 @@ namespace ActorConsole.GUI.Classes.Settings
             return value;
         }
 
-        public IniSection Add(string section, bool ordered = false)
+        public IniSection Add( string section, bool ordered = false )
         {
             IniSection value = new IniSection(StringComparer) { Ordered = ordered };
             sections.Add(section, value);
             return value;
         }
 
-        void IDictionary<string, IniSection>.Add(string key, IniSection value)
+        void IDictionary<string, IniSection>.Add( string key, IniSection value )
         {
             Add(key, value);
         }
 
-        bool IDictionary<string, IniSection>.ContainsKey(string key)
+        bool IDictionary<string, IniSection>.ContainsKey( string key )
         {
             return ContainsSection(key);
         }
@@ -399,7 +399,7 @@ namespace ActorConsole.GUI.Classes.Settings
 
         public ICollection<IniSection> Values => sections.Values;
 
-        void ICollection<KeyValuePair<string, IniSection>>.Add(KeyValuePair<string, IniSection> item)
+        void ICollection<KeyValuePair<string, IniSection>>.Add( KeyValuePair<string, IniSection> item )
         {
             ((IDictionary<string, IniSection>)sections).Add(item);
         }
@@ -409,12 +409,12 @@ namespace ActorConsole.GUI.Classes.Settings
             sections.Clear();
         }
 
-        bool ICollection<KeyValuePair<string, IniSection>>.Contains(KeyValuePair<string, IniSection> item)
+        bool ICollection<KeyValuePair<string, IniSection>>.Contains( KeyValuePair<string, IniSection> item )
         {
             return ((IDictionary<string, IniSection>)sections).Contains(item);
         }
 
-        void ICollection<KeyValuePair<string, IniSection>>.CopyTo(KeyValuePair<string, IniSection>[] array, int arrayIndex)
+        void ICollection<KeyValuePair<string, IniSection>>.CopyTo( KeyValuePair<string, IniSection>[] array, int arrayIndex )
         {
             ((IDictionary<string, IniSection>)sections).CopyTo(array, arrayIndex);
         }
@@ -423,7 +423,7 @@ namespace ActorConsole.GUI.Classes.Settings
 
         bool ICollection<KeyValuePair<string, IniSection>>.IsReadOnly => ((IDictionary<string, IniSection>)sections).IsReadOnly;
 
-        bool ICollection<KeyValuePair<string, IniSection>>.Remove(KeyValuePair<string, IniSection> item)
+        bool ICollection<KeyValuePair<string, IniSection>>.Remove( KeyValuePair<string, IniSection> item )
         {
             return ((IDictionary<string, IniSection>)sections).Remove(item);
         }
@@ -438,26 +438,26 @@ namespace ActorConsole.GUI.Classes.Settings
             return GetEnumerator();
         }
 
-        public IniSection this[string section]
+        public IniSection this[ string section ]
         {
             get
             {
-                if (sections.TryGetValue(section, out IniSection s))
+                if ( sections.TryGetValue(section, out IniSection s) )
                 {
                     return s;
                 }
                 s = new IniSection(StringComparer);
-                sections[section] = s;
+                sections[ section ] = s;
                 return s;
             }
             set
             {
                 IniSection v = value;
-                if (v.Comparer != StringComparer)
+                if ( v.Comparer != StringComparer )
                 {
                     v = new IniSection(v, StringComparer);
                 }
-                sections[section] = v;
+                sections[ section ] = v;
             }
         }
 
@@ -475,12 +475,12 @@ namespace ActorConsole.GUI.Classes.Settings
 
         private class CaseInsensitiveStringComparer : IEqualityComparer<string>
         {
-            public bool Equals(string x, string y)
+            public bool Equals( string x, string y )
             {
                 return string.Compare(x, y, true) == 0;
             }
 
-            public int GetHashCode(string obj)
+            public int GetHashCode( string obj )
             {
                 return obj.ToLowerInvariant().GetHashCode();
             }
@@ -513,46 +513,46 @@ namespace ActorConsole.GUI.Classes.Settings
 
         private List<string> orderedKeys;
 
-        public int IndexOf(string key)
+        public int IndexOf( string key )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call IndexOf(string) on IniSection: section was not ordered.");
             }
             return IndexOf(key, 0, orderedKeys.Count);
         }
 
-        public int IndexOf(string key, int index)
+        public int IndexOf( string key, int index )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call IndexOf(string, int) on IniSection: section was not ordered.");
             }
             return IndexOf(key, index, orderedKeys.Count - index);
         }
 
-        public int IndexOf(string key, int index, int count)
+        public int IndexOf( string key, int index, int count )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call IndexOf(string, int, int) on IniSection: section was not ordered.");
             }
-            if (index < 0 || index > orderedKeys.Count)
+            if ( index < 0 || index > orderedKeys.Count )
             {
                 throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
             }
-            if (count < 0)
+            if ( count < 0 )
             {
                 throw new IndexOutOfRangeException("Count cannot be less than zero." + Environment.NewLine + "Parameter name: count");
             }
-            if (index + count > orderedKeys.Count)
+            if ( index + count > orderedKeys.Count )
             {
                 throw new ArgumentException("Index and count were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.");
             }
             int end = index + count;
-            for (int i = index; i < end; i++)
+            for ( int i = index; i < end; i++ )
             {
-                if (Comparer.Equals(orderedKeys[i], key))
+                if ( Comparer.Equals(orderedKeys[ i ], key) )
                 {
                     return i;
                 }
@@ -560,46 +560,46 @@ namespace ActorConsole.GUI.Classes.Settings
             return -1;
         }
 
-        public int LastIndexOf(string key)
+        public int LastIndexOf( string key )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call LastIndexOf(string) on IniSection: section was not ordered.");
             }
             return LastIndexOf(key, 0, orderedKeys.Count);
         }
 
-        public int LastIndexOf(string key, int index)
+        public int LastIndexOf( string key, int index )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call LastIndexOf(string, int) on IniSection: section was not ordered.");
             }
             return LastIndexOf(key, index, orderedKeys.Count - index);
         }
 
-        public int LastIndexOf(string key, int index, int count)
+        public int LastIndexOf( string key, int index, int count )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call LastIndexOf(string, int, int) on IniSection: section was not ordered.");
             }
-            if (index < 0 || index > orderedKeys.Count)
+            if ( index < 0 || index > orderedKeys.Count )
             {
                 throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
             }
-            if (count < 0)
+            if ( count < 0 )
             {
                 throw new IndexOutOfRangeException("Count cannot be less than zero." + Environment.NewLine + "Parameter name: count");
             }
-            if (index + count > orderedKeys.Count)
+            if ( index + count > orderedKeys.Count )
             {
                 throw new ArgumentException("Index and count were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.");
             }
             int end = index + count;
-            for (int i = end - 1; i >= index; i--)
+            for ( int i = end - 1; i >= index; i-- )
             {
-                if (Comparer.Equals(orderedKeys[i], key))
+                if ( Comparer.Equals(orderedKeys[ i ], key) )
                 {
                     return i;
                 }
@@ -607,13 +607,13 @@ namespace ActorConsole.GUI.Classes.Settings
             return -1;
         }
 
-        public void Insert(int index, string key, IniValue value)
+        public void Insert( int index, string key, IniValue value )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call Insert(int, string, IniValue) on IniSection: section was not ordered.");
             }
-            if (index < 0 || index > orderedKeys.Count)
+            if ( index < 0 || index > orderedKeys.Count )
             {
                 throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
             }
@@ -621,61 +621,61 @@ namespace ActorConsole.GUI.Classes.Settings
             orderedKeys.Insert(index, key);
         }
 
-        public void InsertRange(int index, IEnumerable<KeyValuePair<string, IniValue>> collection)
+        public void InsertRange( int index, IEnumerable<KeyValuePair<string, IniValue>> collection )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call InsertRange(int, IEnumerable<KeyValuePair<string, IniValue>>) on IniSection: section was not ordered.");
             }
-            if (collection == null)
+            if ( collection == null )
             {
                 throw new ArgumentNullException("Value cannot be null." + Environment.NewLine + "Parameter name: collection");
             }
-            if (index < 0 || index > orderedKeys.Count)
+            if ( index < 0 || index > orderedKeys.Count )
             {
                 throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
             }
-            foreach (KeyValuePair<string, IniValue> kvp in collection)
+            foreach ( KeyValuePair<string, IniValue> kvp in collection )
             {
                 Insert(index, kvp.Key, kvp.Value);
                 index++;
             }
         }
 
-        public void RemoveAt(int index)
+        public void RemoveAt( int index )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call RemoveAt(int) on IniSection: section was not ordered.");
             }
-            if (index < 0 || index > orderedKeys.Count)
+            if ( index < 0 || index > orderedKeys.Count )
             {
                 throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
             }
-            string key = orderedKeys[index];
+            string key = orderedKeys[ index ];
             orderedKeys.RemoveAt(index);
             values.Remove(key);
         }
 
-        public void RemoveRange(int index, int count)
+        public void RemoveRange( int index, int count )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call RemoveRange(int, int) on IniSection: section was not ordered.");
             }
-            if (index < 0 || index > orderedKeys.Count)
+            if ( index < 0 || index > orderedKeys.Count )
             {
                 throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
             }
-            if (count < 0)
+            if ( count < 0 )
             {
                 throw new IndexOutOfRangeException("Count cannot be less than zero." + Environment.NewLine + "Parameter name: count");
             }
-            if (index + count > orderedKeys.Count)
+            if ( index + count > orderedKeys.Count )
             {
                 throw new ArgumentException("Index and count were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.");
             }
-            for (int i = 0; i < count; i++)
+            for ( int i = 0; i < count; i++ )
             {
                 RemoveAt(index);
             }
@@ -683,28 +683,28 @@ namespace ActorConsole.GUI.Classes.Settings
 
         public void Reverse()
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call Reverse() on IniSection: section was not ordered.");
             }
             orderedKeys.Reverse();
         }
 
-        public void Reverse(int index, int count)
+        public void Reverse( int index, int count )
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call Reverse(int, int) on IniSection: section was not ordered.");
             }
-            if (index < 0 || index > orderedKeys.Count)
+            if ( index < 0 || index > orderedKeys.Count )
             {
                 throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
             }
-            if (count < 0)
+            if ( count < 0 )
             {
                 throw new IndexOutOfRangeException("Count cannot be less than zero." + Environment.NewLine + "Parameter name: count");
             }
-            if (index + count > orderedKeys.Count)
+            if ( index + count > orderedKeys.Count )
             {
                 throw new ArgumentException("Index and count were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.");
             }
@@ -713,44 +713,44 @@ namespace ActorConsole.GUI.Classes.Settings
 
         public ICollection<IniValue> GetOrderedValues()
         {
-            if (!Ordered)
+            if ( !Ordered )
             {
                 throw new InvalidOperationException("Cannot call GetOrderedValues() on IniSection: section was not ordered.");
             }
             List<IniValue> list = new List<IniValue>();
-            for (int i = 0; i < orderedKeys.Count; i++)
+            for ( int i = 0; i < orderedKeys.Count; i++ )
             {
-                list.Add(values[orderedKeys[i]]);
+                list.Add(values[ orderedKeys[ i ] ]);
             }
             return list;
         }
 
-        public IniValue this[int index]
+        public IniValue this[ int index ]
         {
             get
             {
-                if (!Ordered)
+                if ( !Ordered )
                 {
                     throw new InvalidOperationException("Cannot index IniSection using integer key: section was not ordered.");
                 }
-                if (index < 0 || index >= orderedKeys.Count)
+                if ( index < 0 || index >= orderedKeys.Count )
                 {
                     throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
                 }
-                return values[orderedKeys[index]];
+                return values[ orderedKeys[ index ] ];
             }
             set
             {
-                if (!Ordered)
+                if ( !Ordered )
                 {
                     throw new InvalidOperationException("Cannot index IniSection using integer key: section was not ordered.");
                 }
-                if (index < 0 || index >= orderedKeys.Count)
+                if ( index < 0 || index >= orderedKeys.Count )
                 {
                     throw new IndexOutOfRangeException("Index must be within the bounds." + Environment.NewLine + "Parameter name: index");
                 }
-                string key = orderedKeys[index];
-                values[key] = value;
+                string key = orderedKeys[ index ];
+                values[ key ] = value;
             }
         }
 
@@ -759,7 +759,7 @@ namespace ActorConsole.GUI.Classes.Settings
             get => orderedKeys != null;
             set
             {
-                if (Ordered != value)
+                if ( Ordered != value )
                 {
                     orderedKeys = value ? new List<string>(values.Keys) : null;
                 }
@@ -773,41 +773,41 @@ namespace ActorConsole.GUI.Classes.Settings
         {
         }
 
-        public IniSection(IEqualityComparer<string> stringComparer)
+        public IniSection( IEqualityComparer<string> stringComparer )
         {
             values = new Dictionary<string, IniValue>(stringComparer);
         }
 
-        public IniSection(Dictionary<string, IniValue> values)
+        public IniSection( Dictionary<string, IniValue> values )
             : this(values, IniFile.DefaultComparer)
         {
         }
 
-        public IniSection(Dictionary<string, IniValue> values, IEqualityComparer<string> stringComparer)
+        public IniSection( Dictionary<string, IniValue> values, IEqualityComparer<string> stringComparer )
         {
             this.values = new Dictionary<string, IniValue>(values, stringComparer);
         }
 
-        public IniSection(IniSection values)
+        public IniSection( IniSection values )
             : this(values, IniFile.DefaultComparer)
         {
         }
 
-        public IniSection(IniSection values, IEqualityComparer<string> stringComparer)
+        public IniSection( IniSection values, IEqualityComparer<string> stringComparer )
         {
             this.values = new Dictionary<string, IniValue>(values.values, stringComparer);
         }
 
-        public void Add(string key, IniValue value)
+        public void Add( string key, IniValue value )
         {
             values.Add(key, value);
-            if (Ordered)
+            if ( Ordered )
             {
                 orderedKeys.Add(key);
             }
         }
 
-        public bool ContainsKey(string key)
+        public bool ContainsKey( string key )
         {
             return values.ContainsKey(key);
         }
@@ -819,7 +819,7 @@ namespace ActorConsole.GUI.Classes.Settings
         {
             get
             {
-                if (Ordered)
+                if ( Ordered )
                 {
                     return orderedKeys;
                 }
@@ -830,14 +830,14 @@ namespace ActorConsole.GUI.Classes.Settings
             }
         }
 
-        public bool Remove(string key)
+        public bool Remove( string key )
         {
             bool ret = values.Remove(key);
-            if (Ordered && ret)
+            if ( Ordered && ret )
             {
-                for (int i = 0; i < orderedKeys.Count; i++)
+                for ( int i = 0; i < orderedKeys.Count; i++ )
                 {
-                    if (Comparer.Equals(orderedKeys[i], key))
+                    if ( Comparer.Equals(orderedKeys[ i ], key) )
                     {
                         orderedKeys.RemoveAt(i);
                         break;
@@ -847,7 +847,7 @@ namespace ActorConsole.GUI.Classes.Settings
             return ret;
         }
 
-        public bool TryGetValue(string key, out IniValue value)
+        public bool TryGetValue( string key, out IniValue value )
         {
             return values.TryGetValue(key, out value);
         }
@@ -857,10 +857,10 @@ namespace ActorConsole.GUI.Classes.Settings
         /// </summary>
         public ICollection<IniValue> Values => values.Values;
 
-        void ICollection<KeyValuePair<string, IniValue>>.Add(KeyValuePair<string, IniValue> item)
+        void ICollection<KeyValuePair<string, IniValue>>.Add( KeyValuePair<string, IniValue> item )
         {
             ((IDictionary<string, IniValue>)values).Add(item);
-            if (Ordered)
+            if ( Ordered )
             {
                 orderedKeys.Add(item.Key);
             }
@@ -869,18 +869,18 @@ namespace ActorConsole.GUI.Classes.Settings
         public void Clear()
         {
             values.Clear();
-            if (Ordered)
+            if ( Ordered )
             {
                 orderedKeys.Clear();
             }
         }
 
-        bool ICollection<KeyValuePair<string, IniValue>>.Contains(KeyValuePair<string, IniValue> item)
+        bool ICollection<KeyValuePair<string, IniValue>>.Contains( KeyValuePair<string, IniValue> item )
         {
             return ((IDictionary<string, IniValue>)values).Contains(item);
         }
 
-        void ICollection<KeyValuePair<string, IniValue>>.CopyTo(KeyValuePair<string, IniValue>[] array, int arrayIndex)
+        void ICollection<KeyValuePair<string, IniValue>>.CopyTo( KeyValuePair<string, IniValue>[] array, int arrayIndex )
         {
             ((IDictionary<string, IniValue>)values).CopyTo(array, arrayIndex);
         }
@@ -889,14 +889,14 @@ namespace ActorConsole.GUI.Classes.Settings
 
         bool ICollection<KeyValuePair<string, IniValue>>.IsReadOnly => ((IDictionary<string, IniValue>)values).IsReadOnly;
 
-        bool ICollection<KeyValuePair<string, IniValue>>.Remove(KeyValuePair<string, IniValue> item)
+        bool ICollection<KeyValuePair<string, IniValue>>.Remove( KeyValuePair<string, IniValue> item )
         {
             bool ret = ((IDictionary<string, IniValue>)values).Remove(item);
-            if (Ordered && ret)
+            if ( Ordered && ret )
             {
-                for (int i = 0; i < orderedKeys.Count; i++)
+                for ( int i = 0; i < orderedKeys.Count; i++ )
                 {
-                    if (Comparer.Equals(orderedKeys[i], item.Key))
+                    if ( Comparer.Equals(orderedKeys[ i ], item.Key) )
                     {
                         orderedKeys.RemoveAt(i);
                         break;
@@ -908,7 +908,7 @@ namespace ActorConsole.GUI.Classes.Settings
 
         public IEnumerator<KeyValuePair<string, IniValue>> GetEnumerator()
         {
-            if (Ordered)
+            if ( Ordered )
             {
                 return GetOrderedEnumerator();
             }
@@ -920,9 +920,9 @@ namespace ActorConsole.GUI.Classes.Settings
 
         private IEnumerator<KeyValuePair<string, IniValue>> GetOrderedEnumerator()
         {
-            for (int i = 0; i < orderedKeys.Count; i++)
+            for ( int i = 0; i < orderedKeys.Count; i++ )
             {
-                yield return new KeyValuePair<string, IniValue>(orderedKeys[i], values[orderedKeys[i]]);
+                yield return new KeyValuePair<string, IniValue>(orderedKeys[ i ], values[ orderedKeys[ i ] ]);
             }
         }
 
@@ -933,11 +933,11 @@ namespace ActorConsole.GUI.Classes.Settings
 
         public IEqualityComparer<string> Comparer => values.Comparer;
 
-        public IniValue this[string name]
+        public IniValue this[ string name ]
         {
             get
             {
-                if (values.TryGetValue(name, out IniValue val))
+                if ( values.TryGetValue(name, out IniValue val) )
                 {
                     return val;
                 }
@@ -945,20 +945,20 @@ namespace ActorConsole.GUI.Classes.Settings
             }
             set
             {
-                if (Ordered && !orderedKeys.Contains(name))
+                if ( Ordered && !orderedKeys.Contains(name) )
                 {
                     orderedKeys.Add(name);
                 }
-                values[name] = value;
+                values[ name ] = value;
             }
         }
 
-        public static implicit operator IniSection(Dictionary<string, IniValue> dict)
+        public static implicit operator IniSection( Dictionary<string, IniValue> dict )
         {
             return new IniSection(dict);
         }
 
-        public static explicit operator Dictionary<string, IniValue>(IniSection section)
+        public static explicit operator Dictionary<string, IniValue>( IniSection section )
         {
             return section.values;
         }

@@ -10,9 +10,11 @@ namespace ActorConsole.GUI.Views
     /// </summary>
     public partial class Actors : UserControl
     {
+        public static Actors Instance { get; private set; }
         public Actors()
         {
             InitializeComponent();
+            Instance = this;
         }
 
         private void ActorsDataGrid_Loaded( object sender, RoutedEventArgs e )

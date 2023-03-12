@@ -6,7 +6,7 @@
     /// </summary>
     public sealed class Walking : Attribute
     {
-        internal Walking(Actor _ParentActor) : base(_ParentActor)
+        internal Walking( Actor _ParentActor ) : base(_ParentActor)
         {
         }
 
@@ -49,7 +49,28 @@
             }
         }
 
-        private string Command => $"mvm_actor_walk {ParentActor.Name} {Speed}";
+        private WalkingDirection _Direction;
+
+        public WalkingDirection Direction
+        {
+            get => _Direction;
+            set
+            {
+                _Direction = value;
+                CreateBind();
+                Manager.RaiseOnActorAttributeModified(this);
+            }
+        }
+
+        public enum WalkingDirection
+        {
+            forward,
+            backward,
+            left,
+            right
+        }
+
+        private string Command => $"mvm_actor_walk {ParentActor.Name} {Speed} {Direction}";
 
         /// <summary>
         /// Plays the actor walk without a bind.
@@ -61,7 +82,7 @@
 
         private void CreateBind()
         {
-            if (IsEnabled)
+            if ( IsEnabled )
             {
                 Memory.IW4.SendDvar($"bind {Key} \"{Command}\"");
             }
@@ -72,11 +93,12 @@
         /// </summary>
         public void RemoveBind()
         {
-            if (IsEnabled)
+            if ( IsEnabled )
             {
+                _Key = '\u0000';
+                _Speed = 0;
+                _Direction = WalkingDirection.forward;
                 Memory.IW4.SendDvar($"bind {Key} say");
-                Key = '\u0000';
-                Speed = 0;
             }
         }
     }

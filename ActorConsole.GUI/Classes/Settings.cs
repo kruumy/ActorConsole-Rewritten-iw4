@@ -1,30 +1,31 @@
 ﻿using ActorConsole.Core.Player;
 using System.IO;
 
-namespace ActorConsole.GUI.Classes.Settings
+namespace ActorConsole.GUI.Classes
 {
     public class Settings
     {
+        public static readonly Settings DefaultInstance = new Settings();
         private readonly IniFile ini = new IniFile();
         private readonly string FileName = "settings.ini";
         public Precache Precache { get; private set; }
 
-        public void ChangePrecache(string precachePath)
+        public void ChangePrecache( string precachePath )
         {
-            if (File.Exists(precachePath))
+            if ( File.Exists(precachePath) )
             {
-                Precache = new Core.Player.Precache(precachePath);
-                ini["options"]["PrecachePath"] = precachePath;
+                Precache = new Precache(precachePath);
+                ini[ "options" ][ "PrecachePath" ] = precachePath;
                 ini.Save(FileName);
             }
         }
 
         public bool DarkMode
         {
-            get => ini["options"]["DarkMode"].ToBool();
+            get => ini[ "options" ][ "DarkMode" ].ToBool();
             set
             {
-                ini["options"]["DarkMode"] = value;
+                ini[ "options" ][ "DarkMode" ] = value;
                 ini.Save(FileName);
             }
         }
@@ -34,7 +35,7 @@ namespace ActorConsole.GUI.Classes.Settings
         /// </summary>
         public Settings()
         {
-            if (!File.Exists(FileName))
+            if ( !File.Exists(FileName) )
             {
                 CreateDefault();
             }
@@ -44,8 +45,8 @@ namespace ActorConsole.GUI.Classes.Settings
         private void Load()
         {
             ini.Load(FileName);
-            string precachePath = ini["options"]["PrecachePath"].GetString();
-            if (File.Exists(precachePath))
+            string precachePath = ini[ "options" ][ "PrecachePath" ].GetString();
+            if ( File.Exists(precachePath) )
             {
                 ChangePrecache(precachePath);
             }
@@ -53,8 +54,8 @@ namespace ActorConsole.GUI.Classes.Settings
 
         private void CreateDefault()
         {
-            ini["options"]["PrecachePath"] = "";
-            ini["options"]["DarkMode"] = true;
+            ini[ "options" ][ "PrecachePath" ] = "";
+            ini[ "options" ][ "DarkMode" ] = true;
             ini.Save(FileName);
         }
     }
