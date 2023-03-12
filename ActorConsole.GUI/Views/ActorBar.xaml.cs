@@ -7,7 +7,7 @@ namespace ActorConsole.GUI.Views
 {
     public partial class ActorBar : UserControl
     {
-        public delegate void SelectedActorChanged(object sender, int index, Core.Actor.Actor actor);
+        public delegate void SelectedActorChanged( object sender, int index, Core.Actor.Actor actor );
 
         public static event SelectedActorChanged OnSelectedActorChanged;
 
@@ -19,13 +19,13 @@ namespace ActorConsole.GUI.Views
             {
                 try
                 {
-                    return Core.Actor.Manager.Actors[SelectedActorIndex];
+                    return Core.Actor.Manager.Actors[ SelectedActorIndex ];
                 }
-                catch (System.IndexOutOfRangeException)
+                catch ( System.IndexOutOfRangeException )
                 {
                     return null;
                 }
-                catch (System.ArgumentOutOfRangeException)
+                catch ( System.ArgumentOutOfRangeException )
                 {
                     return null;
                 }
@@ -42,22 +42,24 @@ namespace ActorConsole.GUI.Views
             SelectedActorIndex = -1;
         }
 
-        private void ActorSelectionComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void ActorSelectionComboBox_Loaded( object sender, RoutedEventArgs e )
         {
             ActorSelectionComboBox.ItemsSource = Core.Actor.Manager.Actors;
             ActorSelectionComboBox.SelectedIndex = SelectedActorIndex;
         }
 
-        private void ActorSelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ActorSelectionComboBox_SelectionChanged( object sender, SelectionChangedEventArgs e )
         {
             SelectedActorIndex = ActorSelectionComboBox.SelectedIndex;
-            if (SelectedActor != null)
+            if ( SelectedActor != null )
+            {
                 OnSelectedActorChanged?.Invoke(this, SelectedActorIndex, SelectedActor);
+            }
         }
 
-        private void CreateActorButton_Click(object sender, RoutedEventArgs e)
+        private void CreateActorButton_Click( object sender, RoutedEventArgs e )
         {
-            if (Core.Memory.IW4.IsInMatch)
+            if ( Core.Memory.IW4.IsInMatch )
             {
                 Core.Actor.Manager.Add();
                 ActorSelectionComboBox.SelectedIndex = Core.Actor.Manager.Actors.Count - 1;
@@ -65,36 +67,33 @@ namespace ActorConsole.GUI.Views
             }
         }
 
-        private void DeleteActorButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteActorButton_Click( object sender, RoutedEventArgs e )
         {
-            if (SelectedActor != null)
+            if ( SelectedActor != null )
             {
                 int selectedIndex = ActorSelectionComboBox.SelectedIndex;
                 Core.Actor.Manager.Delete(selectedIndex);
-                if (selectedIndex > 0)
-                    ActorSelectionComboBox.SelectedIndex = selectedIndex - 1;
-                else
-                    ActorSelectionComboBox.SelectedIndex = selectedIndex;
+                ActorSelectionComboBox.SelectedIndex = selectedIndex > 0 ? selectedIndex - 1 : selectedIndex;
             }
             ActorSelectionComboBox_Loaded(null, null);
         }
 
-        private void MoveActorButton_Click(object sender, RoutedEventArgs e)
+        private void MoveActorButton_Click( object sender, RoutedEventArgs e )
         {
-            if (ActorSelectionComboBox.SelectedIndex > -1)
-                Core.Actor.Manager.Actors[ActorSelectionComboBox.SelectedIndex].MoveToCurrentPostition();
+            if ( ActorSelectionComboBox.SelectedIndex > -1 )
+                Core.Actor.Manager.Actors[ ActorSelectionComboBox.SelectedIndex ].MoveToCurrentPostition();
         }
 
-        private void PrecacheButton_Loaded(object sender, RoutedEventArgs e)
+        private void PrecacheButton_Loaded( object sender, RoutedEventArgs e )
         {
-            if (!string.IsNullOrEmpty(Objects.Settings.Precache.Path))
+            if ( !string.IsNullOrEmpty(Objects.Settings.Precache.Path) )
             {
                 PrecacheButton.Content = "Change Precache";
                 PrecacheButton.ToolTip = Objects.Settings.Precache.Path;
             }
         }
 
-        private void PrecacheButton_Click(object sender, RoutedEventArgs e)
+        private void PrecacheButton_Click( object sender, RoutedEventArgs e )
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
@@ -106,7 +105,7 @@ namespace ActorConsole.GUI.Views
             };
             openFileDialog.FileOk += OpenFileDialog_FileOk;
             openFileDialog.ShowDialog();
-            void OpenFileDialog_FileOk(object sender2, System.ComponentModel.CancelEventArgs e2)
+            void OpenFileDialog_FileOk( object sender2, System.ComponentModel.CancelEventArgs e2 )
             {
                 Objects.Settings.ChangePrecache(openFileDialog.FileName);
                 PrecacheButton.Content = "Change Precache";
