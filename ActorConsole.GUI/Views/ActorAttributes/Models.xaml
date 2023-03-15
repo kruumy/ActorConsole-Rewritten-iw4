@@ -42,6 +42,25 @@
                     MouseDoubleClick="SPModelsBox_MouseDoubleClick">
                 </ListView>
             </TabItem>
+            <TabItem Header="Killstreak">
+                <ListView
+                    x:Name="KillstreakListBox"
+                    MouseDoubleClick="KillstreakListBox_MouseDoubleClick">
+                    <ListViewItem Content="vehicle_ac130_low_mp"/>
+                    <ListViewItem Content="vehicle_apache_mp"/>
+                    <ListViewItem Content="vehicle_av8b_harrier_jet_mp"/>
+                    <ListViewItem Content="vehicle_av8b_harrier_jet_opfor_mp"/>
+                    <ListViewItem Content="vehicle_b2_bomber"/>
+                    <ListViewItem Content="vehicle_cobra_helicopter_fly_low"/>
+                    <ListViewItem Content="vehicle_little_bird_armed"/>
+                    <ListViewItem Content="vehicle_mi24p_hind_mp"/>
+                    <ListViewItem Content="vehicle_mi-28_mp"/>
+                    <ListViewItem Content="vehicle_mig29_desert"/>
+                    <ListViewItem Content="vehicle_pavelow"/>
+                    <ListViewItem Content="vehicle_pavelow_opfor"/>
+                    <ListViewItem Content="vehicle_uav_static_mp"/>
+                </ListView>
+            </TabItem>
         </mah:MetroTabControl>
 
         <Grid Grid.Row="1">

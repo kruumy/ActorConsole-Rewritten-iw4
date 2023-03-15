@@ -78,5 +78,15 @@ namespace ActorConsole.GUI.Views.ActorAttributes
             if ( ActorBar.SelectedActor != null )
                 ActorBar.SelectedActor.Models.Head = HeadModelTextBox.Text;
         }
+
+        private void KillstreakListBox_MouseDoubleClick( object sender, MouseButtonEventArgs e )
+        {
+            if ( ActorBar.SelectedActor != null && KillstreakListBox.SelectedItem is ListViewItem viewItem && viewItem.Content is string model )
+            {
+                HeadModelTextBox.Text = string.Empty;
+                BodyModelTextBox.Text = model;
+                ActorBar.SelectedActor.Models.Set(string.Empty, model);
+            }
+        }
     }
 }

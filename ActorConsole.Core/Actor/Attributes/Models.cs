@@ -6,7 +6,7 @@
     /// </summary>
     public sealed class Models : Attribute
     {
-        internal Models(Actor _ParentActor) : base(_ParentActor)
+        internal Models( Actor _ParentActor ) : base(_ParentActor)
         {
         }
 
@@ -30,8 +30,7 @@
             set
             {
                 _Head = value;
-                Memory.IW4.SendDvar($"mvm_actor_model {ParentActor.Name} {Body} {Head}");
-                Manager.RaiseOnActorAttributeModified(this);
+                Set(Head, Body);
             }
         }
 
@@ -46,9 +45,24 @@
             set
             {
                 _Body = value;
-                Memory.IW4.SendDvar($"mvm_actor_model {ParentActor.Name} {Body} {Head}");
-                Manager.RaiseOnActorAttributeModified(this);
+                Set(Head, Body);
             }
+        }
+
+        public void Set( string head, string body )
+        {
+            if ( string.IsNullOrEmpty(head.Trim()) )
+            {
+                head = "tag_origin";
+            }
+            if ( string.IsNullOrEmpty(body.Trim()) )
+            {
+                body = "tag_origin";
+            }
+            _Head = head;
+            _Body = body;
+            Memory.IW4.SendDvar($"mvm_actor_model {ParentActor.Name} {body} {head}");
+            Manager.RaiseOnActorAttributeModified(this);
         }
     }
 }
