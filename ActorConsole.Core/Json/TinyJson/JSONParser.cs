@@ -269,7 +269,7 @@ namespace ActorConsole.Core.Json.TinyJson
             if ( json[ 0 ] == '"' && json[ json.Length - 1 ] == '"' )
             {
                 string str = json.Substring(1, json.Length - 2);
-                return str.Replace("\\", string.Empty);
+                return str;
             }
             if ( char.IsDigit(json[ 0 ]) || json[ 0 ] == '-' )
             {

@@ -1,38 +1,32 @@
-﻿using ActorConsole.Core.Json.TinyJson;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.IO;
+using System.Runtime.Serialization;
 
 namespace ActorConsole.Core.Json
 {
-    public class Settings : INotifyPropertyChanged
+    public class Settings : SettingsBase
     {
-        public static Settings DefaultInstance { get; } = new Settings(new FileInfo(Path.Combine(Environment.CurrentDirectory, @"Json\ActorConsole.Core.appsettings.json")));
         private Precache _Precache;
         private string _PrecachePath;
 
-        public Settings( FileInfo File )
+        public Settings( FileInfo File ) : base(File)
         {
-            this.File = File;
-            if ( File.Exists )
-            {
-                Pull();
-            }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        [IgnoreDataMember]
+        public static Settings DefaultInstance { get; } = new Settings(new FileInfo(Path.Combine(Environment.CurrentDirectory, @"Json\ActorConsole.Core.appsettings.json")));
 
-        public FileInfo File { get; }
+        [IgnoreDataMember]
         public bool IsPrecachePathValid => !string.IsNullOrEmpty(PrecachePath) && System.IO.File.Exists(PrecachePath);
 
+        [IgnoreDataMember]
         public Precache Precache
         {
             get => _Precache;
             private set
             {
                 _Precache = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Precache)));
+                RaisePropertyChanged(nameof(Precache));
             }
         }
 
@@ -42,28 +36,14 @@ namespace ActorConsole.Core.Json
             set
             {
                 _PrecachePath = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PrecachePath)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsPrecachePathValid)));
+                RaisePropertyChanged(nameof(PrecachePath));
+                RaisePropertyChanged(nameof(IsPrecachePathValid));
                 if ( IsPrecachePathValid )
                 {
                     Precache = new Precache(new FileInfo(value));
                 }
                 Push();
             }
-        }
-
-        public void Pull()
-        {
-            string rawFileContents = System.IO.File.ReadAllText(File.FullName);
-            Dictionary<string, string> json = TinyJson.JSONParser.FromJson<Dictionary<string, string>>(rawFileContents);
-            PrecachePath = json[ nameof(PrecachePath) ];
-        }
-
-        public void Push()
-        {
-            Dictionary<string, string> json = new Dictionary<string, string>();
-            json[ nameof(PrecachePath) ] = PrecachePath;
-            System.IO.File.WriteAllText(File.FullName, json.ToJson());
         }
     }
 }

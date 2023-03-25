@@ -29,9 +29,7 @@ namespace ActorConsole.GUI.Views.Tabs
             "hey",
             "...",
             "Help",
-            "Hallo",
-            "👋",
-            "🙋‍♂️"
+            "Hallo"
         };
 
         public App App => Application.Current as App;
