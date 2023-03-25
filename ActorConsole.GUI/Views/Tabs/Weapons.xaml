@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="ActorConsole.GUI.Views.Tabs.Weapons"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ActorConsole.GUI.Views.Tabs"
+             xmlns:Views="clr-namespace:ActorConsole.GUI.Views"
+             mc:Ignorable="d" 
+              d:DesignHeight="400" d:DesignWidth="650"
+             DataContext="{Binding actorManagerProperty, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Views:MainWindow}}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid 
+            Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <ListBox
+                x:Name="ClassTypeListBox"
+                Grid.Column="0"
+                DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Weapons}}}"
+                ItemsSource="{Binding WeaponsElement, Mode=OneWay}"
+                DisplayMemberPath="Key">
+            </ListBox>
+            <ListBox
+                x:Name="WeaponNamesListBox"
+                Grid.Column="1" 
+                ItemsSource="{Binding SelectedItem.Value, ElementName=ClassTypeListBox}"
+                DisplayMemberPath="Key">
+            </ListBox>
+            <ListBox
+                x:Name="WeaponDetailsListBox"
+                Grid.Column="2"
+                MouseDoubleClick="WeaponDetailsListBox_MouseDoubleClick"
+                ItemsSource="{Binding SelectedItem.Value, ElementName=WeaponNamesListBox}">
+                <ListBox.SelectedItem>
+                    <MultiBinding  Converter="{StaticResource GetWeaponsFromBoneConverter}" ConverterParameter="Name" Mode="OneWay">
+                        <Binding Path="SelectedActor.Weapons" Mode="OneWay"/>
+                        <Binding Path="SelectedItem" ElementName="BoneComboBox" Mode="OneWay"/>
+                    </MultiBinding>
+                </ListBox.SelectedItem>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox
+                    x:Name="BoneComboBox"
+                    Grid.Column="0"
+                    Margin="3" 
+                    ItemsSource="{Binding Bones, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Weapons}}}"
+                    SelectedIndex="0">
+                </ComboBox>
+                <ComboBox
+                    x:Name="CamoComboBox"
+                    Grid.Column="1"
+                    Margin="3"
+                    SelectedIndex ="0" 
+                    ItemsSource="{Binding CamoNames, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Weapons}}}">
+                    <ComboBox.SelectedItem>
+                        <MultiBinding  Converter="{StaticResource GetWeaponsFromBoneConverter}" ConverterParameter="Camo" Mode="OneWay">
+                            <Binding Path="SelectedActor.Weapons" Mode="OneWay"/>
+                            <Binding Path="SelectedItem" ElementName="BoneComboBox" Mode="OneWay"/>
+                        </MultiBinding>
+                    </ComboBox.SelectedItem>
+                </ComboBox>
+            </Grid>
+            <Button
+                x:Name="ApplyWeaponButton"
+                Grid.Column="2"
+                Content="Apply Weapon Button"
+                Margin="3"
+                Click="ApplyWeaponButton_Click">
+            </Button>
+            <TextBox
+                x:Name="WeaponTextBox"
+                Grid.Column="1"
+                Margin="3"
+                MaxLines="1"
+                TextWrapping="NoWrap">
+                <TextBox.Text>
+                    <MultiBinding Converter="{StaticResource GetWeaponsFromBoneConverter}" ConverterParameter="Name" Mode="OneWay">
+                        <Binding Path="SelectedActor.Weapons" Mode="OneWay"/>
+                        <Binding Path="SelectedItem" ElementName="BoneComboBox" Mode="OneWay"/>
+                    </MultiBinding>
+                </TextBox.Text>
+            </TextBox>
+        </Grid>
+    </Grid>
+</UserControl>

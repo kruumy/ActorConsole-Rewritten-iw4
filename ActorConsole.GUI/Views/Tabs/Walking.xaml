@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="ActorConsole.GUI.Views.Tabs.Walking"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ActorConsole.GUI.Views.Tabs"
+             xmlns:Views="clr-namespace:ActorConsole.GUI.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="650" DataContext="{Binding actorManagerProperty, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Views:MainWindow}}}">
+    <Grid>
+        <DataGrid
+            x:Name="ActorGrid"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            CanUserResizeRows="False"
+            ItemsSource="{Binding Actors}"
+            SelectedItem="{Binding SelectedActor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                        Header="Name"
+                        Binding="{Binding Name}"
+                        Width="75"
+                        IsReadOnly="False">
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                        Header="Speed"
+                        Binding="{Binding Walking.Speed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Width="auto"
+                        IsReadOnly="False">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn
+                        Header="Direction"
+                        x:Name="DirectionTypeColumn"
+                        Width="*"
+                        IsReadOnly="False">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox
+                                    SelectedItem="{Binding Walking.Direction, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ObjectToStringConverter}}"
+                                    ItemsSource="{Binding DirectionNames, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Walking}}}">
+                                </ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridCheckBoxColumn
+                        Header="On ActorBack"
+                        Binding="{Binding Walking.OnActorBack, UpdateSourceTrigger=PropertyChanged}"
+                        Width="auto"
+                        IsReadOnly="False">
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn
+                        Header="Stop On Death"
+                        Binding="{Binding Walking.StopOnDeath, UpdateSourceTrigger=PropertyChanged}"
+                        Width="auto"
+                        IsReadOnly="False">
+                </DataGridCheckBoxColumn>
+                <DataGridTemplateColumn
+                    Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button 
+                                x:Name="PlayWalkBtn"
+                                Content="Play"
+                                Click="PlayWalkBtn_Click">
+                                <Button.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem
+                                            x:Name="BindMenuItem"
+                                            Header="Bind To Key"
+                                            Click="BindMenuItem_Click">
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </Button.ContextMenu>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.3.32519.111
+VisualStudioVersion = 17.6.33513.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActorConsole.Core", "ActorConsole.Core\ActorConsole.Core.csproj", "{58228458-C1A9-4052-BA3D-05A357F3C417}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActorConsole.Core", "ActorConsole.Core\ActorConsole.Core.csproj", "{F60CC70D-90B1-487D-8D70-C070885E4E04}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActorConsole.GUI", "ActorConsole.GUI\ActorConsole.GUI.csproj", "{E9B808C2-E628-4CCB-93D3-E580CFE81C25}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActorConsole.GUI", "ActorConsole.GUI\ActorConsole.GUI.csproj", "{87AEDE8E-8929-45F3-9288-9E782A22AFE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +13,19 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{58228458-C1A9-4052-BA3D-05A357F3C417}.Debug|x86.ActiveCfg = Debug|x86
-		{58228458-C1A9-4052-BA3D-05A357F3C417}.Debug|x86.Build.0 = Debug|x86
-		{58228458-C1A9-4052-BA3D-05A357F3C417}.Release|x86.ActiveCfg = Release|x86
-		{58228458-C1A9-4052-BA3D-05A357F3C417}.Release|x86.Build.0 = Release|x86
-		{E9B808C2-E628-4CCB-93D3-E580CFE81C25}.Debug|x86.ActiveCfg = Debug|x86
-		{E9B808C2-E628-4CCB-93D3-E580CFE81C25}.Debug|x86.Build.0 = Debug|x86
-		{E9B808C2-E628-4CCB-93D3-E580CFE81C25}.Release|x86.ActiveCfg = Release|x86
-		{E9B808C2-E628-4CCB-93D3-E580CFE81C25}.Release|x86.Build.0 = Release|x86
+		{F60CC70D-90B1-487D-8D70-C070885E4E04}.Debug|x86.ActiveCfg = Debug|x86
+		{F60CC70D-90B1-487D-8D70-C070885E4E04}.Debug|x86.Build.0 = Debug|x86
+		{F60CC70D-90B1-487D-8D70-C070885E4E04}.Release|x86.ActiveCfg = Release|x86
+		{F60CC70D-90B1-487D-8D70-C070885E4E04}.Release|x86.Build.0 = Release|x86
+		{87AEDE8E-8929-45F3-9288-9E782A22AFE8}.Debug|x86.ActiveCfg = Debug|x86
+		{87AEDE8E-8929-45F3-9288-9E782A22AFE8}.Debug|x86.Build.0 = Debug|x86
+		{87AEDE8E-8929-45F3-9288-9E782A22AFE8}.Release|x86.ActiveCfg = Release|x86
+		{87AEDE8E-8929-45F3-9288-9E782A22AFE8}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {54774779-399B-4AE7-A7E0-CC3CF5CFE0AF}
+		SolutionGuid = {00335A75-F271-4190-B031-AED48FADF251}
 	EndGlobalSection
 EndGlobal

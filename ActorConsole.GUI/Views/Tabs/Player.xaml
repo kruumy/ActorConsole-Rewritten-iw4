@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="ActorConsole.GUI.Views.Tabs.Player"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Views="clr-namespace:ActorConsole.GUI.Views"
+             xmlns:local="clr-namespace:ActorConsole.GUI.Views.Tabs"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="650" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+
+            <Label
+                Content="Player Model"
+                HorizontalAlignment="Center"
+                Grid.Row="0">
+            </Label>
+            
+            <ListBox
+                x:Name="ClassTypeListBox"
+                Grid.Row="1"
+                Margin="3" 
+                ItemsSource="{Binding ClassTypes}"
+                MouseDoubleClick="ClassTypeListBox_MouseDoubleClick">
+            </ListBox>
+            
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton
+                    x:Name="AxisRadioButton"
+                    Grid.Column="0"
+                    Content="Axis"
+                    HorizontalAlignment="Center"
+                    IsChecked="True">
+                </RadioButton>
+                <RadioButton
+                    x:Name="AlliesRadioButton"
+                    Grid.Column="1"
+                    Content="Allies"
+                    HorizontalAlignment="Center">
+                </RadioButton>
+            </Grid>
+            <Button
+                x:Name="ApplyModelButton"
+                Content="Apply Player Model"
+                Grid.Row="3"
+                Margin="3"
+                Click="ApplyModelButton_Click" 
+                IsEnabled="{Binding SelectedIndex, Converter={StaticResource SelectedIndexToBoolConverter}, ElementName=ClassTypeListBox}">
+            </Button>
+        </Grid>
+
+        <Grid Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Label
+                Content="Killstreak"
+                HorizontalAlignment="Center"
+                Grid.Row="0">
+            </Label>
+            <ListBox
+                x:Name="KillstreakTypeListBox"
+                Grid.Row="1"
+                Margin="3" 
+                ItemsSource="{Binding KillstreakTypes}"
+                MouseDoubleClick="KillstreakTypeListBox_MouseDoubleClick">
+            </ListBox>
+            <Button
+                x:Name="GiveKillstreakButton"
+                Content="Give Killstreak"
+                Grid.Row="3"
+                Margin="3"
+                Click="GiveKillstreakButton_Click" 
+                IsEnabled="{Binding SelectedIndex, Converter={StaticResource SelectedIndexToBoolConverter}, ElementName=KillstreakTypeListBox}">
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

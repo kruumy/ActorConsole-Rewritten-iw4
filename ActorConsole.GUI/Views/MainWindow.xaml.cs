@@ -1,69 +1,26 @@
-﻿using ControlzEx.Theming;
-using MahApps.Metro.Controls;
-using System.Diagnostics;
-using System.Timers;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Controls;
 
-namespace ActorConsole.GUI
+namespace ActorConsole.GUI.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow : Window
     {
-        private Timer StatusBarTimer;
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void LaunchGithubSiteButton_Click( object sender, RoutedEventArgs e )
-        {
-            Process.Start(new ProcessStartInfo
-            {
-                UseShellExecute = true,
-                FileName = "https://github.com/kruumy/ActorConsole-Rewritten-iw4"
-            });
-        }
+        public ActorManager actorManagerProperty => actorManager;
 
-        private void MetroWindow_Closing( object sender, System.ComponentModel.CancelEventArgs e )
+        private void TabItem_IsEnabledChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
-            if ( Core.Memory.IW4.IsInMatch )
+            if ( e.NewValue is bool b && b == false && sender is TabItem tab )
             {
-                if ( MessageBoxResult.No == MessageBox.Show("Are you want to close sure?\nAll current actor data will be lost.", "Warning", MessageBoxButton.YesNo, MessageBoxImage.Warning, defaultResult: MessageBoxResult.No) )
-                {
-                    e.Cancel = true;
-                }
+                tab.IsSelected = false;
             }
-            StatusBarTimer?.Dispose();
-        }
-
-        private void MetroWindow_Loaded( object sender, RoutedEventArgs e )
-        {
-            string theme = Classes.Settings.DefaultInstance.DarkMode ? "Dark" : "Light";
-            ThemeManager.Current.ChangeTheme(this, $"{theme}.{Classes.MetroColorTheme.GetRandomColorTheme()}");
-
-            StatusBarTimer = new Timer(1000);
-            StatusBarTimer.Elapsed += ( object timerSender, ElapsedEventArgs timerEventArgs ) =>
-            {
-                if ( Core.Memory.IW4.IsRunning )
-                {
-                    string map = Core.Memory.IW4.Map;
-                    map = !string.IsNullOrEmpty(map) ? $"Map = {map}" : $"Map = null";
-                    Dispatcher.Invoke(() =>
-                    {
-                        MapLabel.Content = map;
-                        DvarQueueLabel.Content = "DvarQueue = " + Core.Memory.SendDvarQueue.Count;
-                    });
-                    if ( !Core.Memory.IW4.IsInMatch )
-                    {
-                        Core.Actor.Manager.Reset();
-                        Views.ActorBar.Reset();
-                    }
-                }
-            };
-            StatusBarTimer.Start();
         }
     }
 }

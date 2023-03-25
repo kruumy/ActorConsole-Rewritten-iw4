@@ -1,0 +1,122 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ActorConsole.GUI.Views.Tabs"
+             xmlns:Views="clr-namespace:ActorConsole.GUI.Views"
+             x:Class="ActorConsole.GUI.Views.Tabs.Anims"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="650" DataContext="{Binding actorManagerProperty, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Views:MainWindow}}}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="70" />
+        </Grid.RowDefinitions>
+
+        <Label
+            Grid.Column="0"
+            Content="Idle Animations"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" />
+
+        <ListBox
+            x:Name="IdleAnimListBox"
+            Grid.Column="0"
+            Grid.Row="1"
+            Margin="3"
+            ItemsSource="{Binding Settings.Precache.MultiplayerIdleAnims}"
+            SelectedItem="{Binding SelectedActor.Anims.Idle, Mode=OneWay}"
+            MouseDoubleClick="IdleAnimListBox_MouseDoubleClick"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+
+        <Label
+            Grid.Column="1"
+            Content="Death Animations"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" />
+
+        <ListBox
+            x:Name="DeathAnimListBox"
+            Grid.Column="1"
+            Grid.Row="1"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            Margin="3"
+            ItemsSource="{Binding Settings.Precache.MultiplayerDeathAnim}"
+            SelectedItem="{Binding SelectedActor.Anims.Death, Mode=OneWay}"
+            MouseDoubleClick="DeathAnimListBox_MouseDoubleClick" />
+
+        <Label
+            Grid.Column="2"
+            Content="Singleplayer Animations"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" />
+
+        <ListBox
+            x:Name="SingleplayerAnimListBox"
+            Grid.Column="2"
+            Grid.Row="1"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            MouseDoubleClick="SingleplayerAnimListBox_MouseDoubleClick"
+            Margin="3"
+            ItemsSource="{Binding Settings.Precache.SingleplayerAnims}">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                        x:Name="ReplaceDeathAnimMenuItem"
+                        Header="Replace Death Animation"
+                        Click="ReplaceDeathAnimMenuItem_Click" />
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
+
+        <Grid
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBox
+                x:Name="IdleAnimTextBox"
+                Grid.Column="0"
+                TextWrapping="NoWrap"
+                MaxLines="1"
+                Margin="3"
+                Text="{Binding SelectedActor.Anims.Idle, Mode=OneWay}" />
+            <Button
+                x:Name="IdleAnimApply"
+                Grid.Column="1"
+                Content="Apply Idle Animation"
+                Click="IdleAnimApply_Click"
+                Margin="3" />
+
+            <TextBox
+                x:Name="DeathAnimTextBox"
+                Grid.Column="0"
+                Grid.Row="1"
+                TextWrapping="NoWrap"
+                MaxLines="1"
+                Margin="3"
+                Text="{Binding SelectedActor.Anims.Death, Mode=OneWay}" />
+            <Button
+                x:Name="DeathAnimApply"
+                Grid.Column="1"
+                Grid.Row="1"
+                Content="Apply Death Animation"
+                Click="DeathAnimApply_Click"
+                Margin="3" />
+        </Grid>
+    </Grid>
+</UserControl>

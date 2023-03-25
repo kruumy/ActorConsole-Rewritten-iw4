@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="ActorConsole.GUI.Views.ActorManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ActorConsole.GUI.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="100" DataContext="{Binding RelativeSource={RelativeSource Self}}"
+>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ComboBox
+            Grid.Row="0"
+            x:Name="SelectedActorComboBox"
+            DisplayMemberPath="Name"
+            ItemsSource="{Binding Actors}"
+            Margin="3"
+            SelectionChanged="SelectedActorComboBox_SelectionChanged"
+            IsEnabled="{Binding Actors.Count, Converter={StaticResource CountToBoolConverter}}">
+        </ComboBox>
+        <Button
+            Grid.Row="1"
+            x:Name="SpawnActorButton"
+            Content="Spawn Actor"
+            Click="SpawnActorButton_Click"
+            Margin="3">
+        </Button>
+
+        <Button
+            Grid.Row="2"
+            x:Name="DeleteActorButton"
+            Content="Delete Actor"
+            Click="DeleteActorButton_Click"
+            Margin="3"
+            IsEnabled="{Binding SelectedActor, Converter={StaticResource IsNotNullConverter}, Mode=OneWay}">
+        </Button>
+        <Button
+            Grid.Row="3"
+            x:Name="MoveActorButton"
+            Content="Move Actor"
+            Click="MoveActorButton_Click"
+            Margin="3"
+            IsEnabled="{Binding SelectedActor, Converter={StaticResource IsNotNullConverter}, Mode=OneWay}">
+        </Button>
+        <Button
+            Grid.Row="4"
+            x:Name="ActorBackButton"
+            Content="ActorBack"
+            Click="ActorBackButton_Click"
+            Margin="3"
+            IsEnabled="{Binding SelectedActor, Converter={StaticResource IsNotNullConverter}, Mode=OneWay}">
+        </Button>
+    </Grid>
+</UserControl>

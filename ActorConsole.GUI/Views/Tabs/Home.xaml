@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="ActorConsole.GUI.Views.Tabs.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Views="clr-namespace:ActorConsole.GUI.Views"
+             xmlns:local="clr-namespace:ActorConsole.GUI.Views.Tabs"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="650" DataContext="{Binding actorManagerProperty, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Views:MainWindow}}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="155"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button
+            x:Name="ColorModeButton"
+            Width="25" Height="25"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Margin="3"
+            Padding="2"
+            Click="ColorModeButton_Click">
+            <StackPanel>
+                <Image Source="{Binding App.CurrentTheme, ConverterParameter=\\Resources\\sun.ico:\\Resources\\moon.ico, Converter={StaticResource BoolToStringChoiceConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Home}}}">
+                </Image>
+            </StackPanel>
+        </Button>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="1">
+                <Label
+                    Content="{Binding PossibleWelcomeTexts, Converter={StaticResource RandomEnumerableConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Home}}}"
+                    FontSize="46"
+                    HorizontalAlignment="Center"
+                    Margin="10">
+                </Label>
+                <Button
+                    x:Name="SelectYourPrecacheButton"
+                    Content="{Binding Settings.IsPrecachePathValid, ConverterParameter=Change Your Precache:Select Your Precache, Converter={StaticResource BoolToStringChoiceConverter}}"
+                    FontSize="14"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Click="SelectYourPrecacheButton_Click">
+                    <Button.ToolTip>
+                        <Label Content="{Binding Settings.PrecachePath, ConverterParameter=No Precache Selected, Converter={StaticResource EmptyStringToString}}"></Label>
+                    </Button.ToolTip>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <DataGrid
+            Grid.Row="1"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            CanUserResizeRows="False"
+            ItemsSource="{Binding Actors}" 
+            SelectedItem="{Binding SelectedActor}"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                        Header="Name"
+                        Binding="{Binding Name}"
+                        Width="75"
+                        IsReadOnly="False">
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                        Header="Health"
+                        Binding="{Binding Health}"
+                        Width="75"
+                        IsReadOnly="False">
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                        Header="Idle Anim"
+                        Binding="{Binding Anims.Idle}"
+                        Width="150"
+                        IsReadOnly="False">
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                        Header="Death Anim"
+                        Binding="{Binding Anims.Death}"
+                        Width="200"
+                        IsReadOnly="False">
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                        Header="Head Model"
+                        Binding="{Binding Models.Head}"
+                        Width="150"
+                        IsReadOnly="False">
+                </DataGridTextColumn>
+                <DataGridTextColumn
+                        Header="Body Model"
+                        Binding="{Binding Models.Body}"
+                        Width="150"
+                        IsReadOnly="False">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

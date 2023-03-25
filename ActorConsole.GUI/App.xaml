@@ -1,15 +1,22 @@
 ﻿<Application x:Class="ActorConsole.GUI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="Views/MainWindow.xaml"
+             xmlns:converters="clr-namespace:ActorConsole.GUI.Converters" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             StartupUri="Views\MainWindow.xaml"
              DispatcherUnhandledException="Application_DispatcherUnhandledException">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Dark.Green.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+            <sys:UInt32 x:Key="CurrentTheme">1</sys:UInt32>
+            <converters:SelectedIndexToBoolConverter x:Key="SelectedIndexToBoolConverter" />
+            <converters:CountToBoolConverter x:Key="CountToBoolConverter" />
+            <converters:BoolToStringChoiceConverter x:Key="BoolToStringChoiceConverter" />
+            <converters:EmptyStringToString x:Key="EmptyStringToString" />
+            <converters:IsNotNullConverter x:Key="IsNotNullConverter" />
+            <converters:GetWeaponsFromBoneConverter x:Key="GetWeaponsFromBoneConverter" />
+            <converters:RandomEnumerableConverter x:Key="RandomEnumerableConverter" />
+            <converters:ObjectToStringConverter x:Key="ObjectToStringConverter"/>
+            <converters:IsStringNotEmptyConverter x:Key="IsStringNotEmptyConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
