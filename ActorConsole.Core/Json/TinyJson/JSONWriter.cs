@@ -37,7 +37,7 @@ namespace ActorConsole.Core.Json.TinyJson
                 for ( int i = 0; i < str.Length; ++i )
                     if ( str[ i ] < ' ' || str[ i ] == '"' || str[ i ] == '\\' )
                     {
-                        stringBuilder.Append('\\');
+                        //stringBuilder.Append('\\');
                         int j = "\"\\\n\r\t\b\f".IndexOf(str[ i ]);
                         if ( j >= 0 )
                             stringBuilder.Append("\"\\nrtbf"[ j ]);

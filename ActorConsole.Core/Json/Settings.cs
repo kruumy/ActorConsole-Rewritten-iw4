@@ -9,7 +9,7 @@ namespace ActorConsole.Core.Json
         private Precache _Precache;
         private string _PrecachePath;
 
-        public Settings( FileInfo File ) : base(File)
+        public Settings( FileInfo File ) : base(File, false)
         {
         }
 

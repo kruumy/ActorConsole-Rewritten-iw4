@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ActorConsole.GUI.Json;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -56,6 +57,7 @@ namespace ActorConsole.GUI
                 Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri(colorPickerUri, UriKind.Absolute) });
                 Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri(ColorPickerExtraLib_CustomTheme, UriKind.Absolute) });
                 Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri(mainUri, UriKind.Relative) });
+                Settings.DefaultInstance.RealTheme = value;
             }
         }
 
@@ -70,7 +72,7 @@ namespace ActorConsole.GUI
         protected override void OnStartup( StartupEventArgs e )
         {
             base.OnStartup(e);
-            CurrentTheme = Theme.Dark;
+            CurrentTheme = Enum.TryParse<Theme>(Settings.DefaultInstance.Theme, true, out Theme theme) ? theme : Theme.Dark;
             if ( Environment.GetCommandLineArgs().Any(a => a == "-console") ) // TODO possibly add real cli parsing
             {
                 AllocConsole();

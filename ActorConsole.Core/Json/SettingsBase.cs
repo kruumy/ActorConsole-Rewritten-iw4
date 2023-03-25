@@ -11,11 +11,18 @@ namespace ActorConsole.Core.Json
         protected void RaisePropertyChanged( string propertyname )
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+            if ( PushOnPropertyChanged )
+            {
+                Push();
+            }
         }
         [IgnoreDataMember]
         public FileInfo File { get; }
-        public SettingsBase( FileInfo File )
+        [IgnoreDataMember]
+        public bool PushOnPropertyChanged { get; set; }
+        public SettingsBase( FileInfo File, bool PushOnPropertyChanged )
         {
+            this.PushOnPropertyChanged = PushOnPropertyChanged;
             this.File = File;
             if ( this.File.Exists )
             {
