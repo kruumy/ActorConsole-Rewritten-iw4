@@ -38,6 +38,15 @@ namespace ActorConsole.Core.Utils
             this.Cooldown = cooldown;
         }
 
+        public QueuedCooldown( TimeSpan cooldown, params EventHandler<T>[] action )
+        {
+            this.Cooldown = cooldown;
+            foreach ( EventHandler<T> act in action )
+            {
+                OnInvoke += act;
+            }
+        }
+
         public event EventHandler<T> OnInvoke;
 
         public TimeSpan Cooldown { get; }
