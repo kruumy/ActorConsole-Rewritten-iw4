@@ -38,8 +38,8 @@ namespace ActorConsole.Core.Memory
 
         public enum Team
         {
-            Axis,
-            Allies
+            axis,
+            allies
         }
 
         public static bool HasSpawned => IW4.Game?.Read<int>(Addresses.LocalPlayer_HasSpawned) != 0;

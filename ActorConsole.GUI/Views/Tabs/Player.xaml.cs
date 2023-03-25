@@ -24,11 +24,11 @@ namespace ActorConsole.GUI.Views.Tabs
             {
                 if ( AlliesRadioButton.IsChecked is bool isCheckedAllies && isCheckedAllies )
                 {
-                    Core.Memory.LocalPlayer.SetModel(@class, Core.Memory.LocalPlayer.Team.Allies);
+                    Core.Memory.LocalPlayer.SetModel(@class, Core.Memory.LocalPlayer.Team.allies);
                 }
                 else if ( AxisRadioButton.IsChecked is bool isCheckedAxis && isCheckedAxis )
                 {
-                    Core.Memory.LocalPlayer.SetModel(@class, Core.Memory.LocalPlayer.Team.Axis);
+                    Core.Memory.LocalPlayer.SetModel(@class, Core.Memory.LocalPlayer.Team.axis);
                 }
                 ClassTypeListBox.SelectedIndex = -1;
             }

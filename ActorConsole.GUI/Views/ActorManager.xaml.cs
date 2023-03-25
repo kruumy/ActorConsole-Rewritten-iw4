@@ -19,16 +19,16 @@ namespace ActorConsole.GUI.Views
             InitializeComponent();
 
             ManagerReseter?.Dispose();
-            ManagerReseter = new Timer(5000);
+            ManagerReseter = new Timer(2000);
             ManagerReseter.Elapsed += ManagerReseter_Elapsed;
             ManagerReseter.Start();
         }
 
         private void ManagerReseter_Elapsed( object sender, ElapsedEventArgs e )
         {
-            if ( !Core.Memory.IW4.IsRunning && Manager.Actors.Count > 0 )
+            if ( !Core.Memory.IW4.IsRunning || !Core.Memory.LocalPlayer.HasSpawned && Manager.Actors.Count > 0 )
             {
-                Manager.Reset();
+                Application.Current.Dispatcher.Invoke(Manager.Reset);
                 Console.WriteLine("Cleared Manager");
             }
         }
