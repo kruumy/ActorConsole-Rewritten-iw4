@@ -6,7 +6,7 @@ using System.Windows.Controls;
 namespace ActorConsole.GUI.Views.Tabs
 {
     /// <summary>
-    /// Interaction logic for Player.xaml
+    /// Interaction logic for LocalPlayerProperties.xaml
     /// </summary>
     public partial class Player : UserControl
     {

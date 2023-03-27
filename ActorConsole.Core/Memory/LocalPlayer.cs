@@ -1,7 +1,4 @@
-﻿using AnotherExternalMemoryLibrary;
-using AnotherExternalMemoryLibrary.Extensions;
-
-namespace ActorConsole.Core.Memory
+﻿namespace ActorConsole.Core.Memory
 {
     public static class LocalPlayer // TODO make class implementing Inotifypropchanged with timer to check props
     {
@@ -42,9 +39,7 @@ namespace ActorConsole.Core.Memory
             allies
         }
 
-        public static bool HasSpawned => IW4.Game?.Read<int>(Addresses.LocalPlayer_HasSpawned) != 0;
-        public static string Map => IW4.Game?.Read<byte>((IntPtrEx)Addresses.LocalPlayer_MapName, 20).GetString();
-        public static string Name => IW4.Game?.Read<byte>((IntPtrEx)Addresses.LocalPlayer_Name, 25).GetString();
+        public static LocalPlayerProperties Properties { get; } = new LocalPlayerProperties();
 
         public static void GiveKillstreak( Killstreak killstreak )
         {
@@ -53,7 +48,7 @@ namespace ActorConsole.Core.Memory
 
         public static void SetModel( Class model, Team team )
         {
-            SetModel(model, team, Name);
+            SetModel(model, team, Properties.Name);
         }
 
         public static void SetModel( Class model, Team team, string name )

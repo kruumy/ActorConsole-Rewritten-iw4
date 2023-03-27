@@ -26,7 +26,7 @@ namespace ActorConsole.GUI.Views
 
         private void ManagerReseter_Elapsed( object sender, ElapsedEventArgs e )
         {
-            if ( !Core.Memory.IW4.IsRunning || !Core.Memory.LocalPlayer.HasSpawned && Manager.Actors.Count > 0 )
+            if ( (!Core.Memory.IW4.IsRunning || !Core.Memory.LocalPlayer.Properties.HasSpawned) && Manager.Actors.Count > 0 )
             {
                 Application.Current.Dispatcher.Invoke(Manager.Reset);
                 Console.WriteLine("Cleared Manager");
@@ -46,6 +46,7 @@ namespace ActorConsole.GUI.Views
         }
 
         public Core.Json.Settings Settings => Core.Json.Settings.DefaultInstance;
+        public Core.Memory.LocalPlayerProperties LocalPlayerProperties => Core.Memory.LocalPlayer.Properties;
 
         private void ActorBackButton_Click( object sender, System.Windows.RoutedEventArgs e )
         {
@@ -71,16 +72,13 @@ namespace ActorConsole.GUI.Views
 
         private void SpawnActorButton_Click( object sender, System.Windows.RoutedEventArgs e )
         {
-            if ( Core.Memory.IW4.IsRunning && Core.Memory.LocalPlayer.HasSpawned )
-            {
-                Manager.SpawnActor();
-                SelectedActorComboBox.SelectedItem = Manager.Actors.LastOrDefault();
-            }
-            else
-            {
-                MessageBox.Show("Please be in a game before spawning an actor.", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
+            Manager.SpawnActor();
+            SelectedActorComboBox.SelectedItem = Manager.Actors.LastOrDefault();
+        }
 
+        private void ForceSpawnActorEnableMenuItem_Click( object sender, RoutedEventArgs e )
+        {
+            SpawnActorButton.IsEnabled = true;
         }
     }
 }

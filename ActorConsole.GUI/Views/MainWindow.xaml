@@ -74,14 +74,14 @@
                 Header="Player"
                 IsEnabledChanged="TabItem_IsEnabledChanged"
                 Width="auto"
-                IsEnabled="{Binding SelectedActor, Converter={StaticResource IsNotNullConverter}, ElementName=actorManager, Mode=OneWay}">
+                IsEnabled="{Binding LocalPlayerProperties.HasSpawned , ElementName=actorManager}">
                 <tabs:Player></tabs:Player>
             </TabItem>
             <TabItem
                 Header="Sun"
                 IsEnabledChanged="TabItem_IsEnabledChanged"
                 Width="auto"
-                IsEnabled="{Binding SelectedActor, Converter={StaticResource IsNotNullConverter}, ElementName=actorManager, Mode=OneWay}">
+                IsEnabled="{Binding LocalPlayerProperties.HasSpawned , ElementName=actorManager}">
                 <tabs:Sun></tabs:Sun>
             </TabItem>
         </TabControl>

@@ -15,7 +15,7 @@ namespace ActorConsole.GUI.Views.Tabs
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string CurrentMap => Core.Memory.LocalPlayer.Map;
+        public string CurrentMap => Core.Memory.LocalPlayer.Properties.Map;
 
         public Core.Json.Models.Map CurrentModels => Core.Json.Models.Element.TryGetValue(CurrentMapTextBox.Text, out Core.Json.Models.Map models) ? models : Core.Json.Models.Map.Empty;
 

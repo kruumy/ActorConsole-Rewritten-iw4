@@ -30,7 +30,17 @@
             x:Name="SpawnActorButton"
             Content="Spawn Actor"
             Click="SpawnActorButton_Click"
-            Margin="3">
+            Margin="3"
+            IsEnabled="{Binding LocalPlayerProperties.HasSpawned}">
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                        x:Name="ForceSpawnActorEnableMenuItem"
+                        Header="Force Enable?"
+                        Click="ForceSpawnActorEnableMenuItem_Click">
+                    </MenuItem>
+                </ContextMenu>
+            </Button.ContextMenu>
         </Button>
 
         <Button
