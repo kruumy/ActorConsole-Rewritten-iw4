@@ -2,7 +2,7 @@
 
 namespace ActorConsole.Core.Memory
 {
-    public static class Sun
+    public static class Sun // TODO make class implementing Inotifypropchanged with timer to check props
     {
         public static float? X { get => IW4.Game?.Read<float>(Addresses.Sun.x); set => IW4.Game?.Write<float>(Addresses.Sun.x, (float)value); }
         public static float? Y { get => IW4.Game?.Read<float>(Addresses.Sun.y); set => IW4.Game?.Write<float>(Addresses.Sun.y, (float)value); }

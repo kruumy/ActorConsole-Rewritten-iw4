@@ -7,12 +7,14 @@
              xmlns:local="clr-namespace:ActorConsole.GUI.Views.Tabs"
              xmlns:colorpicker="clr-namespace:ColorPickerExtraLib.Controls;assembly=ColorPickerExtraLib"
              mc:Ignorable="d"
-             d:DesignHeight="400" d:DesignWidth="650" DataContext="{Binding actorManagerProperty, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Views:MainWindow}}}">
+             Initialized="UserControl_Initialized"
+             d:DesignHeight="400" d:DesignWidth="650" DataContext="{Binding RelativeSource={RelativeSource Self}}" >
     <Grid>
         <colorpicker:AdvancedColorPicker
-            UsingAlphaChannel="False" 
-            ColorChanged="AdvancedColorPicker_ColorChanged" 
-            >
+            x:Name="SunColorPicker"
+            UsingAlphaChannel="False"
+            ColorChanged="SunColorPicker_ColorChanged"
+            IsVisibleChanged="SunColorPicker_IsVisibleChanged">
         </colorpicker:AdvancedColorPicker>
     </Grid>
 </UserControl>

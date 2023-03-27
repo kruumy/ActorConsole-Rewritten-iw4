@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace ActorConsole.Core.Memory
 {
-    public static class IW4
+    public static class IW4 // TODO make class implementing Inotifypropchanged with timer to check props
     {
         public static Process Game => Process.GetProcesses().FirstOrDefault(p => p.ProcessName == "iw4m" || p.ProcessName == "iw4x");
         public static bool IsRunning => Game != null;
