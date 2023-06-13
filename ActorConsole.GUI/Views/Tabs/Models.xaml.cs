@@ -77,7 +77,7 @@ namespace ActorConsole.GUI.Views.Tabs
         {
             if ( SingleplayerModelListBox.SelectedItem is string item && DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
             {
-                if ( item.Contains("Head") )
+                if ( item.Contains("head") )
                 {
                     actor.Models.Head = item;
                 }
