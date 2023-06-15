@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
@@ -32,10 +33,17 @@ namespace ActorConsole.GUI.Views.Tabs
             if ( WeaponDetailsListBox.SelectedItem is string gunName && DataContext is ActorManager am && am.SelectedActor is Core.Actor actor && BoneComboBox.SelectedItem is string bone && CamoComboBox.SelectedItem is string camo )
             {
                 actor.Weapons.Set(bone, gunName, camo);
-
                 int oldindex = BoneComboBox.SelectedIndex;
                 BoneComboBox.SelectedIndex = -1; // TODO find better way to force a refresh on WeaponsTextBox
                 BoneComboBox.SelectedIndex = oldindex;
+            }
+        }
+
+        private void GiveWeaponToPlayerBtn_Click( object sender, System.Windows.RoutedEventArgs e )
+        {
+            if ( WeaponDetailsListBox.SelectedItem is string gunName && CamoComboBox.SelectedItem is string camo )
+            {
+                Core.Memory.LocalPlayer.GiveWeapon(gunName, (Core.CompositedActorProperties.Weapons.Weapon.CamoName)Enum.Parse(typeof(Core.CompositedActorProperties.Weapons.Weapon.CamoName), camo));
             }
         }
     }

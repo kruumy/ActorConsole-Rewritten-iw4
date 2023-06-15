@@ -44,6 +44,15 @@
                         <Binding Path="SelectedItem" ElementName="BoneComboBox" Mode="OneWay"/>
                     </MultiBinding>
                 </ListBox.SelectedItem>
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem
+                            x:Name="GiveWeaponToPlayerBtn"
+                            Header="Give To Player"
+                            Click="GiveWeaponToPlayerBtn_Click">            
+                        </MenuItem>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
             </ListBox>
         </Grid>
 
@@ -85,6 +94,15 @@
                 Content="Apply Weapon Button"
                 Margin="3"
                 Click="ApplyWeaponButton_Click">
+                <Button.ContextMenu> <!--TODO put this somewhere else to avoid apply to actor accidently-->
+                    <ContextMenu>
+                        <MenuItem
+                            x:Name="GiveWeaponToPlayerListBoxBtn"
+                            Header="Give To Player"
+                            Click="GiveWeaponToPlayerBtn_Click">        
+                        </MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
             </Button>
             <TextBox
                 x:Name="WeaponTextBox"
