@@ -2,7 +2,7 @@
 
 namespace ActorConsole.Core.Memory
 {
-    public static class LocalPlayer // TODO make class implementing Inotifypropchanged with timer to check props
+    public static class LocalPlayer
     {
         public enum Class
         {
