@@ -1,12 +1,7 @@
 ﻿using ActorConsole.Core.Utils;
-using ColorPickerExtraLib.Controls;
-using ColorPickerExtraLib.Models;
 using System;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Media;
 
 namespace ActorConsole.GUI.Views.Tabs
 {
@@ -21,6 +16,15 @@ namespace ActorConsole.GUI.Views.Tabs
         }
 
         private const float ConversionScale = 127.5f;
+        private bool IsSunColorPickerChanging = false;
+        private void SetSunColorPicker( double r, double g, double b )
+        {
+            IsSunColorPickerChanging = true;
+            SunColorPicker.Color.RGB_R = r;
+            SunColorPicker.Color.RGB_G = g;
+            SunColorPicker.Color.RGB_B = b;
+            IsSunColorPickerChanging = false;
+        }
 
         private readonly BlockingCooldown SunColorUpdateCooldown = new BlockingCooldown(new System.TimeSpan(0, 0, 0, 0, 200));
         private void UserControl_Initialized( object sender, EventArgs e )
@@ -34,17 +38,22 @@ namespace ActorConsole.GUI.Views.Tabs
         }
         private void SunColorPicker_ColorChanged( object sender, RoutedEventArgs e )
         {
-            SunColorUpdateCooldown.Invoke();
+            if ( !IsSunColorPickerChanging )
+            {
+                SunColorUpdateCooldown.Invoke();
+            }
         }
 
         private void SunColorPicker_IsVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
-            if (e.NewValue is bool b && b)
+            if ( e.NewValue is bool b && b )
             {
                 (float? Red, float? Green, float? Blue) = (Core.Memory.Sun.Red, Core.Memory.Sun.Green, Core.Memory.Sun.Blue);
-                SunColorPicker.Color.RGB_R = (double)(Red * ConversionScale);
-                SunColorPicker.Color.RGB_G = (double)(Green * ConversionScale);
-                SunColorPicker.Color.RGB_B = (double)(Blue * ConversionScale);
+                SetSunColorPicker(
+                    (double)(Red * ConversionScale),
+                    (double)(Green * ConversionScale),
+                    (double)(Blue * ConversionScale)
+                    );
             }
         }
     }
