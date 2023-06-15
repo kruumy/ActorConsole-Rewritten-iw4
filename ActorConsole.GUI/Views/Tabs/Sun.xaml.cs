@@ -1,5 +1,10 @@
-﻿using ActorConsole.Core.Utils;
+﻿using ActorConsole.Core.Json.TinyJson;
+using ActorConsole.Core.Utils;
+using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -59,11 +64,37 @@ namespace ActorConsole.GUI.Views.Tabs
 
         private void LoadBtn_Click( object sender, RoutedEventArgs e )
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FileOk += ( object _, CancelEventArgs __ ) =>
+            {
+                string rawtext = File.ReadAllText(openFileDialog.FileName);
+                Dictionary<string, float> tempSunObj = rawtext.FromJson<Dictionary<string, float>>();
+                SunColorPicker.Color.RGB_R = tempSunObj[ nameof(SunColorPicker.Color.RGB_R) ];
+                SunColorPicker.Color.RGB_G = tempSunObj[ nameof(SunColorPicker.Color.RGB_G) ];
+                SunColorPicker.Color.RGB_B = tempSunObj[ nameof(SunColorPicker.Color.RGB_B) ];
 
+            };
+            openFileDialog.ShowDialog();
         }
 
         private void SaveBtn_Click( object sender, RoutedEventArgs e )
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileOk += ( object _, CancelEventArgs __ ) =>
+            {
+                Dictionary<string, float> tempSunObj = new Dictionary<string, float>
+                {
+                    [ nameof(SunColorPicker.Color.RGB_R) ] = (float)SunColorPicker.Color.RGB_R,
+                    [ nameof(SunColorPicker.Color.RGB_G) ] = (float)SunColorPicker.Color.RGB_G,
+                    [ nameof(SunColorPicker.Color.RGB_B) ] = (float)SunColorPicker.Color.RGB_B
+                    // TODO add xyz
+                };
+                string rawtext = tempSunObj.ToJson();
+                File.WriteAllText(saveFileDialog.FileName, rawtext);
+            };
+            saveFileDialog.ShowDialog();
 
         }
     }
