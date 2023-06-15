@@ -10,11 +10,35 @@
              Initialized="UserControl_Initialized"
              d:DesignHeight="400" d:DesignWidth="650" DataContext="{Binding RelativeSource={RelativeSource Self}}" >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <colorpicker:AdvancedColorPicker
-            x:Name="SunColorPicker"
-            UsingAlphaChannel="False"
-            ColorChanged="SunColorPicker_ColorChanged"
-            IsVisibleChanged="SunColorPicker_IsVisibleChanged">
+             x:Name="SunColorPicker"
+             Grid.Column="0"
+             Grid.Row="0"
+             UsingAlphaChannel="False"
+             ColorChanged="SunColorPicker_ColorChanged"
+             IsVisibleChanged="SunColorPicker_IsVisibleChanged">    
         </colorpicker:AdvancedColorPicker>
+        <Button
+            x:Name="SaveBtn"
+            Grid.Column="0"
+            Grid.Row="1"
+            Content="Save"
+            Click="SaveBtn_Click">
+        </Button>
+        <Button
+            x:Name="LoadBtn"
+            Grid.Column="1"
+            Grid.Row="1"
+            Content="Load"
+            Click="LoadBtn_Click"> 
+        </Button>
     </Grid>
 </UserControl>

@@ -56,5 +56,15 @@ namespace ActorConsole.GUI.Views.Tabs
                     );
             }
         }
+
+        private void LoadBtn_Click( object sender, RoutedEventArgs e )
+        {
+
+        }
+
+        private void SaveBtn_Click( object sender, RoutedEventArgs e )
+        {
+
+        }
     }
 }
