@@ -63,5 +63,14 @@ namespace ActorConsole.GUI.Views.Tabs
                 SingleplayerAnimListBox.SelectedIndex = -1;
             }
         }
+
+        private void BindIdleAnimBtn_Click( object sender, System.Windows.RoutedEventArgs e )
+        {
+            if ( DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
+            {
+                KeybindDialog keybindWindow = new Views.KeybindDialog(actor.Anims);
+                keybindWindow.ShowDialog();
+            }
+        }
     }
 }

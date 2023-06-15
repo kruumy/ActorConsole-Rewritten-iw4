@@ -100,7 +100,17 @@
                 Grid.Column="1"
                 Content="Apply Idle Animation"
                 Click="IdleAnimApply_Click"
-                Margin="3" />
+                Margin="3">
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem
+                            x:Name="BindIdleAnimBtn"
+                            Click="BindIdleAnimBtn_Click"
+                            Header="Bind To Button">
+                        </MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
 
             <TextBox
                 x:Name="DeathAnimTextBox"

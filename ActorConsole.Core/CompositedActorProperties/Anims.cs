@@ -1,6 +1,6 @@
 ﻿namespace ActorConsole.Core.CompositedActorProperties
 {
-    public class Anims : CompositedActorProperty
+    public class Anims : CompositedActorProperty, IKeybindable
     {
         public static readonly string DEATH_DEFAULT = "pb_stand_death_chest_blowback";
         public static readonly string IDLE_DEFAULT = "pb_stand_alert";
@@ -31,6 +31,11 @@
                 Memory.IW4.Send($"mvm_actor_anim {Parent.Name} {value}");
                 RaisePropertyChanged(nameof(Idle));
             }
+        }
+
+        public void Keybind( char key )
+        {
+            Memory.IW4.Send($"bind {key} \"mvm_actor_anim {Parent.Name} {Idle}\"");
         }
     }
 }
