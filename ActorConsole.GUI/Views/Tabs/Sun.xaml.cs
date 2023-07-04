@@ -73,7 +73,7 @@ namespace ActorConsole.GUI.Views.Tabs
                 SunColorPicker.Color.RGB_R = tempSunObj[ nameof(SunColorPicker.Color.RGB_R) ];
                 SunColorPicker.Color.RGB_G = tempSunObj[ nameof(SunColorPicker.Color.RGB_G) ];
                 SunColorPicker.Color.RGB_B = tempSunObj[ nameof(SunColorPicker.Color.RGB_B) ];
-
+                // TODO add xyz
             };
             openFileDialog.ShowDialog();
         }
