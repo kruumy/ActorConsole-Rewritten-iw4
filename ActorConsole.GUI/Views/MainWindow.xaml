@@ -7,7 +7,7 @@
         xmlns:tabs="clr-namespace:ActorConsole.GUI.Views.Tabs"
         mc:Ignorable="d"
         Style="{DynamicResource CustomWindowStyle}"
-        Title="ActorConsole.GUI" MinHeight="300" Height="400" MinWidth="625" Width="700" FontFamily="Microsoft Sans Serif">
+        Title="ActorConsole.GUI" MinHeight="300" Height="400" MinWidth="625" Width="700" FontFamily="Microsoft Sans Serif" DataContext="{Binding Mode=OneWay, RelativeSource={RelativeSource Self}}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
@@ -81,6 +81,7 @@
                     <MultiBinding Converter="{StaticResource AllTrueMultiValueConverter}">
                         <Binding Path="Manager.Game" ElementName="actorManager" Converter="{StaticResource IsNotNullConverter}"></Binding>
                         <Binding Path="Manager.Game.LocalPlayerIsSpawned" ElementName="actorManager"></Binding>
+                        <Binding Path="DoesGameHaveSunSupport"></Binding>
                     </MultiBinding>
                 </TabItem.IsEnabled>
                 <tabs:Sun></tabs:Sun>
