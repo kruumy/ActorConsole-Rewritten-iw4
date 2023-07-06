@@ -64,7 +64,7 @@ namespace ActorConsole.Core.CompositedActorProperties
             set
             {
                 _j_gun = value;
-                Memory.IW4.Send($"mvm_actor_weapon {Parent.Name} {nameof(j_gun)} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_weapon {Parent.Name} {nameof(j_gun)} {value}");
                 RaisePropertyChanged(nameof(j_gun));
             }
         }
@@ -76,7 +76,7 @@ namespace ActorConsole.Core.CompositedActorProperties
             set
             {
                 _tag_inhand = value;
-                Memory.IW4.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_inhand)} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_inhand)} {value}");
                 RaisePropertyChanged(nameof(tag_inhand));
             }
         }
@@ -88,7 +88,7 @@ namespace ActorConsole.Core.CompositedActorProperties
             set
             {
                 _tag_stowed_back = value;
-                Memory.IW4.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_stowed_back)} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_stowed_back)} {value}");
                 RaisePropertyChanged(nameof(tag_stowed_back));
             }
         }
@@ -100,7 +100,7 @@ namespace ActorConsole.Core.CompositedActorProperties
             set
             {
                 _tag_stowed_hip_rear = value;
-                Memory.IW4.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_stowed_hip_rear)} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_stowed_hip_rear)} {value}");
                 RaisePropertyChanged(nameof(tag_stowed_hip_rear));
             }
         }
@@ -112,7 +112,7 @@ namespace ActorConsole.Core.CompositedActorProperties
             set
             {
                 _tag_weapon_chest = value;
-                Memory.IW4.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_weapon_chest)} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_weapon_chest)} {value}");
                 RaisePropertyChanged(nameof(tag_weapon_chest));
             }
         }
@@ -124,7 +124,7 @@ namespace ActorConsole.Core.CompositedActorProperties
             set
             {
                 _tag_weapon_left = value;
-                Memory.IW4.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_weapon_left)} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_weapon_left)} {value}");
                 RaisePropertyChanged(nameof(tag_weapon_left));
             }
         }
@@ -136,7 +136,7 @@ namespace ActorConsole.Core.CompositedActorProperties
             set
             {
                 _tag_weapon_right = value;
-                Memory.IW4.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_weapon_right)} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_weapon {Parent.Name} {nameof(tag_weapon_right)} {value}");
                 RaisePropertyChanged(nameof(tag_weapon_right));
             }
         }

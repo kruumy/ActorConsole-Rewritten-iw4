@@ -54,15 +54,6 @@
                 IsEnabled="{Binding SelectedActor, Converter={StaticResource IsNotNullConverter}, ElementName=actorManager, Mode=OneWay}">
                 <tabs:Walking></tabs:Walking>
             </TabItem>
-            <!-- 
-            <TabItem
-                Header="Pathing"
-                IsEnabledChanged="TabItem_IsEnabledChanged"
-                Width="auto"
-                IsEnabled="{Binding SelectedActor, Converter={StaticResource IsNotNullConverter}, ElementName=actorManager, Mode=OneWay}">
-                <tabs:Pathing></tabs:Pathing>
-            </TabItem>
-            -->
             <TabItem
                 Header="FX"
                 IsEnabledChanged="TabItem_IsEnabledChanged"
@@ -73,15 +64,25 @@
             <TabItem
                 Header="Player"
                 IsEnabledChanged="TabItem_IsEnabledChanged"
-                Width="auto"
-                IsEnabled="{Binding LocalPlayerProperties.HasSpawned , ElementName=actorManager}">
+                Width="auto">
+                <TabItem.IsEnabled>
+                    <MultiBinding Converter="{StaticResource AllTrueMultiValueConverter}">
+                        <Binding Path="Manager.Game" ElementName="actorManager" Converter="{StaticResource IsNotNullConverter}"></Binding>
+                        <Binding Path="Manager.Game.LocalPlayerIsSpawned" ElementName="actorManager"></Binding>
+                    </MultiBinding>
+                </TabItem.IsEnabled>
                 <tabs:Player></tabs:Player>
             </TabItem>
             <TabItem
                 Header="Sun"
                 IsEnabledChanged="TabItem_IsEnabledChanged"
-                Width="auto"
-                IsEnabled="{Binding LocalPlayerProperties.HasSpawned , ElementName=actorManager}">
+                Width="auto">
+                <TabItem.IsEnabled>
+                    <MultiBinding Converter="{StaticResource AllTrueMultiValueConverter}">
+                        <Binding Path="Manager.Game" ElementName="actorManager" Converter="{StaticResource IsNotNullConverter}"></Binding>
+                        <Binding Path="Manager.Game.LocalPlayerIsSpawned" ElementName="actorManager"></Binding>
+                    </MultiBinding>
+                </TabItem.IsEnabled>
                 <tabs:Sun></tabs:Sun>
             </TabItem>
         </TabControl>

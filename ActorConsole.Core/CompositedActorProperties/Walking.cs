@@ -28,7 +28,7 @@
             set
             {
                 _Direction = value;
-                Memory.IW4.Send($"mvm_actor_walk {Parent.Name} {Speed} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_walk {Parent.Name} {Speed} {value}");
                 RaisePropertyChanged(nameof(Direction));
             }
         }
@@ -38,7 +38,7 @@
             get => _OnActorBack; set
             {
                 _OnActorBack = value;
-                Memory.IW4.Send($"mvm_actor_walk_actorback {Parent.Name}");
+                Manager.Instance.Game.Send($"mvm_actor_walk_actorback {Parent.Name}");
                 RaisePropertyChanged(nameof(OnActorBack));
             }
         }
@@ -48,7 +48,7 @@
             get => _Speed; set
             {
                 _Speed = value;
-                Memory.IW4.Send($"mvm_actor_walk {Parent.Name} {value} {Direction}");
+                Manager.Instance.Game.Send($"mvm_actor_walk {Parent.Name} {value} {Direction}");
                 RaisePropertyChanged(nameof(Speed));
             }
         }
@@ -58,19 +58,19 @@
             get => _StopOnDeath; set
             {
                 _StopOnDeath = value;
-                Memory.IW4.Send($"mvm_actor_walk_autostop {Parent.Name}");
+                Manager.Instance.Game.Send($"mvm_actor_walk_autostop {Parent.Name}");
                 RaisePropertyChanged(nameof(StopOnDeath));
             }
         }
 
         public void Play()
         {
-            Memory.IW4.Send($"mvm_actor_walk {Parent.Name} {Speed} {Direction}");
+            Manager.Instance.Game.Send($"mvm_actor_walk {Parent.Name} {Speed} {Direction}");
         }
 
         public void Keybind( char key )
         {
-            Memory.IW4.Send($"bind {key} \"mvm_actor_walk {Parent.Name} {Speed} {Direction}\"");
+            Manager.Instance.Game.Send($"bind {key} \"mvm_actor_walk {Parent.Name} {Speed} {Direction}\"");
         }
     }
 }

@@ -15,20 +15,20 @@ namespace ActorConsole.GUI.Views.Tabs
             InitializeComponent();
         }
 
-        public IEnumerable<string> ClassTypes => typeof(Core.Memory.LocalPlayer.Class).GetEnumNames();
-        public IEnumerable<string> KillstreakTypes => typeof(Core.Memory.LocalPlayer.Killstreak).GetEnumNames();
+        public IEnumerable<string> ClassTypes => typeof(Core.Memory.Game.Class).GetEnumNames();
+        public IEnumerable<string> KillstreakTypes => Core.Manager.Instance.Game?.KillStreakEnum.GetEnumNames();
 
         private void ApplyModelButton_Click( object sender, RoutedEventArgs e )
         {
-            if ( ClassTypeListBox.SelectedItem is string enumName && Enum.TryParse(enumName, true, out Core.Memory.LocalPlayer.Class @class) )
+            if ( ClassTypeListBox.SelectedItem is string enumName && Enum.TryParse(enumName, true, out Core.Memory.Game.Class @class) )
             {
                 if ( AlliesRadioButton.IsChecked is bool isCheckedAllies && isCheckedAllies )
                 {
-                    Core.Memory.LocalPlayer.SetModel(@class, Core.Memory.LocalPlayer.Team.allies);
+                    Core.Manager.Instance.Game.SetModel(@class, Core.Memory.Game.Team.allies);
                 }
                 else if ( AxisRadioButton.IsChecked is bool isCheckedAxis && isCheckedAxis )
                 {
-                    Core.Memory.LocalPlayer.SetModel(@class, Core.Memory.LocalPlayer.Team.axis);
+                    Core.Manager.Instance.Game.SetModel(@class, Core.Memory.Game.Team.axis);
                 }
                 ClassTypeListBox.SelectedIndex = -1;
             }
@@ -46,9 +46,9 @@ namespace ActorConsole.GUI.Views.Tabs
 
         private void GiveKillstreakButton_Click( object sender, RoutedEventArgs e )
         {
-            if ( KillstreakTypeListBox.SelectedItem is string enumName && Enum.TryParse(enumName, true, out Core.Memory.LocalPlayer.Killstreak killstreak) )
+            if ( KillstreakTypeListBox.SelectedItem is string enumName )
             {
-                Core.Memory.LocalPlayer.GiveKillstreak(killstreak);
+                Core.Manager.Instance.Game.GiveKillstreak(enumName);
                 KillstreakTypeListBox.SelectedIndex = -1;
             }
         }

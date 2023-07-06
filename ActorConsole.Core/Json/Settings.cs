@@ -11,6 +11,16 @@ namespace ActorConsole.Core.Json
 
         public Settings( FileInfo File ) : base(File, false)
         {
+            Core.Manager.Instance.PropertyChanged += Instance_PropertyChanged;
+            Instance_PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(nameof(Core.Manager.Game)));
+        }
+
+        private void Instance_PropertyChanged( object sender, System.ComponentModel.PropertyChangedEventArgs e )
+        {
+            if ( e.PropertyName == nameof(Manager.Game) && Core.Manager.Instance.Game != null && Core.Manager.Instance.Game is Core.Memory.IW5 )
+            {
+                Precache = Core.Memory.IW5.Precache;
+            }
         }
 
         [IgnoreDataMember]
@@ -38,7 +48,7 @@ namespace ActorConsole.Core.Json
                 _PrecachePath = value;
                 RaisePropertyChanged(nameof(PrecachePath));
                 RaisePropertyChanged(nameof(IsPrecachePathValid));
-                if ( IsPrecachePathValid )
+                if ( IsPrecachePathValid && !(Core.Manager.Instance.Game is Core.Memory.IW5) )
                 {
                     Precache = new Precache(new FileInfo(value));
                 }

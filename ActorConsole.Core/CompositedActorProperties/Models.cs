@@ -17,7 +17,7 @@
             set
             {
                 _Body = value;
-                Memory.IW4.Send($"mvm_actor_model {Parent.Name} {value} {Head}");
+                Manager.Instance.Game.Send($"mvm_actor_model {Parent.Name} {value} {Head}");
                 RaisePropertyChanged(nameof(Body));
             }
         }
@@ -28,7 +28,7 @@
             set
             {
                 _Head = value;
-                Memory.IW4.Send($"mvm_actor_model {Parent.Name} {Body} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_model {Parent.Name} {Body} {value}");
                 RaisePropertyChanged(nameof(Head));
             }
         }
@@ -37,7 +37,7 @@
         {
             _Body = body;
             _Head = head;
-            Memory.IW4.Send($"mvm_actor_model {Parent.Name} {body} {head}");
+            Manager.Instance.Game.Send($"mvm_actor_model {Parent.Name} {body} {head}");
             RaisePropertyChanged(nameof(Body));
             RaisePropertyChanged(nameof(Head));
         }

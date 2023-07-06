@@ -18,11 +18,11 @@
                 _OnActorBack = value;
                 if ( value )
                 {
-                    Memory.IW4.Send($"mvm_actor_fx_actorback {Parent.Name} {Bone} {Effect}");
+                    Manager.Instance.Game.Send($"mvm_actor_fx_actorback {Parent.Name} {Bone} {Effect}");
                 }
                 else
                 {
-                    Memory.IW4.Send($"mvm_actor_fx_actorback {Parent.Name} ");
+                    Manager.Instance.Game.Send($"mvm_actor_fx_actorback {Parent.Name} ");
                 }
 
                 RaisePropertyChanged(nameof(OnActorBack));
@@ -36,11 +36,11 @@
                 _OnDeath = value;
                 if ( value )
                 {
-                    Memory.IW4.Send($"mvm_actor_fx_death {Parent.Name} {Bone} {Effect}");
+                    Manager.Instance.Game.Send($"mvm_actor_fx_death {Parent.Name} {Bone} {Effect}");
                 }
                 else
                 {
-                    Memory.IW4.Send($"mvm_actor_fx_death {Parent.Name} ");
+                    Manager.Instance.Game.Send($"mvm_actor_fx_death {Parent.Name} ");
                 }
                 RaisePropertyChanged(nameof(OnDeath));
             }
@@ -51,7 +51,7 @@
             get => _Bone; set
             {
                 _Bone = value;
-                Memory.IW4.Send($"mvm_actor_fx {Parent.Name} {Bone} {Effect}");
+                Manager.Instance.Game.Send($"mvm_actor_fx {Parent.Name} {Bone} {Effect}");
                 RaisePropertyChanged(nameof(Bone));
             }
         }
@@ -61,7 +61,7 @@
             get => _Effect; set
             {
                 _Effect = value;
-                Memory.IW4.Send($"mvm_actor_fx {Parent.Name} {Bone} {Effect}");
+                Manager.Instance.Game.Send($"mvm_actor_fx {Parent.Name} {Bone} {Effect}");
                 RaisePropertyChanged(nameof(Effect));
             }
         }
@@ -82,12 +82,12 @@
 
         public void Play()
         {
-            Memory.IW4.Send($"mvm_actor_fx {Parent.Name} {Bone} {Effect}");
+            Manager.Instance.Game.Send($"mvm_actor_fx {Parent.Name} {Bone} {Effect}");
         }
 
         public void Keybind( char key )
         {
-            Memory.IW4.Send($"bind {key} \"mvm_actor_fx {Parent.Name} {Bone} {Effect}\"");
+            Manager.Instance.Game.Send($"bind {key} \"mvm_actor_fx {Parent.Name} {Bone} {Effect}\"");
         }
     }
 }

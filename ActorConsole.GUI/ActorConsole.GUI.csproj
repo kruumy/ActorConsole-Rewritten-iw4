@@ -84,6 +84,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\AllTrueMultiValueConverter.cs" />
     <Compile Include="Converters\CountToBoolConverter.cs" />
     <Compile Include="Converters\EmptyStringToString.cs" />
     <Compile Include="Converters\GetWeaponsFromBoneConverter.cs" />

@@ -17,9 +17,8 @@ namespace ActorConsole.Core
             Models = new Models(this);
             Weapons = new Weapons(this);
             Walking = new Walking(this);
-            Pathing = new Pathing(this);
             FX = new FX(this);
-            Memory.IW4.Send($"mvm_actor_spawn {Models.BODY_DEFAULT} {Models.HEAD_DEFAULT}");
+            Manager.Instance.Game.Send($"mvm_actor_spawn {Models.BODY_DEFAULT} {Models.HEAD_DEFAULT}");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -35,7 +34,7 @@ namespace ActorConsole.Core
             set
             {
                 _Health = value;
-                Memory.IW4.Send($"mvm_actor_heath {Name} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_heath {Name} {value}");
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Health)));
             }
         }
@@ -47,13 +46,12 @@ namespace ActorConsole.Core
             get => _Name;
             set
             {
-                Memory.IW4.Send($"mvm_actor_rename {Name} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_rename {Name} {value}");
                 _Name = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
             }
         }
 
-        public Pathing Pathing { get; private set; }
         public Walking Walking { get; private set; }
         public Weapons Weapons { get; private set; }
 
@@ -63,14 +61,13 @@ namespace ActorConsole.Core
             Models = null;
             Weapons = null;
             Walking = null;
-            Pathing = null;
             FX = null;
-            Memory.IW4.Send($"mvm_actor_delete {Name}");
+            Manager.Instance.Game.Send($"mvm_actor_delete {Name}");
         }
 
         public void MoveToLocalPlayer()
         {
-            Memory.IW4.Send($"mvm_actor_move {Name}");
+            Manager.Instance.Game.Send($"mvm_actor_move {Name}");
         }
     }
 }

@@ -43,7 +43,7 @@ namespace ActorConsole.GUI.Views.Tabs
         {
             if ( WeaponDetailsListBox.SelectedItem is string gunName && CamoComboBox.SelectedItem is string camo )
             {
-                Core.Memory.LocalPlayer.GiveWeapon(gunName, (Core.CompositedActorProperties.Weapons.Weapon.CamoName)Enum.Parse(typeof(Core.CompositedActorProperties.Weapons.Weapon.CamoName), camo));
+                Core.Manager.Instance.Game.GiveWeapon(gunName, (Core.CompositedActorProperties.Weapons.Weapon.CamoName)Enum.Parse(typeof(Core.CompositedActorProperties.Weapons.Weapon.CamoName), camo));
             }
         }
     }

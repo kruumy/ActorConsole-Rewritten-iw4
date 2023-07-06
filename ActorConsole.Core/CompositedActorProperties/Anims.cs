@@ -17,7 +17,7 @@
             set
             {
                 _Death = value;
-                Memory.IW4.Send($"mvm_actor_death {Parent.Name} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_death {Parent.Name} {value}");
                 RaisePropertyChanged(nameof(Death));
             }
         }
@@ -28,14 +28,14 @@
             set
             {
                 _Idle = value;
-                Memory.IW4.Send($"mvm_actor_anim {Parent.Name} {value}");
+                Manager.Instance.Game.Send($"mvm_actor_anim {Parent.Name} {value}");
                 RaisePropertyChanged(nameof(Idle));
             }
         }
 
         public void Keybind( char key )
         {
-            Memory.IW4.Send($"bind {key} \"mvm_actor_anim {Parent.Name} {Idle}\"");
+            Manager.Instance.Game.Send($"bind {key} \"mvm_actor_anim {Parent.Name} {Idle}\"");
         }
     }
 }

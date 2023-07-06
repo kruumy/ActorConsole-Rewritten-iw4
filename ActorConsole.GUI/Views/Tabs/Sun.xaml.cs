@@ -11,7 +11,7 @@ using System.Windows.Controls;
 namespace ActorConsole.GUI.Views.Tabs
 {
     /// <summary>
-    /// Interaction logic for Sun.xaml
+    /// Interaction logic for SunAddress.xaml
     /// </summary>
     public partial class Sun : UserControl
     {
@@ -36,9 +36,13 @@ namespace ActorConsole.GUI.Views.Tabs
         {
             SunColorUpdateCooldown.OnInvoke += ( object _, EventArgs __ ) =>
             {
-                Core.Memory.Sun.Red = (float?)(SunColorPicker.Color.RGB_R / ConversionScale);
-                Core.Memory.Sun.Green = (float?)(SunColorPicker.Color.RGB_G / ConversionScale);
-                Core.Memory.Sun.Blue = (float?)(SunColorPicker.Color.RGB_B / ConversionScale);
+                if ( Core.Manager.Instance.Game is Core.Memory.IW4 iw4Game )
+                {
+                    iw4Game.SunRed = (float)(SunColorPicker.Color.RGB_R / ConversionScale);
+                    iw4Game.SunGreen = (float)(SunColorPicker.Color.RGB_G / ConversionScale);
+                    iw4Game.SunBlue = (float)(SunColorPicker.Color.RGB_B / ConversionScale);
+                }
+
             };
         }
         private void SunColorPicker_ColorChanged( object sender, RoutedEventArgs e )
@@ -51,9 +55,9 @@ namespace ActorConsole.GUI.Views.Tabs
 
         private void SunColorPicker_IsVisibleChanged( object sender, DependencyPropertyChangedEventArgs e )
         {
-            if ( e.NewValue is bool b && b )
+            if ( e.NewValue is bool b && b && Core.Manager.Instance.Game is Core.Memory.IW4 iw4Game )
             {
-                (float? Red, float? Green, float? Blue) = (Core.Memory.Sun.Red, Core.Memory.Sun.Green, Core.Memory.Sun.Blue);
+                (float? Red, float? Green, float? Blue) = (iw4Game.SunRed, iw4Game.SunGreen, iw4Game.SunBlue);
                 SetSunColorPicker(
                     (double)(Red * ConversionScale),
                     (double)(Green * ConversionScale),

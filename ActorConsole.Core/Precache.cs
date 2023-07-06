@@ -9,13 +9,15 @@ namespace ActorConsole.Core
 {
     public class Precache : ObservableCollection<KeyValuePair<string, AssetType>>, INotifyPropertyChanged
     {
-        public Precache( FileInfo File )
+        public Precache( FileInfo File ) : this(System.IO.File.ReadAllText(File.FullName))
         {
-            this.File = File;
-            if ( this.File.Exists )
-            {
-                Pull();
-            }
+        }
+        public Precache( string rawPrecache ) : this()
+        {
+            Parse(rawPrecache);
+        }
+        public Precache()
+        {
             CollectionChanged += Precache_CollectionChanged;
         }
 
@@ -25,17 +27,15 @@ namespace ActorConsole.Core
             xmodel
         }
 
-        public FileInfo File { get; }
         public IEnumerable<string> MultiplayerDeathAnim => this.Where(item => item.Value == AssetType.xanim && item.Key.StartsWith("pb_") && item.Key.Contains("death")).Select(i => i.Key);
         public IEnumerable<string> MultiplayerIdleAnims => this.Where(item => item.Value == AssetType.xanim && item.Key.StartsWith("pb_") && !item.Key.Contains("death")).Select(i => i.Key);
         public IEnumerable<string> SingleplayerAnims => this.Where(item => item.Value == AssetType.xanim && !item.Key.StartsWith("pb_")).Select(i => i.Key);
         public IEnumerable<string> SingleplayerModels => this.Where(item => item.Value == AssetType.xmodel).Select(i => i.Key);
 
-        public void Pull()
+        public void Parse( string rawPrecache )
         {
             const string ANIM_FUNCNAME = "precachempanim";
             const string MODEL_FUNCNAME = "precachemodel";
-            string rawPrecache = System.IO.File.ReadAllText(File.FullName);
             for ( int i = 0; i < rawPrecache.Length; i++ )
             {
                 if ( rawPrecache[ i ] == '/' && rawPrecache[ i + 1 ] == '/' )

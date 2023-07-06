@@ -17,6 +17,8 @@
             <converters:RandomEnumerableConverter x:Key="RandomEnumerableConverter" />
             <converters:ObjectToStringConverter x:Key="ObjectToStringConverter"/>
             <converters:IsStringNotEmptyConverter x:Key="IsStringNotEmptyConverter"/>
+            <converters:AllTrueMultiValueConverter x:Key="AllTrueMultiValueConverter"/>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

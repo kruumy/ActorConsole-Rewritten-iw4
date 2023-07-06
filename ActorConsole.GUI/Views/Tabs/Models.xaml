@@ -7,8 +7,7 @@
              xmlns:local="clr-namespace:ActorConsole.GUI.Views.Tabs"
              mc:Ignorable="d"
              d:DesignHeight="400" d:DesignWidth="650"
-             DataContext="{Binding actorManagerProperty, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Views:MainWindow}}}"
-             Loaded="UserControl_Loaded">
+             DataContext="{Binding actorManagerProperty, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Views:MainWindow}}}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -73,7 +72,7 @@
                     Padding="3"
                     Margin="3"
                     TextChanged="CurrentMapTextBox_TextChanged"
-                    Text="{Binding LocalPlayerProperties.Map, Mode=OneWay}">
+                    Text="{Binding Manager.Game.LocalPlayerMap, Mode=OneWay}">
             </TextBox>
 
             <Label

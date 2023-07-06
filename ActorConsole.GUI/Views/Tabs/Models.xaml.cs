@@ -15,8 +15,6 @@ namespace ActorConsole.GUI.Views.Tabs
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string CurrentMap => Core.Memory.LocalPlayer.Properties.Map;
-
         public Core.Json.Models.Map CurrentModels => Core.Json.Models.Element.TryGetValue(CurrentMapTextBox.Text, out Core.Json.Models.Map models) ? models : Core.Json.Models.Map.Empty;
 
         private void BodyModelApply_Click( object sender, System.Windows.RoutedEventArgs e )
@@ -67,12 +65,6 @@ namespace ActorConsole.GUI.Views.Tabs
             }
         }
 
-        private void RefreshButton_Click( object sender, System.Windows.RoutedEventArgs e )
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentMap)));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentModels)));
-        }
-
         private void SingleplayerModelListBox_MouseDoubleClick( object sender, System.Windows.Input.MouseButtonEventArgs e )
         {
             if ( SingleplayerModelListBox.SelectedItem is string item && DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
@@ -87,11 +79,6 @@ namespace ActorConsole.GUI.Views.Tabs
                 }
                 SingleplayerModelListBox.SelectedIndex = -1;
             }
-        }
-
-        private void UserControl_Loaded( object sender, System.Windows.RoutedEventArgs e )
-        {
-            RefreshButton_Click(sender, e);
         }
     }
 }

@@ -30,8 +30,13 @@
             x:Name="SpawnActorButton"
             Content="Spawn Actor"
             Click="SpawnActorButton_Click"
-            Margin="3"
-            IsEnabled="{Binding LocalPlayerProperties.HasSpawned}">
+            Margin="3">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource AllTrueMultiValueConverter}">
+                    <Binding Path="Manager.Game" Converter="{StaticResource IsNotNullConverter}"></Binding>
+                    <Binding Path="Manager.Game.LocalPlayerIsSpawned"></Binding>
+                </MultiBinding>
+            </Button.IsEnabled>
             <Button.ContextMenu>
                 <ContextMenu>
                     <MenuItem

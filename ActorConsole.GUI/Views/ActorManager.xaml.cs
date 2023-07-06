@@ -1,4 +1,5 @@
 ﻿using ActorConsole.Core;
+using ActorConsole.Core.Memory;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -26,9 +27,9 @@ namespace ActorConsole.GUI.Views
 
         private void ManagerReseter_Elapsed( object sender, ElapsedEventArgs e )
         {
-            if ( (!Core.Memory.IW4.IsRunning || !Core.Memory.LocalPlayer.Properties.HasSpawned) && Manager.Actors.Count > 0 )
+            if ( (!Game.IsAnyGameRunning() || !Core.Manager.Instance.Game.LocalPlayerIsSpawned) && Manager.Instance.Actors.Count > 0 )
             {
-                Application.Current.Dispatcher.Invoke(Manager.Reset);
+                Application.Current.Dispatcher.Invoke(Manager.Instance.Reset);
                 Console.WriteLine("Cleared Manager");
             }
         }
@@ -37,7 +38,7 @@ namespace ActorConsole.GUI.Views
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<Actor> Actors => Manager.Actors;
+        public ObservableCollection<Actor> Actors => Manager.Instance.Actors;
 
         public Actor SelectedActor  // TODO could mirror SelectedActorComboBox field to prop so ActorManager doesnt need to implement inotepropchanged
         {
@@ -46,18 +47,18 @@ namespace ActorConsole.GUI.Views
         }
 
         public Core.Json.Settings Settings => Core.Json.Settings.DefaultInstance;
-        public Core.Memory.LocalPlayerProperties LocalPlayerProperties => Core.Memory.LocalPlayer.Properties;
+        public Manager Manager => Core.Manager.Instance;
 
         private void ActorBackButton_Click( object sender, System.Windows.RoutedEventArgs e )
         {
-            Manager.ActorBack();
+            Manager.Instance.ActorBack();
         }
 
         private void DeleteActorButton_Click( object sender, System.Windows.RoutedEventArgs e )
         {
             Actor toDelete = SelectedActor;
-            SelectedActorComboBox.SelectedItem = Manager.Actors.FirstOrDefault(act => act != SelectedActor);
-            Manager.RemoveActor(toDelete);
+            SelectedActorComboBox.SelectedItem = Manager.Instance.Actors.FirstOrDefault(act => act != SelectedActor);
+            Manager.Instance.RemoveActor(toDelete);
         }
 
         private void MoveActorButton_Click( object sender, System.Windows.RoutedEventArgs e )
@@ -72,8 +73,8 @@ namespace ActorConsole.GUI.Views
 
         private void SpawnActorButton_Click( object sender, System.Windows.RoutedEventArgs e )
         {
-            Manager.SpawnActor();
-            SelectedActorComboBox.SelectedItem = Manager.Actors.LastOrDefault();
+            Manager.Instance.SpawnActor();
+            SelectedActorComboBox.SelectedItem = Manager.Instance.Actors.LastOrDefault();
         }
 
         private void ForceSpawnActorEnableMenuItem_Click( object sender, RoutedEventArgs e )
