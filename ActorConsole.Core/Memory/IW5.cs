@@ -23,6 +23,25 @@ namespace ActorConsole.Core.Memory
 
 
         public override Type KillStreakEnum { get; } = typeof(Killstreak);
+        public override Type CamoEnum { get; } = typeof(Camo);
+
+        public enum Camo
+        {
+            none,
+            classic,
+            snow,
+            multi,
+            d_urban,
+            hex,
+            choco,
+            snake,
+            blue,
+            red,
+            autumn,
+            gold,
+            marine,
+            winter,
+        }
 
         public enum Killstreak
         {

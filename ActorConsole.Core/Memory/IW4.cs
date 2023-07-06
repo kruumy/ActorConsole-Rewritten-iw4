@@ -17,6 +17,21 @@ namespace ActorConsole.Core.Memory
         public override IntPtrEx LocalPlayerMapNameAddress => Process.MainModule.BaseAddress + 0x5EE27A0;
         public override IntPtrEx LocalPlayerNameAddress => Process.MainModule.BaseAddress + 0x427464;
 
+        public override Type CamoEnum { get; } = typeof(Camo);
+        public enum Camo
+        {
+            none,
+            artic,
+            desert,
+            woodland,
+            digital,
+            urban,
+            red,
+            blue,
+            fall,
+            gold
+        }
+
         public IntPtrEx SunRedAddress { get; } = 0x0085B878;
 
         public IntPtrEx SunBlueAddress { get; } = 0x0085B880;

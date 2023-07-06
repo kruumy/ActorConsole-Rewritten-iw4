@@ -1,5 +1,4 @@
-﻿using ActorConsole.Core.CompositedActorProperties;
-using ActorConsole.Core.Utils;
+﻿using ActorConsole.Core.Utils;
 using AnotherExternalMemoryLibrary;
 using AnotherExternalMemoryLibrary.Extensions;
 using System;
@@ -21,6 +20,7 @@ namespace ActorConsole.Core.Memory
             return IW4.TargetProcessNames.Any(iw4 => Game.IsProcessRunning(iw4)) || Game.IsProcessRunning(IW5.TargetProcessName);
         }
         public abstract Type KillStreakEnum { get; }
+        public abstract Type CamoEnum { get; }
         public Process Process { get; }
         private bool isSpawned;
 
@@ -129,9 +129,9 @@ namespace ActorConsole.Core.Memory
             }
         }
 
-        public void GiveWeapon( string gameName, Weapons.Weapon.CamoName camo )
+        public void GiveWeapon( string gameName, string camo )
         {
-            if ( camo == Weapons.Weapon.CamoName.none )
+            if ( camo == "none" )
             {
                 Send($"mvm_give {gameName}");
             }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
@@ -16,9 +15,27 @@ namespace ActorConsole.GUI.Views.Tabs
         }
 
         public IEnumerable<string> Bones => typeof(Core.CompositedActorProperties.Weapons).GetProperties().Select(x => x.Name);
-        public IEnumerable<string> CamoNames => typeof(Core.CompositedActorProperties.Weapons.Weapon.CamoName).GetEnumNames();
+        public IEnumerable<string> CamoNames => Core.Manager.Instance?.Game.CamoEnum.GetEnumNames();
 
-        public Dictionary<string, Dictionary<string, string[]>> WeaponsElement => Core.Json.Weapons.Element;
+        public Dictionary<string, Dictionary<string, string[]>> WeaponsElement
+        {
+            get
+            {
+                if ( Core.Manager.Instance.Game is Core.Memory.IW5 )
+                {
+                    return Core.Json.Weapons.Element[ "iw5" ];
+                }
+                else if ( Core.Manager.Instance.Game is Core.Memory.IW4 )
+                {
+                    return Core.Json.Weapons.Element[ "iw4" ];
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+        }
 
         private void ApplyWeaponButton_Click( object sender, System.Windows.RoutedEventArgs e )
         {
@@ -43,7 +60,7 @@ namespace ActorConsole.GUI.Views.Tabs
         {
             if ( WeaponDetailsListBox.SelectedItem is string gunName && CamoComboBox.SelectedItem is string camo )
             {
-                Core.Manager.Instance.Game.GiveWeapon(gunName, (Core.CompositedActorProperties.Weapons.Weapon.CamoName)Enum.Parse(typeof(Core.CompositedActorProperties.Weapons.Weapon.CamoName), camo));
+                Core.Manager.Instance.Game.GiveWeapon(gunName, camo);
             }
         }
     }

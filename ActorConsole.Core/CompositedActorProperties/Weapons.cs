@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace ActorConsole.Core.CompositedActorProperties
 {
@@ -7,31 +6,19 @@ namespace ActorConsole.Core.CompositedActorProperties
     {
         public readonly struct Weapon // TODO make nested class with Inotifypropchange
         {
-            public Weapon( string name, CamoName camo )
+            public Weapon( string name, string camo )
             {
                 Name = name;
                 Camo = camo;
             }
             public string Name { get; }
-            public CamoName Camo { get; }
+            public string Camo { get; }
 
-            public enum CamoName
-            {
-                none,
-                artic,
-                desert,
-                woodland,
-                digital,
-                urban,
-                red,
-                blue,
-                fall,
-                gold
-            }
+
 
             public override string ToString()
             {
-                string realCamo = Camo == CamoName.none ? string.Empty : Camo.ToString();
+                string realCamo = Camo == "none" ? string.Empty : Camo.ToString();
                 string realName = string.IsNullOrEmpty(Name?.Trim()) ? "defaultweapon" : Name;
                 return $"{realName} {realCamo}".Trim();
             }
@@ -146,7 +133,7 @@ namespace ActorConsole.Core.CompositedActorProperties
         public void Set( string bone, string gun, string camo )
         {
             PropertyInfo prop = typeof(Weapons).GetProperty(bone, BindingFlags.Public | BindingFlags.Instance);
-            prop?.SetValue(this, new Weapon(gun, (Weapon.CamoName)Enum.Parse(typeof(Weapon.CamoName), camo, true)));
+            prop?.SetValue(this, new Weapon(gun, camo));
         }
     }
 }

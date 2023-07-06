@@ -78,8 +78,8 @@
                     x:Name="CamoComboBox"
                     Grid.Column="1"
                     Margin="3"
-                    SelectedIndex ="0" 
-                    ItemsSource="{Binding CamoNames, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Weapons}}}">
+                    ItemsSource="{Binding CamoNames, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Weapons}}}"
+                    SelectedIndex ="0" >
                     <ComboBox.SelectedItem>
                         <MultiBinding  Converter="{StaticResource GetWeaponsFromBoneConverter}" ConverterParameter="Camo" Mode="OneWay">
                             <Binding Path="SelectedActor.Weapons" Mode="OneWay"/>
