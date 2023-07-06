@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
 
@@ -7,11 +8,21 @@ namespace ActorConsole.GUI.Views.Tabs
     /// <summary>
     /// Interaction logic for Weapons.xaml
     /// </summary>
-    public partial class Weapons : UserControl
+    public partial class Weapons : UserControl, INotifyPropertyChanged
     {
         public Weapons()
         {
             InitializeComponent();
+            Core.Manager.Instance.PropertyChanged += Instance_PropertyChanged;
+        }
+
+        private void Instance_PropertyChanged( object sender, PropertyChangedEventArgs e )
+        {
+            if ( e.PropertyName == nameof(Core.Manager.Game) )
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WeaponsElement)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CamoNames)));
+            }
         }
 
         public IEnumerable<string> Bones => typeof(Core.CompositedActorProperties.Weapons).GetProperties().Select(x => x.Name);
@@ -33,9 +44,10 @@ namespace ActorConsole.GUI.Views.Tabs
                 {
                     return null;
                 }
-
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void ApplyWeaponButton_Click( object sender, System.Windows.RoutedEventArgs e )
         {

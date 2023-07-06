@@ -1,20 +1,51 @@
-﻿using System.Reflection;
+﻿using System.ComponentModel;
+using System.Reflection;
 
 namespace ActorConsole.Core.CompositedActorProperties
 {
     public class Weapons : CompositedActorProperty
     {
-        public readonly struct Weapon // TODO make nested class with Inotifypropchange
+        public class Weapon : INotifyPropertyChanged
         {
+            private string name;
+            private string camo;
+
+            public Weapon()
+            {
+            }
             public Weapon( string name, string camo )
             {
                 Name = name;
                 Camo = camo;
             }
-            public string Name { get; }
-            public string Camo { get; }
+            public string Name
+            {
+                get => name;
+                set
+                {
+                    name = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+                }
+            }
+            public string Camo
+            {
+                get
+                {
+                    if ( string.IsNullOrEmpty(camo) )
+                    {
+                        Camo = Core.Manager.Instance.Game.CamoEnum?.GetEnumNames()[ 0 ];
+                    }
+                    return camo;
+                }
 
+                set
+                {
+                    camo = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Camo)));
+                }
+            }
 
+            public event PropertyChangedEventHandler PropertyChanged;
 
             public override string ToString()
             {
@@ -24,19 +55,19 @@ namespace ActorConsole.Core.CompositedActorProperties
             }
         }
 
-        private Weapon _j_gun;
+        private Weapon _j_gun = new Weapon();
 
-        private Weapon _tag_inhand;
+        private Weapon _tag_inhand = new Weapon();
 
-        private Weapon _tag_stowed_back;
+        private Weapon _tag_stowed_back = new Weapon();
 
-        private Weapon _tag_stowed_hip_rear;
+        private Weapon _tag_stowed_hip_rear = new Weapon();
 
-        private Weapon _tag_weapon_chest;
+        private Weapon _tag_weapon_chest = new Weapon();
 
-        private Weapon _tag_weapon_left;
+        private Weapon _tag_weapon_left = new Weapon();
 
-        private Weapon _tag_weapon_right;
+        private Weapon _tag_weapon_right = new Weapon();
 
         internal Weapons( Actor Parent ) : base(Parent)
         {
