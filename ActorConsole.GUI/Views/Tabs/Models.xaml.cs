@@ -11,11 +11,35 @@ namespace ActorConsole.GUI.Views.Tabs
         public Models()
         {
             InitializeComponent();
+            Core.Manager.Instance.PropertyChanged += Instance_PropertyChanged;
+        }
+
+        private void Instance_PropertyChanged( object sender, PropertyChangedEventArgs e )
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(CurrentModels)));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Core.Json.Models.Map CurrentModels => Core.Json.Models.Element.TryGetValue(CurrentMapTextBox.Text, out Core.Json.Models.Map models) ? models : Core.Json.Models.Map.Empty;
+        public Core.Json.Models.Map CurrentModels
+        {
+            get
+            {
+                if ( Core.Manager.Instance.Game is Core.Memory.IW4 )
+                {
+                    return Core.Json.Models.Element[ "iw4" ].TryGetValue(CurrentMapTextBox.Text, out Core.Json.Models.Map models) ? models : Core.Json.Models.Map.Empty;
+                }
+                else if ( Core.Manager.Instance.Game is Core.Memory.IW5 )
+                {
+                    return Core.Json.Models.Element[ "iw5" ].TryGetValue(CurrentMapTextBox.Text, out Core.Json.Models.Map models) ? models : Core.Json.Models.Map.Empty;
+                }
+                else
+                {
+                    return Core.Json.Models.Map.Empty;
+                }
+
+            }
+        }
 
         private void BodyModelApply_Click( object sender, System.Windows.RoutedEventArgs e )
         {

@@ -7,7 +7,7 @@ namespace ActorConsole.Core.Json
 {
     public static class Models
     {
-        public static Dictionary<string, Map> Element => File.ReadAllText("Json/models.json").FromJson<Dictionary<string, Dictionary<string, Map>>>()[ "maps" ];
+        public static Dictionary<string, Dictionary<string, Map>> Element => File.ReadAllText("Json/models.json").FromJson<Dictionary<string, Dictionary<string, Dictionary<string, Map>>>>()[ "maps" ];
 
         public struct Map
         {
