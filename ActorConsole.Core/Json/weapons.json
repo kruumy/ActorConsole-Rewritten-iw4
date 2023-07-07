@@ -1438,6 +1438,48 @@
       "misc": {
         "riotshield_mp": [
           "riotshield_mp"
+        ],
+        "frag_grenade_mp": [
+          "frag_grenade_mp"
+        ],
+        "semtex_mp": [
+          "semtex_mp"
+        ],
+        "throwingknife_mp": [
+          "throwingknife_mp"
+        ],
+        "claymore_mp": [
+          "claymore_mp"
+        ],
+        "c4_mp": [
+          "c4_mp"
+        ],
+        "bouncingbetty_mp": [
+          "bouncingbetty_mp"
+        ],
+        "specialty_portable_radar": [
+          "specialty_portable_radar"
+        ],
+        "flash_grenade_mp": [
+          "flash_grenade_mp"
+        ],
+        "concussion_grenade_mp": [
+          "concussion_grenade_mp"
+        ],
+        "smoke_grenade_mp": [
+          "smoke_grenade_mp"
+        ],
+        "emp_grenade_mp": [
+          "emp_grenade_mp"
+        ],
+        "trophy_mp": [
+          "trophy_mp"
+        ],
+        "specialty_tacticalinsertion": [
+          "specialty_tacticalinsertion"
+        ],
+        "specialty_scrambler": [
+          "specialty_scrambler"
         ]
       }
     }
