@@ -50,8 +50,7 @@ namespace ActorConsole.Core.CompositedActorProperties
             public override string ToString()
             {
                 string realCamo = Camo == "none" ? string.Empty : Camo.ToString();
-                string realName = string.IsNullOrEmpty(Name?.Trim()) ? "defaultweapon" : Name;
-                return $"{realName} {realCamo}".Trim();
+                return $"{Name} {realCamo}".Trim();
             }
         }
 
