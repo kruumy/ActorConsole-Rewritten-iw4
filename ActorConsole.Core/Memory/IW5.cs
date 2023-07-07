@@ -429,5 +429,30 @@ new KeyValuePair<string, Precache.AssetType>("pb_walk_right_rpg_ads", Precache.A
 new KeyValuePair<string, Precache.AssetType>("pb_walk_right_shield", Precache.AssetType.xanim),
 
         };
+
+        public override Type KillStreakModelEnum { get; } = typeof(KillstreakModel);
+        public enum KillstreakModel
+        {
+            vehicle_ac130_coop,
+            vehicle_ac130_low_mp,
+            vehicle_apache_mp,
+            vehicle_av8b_harrier_jet_mp,
+            vehicle_av8b_harrier_jet_opfor_mp,
+            vehicle_b2_bomber,
+            vehicle_cobra_helicopter_fly_low,
+            vehicle_little_bird_armed,
+            vehicle_mi24p_hind_mp,
+            vehicle_mig29_desert,
+            vehicle_pavelow,
+            vehicle_pavelow_opfor,
+            vehicle_phantom_ray,
+            vehicle_predator_b,
+            vehicle_remote_uav,
+            vehicle_uav_static_mp,
+            vehicle_uaz_fabric_dsr,
+            vehicle_uaz_van,
+            vehicle_ugv_talon_mp,
+            vehicle_v22_osprey_body_mp
+        }
     }
 }

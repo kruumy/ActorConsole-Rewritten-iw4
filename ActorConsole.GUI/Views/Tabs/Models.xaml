@@ -36,20 +36,9 @@
                     MouseDoubleClick="KillstreakModelListBox_MouseDoubleClick"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     Padding="0"
-                    Margin="0">
-                    <ListBoxItem Content="vehicle_ac130_low_mp" />
-                    <ListBoxItem Content="vehicle_apache_mp" />
-                    <ListBoxItem Content="vehicle_av8b_harrier_jet_mp" />
-                    <ListBoxItem Content="vehicle_av8b_harrier_jet_opfor_mp" />
-                    <ListBoxItem Content="vehicle_b2_bomber" />
-                    <ListBoxItem Content="vehicle_cobra_helicopter_fly_low" />
-                    <ListBoxItem Content="vehicle_little_bird_armed" />
-                    <ListBoxItem Content="vehicle_mi24p_hind_mp" />
-                    <ListBoxItem Content="vehicle_mi-28_mp" />
-                    <ListBoxItem Content="vehicle_mig29_desert" />
-                    <ListBoxItem Content="vehicle_pavelow" />
-                    <ListBoxItem Content="vehicle_pavelow_opfor" />
-                    <ListBoxItem Content="vehicle_uav_static_mp" />
+                    Margin="0"
+                    ItemsSource="{Binding Manager.Game.KillStreakModelEnum, Converter={StaticResource EnumToStringsConverter}}">
+                    
                 </ListBox>
             </TabItem>
         </TabControl>

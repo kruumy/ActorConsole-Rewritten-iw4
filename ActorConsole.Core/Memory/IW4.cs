@@ -74,7 +74,26 @@ namespace ActorConsole.Core.Memory
             set => Process.Write<float>(SunZAddress, value);
         }
 
+        public enum KillstreakModel
+        {
+            vehicle_ac130_low_mp,
+            vehicle_apache_mp,
+            vehicle_av8b_harrier_jet_mp,
+            vehicle_av8b_harrier_jet_opfor_mp,
+            vehicle_b2_bomber,
+            vehicle_cobra_helicopter_fly_low,
+            vehicle_little_bird_armed,
+            vehicle_mi24p_hind_mp,
+            //vehicle_mi-28_mp,
+            vehicle_mig29_desert,
+            vehicle_pavelow,
+            vehicle_pavelow_opfor,
+            vehicle_uav_static_mp
+        }
+
         public override Type KillStreakEnum { get; } = typeof(Killstreak);
+
+        public override Type KillStreakModelEnum { get; } = typeof(KillstreakModel);
 
         public enum Killstreak
         {

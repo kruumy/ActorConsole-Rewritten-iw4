@@ -18,6 +18,7 @@
             <converters:ObjectToStringConverter x:Key="ObjectToStringConverter"/>
             <converters:IsStringNotEmptyConverter x:Key="IsStringNotEmptyConverter"/>
             <converters:AllTrueMultiValueConverter x:Key="AllTrueMultiValueConverter"/>
+            <converters:EnumToStringsConverter x:Key="EnumToStringsConverter"/>
 
         </ResourceDictionary>
     </Application.Resources>

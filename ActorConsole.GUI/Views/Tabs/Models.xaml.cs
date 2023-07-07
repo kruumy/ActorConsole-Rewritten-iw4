@@ -82,7 +82,7 @@ namespace ActorConsole.GUI.Views.Tabs
 
         private void KillstreakModelListBox_MouseDoubleClick( object sender, System.Windows.Input.MouseButtonEventArgs e )
         {
-            if ( KillstreakModelListBox.SelectedItem is ListBoxItem lbi && lbi.Content is string item && DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
+            if ( KillstreakModelListBox.SelectedItem is string item && DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
             {
                 actor.Models.Set(item, string.Empty);
                 KillstreakModelListBox.SelectedIndex = -1;

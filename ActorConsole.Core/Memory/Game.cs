@@ -21,6 +21,7 @@ namespace ActorConsole.Core.Memory
         }
         public abstract Type KillStreakEnum { get; }
         public abstract Type CamoEnum { get; }
+        public abstract Type KillStreakModelEnum { get; }
         public Process Process { get; }
         private bool isSpawned;
 
