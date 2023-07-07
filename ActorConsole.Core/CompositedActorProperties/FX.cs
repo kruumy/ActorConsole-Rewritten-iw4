@@ -69,6 +69,7 @@
         public enum EffectName
         {
             None,
+            cash,
             shot1,
             shot2,
             shotgun,
