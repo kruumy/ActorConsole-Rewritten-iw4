@@ -2,8 +2,8 @@
 {
     public class Models : CompositedActorProperty
     {
-        public static readonly string BODY_DEFAULT = "defaultactor";
-        public static readonly string HEAD_DEFAULT = "defaultactor";
+        public const string BODY_DEFAULT = "defaultactor";
+        public const string HEAD_DEFAULT = "defaultactor";
         private string _Body = BODY_DEFAULT;
         private string _Head = HEAD_DEFAULT;
 
@@ -17,8 +17,7 @@
             set
             {
                 _Body = value;
-                Manager.Instance.Game.Send($"mvm_actor_model {Parent.Name} {value} {Head}");
-                RaisePropertyChanged(nameof(Body));
+                Set(Body, Head);
             }
         }
 
@@ -28,13 +27,20 @@
             set
             {
                 _Head = value;
-                Manager.Instance.Game.Send($"mvm_actor_model {Parent.Name} {Body} {value}");
-                RaisePropertyChanged(nameof(Head));
+                Set(Body, Head);
             }
         }
 
         public void Set( string body, string head )
         {
+            if ( string.IsNullOrEmpty(body.Trim()) )
+            {
+                body = "tag_origin";
+            }
+            if ( string.IsNullOrEmpty(head.Trim()) )
+            {
+                head = "tag_origin";
+            }
             _Body = body;
             _Head = head;
             Manager.Instance.Game.Send($"mvm_actor_model {Parent.Name} {body} {head}");

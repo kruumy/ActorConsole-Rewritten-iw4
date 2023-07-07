@@ -8,7 +8,7 @@ namespace ActorConsole.Core.Memory
 {
     public sealed class IW5 : Game
     {
-        public static string TargetProcessName = "plutonium-bootstrapper-win32";
+        public const string TargetProcessName = "plutonium-bootstrapper-win32";
         public IW5() : base(Process.GetProcesses().First(p => p.ProcessName == TargetProcessName))
         {
         }

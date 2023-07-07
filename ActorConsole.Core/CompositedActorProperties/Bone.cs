@@ -2,6 +2,7 @@
 {
     public enum Bone // TODO possibly use this in dictionary for Weapons instead of manually having properties for common bones
     {
+        tag_origin,
         j_mainroot,
         tag_sync,
         j_coatfront_le,

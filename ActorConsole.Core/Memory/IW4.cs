@@ -8,7 +8,7 @@ namespace ActorConsole.Core.Memory
 {
     public sealed class IW4 : Game
     {
-        public static string[] TargetProcessNames = { "iw4m", "iw4x" };
+        public readonly static string[] TargetProcessNames = { "iw4m", "iw4x" };
         public IW4() : base(Process.GetProcesses().First(p => TargetProcessNames.Any(t => t == p.ProcessName)))
         {
         }

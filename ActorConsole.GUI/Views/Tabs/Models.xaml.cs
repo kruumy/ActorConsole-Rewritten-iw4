@@ -43,7 +43,7 @@ namespace ActorConsole.GUI.Views.Tabs
 
         private void BodyModelApply_Click( object sender, System.Windows.RoutedEventArgs e )
         {
-            if ( !string.IsNullOrEmpty(BodyModelTextBox.Text) && DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
+            if ( DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
             {
                 actor.Models.Body = BodyModelTextBox.Text;
             }
@@ -65,7 +65,7 @@ namespace ActorConsole.GUI.Views.Tabs
 
         private void HeadModelApply_Click( object sender, System.Windows.RoutedEventArgs e )
         {
-            if ( !string.IsNullOrEmpty(HeadModelTextBox.Text) && DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
+            if ( DataContext is ActorManager am && am.SelectedActor is Core.Actor actor )
             {
                 actor.Models.Head = HeadModelTextBox.Text;
             }
