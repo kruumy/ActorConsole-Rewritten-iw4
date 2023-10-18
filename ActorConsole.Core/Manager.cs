@@ -69,9 +69,11 @@ namespace ActorConsole.Core
             Actors.Remove(actor);
         }
 
-        public void SpawnActor()
+        public Actor SpawnActor()
         {
-            Actors.Add(new Actor());
+            var newActor = new Actor();
+            Actors.Add(newActor);
+            return newActor;
         }
 
         public void Reset()
