@@ -83,17 +83,6 @@
             <param name="buffSize">Amount of characters to read each loop</param>
             <returns>A managed string of characters. Does not contain the null terminate character.</returns>
         </member>
-        <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Scan(System.Diagnostics.Process,AnotherExternalMemoryLibrary.UIntPtrEx,AnotherExternalMemoryLibrary.UIntPtrEx,System.Boolean,System.Byte[])">
-            <summary>
-            Scan the process memory.
-            </summary>
-            <param name="process">Target process</param>
-            <param name="start">Starting point</param>
-            <param name="end">Ending point</param>
-            <param name="nullAsWildCard">If 0x00 should be treated as an unknown value in the scan</param>
-            <param name="pattern">Pattern to search for</param>
-            <returns>All matches</returns>
-        </member>
         <member name="M:AnotherExternalMemoryLibrary.Extensions.ProcessExtensions.Write``1(System.Diagnostics.Process,AnotherExternalMemoryLibrary.IntPtrEx,``0)">
             <summary>
             Write a value to the process memory.
