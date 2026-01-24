@@ -1,0 +1,3 @@
+[submodule "another-dotnet-external-memory-library"]
+	path = another-dotnet-external-memory-library
+	url = https://github.com/kruumy/another-dotnet-external-memory-library.git

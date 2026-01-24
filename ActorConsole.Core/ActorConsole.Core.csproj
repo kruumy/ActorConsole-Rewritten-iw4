@@ -10,9 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="AnotherExternalMemoryLibrary">
-      <HintPath>Memory\AnotherExternalMemoryLibrary.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\another-dotnet-external-memory-library\AnotherExternalMemoryLibrary\AnotherExternalMemoryLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>

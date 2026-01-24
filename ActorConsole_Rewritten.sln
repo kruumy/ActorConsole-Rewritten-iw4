@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.6.33513.286
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11415.280 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActorConsole.Core", "ActorConsole.Core\ActorConsole.Core.csproj", "{F60CC70D-90B1-487D-8D70-C070885E4E04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActorConsole.GUI", "ActorConsole.GUI\ActorConsole.GUI.csproj", "{87AEDE8E-8929-45F3-9288-9E782A22AFE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherExternalMemoryLibrary", "..\another-dotnet-external-memory-library\AnotherExternalMemoryLibrary\AnotherExternalMemoryLibrary.csproj", "{26C9C085-6254-31F3-C608-DD318000C743}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{87AEDE8E-8929-45F3-9288-9E782A22AFE8}.Debug|x86.Build.0 = Debug|x86
 		{87AEDE8E-8929-45F3-9288-9E782A22AFE8}.Release|x86.ActiveCfg = Release|x86
 		{87AEDE8E-8929-45F3-9288-9E782A22AFE8}.Release|x86.Build.0 = Release|x86
+		{26C9C085-6254-31F3-C608-DD318000C743}.Debug|x86.ActiveCfg = Debug|x86
+		{26C9C085-6254-31F3-C608-DD318000C743}.Debug|x86.Build.0 = Debug|x86
+		{26C9C085-6254-31F3-C608-DD318000C743}.Release|x86.ActiveCfg = Release|x86
+		{26C9C085-6254-31F3-C608-DD318000C743}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
