@@ -5,7 +5,6 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Timers;
 
 namespace ActorConsole.Core.Memory
@@ -51,7 +50,7 @@ namespace ActorConsole.Core.Memory
 
         public abstract IntPtrEx Cbuf_AddText { get; }
 
-        public AsyncQueue DvarQueue { get; }
+        public QueuedCooldown<string> DvarQueue { get; }
 
         public bool LocalPlayerIsSpawned
         {
@@ -94,7 +93,11 @@ namespace ActorConsole.Core.Memory
         public Game( Process _Process )
         {
             this.Process = _Process;
-            DvarQueue = new AsyncQueue();
+            DvarQueue = new QueuedCooldown<string>(new TimeSpan(0, 0, 0, 1, 0), ( object obj, string dvar ) =>
+            {
+                Console.WriteLine(dvar);
+                RemoteProcedureCall.Callx86(Process.Handle, Cbuf_AddText, 0u, 0, dvar);
+            });
             PropertyChangedDetecter.Elapsed += PropertyChangedDetecter_Elapsed;
             PropertyChangedDetecter.Start();
         }
@@ -103,12 +106,7 @@ namespace ActorConsole.Core.Memory
         {
             foreach ( string dvar in dvars )
             {
-                DvarQueue.Enqueue(async () =>
-                {
-                    Console.WriteLine(dvar);
-                    await RemoteProcedureCall.Callx86Async(Process.Handle, Cbuf_AddText, 0, dvar);
-                    await Task.Delay(200);
-                });
+                DvarQueue.Invoke(dvar);
             }
         }
 
